@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>waterfall</title>
+<style type="text/css">
+
+*{
+	margin:0;
+	padding:0;
+	}
+	
+body{
+background:#E4E4E4;
+	}
+	
+a img{
+	border:none;
+	}
+	
+.waterfall{
+	width:750px;
+	margin:0 auto;
+	height:auto;
+	background:#CCCCCC;
+	}
+	
+.waterfall ul{
+	float:left;
+	width:190px;
+	margin:5px;
+	display:inline;
+	padding:10px;
+	}
+	
+.waterfall ul li{
+	text-align:center;
+	padding:10px;
+	width:170px;
+	background:#FFFFFF;
+	overflow:hidden;
+	line-height:100%;
+	border:1px solid #999;
+	}
+	
+.waterfall ul li a{
+	display:block;
+	overflow:hidden;
+	}
+	
+	
+
+</style>
+<script type="text/javascript" src="jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="imgdelay.js"></script>
+<script type="text/javascript">  
+$(function(){
+	$(".waterfall").waterfall({
+			jsonUrl:"test1.js",
+			dataType:"json"	
+	})
+})
+</script>
+</head>
+
+<body>
+<div class="waterfall">
+    	<ul>
+    		<li><a href=""><img src="images/wall12.jpg" alt="" /><p>11111</p></a></li>
+    		<li><a href=""><img src="images/wall07.jpg" alt="" /><p>11111</p></a></li>
+    		<li><a href=""><img src="images/wall10.jpg" alt="" /><p>11111</p></a></li>
+            <li><a href=""><img src="images/wall09.jpg" alt="" /><p>11111</p></a></li>
+            <li><a href=""><img src="images/wall13.jpg" alt="" /><p>11111</p></a></li>
+    		<li><a href=""><img src="images/wall12.jpg" alt="" /><p>11111</p></a></li>
+    	</ul>
+        <ul>
+    		<li><a href=""><img src="images/wall04.jpg" alt="" /><p>11111</p></a></li>
+    		<li><a href=""><img src="images/wall10.jpg" alt="" /><p>11111</p></a></li>
+    		<li><a href=""><img src="images/wall11.jpg" alt="" /><p>11111</p></a></li>
+    		<li><a href=""><img src="images/wall09.jpg" alt="" /><p>11111</p></a></li>
+            <li><a href=""><img src="images/wall04.jpg" alt="" /><p>11111</p></a></li>
+    		<li><a href=""><img src="images/wall10.jpg" alt="" /><p>11111</p></a></li>
+    	</ul>
+        <ul class="aaa">
+    		<li><a href=""><img src="images/wall11.jpg" alt="" /><p>11111</p></a></li>
+    		<li><a href=""><img src="images/wall13.jpg" alt="" /><p>11111</p></a></li>
+    		<li><a href=""><img src="images/wall12.jpg" alt="" /><p>11111</p></a></li>
+    		<li><a href=""><img src="images/wall11.jpg" alt="" /><p>11111</p></a></li>
+            <li><a href=""><img src="images/wall11.jpg" alt="" /><p>11111</p></a></li>
+    		<li><a href=""><img src="images/wall13.jpg" alt="" /><p>11111</p></a></li>
+    	</ul>
+    </div>
+</body>
+</html>

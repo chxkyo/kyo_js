@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    ul {
+      margin: 0 auto;
+      padding: 0;
+      width: 300px;
+      list-style: none;
+    }
+
+    .lazy { 
+      margin-bottom: 100px;
+      width: 300px;
+      height: 168px;
+      text-align: center;
+      line-height: 168px; /*垂直居中*/
+    }
+
+    .datalazyload {
+      width: 300px;
+      height: 168px;
+    }
+
+    .loading {
+      background-image: url(http://hanzichi.github.io/2016/bigrender/images/loading.gif);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>请往下滚动网页</h1>
+  </div>
+  <div>
+      <ul>
+        <div class="loading">
+          <textarea class="datalazyload" style="visibility: hidden;"> 
+            <li class='lazy'><img src='http://hanzichi.github.io/2016/bigrender/images/0.jpg' /></li>
+          </textarea>
+        </div>
+        <div class="loading">
+          <textarea class="datalazyload" style="visibility: hidden;"> 
+            <li class='lazy'><img src='http://hanzichi.github.io/2016/bigrender/images/1.jpg' /></li>
+          </textarea>
+        </div>
+        <div class="loading">
+          <textarea class="datalazyload" style="visibility: hidden;"> 
+            <li class='lazy'><img src='http://hanzichi.github.io/2016/bigrender/images/2.jpg' /></li>
+          </textarea>
+        </div>
+        <div class="loading">
+          <textarea class="datalazyload" style="visibility: hidden;"> 
+            <li class='lazy'><img src='http://hanzichi.github.io/2016/bigrender/images/3.jpg' /></li>
+          </textarea>
+        </div>
+        <div class="loading">
+          <textarea class="datalazyload" style="visibility: hidden;"> 
+            <li class='lazy'><img src='http://hanzichi.github.io/2016/bigrender/images/4.jpg' /></li>
+          </textarea>
+        </div>
+        <div class="loading">
+          <textarea class="datalazyload" style="visibility: hidden;"> 
+            <li class='lazy'><img src='http://hanzichi.github.io/2016/bigrender/images/5.jpg' /></li>
+          </textarea>
+        </div>
+        <div class="loading">
+          <textarea class="datalazyload" style="visibility: hidden;"> 
+            <li class='lazy'><img src='http://hanzichi.github.io/2016/bigrender/images/6.jpg' /></li>
+          </textarea>
+        </div>
+        <div class="loading">
+          <textarea class="datalazyload" style="visibility: hidden;"> 
+            <li class='lazy'><img src='http://hanzichi.github.io/2016/bigrender/images/7.jpg' /></li>
+          </textarea>
+        </div>
+        <div class="loading">
+          <textarea class="datalazyload" style="visibility: hidden;"> 
+            <li class='lazy'><img src='http://hanzichi.github.io/2016/bigrender/images/8.jpg' /></li>
+          </textarea>
+        </div>
+        <div class="loading">
+          <textarea class="datalazyload" style="visibility: hidden;"> 
+            <li class='lazy'><img src='http://hanzichi.github.io/2016/bigrender/images/9.jpg' /></li>
+          </textarea>
+        </div>
+        <div class="loading">
+          <textarea class="datalazyload" style="visibility: hidden;"> 
+            <li class='lazy'><img src='http://hanzichi.github.io/2016/bigrender/images/10.jpg' /></li>
+          </textarea>
+        </div>
+        <div class="loading">
+          <textarea class="datalazyload" style="visibility: hidden;"> 
+            <li class='lazy'><img src='http://hanzichi.github.io/2016/bigrender/images/11.jpg' /></li>
+          </textarea>
+        </div>
+        <div class="loading">
+          <textarea class="datalazyload" style="visibility: hidden;"> 
+            <li class='lazy'><img src='http://hanzichi.github.io/2016/bigrender/images/12.jpg' /></li>
+          </textarea>
+        </div>
+      </ul>
+  </div>
+<!--   <textarea class="datalazyload" style="visibility: hidden;"> 
+    <script>
+      alert("延迟加载完毕！");
+    </script>
+  </textarea> -->
+  <script src='bigrender.js'></script>
+  <script>
+    // how to use
+    var config = {
+      cls: "datalazyload",  // 需要延迟加载的类，即 textarea 的类名
+      threshold: 200  // 延迟加载的阈值
+    };
+    
+    T.datalazyload.init(config);
+  </script>
+</body>
+</html>

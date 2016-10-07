@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+        <title>最少代码的瀑布流实现</title>
+    <style>html{_background:url(about:blank);}
+body{ background-color:#fff; color:#333; overflow-x: hidden;}
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,
+button,input,textarea,th,td{margin:0;padding:0;}
+body,button,input,select,textarea{ font:12px/1.5 Microsoft YaHei,Tahoma,Helvetica,Arial,simsun}
+address,cite,dfn,em,var,i{font-style:normal;}
+ul,ol{list-style:none;}
+fieldset,img{border:0;}
+h1{font-size:18px;}
+h2{font-size:14px; font-weight:bold;}
+h3{font-size:14px; font-weight:400;}
+h4,h5{font-size:12px; font-weight:400;}
+input,textarea,button,select{font-size:12px; outline:none; resize:none; color:#333;}
+button{cursor: pointer;}
+table{border-collapse:collapse;border-spacing:0;}
+.clear {clear:both; height:0; font-size:0; line-height:0; overflow:hidden;}
+.cle:after, .clearfix:after, .clear_f:after, .cle_float:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.cle, .clearfix, .clear_f, .cle_float{zoom:1}
+.fl {float:left;}
+.fr {float:right;}
+
+a{text-decoration:none; color:#333; -webkit-transition: color .2s;-moz-transition: color .2s;-o-transition: color .2s; -ms-transition: color .2s;transition: color .2s;}
+a:hover{text-decoration:underline; color: #ff7d8e;}
+a:focus{outline:none;}
+::selection {background:#ff7d8e; color:#fff;} 
+
+
+#wrapper{width: 1008px; margin: 15px auto;}
+/*品牌列表*/
+.brand-list{width: 1100px; overflow: hidden; margin-left: -10px;}
+.brand-list .brand-bd{position: relative; margin-left: 10px; margin-top: 5px;}
+.brand-list .item{position: absolute; width: 202px; background-color: #f8f8f8; border: 1px solid #f8f8f8; padding: 18px; top:0; left: 40%; -webkit-transition: all 0.3s;-moz-transition: all 0.3s;-o-transition: all 0.3s;-ms-transition: all 0.3s;transition: all 0.3s;}
+.brand-list .hover{box-shadow: 0px 1px 8px rgba(200,200,200,.6); background-color: #fff; border-color: #c8c8c8;}
+.brand-list .additem{padding: 0; width: 240px; border: none; }
+
+.brand-list .item h3{font-size: 42px; color: #666; font-family: arial; font-weight: bold; line-height: .8; margin-bottom: 20px;}
+.brand-list .item p{margin-bottom: 15px;}</style>
+</head>
+<body>
+
+<div id="wrapper">
+<!-- 品牌列表开始 -->
+  <div class="brand-list">
+    <div class="brand-bd cle" id="brand-waterfall">
+        <!-- 循环字母模块 item -->
+        <div class="item" id="brand-a">
+            <h3>A</h3>
+            <p><a href="#" target="_blank">ARDELL/艾黛尔</a></p>
+            <p><a href="#" target="_blank">ANNASUI/安娜苏</a></p>
+            <p><a href="#" target="_blank">ETUDEHOUSE/爱丽小屋</a></p>
+            <p><a href="#" target="_blank">abeeco</a></p>
+            <p><a href="#" target="_blank">AFU/阿芙</a></p>
+            <p><a href="#" target="_blank">Egyptian-Magic-Cream/埃及魔法膏</a></p>
+            <p><a href="#" target="_blank">adidas/阿迪达斯</a></p>
+        </div>
+        <div class="item" id="brand-b">
+            <h3>B</h3>
+            <p><a href="#" target="_blank">HERBORIST/佰草集</a></p>
+            <p><a href="#" target="_blank">BURBERRY/巴宝莉/博柏利</a></p>
+            <p><a href="#" target="_blank">BIOTHERM/碧欧泉</a></p>
+            <p><a href="#" target="_blank">benefit/贝玲妃</a></p>
+            <p><a href="#" target="_blank">Bavii/柏羽</a></p>
+            <p><a href="#" target="_blank">PaulSmith/保罗史密夫</a></p>
+            <p><a href="#" target="_blank">Bobbi Brown/芭比布朗</a></p>
+            <p><a href="#" target="_blank">BVLGARI/宝格丽</a></p>
+            <p><a href="#" target="_blank">PURE&MILD/泊美</a></p>
+            <p><a href="#" target="_blank">baviphat/芭比菲特</a></p>
+            <p><a href="#" target="_blank">Peter Thomas Roth/彼得罗夫</a></p>
+            <p><a href="#" target="_blank">BeDOOK/比度克</a></p>
+            <p><a href="#" target="_blank">BIODERMA/贝德玛</a></p>
+            <p><a href="#" target="_blank">BKBarry-MBlistex/碧唇</a></p>
+        </div>
+        <div class="item" id="brand-c">
+            <h3>C</h3>
+            <p><a href="#" target="_blank">Fenix/长生鸟</a></p>
+            <p><a href="#" target="_blank">For Beloved One/宠爱之名</a></p>
+            <p><a href="#" target="_blank">CHARMZONE/婵真</a></p>
+        </div>
+        <div class="item" id="brand-d">
+            <h3>D</h3>
+            <p><a href="#" target="_blank">Dr.Jart+Dr.MJDior/迪奥</a></p>
+            <p><a href="#" target="_blank">dodo</a></p>
+            <p><a href="#" target="_blank">Dior/迪奥</a></p>
+            <p><a href="#" target="_blank">Dove/多芬</a></p>
+            <p><a href="#" target="_blank">DHC/蝶翠诗</a></p>
+            <p><a href="#" target="_blank">Davidoff/大卫杜夫</a></p>
+        </div>
+        <div class="item" id="brand-e">
+            <h3>E</h3>
+            <p><a href="#" target="_blank">N-Dorphin/恩朵娉</a></p>
+            <p><a href="#" target="_blank">OPERA/娥佩兰</a></p>
+            <p><a href="#" target="_blank">ELF</a></p>
+            <p><a href="#" target="_blank">eos</a></p>
+        </div>
+        <div class="item" id="brand-f">
+            <h3>F</h3>
+            <p><a href="#" target="_blank">芳草集</a></p>
+            <p><a href="#" target="_blank">THEFACESHOP/菲诗小铺</a></p>
+            <p><a href="#" target="_blank">Fanxishop/凡茜</a></p>
+            <p><a href="#" target="_blank">FANCL/芳珂（芳凯尔）</a></p>
+            <p><a href="#" target="_blank">VERSACE/范思哲</a></p>
+        </div>
+        <div class="item" id="brand-g">
+            <h3>G</h3>
+            <p><a href="#" target="_blank">ARDELL/艾黛尔</a></p>
+            <p><a href="#" target="_blank">ANNASUI/安娜苏</a></p>
+            <p><a href="#" target="_blank">ETUDEHOUSE/爱丽小屋</a></p>
+            <p><a href="#" target="_blank">abeeco</a></p>
+            <p><a href="#" target="_blank">AFU/阿芙</a></p>
+            <p><a href="#" target="_blank">Egyptian-Magic-Cream/埃及魔法膏</a></p>
+            <p><a href="#" target="_blank">adidas/阿迪达斯</a></p>
+        </div>
+        <div class="item" id="brand-h">
+            <h3>H</h3>
+            <p><a href="#" target="_blank">LAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">BOCOTON/海诺丝丽</a></p>
+            <p><a href="#" target="_blank">CO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">Herbacin/贺本清</a></p>
+            <p><a href="#" target="_blank">花瑶花</a></p>
+            <p><a href="#" target="_blank">花漾美姬</a></p>
+            <p><a href="#" target="_blank">HEY NATURE/韩彩妮</a></p>
+            <p><a href="#" target="_blank">Hipitch/黑龙堂</a></p>
+        </div>
+        <div class="item" id="brand-l">
+            <h3>L</h3>
+            <p><a href="#" target="_blank">LAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">BOCOTON/海诺丝丽</a></p>
+            <p><a href="#" target="_blank">CO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">CO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">CO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">Herbacin/贺本清</a></p>
+            <p><a href="#" target="_blank">花瑶花</a></p>
+            <p><a href="#" target="_blank">花漾美姬</a></p>
+            <p><a href="#" target="_blank">HEY NATURE/韩彩妮</a></p>
+            <p><a href="#" target="_blank">Hipitch/黑龙堂</a></p>
+        </div>
+        <div class="item" id="brand-m">
+            <h3>M</h3>
+            <p><a href="#" target="_blank">LAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">BOCOTON/海诺丝丽</a></p>
+            <p><a href="#" target="_blank">CO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">Herbacin/贺本清</a></p>
+            <p><a href="#" target="_blank">花瑶花</a></p>
+            <p><a href="#" target="_blank">花漾美姬</a></p>
+            <p><a href="#" target="_blank">HEY NATURE/韩彩妮</a></p>
+            <p><a href="#" target="_blank">Hipitch/黑龙堂</a></p>
+        </div>
+        <div class="item" id="brand-n">
+            <h3>N</h3>
+            <p><a href="#" target="_blank">LAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">LAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">LAMER/海蓝之谜</a></p>
+            <p><a href="#" target="_blank">BOCOTON/海诺丝丽</a></p>
+            <p><a href="#" target="_blank">CO.E/韩伊</a></p>
+            <p><a href="#" target="_blank">Herbacin/贺本清</a></p>
+            <p><a href="#" target="_blank">花瑶花</a></p>
+            <p><a href="#" target="_blank">花漾美姬</a></p>
+            <p><a href="#" target="_blank">HEY NATURE/韩彩妮</a></p>
+            <p><a href="#" target="_blank">Hipitch/黑龙堂</a></p>
+        </div>
+    </div>
+  </div>
+  <!-- 品牌列表 end -->
+</div>
+<script id="jquery_183" type="text/javascript" class="library" src="js/jquery-1.11.3.min.js"></script>
+        
+                <script>
+
+$(function(){
+  
+
+$('#brand-waterfall').waterfall();
+});
+
+
+// 瀑布流插件
+// pannysp 2013.4.9
+;(function ($) {
+    $.fn.waterfall = function(options) {
+    	//调用插件时不给任何option时的默认参数
+        var df = {
+            item: '.item',
+            margin: 15,
+            addfooter: true
+        };
+
+        //参数覆盖
+        options = $.extend(df, options);
+
+        return this.each(function() {
+            var $box = $(this), pos = [],
+            _box_width = $box.width(),
+            $items = $box.find(options.item),
+            //item实际区域宽度
+            _owidth = $items.eq(0).outerWidth() + options.margin,
+            //item实际区域高度
+            _oheight = $items.eq(0).outerHeight() + options.margin,
+            //第一行显示
+            _num = Math.floor(_box_width/_owidth);
+
+            (function() {
+                var i = 0;
+                for (; i < _num; i++) {
+                	//存放left 与 top的二维数组
+                    pos.push([i*_owidth,0]);
+                } 
+            })();
+
+            $items.each(function() {
+            	//每一张存放图片的容器
+                var _this = $(this),
+                _temp = 0,
+                _height = _this.outerHeight() + options.margin;
+
+                _this.hover(function() {
+                    _this.addClass('hover');
+                },function() {
+                    _this.removeClass('hover');
+                });
+
+                for (var j = 0; j < _num; j++) {
+                    if(pos[j][1] < pos[_temp][1]){
+                        //暂存top值最小那列的index
+                        _temp = j;
+                    }
+                }
+                this.style.cssText = 'left:'+pos[_temp][0]+'px; top:'+pos[_temp][1]+'px;';
+                //插入后，更新下该列的top值
+                pos[_temp][1] = pos[_temp][1] + _height;
+            });
+
+            // 计算top值最大的赋给外围div
+            (function() {
+                var i = 0, tops = [];
+                for (; i < _num; i++) {
+                    tops.push(pos[i][1]);
+                }
+                tops.sort(function(a,b) {
+                    return a-b;
+                });
+                $box.height(tops[_num-1]);
+
+                //增加尾部填充div
+                if(options.addfooter){
+                    addfooter(tops[_num-1]);
+                }
+
+            })();
+
+            function addfooter(max) {
+                var addfooter = document.createElement('div');
+                addfooter.className = 'item additem';
+                for (var i = 0; i < _num; i++) {
+                    if(max != pos[i][1]){
+                        var clone = addfooter.cloneNode(),
+                        //为了让每列高度都一样
+                        _height = max - pos[i][1] - options.margin;
+                        clone.style.cssText = 'left:'+pos[i][0]+'px; top:'+pos[i][1]+'px; height:'+_height+'px;';
+                        $box[0].appendChild(clone);
+                    }
+                }
+            }
+
+        });
+    }
+})(jQuery);</script>
+</body>
+</html>

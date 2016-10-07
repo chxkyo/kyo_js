@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>kYo</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<!-- 允许全屏模式浏览，隐藏浏览器导航栏 -->
+	<meta name="apple-mobile-app-capable" content="yes">
+	<!--它指定的iphone中safari顶端的状态条的样式 -->
+	<meta name="apple-mobile-app-status-bar-style" content="black">
+	<meta name="keywords" content="前端工程师，编程 ， javaScript ，HTML ，CSS">
+	<meta name="description" content="立志成为前端程序员中最会做菜的做菜中最会写代码的">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="kYo">
+	<meta name="application-name" content="kYo" >
+
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!--     <link rel="stylesheet" type="text/css" href="css/process.css">
+	-->
+	<link rel="shortcut icon"  type="image/x-icon" href="favicon.ico"/>
+	<script type="text/javascript">
+    	//兼容性
+        var width = document.compatMode == "CSS1Compat"?document.documentElement.clientWidth:document.body.clientWidth;
+       	//设定rem值
+    	document.getElementsByTagName('html')[0].style.fontSize = width/20+"px";
+    </script>
+</head>
+<body>
+	<!-- head start-->
+	<header class="head">
+		<div class="head_logo_div">
+			<img class="logo_img" src="images/upload/head.jpeg"></div>
+		<div class="head_nav_div">
+			<nav class="head_nav">
+				<ul id="nav_ul" class="clearfix">
+					<li class="nav_li_on nav_ul_li" style="color: red;">Home</li>
+					<li class="nav_ul_li" style="color: rgb(0, 0, 0);">Skill</li>
+					<li class="nav_ul_li" style="color: rgb(0, 0, 0);">Experience</li>
+					<li class="nav_ul_li" style="color: rgb(0, 0, 0);">Hobby</li>
+					<li class="nav_ul_li" style="color: rgb(0, 0, 0);">Contact</li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<!-- head end-->
+	<!-- 轮播按钮 start-->
+	<ul class="float_btn" id="float_btn">
+		<li class="btn_on"></li>
+		<li style="background: transparent;"></li>
+		<li style="background: transparent;"></li>
+		<li style="background: transparent;"></li>
+	</ul>
+	<!-- 轮播按钮 end-->
+	<!-- 主要内容 start-->
+	<div class="wrapBox" id="wrapBox">
+		<div class="box">
+			<img class="box_bg" src="images/upload/yasuo.jpg">
+			<div class="box01_content">
+				<div class="head_div">
+					<div class="cycle_item">
+						<a href="javascript:" class="github_a" id="github_a" target="_blank" style="left: -10px;top: 307px;">
+							<span class="github_icon"></span>
+							<span class="github_text">
+								<p class="item_name">GitHub</p>
+							</span>
+						</a>
+						<a href="javascript:" class="weibo_a" id="weibo_a" target="_blank" style="left: 339px; top: 155px;">
+							<span class="weibo_icon"></span>
+							<span class="weibo_text">
+								<p class="item_name">微博</p>
+							</span>
+						</a>
+						<a href="javascript:" class="blog_a" id="blog_a" target="_blank" style="left: 30px; top: 7px;">
+							<span class="blog_icon"></span>
+							<span class="blog_text">
+								<p class="item_name">博客</p>
+							</span>
+						</a>
+						<!-- 旋转圈圈 -->
+						<div class="green_cycle">
+							<img  class="green_cycle_img" src="images/icon/green_cycle.svg">
+							<div class="yellow_cycle">
+								<img class="yellow_cycle_img" src="images/icon/yellow_cycle.svg">
+								<div class="blue_cycle">
+									<img class="blue_cycle_img" src="images/icon/blue_cycle.svg">
+									<div class="head_img_div">
+										<img class="head_img" src="images/upload/head.jpeg"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<h1 class="title">裴雨琪</h1>
+				<h2 class="title_h2">我的心愿是世界和平!!!!</h2>
+				<div id="box01_text">
+					<p class="box01_p">不久前还在群利集团名下的三步网络科技有限公司工作.</p>
+					<p class="box01_p">但小组成员之间的勾心斗角让本就淡泊名利的我感到厌烦.</p>
+					<p class="box01_p">我是来学技术的，又不是来演宫心计的，终于我忍不了了，选择了离开(工资至今还没发我...).</p>
+					<p class="box01_p">但我依旧热爱编程，热爱前端，我只希望能在一个和谐融洽，小组成员之间相互坦诚的氛围中，不断学习，不断成长。</p>
+				</div>
+			</div>
+			<div class="arrow_div">
+				<img class="arrow_img" src="images/icon/arrowhead.png">
+			</div>
+		</div>
+		<div class="box">
+			<img class="box_bg"  src="images/upload/pic_2.jpg">
+			<div class="box02_content box_content clearfix">
+				<div id="bar_container" class="bar_container">
+					<div class="bar mint" data-percent="70" data-skill="HTML5+CS3"></div>
+					<div class="bar red" data-percent="70" data-skill="JavaScript"></div>
+					<div class="bar lila" data-percent="70" data-skill="jQuery"></div>
+					<div class="bar orange" data-percent="50" data-skill="Node.js"></div>
+					<div class="bar green" data-percent="90" data-skill="吹牛逼"></div>
+				</div>
+				<div id="box02_text">
+					<h1>About Skill</h1>
+					<div class="overline"></div>
+					<p>2012,在江苏大学京江学院,大一的时候第一次接触是C,</p>
+					<p>大二到大三也陆陆续续学了些专业课Java、asp.net等等</p>
+					<p>但那时的我完全的沉静在LOL的世界里不可自拔,什么都没学到</p>
+					<p>到大四上半学期还是一个人生迷茫的路途者</p>
+					<p>渐渐我发现周边平时不学无术的舍友们</p>
+					<p>都纷纷拿起了书本准备考研考公了。</p>
+					<p>一想到自己即将踏入到这个残酷的社会,决定自学一门技术。</p>
+					<p>我选择了Web前端...</p>
+					<p>到现在一经大半年了,我已经完全掌握了Web前端该有的技术</p>
+					<p>而未来...</p>
+					<p>想成为一名全栈工程师</p>
+				</div>
+			</div>
+			<div class="arrow_div">
+				<img class="arrow_img" src="images/icon/arrowhead.png">
+			</div>
+		</div>
+		<div class="box">
+			<img class="box_bg" src="images/upload/jie.jpg">
+			<div class="box_content box03_content">
+				<!-- 时间线start  -->
+				<ul id="timeUl" class="timeUl clearfix">
+					<li>
+						<div>
+							<h1>2012-Now</h1>
+							<p>宿迁学院</p>
+							<p>专业：通行工程</p>
+							<p>在风气不佳的考试战场中险些挂科(poi~)</p>
+							<p>最喜欢的科目是LOL</p>
+						</div>
+					</li>
+					<li>
+						<div>
+							<h1>xxxx-xxxx</h1>
+							<p>.......</p>
+							<p>..........</p>
+							<p>............</p>
+						</div>
+					</li>
+					<li>
+						<div>
+							<h1>2016.4-2016.9</h1>
+							<p>江苏三步网络科技有限公司</p>
+							<p>Web前端</p>
+							<p>无法忍受团队氛围以及组员之间的勾心斗角</p>
+							<p>选择离开</p>
+						</div>
+					</li>
+					<li>
+						<div>
+							<h1>Future</h1>
+							<p>未来公司</p>
+							<p>希望能在一个和谐融洽，小组成员之间相互坦诚的氛围中</p>
+							<p>展现出自己的天赋</p>
+							<p>...</p>
+						</div>
+					</li>
+				</ul>
+				<div class="left_div" id="left_div">
+					<img class="left_arrow" src="images/icon/arrowleft.png">
+				</div>
+				<div class="right_div" id="right_div">
+                      <img class="right_arrow" src="images/icon/arrowright.png">
+                 </div>
+			</div>
+			<div class="arrow_div">
+				<img class="arrow_img" src="images/icon/arrowhead.png">
+			</div>
+		</div>
+		<div class="box">
+			<img class="box_bg" src="images/upload/pic_4.jpg">
+			<div class="box_content box04_content">
+                <h1 class="box04_title">我的兴趣爱好</h1>
+                <ul class="hobby_content clearfix">
+                    <li class="hobby_01">
+                        <div class="hobby_img_div">
+                            <div class="spinner spinner_01"></div>
+                            <div class="hobby_img">
+                                <img src="images/upload/kapok.jpg">
+                            </div>
+                            <div class="hobby_img_info">
+                                <h1>打lol</h1>
+                                <h2>....</h2>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="hobby_02">
+                        <div class="hobby_img_div">
+                            <div class="spinner spinner_02"></div>
+                            <div class="hobby_img">
+                                <img src="images/upload/acg.png">
+                            </div>
+                            <div class="hobby_img_info">
+                                <h1>看片</h1>
+                                <h2>欧美&amp;日韩&amp;国产</h2>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="hobby_03">
+                        <div class="hobby_img_div">
+                            <div class="spinner spinner_03"></div>
+                            <div class="hobby_img">
+                                <img src="images/upload/reading.jpg">
+                            </div>
+                            <div class="hobby_img_info">
+                                <h1>文学</h1>
+                                <h2>历史&amp;写作</h2>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+			<div class="arrow_div">
+				<img class="arrow_img" src="images/icon/arrowhead.png">
+			</div>
+		</div>
+		<foot id="foot" class="foot">
+            <h1 class="foot_title">Contact With Me</h1>
+            <div class="foot_info_main">
+                <ul class="clearfix">
+                    <li class="github_items">
+                        <a href="javascript:" target="_blank">GitHub</a>
+                    </li>
+                    <li class="google_items">
+                        <a href="javascript:" target="_blank">Google+</a>
+
+                    </li>
+                    <li class="twitter_items">
+                        <a href="javascript:" target="_blank">Twitter</a>
+
+                    </li>
+                    <li class="facebook_items">
+                        <a href="javascript:" target="_blank">FaceBook</a>
+
+                    </li>
+                    <li class="weibo_items">
+                        <a href="javascript:" target="_blank">微博</a>
+
+                    </li>
+                    <li class="zhihu_items">
+                        <a href="javascript:" target="_blank">知乎</a>
+
+                     </li>
+                     <li class="blog_items">
+                        <a href="javascript:" target="_blank">博客</a>
+
+                     </li>
+                     <li class="email_items">
+                        <a href="javascript:" target="_blank">邮箱</a>
+                    </li>
+                </ul>
+                <div class="qrcode_div">
+                    <span class="weixin">
+                        <a class="weixin_icon"></a>
+                        <img class="weixin_img" src="images/upload/weixin_qr.png">
+                    </span>
+                    <span class="dingding">
+                        <a class="dingding_icon"></a>
+                        <img class="dingding_img" src="images/upload/dingding_qr.png">
+                    </span>
+                    <span class="qq">
+                        <a class="qq_icon"></a>
+                        <img class="qq_img" src="images/upload/qq_qr.jpg">
+                    </span>
+                </div>
+            </div>
+            <div class="foot_power">
+                <h3>©2016 Powerd
+                    <a href="javascript:" title="kYo" target="_blank">kYo</a>
+                    <a href="javascript:" title="IceEnd">你们的皇帝回来了</a>
+                    <a href="javascript:" title="beian" target="_blank">........</a>
+                </h3>
+            </div>
+        </foot>
+	</div>
+	<!-- 主要内容 end-->
+	<script type="text/javascript" src="js/kyo.js"></script>
+</body>
+</html>

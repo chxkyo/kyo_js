@@ -1,0 +1,60 @@
+*{
+	margin:0;
+	padding:0;
+	}
+	
+a img{
+	border:none;}
+
+.friend-Link{
+	position:relative;
+	margin:10px auto 17px auto;
+	width:903px;
+	height:117px;
+	background:url(../images/friend_bg.gif) repeat-x 0 0;
+	}
+	
+
+.left-arrow,.fl-pic,.right-arrow{
+	float:left;
+	display:inline;
+	margin:30px 25px 0 0;
+}
+
+.left-arrow,.right-arrow{
+	}
+
+.left-arrow{
+	background-position:-252px -175px;
+	margin-left:15px;}
+	
+.right-arrow{
+	background-position:-250px -235px;
+	margin-right:0;}
+
+	
+.fl-pic{
+	overflow:hidden;
+	width:750px;
+	height:50px;
+	white-space:nowrap;
+	}
+	
+.fl-pic ul{
+	width:3500px;
+	}
+	
+.fl-pic ul li{
+	float:left;
+	display:inline;
+	margin:0 12px;
+	width:100px;
+	height:50px;
+	}
+
+.left-arrow a,.right-arrow a{
+	background:#F60;
+	width:32px;
+	height:54px;
+	display:block;
+	text-indent:-9999px;}

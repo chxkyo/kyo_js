@@ -1,0 +1,130 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>联动菜单</title>
+<meta charset="utf-8" />
+<script type="text/javascript" src="jquery-1.11.3.min.js">
+	
+</script>>
+<script>
+	/*使用 HTML DOM 的方式实现联动菜单*/
+	var categories=[
+{"id":10,"name":'男装',"children":[
+	{"id":101,"name":'正装',"children":[
+		{"id":2031,"name":'短裤'},
+		{"id":2031,"name":'三角裤'},
+		{"id":2031,"name":'四角裤'}
+	]},
+	{"id":102,"name":'T恤'},
+	{"id":103,"name":'裤衩'}
+]},
+{"id":20,"name":'女装',"children":[
+	{"id":201,"name":'短裙'},
+	{"id":202,"name":'连衣裙'},
+	{"id":203,"name":'裤子',"children":[
+		{"id":2031,"name":'长裤'},
+		{"id":2031,"name":'九分裤'},
+		{"id":2031,"name":'七分裤'}
+	]},
+]},
+{"id":30,"name":'童装',"children":[
+	{"id":301,"name":'帽子'},
+	{"id":302,"name":'套装',"children":[
+		{"id":3021,"name":"0-3岁"},
+		{"id":3021,"name":"3-6岁"},
+		{"id":3021,"name":"6-9岁"},
+		{"id":3021,"name":"9-12岁"}
+	]},
+	{"id":303,"name":'手套'}
+]}
+];
+	function createSel(arr){//根据给定数组创建select元素
+		//创建空select元素
+		var sel=document.createElement("select");
+		//在select元素中，添加一个新option，内容为"-请选择-"，值为-1
+		// sel.add(new Option("-请选择-",-1));
+		for(var i=0;i<arr.length;i++){//遍历arr中每个对象
+		//	在select元素中添加一个新option，内容为当前类别对象的name属性，值为当前类别对象的id属性
+			sel.add(new Option(arr[i].name,arr[i].id));
+		}//(遍历结束)
+		//为sel绑定onchange事件处理函数
+		// sel.onchange=function(){//this->sel
+		// 	//先找到id为category的div
+		// 	var div=document.getElementById("category");
+		// 	//反复删除div下的lastChild，直到this就是div的lastChild时退出
+		// 	while(this!=div.lastChild){
+		// 		div.removeChild(div.lastChild);
+		// 	}
+		// 	//获得当前选中项的位置,-1后保存在变量i中
+		// 	var i=this.selectedIndex-1;
+		// 	if(i!=-1){
+		// 		//获取当前分类数组arr中i位置的类别对象的children属性
+		// 		var children=arr[i].children;
+		// 		if(children){//如果children有效
+		// 		//	将children作为参数，再次调用createSel
+		// 			createSel(children);
+		// 		}
+		// 	}
+		// }
+
+	//将select追加到id为category的div下
+	document.getElementById("category").appendChild(sel);
+	if(arr[0].children){
+			arguments.callee(arr[0].children);
+		}
+	}
+	window.onload=function(){
+		createSel(categories);
+	}
+
+
+</script>
+</head>
+<body>
+	<div id="category"></div>
+</body>
+<script type="text/javascript">
+	function selChange(arr){
+		var selects = document.getElementById("category").getElementsByTagName("select"),target;
+		var k =0;
+		var fn = function(e){
+			if(k== 0){
+				target = e.target;
+				j= this.selectedIndex;
+				children = arr[j].children;
+			}
+			target.nextElementSibling.innerHTML = "";
+			if(children){
+				for(var i =0,len = children.length;i<len;i++ ){
+				target.nextElementSibling.add(new Option(children[i].name,children[i].id));
+				}
+			}
+			target  = target.nextElementSibling;
+			if(children[j].children){
+				children[j] = children[j].children
+			}else if( !children.children && target){
+				var index = $(target).index();
+				target.innerHTML = "";
+				$("select").eq(index).nextAll("select").html("");
+				k = 0;
+				return;
+			}
+			if(!target){
+				k = 0;
+				return;
+			}
+			k++;
+			fn();
+
+		}
+		var unboundForEach = Array.prototype.forEach, forEach = Function.prototype.call.bind(unboundForEach);
+		forEach(selects, function (el) {
+  				el.addEventListener('change', fn);
+		});
+	}
+	window.addEventListener("load",function(){
+		selChange(categories);
+	});
+
+</script>
+</html>
