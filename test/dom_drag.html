@@ -28,66 +28,65 @@
 </head>
 <body>
     <div>
-    <p>将金黄色的小方块拖到红色的大方块中，不兼容IE7及以下浏览器，兼容主流浏览器！</p>
-</div>
-<div id="item" draggable="true"></div>
-<div id="drop"></div>
-<script type="text/javascript">
-    function listenEvent(target,type,handler){
-        if(target.addEventListener){//w3c
-            target.addEventListener(type,handler,false);
-        }else if(target.attachEvent){//IE
-            type = "on" + type;
-            target.attachEvent(type,handler);//IE
-        }else{
-            target["on" + type] = handler;
+        <p>将金黄色的小方块拖到红色的大方块中，不兼容IE7及以下浏览器，兼容主流浏览器！</p>
+    </div>
+    <div id="item" draggable="true"></div>
+    <div id="drop"></div>
+    <script type="text/javascript">
+        function listenEvent(target,type,handler){
+            if(target.addEventListener){//w3c
+                target.addEventListener(type,handler,false);
+            }else if(target.attachEvent){//IE
+                type = "on" + type;
+                target.attachEvent(type,handler);//IE
+            }else{
+                target["on" + type] = handler;
+            }
         }
-    }
+        //取消事件
+        function cancelEvent(e){
+            if(e.preventDefault){
+                e.preventDefault();//w3c
+            }else{
+                e.returnValue = false;//IE
+            }
+        }
+        //取消传递
+        function cancelPropagation(e){
+            if(e.stopPropagation){
+                e.stopPropagation();//w3c
+            }else{
+                e.cancelBubble = true;//IE
+            }
+        }
 
-    //取消事件
-    function cancelEvent(e){
-        if(e.preventDefault){
-            e.preventDefault();//w3c
-        }else{
-            e.returnValue = false;//IE
-        }
-    }
-    //取消传递
-    function cancelPropagation(e){
-        if(e.stopPropagation){
-            e.stopPropagation();//w3c
-        }else{
-            e.cancelBubble = true;//IE
-        }
-    }
+        window.onload = function () {
+            var target = document.getElementById('drop');
+            listenEvent(target,'dragenter',cancelEvent);
+            listenEvent(target,"dragover",dragOver);
+            listenEvent(target,'drop', function (evt) {
+                cancelPropagation(evt);
+                evt = evt || window.event;
+                evt.dataTransfer.dropEffect = 'copy';
+                var id = evt.dataTransfer.getData('Text');
+                target.appendChild(document.getElementById(id));
+            });
 
-    window.onload = function () {
-        var target = document.getElementById('drop');
-        listenEvent(target,'dragenter',cancelEvent);
-        listenEvent(target,"dragover",dragOver);
-        listenEvent(target,'drop', function (evt) {
-            cancelPropagation(evt);
+            var item = document.getElementById('item');
+            item.setAttribute("draggable",'true');
+            listenEvent(item,'dragstart', function (evt) {
+                evt = evt || window.event;
+                evt.dataTransfer.effectAllowed = 'copy';
+                evt.dataTransfer.setData('Text',item.id);
+            });
+        };
+
+        function dragOver(evt){
+            if(evt.preventDefault) evt.preventDefault();
             evt = evt || window.event;
             evt.dataTransfer.dropEffect = 'copy';
-            var id = evt.dataTransfer.getData('Text');
-            target.appendChild(document.getElementById(id));
-        });
-
-        var item = document.getElementById('item');
-        item.setAttribute("draggable",'true');
-        listenEvent(item,'dragstart', function (evt) {
-            evt = evt || window.event;
-            evt.dataTransfer.effectAllowed = 'copy';
-            evt.dataTransfer.setData('Text',item.id);
-        });
-    };
-
-    function dragOver(evt){
-        if(evt.preventDefault) evt.preventDefault();
-        evt = evt || window.event;
-        evt.dataTransfer.dropEffect = 'copy';
-        return false;
-    }
-</script>
+            return false;
+        }
+    </script>
 </body>
 </html>
