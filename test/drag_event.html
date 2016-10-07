@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>h5 拖拽效果</title>
+    <style>
+        #lt {
+            width : 300px;
+            height : 500px;
+            border : 1px solid black;
+            padding : 20px;
+            float : left;
+        }
+        #rt {
+            width : 300px;
+            height : 500px;
+            border : 1px solid black;
+            padding : 20px;
+            float : right;
+        }
+    </style>
+</head>
+<body>
+    <div id="lt">
+        <img src="http://m.tuniucdn.com/filebroker/cdn/online/f9/bb/f9bb2957_w400_h300_c1_t0.jpg" id="img" draggable="true">
+    </div>
+    <div id="rt"></div>
+    <script type="text/javascript">
+        //源元素
+        var img = document.getElementById("img");
+        img.addEventListener("dragstart",function(e){
+            e = e || window.event;
+            var trans = e.dataTransfer,
+            target = e.target || e.srcElement;
+            console.log(trans);
+            trans.setData("text",target.src);
+            trans.effectAllowed = "move";
+        });
+        img.addEventListener("drag",function(e){
+            console.log("拖拽过程中...");
+        });
+        img.addEventListener("dragend",function(e){
+            console.log("结束拖拽过程");
+            var lt = document.getElementById("lt");
+            console.log(e.target);
+            lt.removeChild(e.target);
+        });
+        //目标元素
+        var rt = document.getElementById("rt");
+        rt.addEventListener("dragenter",function(e){
+            console.log("第一次进入目标元素");
+        });
+        rt.addEventListener("dragover",function(e){
+            //为了触发drop事件
+            e.preventDefault();
+        });
+        rt.addEventListener("drop",function(e){
+            e.preventDefault();
+            var trans = e.dataTransfer;
+            var src = trans.getData("text");
+            rt.innerHTML = '<img src="'+src+'">';
+            trans.clearData("text");
+        });
+        rt.addEventListener("dragleave",function(e){
+            console.log("源元素离开啦!!!");
+        });
+    </script>
+</body>
+</html>
