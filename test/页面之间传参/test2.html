@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var url = location.search; //获取url中"?"符后的字串
+			var theRequest = new Object();
+			   if (url.indexOf("?") != -1) {
+			      var str = url.substr(1);
+			      strs = str.split("&");
+			      for(var i = 0; i < strs.length; i ++) {
+					document.write("参数是："+strs[i].split("=")[0]+","+strs[i].split("=")[1]);
+			      }
+			   }
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

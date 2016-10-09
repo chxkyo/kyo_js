@@ -1,0 +1,27 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+<select id="select">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+
+<script>
+// 我相信用户是可以接受若干毫秒的闪烁。同时该组件又能保持change等一系列原属性
+$('#select').on('focus', function() {
+    $(this).hide();
+    setTimeout(function(self) {
+        self.show();
+    }, 0, $(this))
+});
+</script>
+</body>
+</html>
+

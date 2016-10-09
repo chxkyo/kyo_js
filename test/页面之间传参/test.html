@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function myClick(){
+				window.location = "test2.html?name="+document.getElementById("name").value;
+			}
+		</script>
+	</head>
+	<body>
+		姓名：<input type='text' id="name" value=""/>
+			 <input type="button" value="传参数" onclick="myClick();"/>
+	</body>
+</html>
