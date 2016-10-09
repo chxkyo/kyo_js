@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{margin:0;padding:0;}  
+			img{vertical-align:bottom;}
+		</style>
+	</head>
+	<body>
+		<input type="file" multiple id="Files">  
+		<div id="Preview"></div>  
+		<ul id="Errors"></ul>  
+		<script type="text/javascript">
+		function encodeHTML(source) {    
+    		//return source;  
+		    return source    
+		            .replace(/&/g, '&')    
+		            .replace(/</g, '<')    
+		            .replace(/>/g, '>')  
+		            .replace(/\"/g, '"');  
+		}; 
+		function fileSelect(e) {    
+		    e = e || window.event;    
+		    var files = e.target.files;  //FileList Objects        
+		    var ireg = /text\/.*/i,p = document.getElementById('Preview');     
+		    var ul = document.getElementById('Errors');    
+		    for(var i = 0, f; f = files[i]; i++) {    
+		        console.log(f.type);    
+		        if(!f.type.match(ireg)) {    
+		            //设置错误信息    
+		            var li = document.createElement('li');    
+		            li.innerHTML = '<li>' + f.name +'不是文本文件.</li>';    
+		            ul.appendChild(li);     
+		            continue;    
+		        }    
+		        var reader = new FileReader();      
+		        reader.onload = (function(file) {    
+		            return function(e) {    
+		                var div = document.createElement('div');    
+		                div.className = "text"    
+		                div.innerHTML = encodeHTML(this.result);    
+		                p.insertBefore(div, null);    
+		            };    
+		        })(f);    
+		        //读取文件内容    
+		        reader.readAsText(f);    
+		    }    
+		}    
+		         
+		if(window.File && window.FileList && window.FileReader && window.Blob) {    
+		    document.getElementById('Files').addEventListener('change', fileSelect, false);    
+		} else {    
+		    document.write('您的浏览器不支持File Api');    
+		} 
+		</script>
+	</body>
+</html>
