@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#test{
+				width:100px;
+				height: 100px;
+				border:1px solid black;
+				position: absolute;
+				top:50px;
+				transition: all 0.3s; 
+			}
+			@-webkit-keyframes fadeInDown {
+				0%, 60%, 75%, 90%, 100% {
+					-webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+					transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+				}
+				0% {
+					opacity: 0;
+					-webkit-transform: translate3d(0, -200%, 0);
+					transform: translate3d(0, -200%, 0);
+				}
+				60% {
+					opacity: 1;
+					-webkit-transform: translate3d(0, 0px, 0);
+					transform: translate3d(0, 0px, 0);
+				}
+				75% {
+					-webkit-transform: translate3d(0, 0px, 0);
+					transform: translate3d(0, 0px, 0);
+				}
+				90% {
+					-webkit-transform: translate3d(0, 0px, 0);
+					transform: translate3d(0, 0px, 0);
+				}
+				100% {
+					-webkit-transform: none;
+					transform: none;
+				}
+			}
+			@keyframes fadeInDown {
+				0%, 60%, 75%, 90%, 100% {
+					-webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+					transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+				}
+				0% {
+					opacity: 0;
+					-webkit-transform: translate3d(0, -200%, 0);
+					transform: translate3d(0, -200%, 0);
+				}
+				60% {
+					opacity: 1;
+					-webkit-transform: translate3d(0, 0px, 0);
+					transform: translate3d(0, 0px, 0);
+				}
+				75% {
+					-webkit-transform: translate3d(0, 0px, 0);
+					transform: translate3d(0, 0px, 0);
+				}
+				90% {
+					-webkit-transform: translate3d(0, 0px, 0);
+					transform: translate3d(0, 0px, 0);
+				}
+				100% {
+					-webkit-transform: none;
+					transform: none;
+				}
+			}
+			.fade-in-down {
+				-webkit-animation-name: fadeInDown;
+				animation-name: fadeInDown;
+			}
+						@-webkit-keyframes bounceInDown {
+				0%, 60%, 75%, 90%, 100% {
+					-webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+					transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+				}
+				0% {
+					opacity: 0;
+					-webkit-transform: translate3d(0, -200%, 0);
+					transform: translate3d(0, -200%, 0);
+				}
+				60% {
+					opacity: 1;
+					-webkit-transform: translate3d(0, 25px, 0);
+					transform: translate3d(0, 25px, 0);
+				}
+				75% {
+					-webkit-transform: translate3d(0, -10px, 0);
+					transform: translate3d(0, -10px, 0);
+				}
+				90% {
+					-webkit-transform: translate3d(0, 5px, 0);
+					transform: translate3d(0, 5px, 0);
+				}
+				100% {
+					-webkit-transform: none;
+					transform: none;
+				}
+			}
+			@keyframes bounceInDown {
+				0%, 60%, 75%, 90%, 100% {
+					-webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+					transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+				}
+				0% {
+					opacity: 0;
+					-webkit-transform: translate3d(0, -200%, 0);
+					transform: translate3d(0, -200%, 0);
+				}
+				60% {
+					opacity: 1;
+					-webkit-transform: translate3d(0, 25px, 0);
+					transform: translate3d(0, 25px, 0);
+				}
+				75% {
+					-webkit-transform: translate3d(0, -10px, 0);
+					transform: translate3d(0, -10px, 0);
+				}
+				90% {
+					-webkit-transform: translate3d(0, 5px, 0);
+					transform: translate3d(0, 5px, 0);
+				}
+				100% {
+					-webkit-transform: none;
+					transform: none;
+				}
+			}
+			.bounce-in-down {
+				-webkit-animation-name: bounceInDown;
+				animation-name: bounceInDown;
+			}
+			.animated {
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+			.hidden {
+				-webkit-transform: translate3d(0,-200%, 0);
+				transform: translate3d(0,-200%, 0);
+				z-index: -1;
+			}
+			.active{
+				-webkit-transform: translate3d(0,0,0);
+				transform: translate3d(0,0,0);
+			}
+		</style>
+		<script type="text/javascript">
+			function clickFun(input){
+				if(input.value == "fadeInDown"){
+					document.getElementById("test").className = "fade-in-down animated active";
+				}else if(input.value == "bounceInDown"){
+					document.getElementById("test").className = "bounce-in-down animated active";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="fadeInDown" onclick="clickFun(this);"/>
+		<input type="button" value="bounceInDown" onclick="clickFun(this);"/>
+		<div id="test" class="hidden"></div>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body class="a b c">
+		<script type="text/javascript">
+			document.write("body classlist为: "+document.body.classList+"<br>");
+			document.write("classList本质为: "+typeof(DOMTokenList)+"<br>")
+			DOMTokenList.prototype.adds = function(tokens) {
+			   tokens.split(" ").forEach(function(token) {
+			   		console.log(this);
+			       this.add(token);
+			   }.bind(this));
+			   return this;
+			};
+			document.body.classList.adds("lalala hahaha");
+			document.write("body classlist为: "+document.body.classList+"\n");
+		</script>
+	</body>
+</html>

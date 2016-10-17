@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+</head>
+<body>
+	<div id="output"></div>
+	<script type="text/javascript">
+		function createScript(src){
+			var el = document.createElement("script");
+			el.src = src;
+			el.async = true;
+			el.defer = true;
+			document.body.appendChild(el);
+		}
+		function jsonpCallback(rs){
+			console.log(JSON.stringify(rs));
+			document.getElementById("output").innerHTML = JSON.stringify(rs);
+		}
+		createScript("http://127.0.0.1:8888?userid=007&callback=jsonpCallback");
+	</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				background: snow;
+			}
+			
+			.row {
+				width: 960px;
+				margin-top: 10px;
+				margin: 0 auto;
+			}
+			
+			menu {
+				width: 100px;
+				height: 40px;
+				line-height: 40px;
+				border: 1px solid yellowgreen;
+				text-align: center;
+			}
+			
+			#content {
+				position: relative;
+				overflow: hidden;
+				height: auto;
+				padding: 10px;
+				border: 1px solid gold;
+			}
+			
+			#content> fieldset {
+				opacity: 0;
+				height: 0;
+				width: 100px;
+				top: 80px;
+				position: absolute;
+			}
+			
+			#content:hover> fieldset {
+				width: 300px;
+				top: 80px;
+				opacity: 1;
+				height: 140px;
+				font-size: 14px;
+				position: absolute;
+				transition: all 1s;
+				color: black;
+				ease-in: cubic-bezier(0.42, 0, 1.0, 1.0);
+			}
+			
+			#content:hover {
+				height: 230px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<blockquote class='row'>
+			<div id='content'>
+				<menu> 鼠标移在这里 </menu>
+				<fieldset id='form'>
+					<input type="">
+					<input type="submit ">
+				</fieldset>
+			</div>
+		</blockquote>
+	</body>
+
+</html>
