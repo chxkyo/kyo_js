@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.scroll-holder {
+				position: absolute;
+				top: 250px;
+				width: 460px;
+				height: 210px;
+				overflow: hidden;
+				text-align: center;
+				left: 62px;
+			}
+			
+			.scroll-holder ul {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.scroll-holder ul li {
+				height: 38px;
+				line-height: 38px;
+				border-radius: 5px;
+				margin-bottom: 4px;
+				width: 460px;
+				list-style-type: none;
+				color: #fff;
+				text-align: left;
+				background: url('http://m.qkcdn.com/dashboardpc/img/page1/tiao.png') 0 0 no-repeat;
+			}
+			
+			.scroll-holder ul li:first-of-type {
+				background: url('http://m.qkcdn.com/dashboardpc/img/page1/tiao1.png') 0 0 no-repeat;
+			}
+			
+			.scroll-message img {
+				width: 25px;
+				height: 25px;
+				border-radius: 25px;
+				opacity: 1;
+				margin: 7px 0 0 10px;
+			}
+			
+			.scroll-message p {
+				display: inline-block;
+				vertical-align: top;
+				margin: 0;
+				font-size: 14px;
+				width: 350px;
+				overflow: hidden;
+				height: 38px;
+			}
+			
+			.scroll-message span {
+				color: #ec4949;
+				font-weight: 700;
+			}
+			
+			.scroll-message i {
+				display: inline-block;
+				font-size: 12px;
+				font-style: normal;
+				position: absolute;
+				right: 10px;
+				width: 55px;
+				height: 38px;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="scroll-holder">
+			<div style="position: relative; overflow: hidden; width: 460px; height: 210px;">
+				<div>
+					<ul class="clearfix scroll-message" id="list">
+						<li id="147703648104">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/e2d056f3354e0d794c4cabd347578c1d.jpg!200x200">
+							<p>八路 完成：限时推荐《云之家》 赚了 <span>1.5</span> 元</p>
+							<i>36 秒前</i>
+						</li>
+						<li id="147703648103">
+							<img src="http://assets.qkcdn.com/images/515105615623f6147fce74cdda238c93.jpeg!200x200">
+							<p>分毫不差 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>35 秒前</i>
+						</li>
+						<li id="147703648102">
+							<img src="http://assets.qkcdn.com/images/9b2079231a50281c510af4441ec8580e.jpeg!200x200">
+							<p>特色啦 完成：双倍任务《手***》 赚了 <span>3</span> 元</p>
+							<i>20 秒前</i>
+						</li>
+						<li id="147703648101">
+							<img src="http://assets.qkcdn.com/images/7c411e3af4bfde1e1d801408de68b04e.jpeg!200x200">
+							<p>笨笨 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>19 秒前</i>
+						</li>
+						<li id="147703648100">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/9bf752db659f508c59ac63e284ce6a34.png!200x200">
+							<p>哈哈 完成：限时推荐《金博棋牌》 赚了 <span>0.5</span> 元</p>
+							<i>7 秒前</i>
+						</li>
+						<li id="147703646605">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/0d75aacda936e887d781be676f9c1984.jpg!200x200">
+							<p>简单快乐 完成：限时推荐《视吧一种新的生活方式》 赚了 <span>1.5</span> 元</p>
+							<i>55 秒前</i>
+						</li>
+						<li id="147703646604">
+							<img src="http://assets.qkcdn.com/images/cd06eb2fac1d95d5bfc9a18da2c06caa.jpeg!200x200">
+							<p>一笑奈何 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>50 秒前</i>
+						</li>
+						<li id="147703646603">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/1a5aee4b6037d7e47470cc2e10b90e0a.jpg!200x200">
+							<p>大海 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>47 秒前</i>
+						</li>
+						<li id="147703646602">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/b6fb17869a83b23782cd8066352053d9.jpg!200x200">
+							<p>周嘉乐 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>46 秒前</i>
+						</li>
+						<li id="147703645107">
+							<img src="http://assets.qkcdn.com/images/e096c2f9b6951cb1e9ef0f53ec94bd39.jpeg!200x200">
+							<p>陌克 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>1 分钟前</i>
+						</li>
+						<li id="147703645106">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/bf58f5f14f4a764c09da36eb3daba275.jpg!200x200">
+							<p>赚 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>1 分钟前</i>
+						</li>
+						<li id="147703643603">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/58ec4fd8d2dbf8a38fdd407cf25ee4fc.jpg!200x200">
+							<p>婷子 完成：限时推荐《视吧一种新的生活方式》 赚了 <span>1.5</span> 元</p>
+							<i>1 分钟前</i>
+						</li>
+						<li id="147703642102">
+							<img src="http://assets.qkcdn.com/images/dfadf5e1a7c4f2de019d489980af1062.jpeg!200x200">
+							<p>时空虚幻 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>1 分钟前</i>
+						</li>
+						<li id="147703642101">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/db220bc7882b0c80c14160c14f0c1573.jpg!200x200">
+							<p>霞妹 完成：限时推荐《云之家》 赚了 <span>1.5</span> 元</p>
+							<i>1 分钟前</i>
+						</li>
+						<li id="147703640603">
+							<img src="http://assets.qkcdn.com/images/b41d37edafc8f18870a345b747ca64d1.jpeg!200x200">
+							<p>milho 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>1 分钟前</i>
+						</li>
+						<li id="147703640602">
+							<img src="http://assets.qkcdn.com/images/c4baf06a4adc3c66c2796cce26a99a18.jpeg!200x200">
+							<p>肖肖肖肖雄 完成：双倍任务《视吧一种新的生活方式》 赚了 <span>3</span> 元</p>
+							<i>1 分钟前</i>
+						</li>
+						<li id="147703639103">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/76ad9959048031f102fa25798a99d12a.jpg!200x200">
+							<p>我就是我 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>2 分钟前</i>
+						</li>
+						<li id="147703639102">
+							<img src="http://assets.qkcdn.com/images/43d4b97ff0600014130c6ad02d714d22.jpeg!200x200">
+							<p>颓废 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>2 分钟前</i>
+						</li>
+						<li id="147703637603">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/b7ca6ce6135251a3c2c42d629cc4de95.png!200x200">
+							<p>思思姐 完成：限时推荐《金博棋牌》 赚了 <span>0.5</span> 元</p>
+							<i>2 分钟前</i>
+						</li>
+						<li id="147703637602">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/6cc33c5b4ca156d7ffd293c09862c4f0.jpg!200x200">
+							<p>猪 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>2 分钟前</i>
+						</li>
+						<li id="147703636104">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/c977e62aac9663eae0cc5b96407430eb.png!200x200">
+							<p>乖乖兔 完成：限时推荐《金博棋牌》 赚了 <span>0.5</span> 元</p>
+							<i>2 分钟前</i>
+						</li>
+						<li id="147703636103">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/8bfec44c130676abcd1269f3ccd067d1.jpg!200x200">
+							<p>果果 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>2 分钟前</i>
+						</li>
+						<li id="147703633103">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/5be62846b94db8dbf637132cdcc94f3f.png!200x200">
+							<p>沈佳文Hey 完成：限时推荐《金博棋牌》 赚了 <span>0.5</span> 元</p>
+							<i>3 分钟前</i>
+						</li>
+						<li id="147703633102">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/fd9556433e20aadf941a7c6223bdd1f7.png!200x200">
+							<p>陈陈陈陈 完成：限时推荐《金博棋牌》 赚了 <span>0.5</span> 元</p>
+							<i>3 分钟前</i>
+						</li>
+						<li id="147703628501">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/9cbf945f83dcab31abdd5051587ed177.jpg!200x200">
+							<p>安静的想 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>4 分钟前</i>
+						</li>
+						<li id="147703628500">
+							<img src="http://assets.qkcdn.com/images/e1f5db0938a991b77c21f21bc93533aa.jpeg!200x200">
+							<p>荼茗 完成：限时推荐《JJ斗地主》 赚了 <span>1.5</span> 元</p>
+							<i>3 分钟前</i>
+						</li>
+						<li id="147703627002">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/2ff1ca5f9fea4a40814ed966bfdd2e9d.jpg!200x200">
+							<p>猪 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>4 分钟前</i>
+						</li>
+						<li id="147703625503">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/00f613d73ce97cfcfe7a614830904b3a.jpg!200x200">
+							<p>我？这里 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>4 分钟前</i>
+						</li>
+						<li id="147703622501">
+							<img src="http://assets.qkcdn.com/images/a65e82592b47f06c36c46bdb0ceb8c51.jpeg!200x200">
+							<p>哎呀妈呀 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>4 分钟前</i>
+						</li>
+						<li id="147703621002">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/d90f0a02c267f26b94ae6c8fc4da02c0.jpg!200x200">
+							<p>小王子 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>5 分钟前</i>
+						</li>
+						<li id="147703621001">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/c582abc605bd1fc5558cba61acc66a15.png!200x200">
+							<p>陈晓燕 完成：限时推荐《金博棋牌》 赚了 <span>0.5</span> 元</p>
+							<i>5 分钟前</i>
+						</li>
+						<li id="147703619504">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/8f72d51a719d45a885f00b7c7aaafa01.jpg!200x200">
+							<p>默小懒 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>5 分钟前</i>
+						</li>
+						<li id="147703619503">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/6de23f7c2a2b2d98601d2589c252dae7.png!200x200">
+							<p>小孩 完成：限时推荐《金博棋牌》 赚了 <span>0.5</span> 元</p>
+							<i>5 分钟前</i>
+						</li>
+						<li id="147703618004">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/ca44f00b9e575f39ab61dd1dade4903c.png!200x200">
+							<p>w函宝妈咪 完成：限时推荐《金博棋牌》 赚了 <span>0.5</span> 元</p>
+							<i>5 分钟前</i>
+						</li>
+						<li id="147703616503">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/22d68aa08a038a67fac9b99f64abfff0.png!200x200">
+							<p>阿伦 完成：限时推荐《金博棋牌》 赚了 <span>0.5</span> 元</p>
+							<i>5 分钟前</i>
+						</li>
+						<li id="147703615004">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/2255349197b7ab5c4a1c4088e1d16c0f.jpg!200x200">
+							<p>萌萌城 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>6 分钟前</i>
+						</li>
+						<li id="147703615003">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/e8d1cd9a57db301b3b71015d4a2bfa79.jpg!200x200">
+							<p>韶华安琪。 完成：限时推荐《云之家》 赚了 <span>1.5</span> 元</p>
+							<i>6 分钟前</i>
+						</li>
+						<li id="147703615002">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/d058ab111d013b7fe92f718075758f7e.jpg!200x200">
+							<p>鸳鸯不加糖 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>6 分钟前</i>
+						</li>
+						<li id="147703613504">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/4b5edaab44b77354f04b8fb0c4d6e372.png!200x200">
+							<p>温馨 完成：限时推荐《金博棋牌》 赚了 <span>0.5</span> 元</p>
+							<i>6 分钟前</i>
+						</li>
+						<li id="147703612005">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/9d8a25269f99334470c569cfbf434cf4.jpg!200x200">
+							<p>向日葵 完成：限时推荐《手***》 赚了 <span>1.5</span> 元</p>
+							<i>6 分钟前</i>
+						</li>
+						<li id="147703612004">
+							<img src="http://zq-head-portrait.b0.upaiyun.com/3ce4aa3d52fb36bc14319dac017d2b44.jpg!200x200">
+							<p>大头 完成：限时推荐《安居客》 赚了 <span>1.5</span> 元</p>
+							<i>6 分钟前</i>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="jquery-scrollable.js"></script>
+		<script type="text/javascript">
+			$("#list").scrollable({
+				width: 460,
+				height: 210,
+				direction: "top",
+				duration: 20000,
+				scrollCount: 0,
+				isHoverPause: true
+			});
+		</script>
+	</body>
+
+</html>

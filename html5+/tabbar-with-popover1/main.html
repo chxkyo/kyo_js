@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+	<style type="text/css">
+		header.mui-bar {
+			background: #eb4f38;
+		}
+		
+		header.mui-bar .mui-title,
+		header.mui-bar a.mui-icon {
+			color: #fff;
+		}
+		
+		.mui-segmented-control {
+			position: absolute;
+			left: 45px;
+			right: 45px;
+			width: 120px !important;
+			height: 30px;
+			border: 1px solid #fff;
+		}
+		
+		.mui-segmented-control .mui-control-item {
+			color: #fff !important;
+			line-height: 30px;
+			width: 60px;
+			border-left: 1px solid #eb4f38;
+		}
+		
+		.mui-segmented-control .mui-control-item.mui-active {
+			color: #eb4f38 !important;
+			background-color: #fff;
+		}
+		
+		.mui-toast-container {
+			bottom: 50% !important;
+		}
+		
+		.mui-toast-message {
+			background: #333;
+			opacity: 0.8;
+			color: #fff;
+			width: 180px;
+			padding: 30px;
+		}
+	</style>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-icon mui-icon-bars mui-pull-left" id="back"></a>
+			<h1 class="mui-title">首页</h1>
+			<div class="mui-segmented-control" style="display: none;">
+				<a class="mui-control-item mui-active">消息</a>
+				<a class="mui-control-item">好友</a>
+			</div>
+			<a class="mui-icon mui-icon-plus mui-pull-right"></a>
+		</header>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+
+			//子页面
+			var index = 0;
+			var subpages = ['html/home.html', "html/find.html", "html/message.html", "html/setting.html"];
+			var subpage_style = {
+				top: "45px",
+				bottom: "50px",
+				zindex: 999
+			}
+			var tw = null;
+			var tabbar = "html/tabbar.html";
+			var tabbar_style = {
+				height: "60px",
+				bottom: "0px",
+				background: "transparent",
+				zindex: 9999
+			}
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				var subIndex = plus.webview.create(subpages[index], subpages[index], subpage_style);
+				subIndex.setBounce({
+					position: {
+						top: "100px"
+					},
+					changeoffset: {
+						top: "0px"
+					}
+				});
+				self.append(subIndex);
+				plus.webview.show(subIndex);
+
+				//创建底部tab
+				tw = plus.webview.create(tabbar, tabbar, tabbar_style);
+				self.append(tw);
+			})
+
+			//当前激活tab
+			var activeTab = subpages[index];
+			//详情页添加自定义targetTab事件
+			window.addEventListener("targetTab", function(event) {
+					//获得选项卡点击时间参数
+					var targetTitle = event.detail.targetTitle;
+					var targetTab = event.detail.targetTab;
+
+					if(targetTab == activeTab) return;
+
+					if(targetTab == subpages[1]) {
+						mui(".mui-title")[0].style.display = 'none';
+						mui(".mui-segmented-control")[0].style.display = 'block';
+					} else {
+						mui(".mui-title")[0].style.display = 'block';
+						mui(".mui-title")[0].InnerHTML = targetTitle;
+						mui(".mui-segmented-control")[0].style.display = 'none';
+					}
+
+					if(!plus.webview.getWebviewById(targetTab)) {
+						var sub = plus.webview.create(targetTab, targetTab, subpage_style);
+						sub.setBounce({
+							position: {
+								top: "100px"
+							}
+						}, {
+							changeOffset: {
+								top: "0px"
+							}
+						});
+						plus.webview.currentWebview().append(sub);
+						plus.webview.show(sub, "pop-in", 300);
+					} else {
+						plus.webview.show(targetTab);
+					}
+					tw.show();
+					plus.webview.hide(activeTab);
+					activeTab = targetTab;
+				})
+				//退出
+			var first = null;
+			mui.back = function() {
+				if(!first) {
+					first = new Date().getTime();
+					mui.toast("再按一次退出应用");
+					setTimeout(function() {
+						first = null;
+					}, 1000);
+				} else {
+					if(new Date().getTime() - first < 1000) {
+						plus.runtime.quit();
+					}
+				}
+			}
+
+			document.getElementById("back").addEventListener("tap", function() {
+				mui.back();
+			});
+		</script>
+	</body>
+
+</html>

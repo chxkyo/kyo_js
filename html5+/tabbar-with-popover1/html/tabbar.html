@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			body{
+	    		background: transparent;
+	    	}
+	    	.mui-bar{
+	    		border-top: 1px solid #eb4f38;
+	    		box-shadow: none;
+	    	}
+	    	a .mui-tab-label{  		
+	    		color: #a9b7b7;
+	    	}
+	    	a.mui-active .mui-tab-label{
+	    		color: #eb4f38;
+	    	}	    	
+	    	.mui-tabbar-center{
+	    		display: table-cell;
+				overflow: hidden;
+				width: 1%;
+				height: 50px;
+				text-align: center;
+				vertical-align: middle;
+	    	}
+	    	.mui-tabbar-center img{
+	    		position: absolute;
+	    		left: 50%;
+	    		bottom: 0px;
+	    		width: 60px;
+	    		height: 60px;
+	    		margin-left: -30px;
+	    	}
+		</style>
+	</head>
+
+	<body>
+		<nav class="mui-bar mui-bar-tab mui-button-bar">
+		    <a class="mui-tab-item mui-active" id="defaultTab" href="html/home.html">
+		        <img  class="mui-icon" src="../img/i-home-active.png"/>
+		        <span class="mui-tab-label">首页</span>
+		    </a>
+		    <a class="mui-tab-item" href="html/message.html">
+		        <img class="mui-icon" src="../img/i-message.png">
+		        <span class="mui-tab-label">消息</span>
+		    </a>
+		    <a class="mui-tabbar-center" href="menu.html">
+		    	<img src="../img/i-pop-active.png" alt="" />
+		    </a>
+		    <a class="mui-tab-item" href="html/find.html">
+		        <img class="mui-icon" src="../img/i-find.png" alt="" />
+		        <span class="mui-tab-label">发现</span>
+		    </a>
+		    <a class="mui-tab-item" href="html/setting.html">
+		        <img class="mui-icon" src="../img/i-person.png" alt="" />
+		        <span class="mui-tab-label">个人</span>
+		    </a>
+		</nav>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			
+			//弹出菜单
+			var menuWebview;
+			var menuTab = 'menu.html';
+			mui.plusReady(function(){
+				menuWebview = mui.preload({
+					url:menuTab,
+					id:menuTab,
+					styles:{
+						top:"0px",
+						bottom:"0px",
+						background:'transparent'
+					}
+				});
+			});
+			mui('.mui-bar-tab').on("tap","a",function(){
+				var targetTab = this.getAttribute("href");
+				if(targetTab == menuTab){
+					if(window.plus){
+						plus.webview.create("","mask",{
+							mask:"rgba(0,0,0,.4)",
+							background:"transparent"
+						}).show();
+						plus.webview.show(menuWebview,"slide-in-bottom",300);
+					}else{
+						mui.alert("请在html5+引擎环境使用");
+					}
+					return;
+				}
+				
+				var targetIcon = this.children[0];
+				//图标初始化
+				mui(".mui-bar-tab .mui-tab-item img ").each(function(index,item){
+					var itemSrc = item.getAttribute("src");
+					if(itemSrc.indexOf("active")){
+						item.src = itemSrc.replace("-active.png",".png");
+					}
+				});
+				
+				targetIcon.src = targetIcon.getAttribute("src").replace(".png","-active.png");
+				
+				if(window.plus){
+					var currWs = plus.webview.currentWebview();
+					var targetTitle = this.querySelector(".mui-tab-label").innerHTML;
+					//触发自定义targetTab事件
+					mui.fire(currWs.parent(),'targetTab',{
+						targetTitle:targetTitle,
+						targetTab:targetTab
+					});
+				}
+				//回首页事件
+				document.addEventListener("gohome",function(){
+					var defaultTab = document.getElementById("defaultTab");
+					mui.trigger(defaultTab,'tab');
+					var current = document.querySelector(".mui-bar-tab>.mui-tab-item.mui-active");
+					if(defaultTab !== current){
+						current.classList.remove('mui-active');
+						defaultTab.classList.add('mui-active');
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

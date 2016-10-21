@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+		<div id="allmap">
+    		地图加载中...
+		</div>
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=HR3RRyTsXYdQ3QzzG5yUkg0q"></script>
+    	<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function(){
+    			plus.geolocation.getCurrentPosition(translatePoint,function(e){
+       				 mui.toast("异常:" + e.message);
+    			});
+			});
+			function translatePoint(position){
+			    var currentLon = position.coords.longitude;
+			    var currentLat = position.coords.latitude;
+			    var gpsPoint = new BMap.Point(currentLon,currentLat);
+			    BMap.Convertor.translate(gpsPoint,2,initMap); //坐标转换
+			}
+			function initMap(point){
+			    map = new BMap.Map("allmap"); //创建地图
+			    map.addControl(new BMap.NavigationControl());
+			    map.addControl(new BMap.ScaleControl());
+			    map.addControl(new BMap.OverviewMapControl());
+			    map.centerAndZoom(point,15);
+			    map.addOverlay(new BMap.Marker(point));
+			 
+			}
+		</script>
+	</body>
+
+</html>

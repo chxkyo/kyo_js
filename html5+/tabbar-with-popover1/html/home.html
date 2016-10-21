@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-search{
+				display: block;
+				width: 95%;
+				margin: 5px auto -8px;
+			}
+			.mui-content>.mui-table-view:first-child{
+				margin-top: 0px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+		    <div class="mui-input-row mui-search">
+			    <input id="keyword" type="search" class="mui-input-clear" placeholder="搜索">
+			</div>
+			<ul id="list" class="mui-table-view mui-table-view-chevron"></ul>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src=".../js/mui.lazyload.js" type="text/javascript" charset="utf-8"></script>
+		<script src=".../js/mui.lazyload.img.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init()
+			document.getElementById("keyword").addEventListener("keydown",function(){
+				if(e.keyCode == 13){
+					requestData();
+				}
+			});
+			function requestData(){
+				
+			}
+		</script>
+	</body>
+
+</html>

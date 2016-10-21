@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>登录</title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<button id="login" class="mui-btn mui-btn-block mui-btn-success" onclick="autoLogin()">
+	    	Login
+	    </button>
+		</div>
+		<script type="text/javascript">
+			var auths = null,
+				mainPage = null,
+				userInfo = null;
+			mui.plusReady(function() {
+				//获取授权登录服务列表
+				plus.oauth.getServices(function(services) {
+					auths = services;
+				}, function(e) {
+					console.log("获取分享列表数据失败: " + e.message + " - " + e.code);
+				});
+				//预加载主页面
+				mainPage = mui.preload({
+					url: "main.html",
+					id: "main.html",
+				});
+			});
+
+			function authLogin() {
+				var s = auths[0];
+				//若没有授权登录过
+				if(!s.authResult) {
+					s.login(function(e) {
+						var targte = e.target;
+						userInfo = target.userInfo;
+						console.log("id:" + JSON.stringify(target.id))
+						console.log("description:" + JSON.stringify(target.description))
+						console.log("authResult" + JSON.stringify(target.authResult));
+						console.log("userInfo：" + JSON.stringify(target.userInfo));
+						console.log("extra：" + JSON.stringify(target.extra));
+						goToMain();
+					}, function(e) {
+						console.log("登录认证失败：" + e.message + " - " + e.code);
+					})
+				}else{
+					console.log("已登录验证过");
+					s.getUserInfo(function(e){
+						goToMain();
+					})
+				}
+			}
+			
+			function goToMain(){
+				mui.fire(mainPage,"show",function(){
+					userInfo: userInfo
+				});
+				mui.openWindow({
+					id:"main"
+				})
+			}
+			mui("#login")[0].addEventListener("tap",function(){
+				authLogin();
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.org_box {
+				height: 80px;
+				line-height: 80px;
+				margin-bottom: 30px;
+				padding-left: 2em;
+				background: #F3961C;
+				position: relative;
+			}
+			
+			.org_bot_cor {
+				width: 0;
+				height: 0;
+				font-size: 0;
+				border-width: 15px;
+				border-style: solid;
+				border-color: #f3961c transparent transparent;
+				_border-color: #f3961c white white;
+				overflow: hidden;
+				position: absolute;
+				left: 60px;
+				bottom: -30px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="org_box">
+			<span class="org_bot_cor"></span> 边框法实现底部90度尖角对话框
+		</div>
+		<style type="text/css">
+			.test {
+				width: 300px;
+				padding: 30px 20px;
+				margin-left: 60px;
+				background: #beceeb;
+				position: relative;
+			}
+			
+			.test span {
+				width: 0;
+				height: 0;
+				font-size: 0;
+				overflow: hidden;
+				position: absolute;
+			}
+			
+			.test span.bot {
+				border-width: 20px;
+				border-style: solid;
+				border-color: #ffffff #beceeb #beceeb #ffffff;
+				left: -40px;
+				top: 40px;
+			}
+			
+			.test span.top {
+				border-width: 10px 20px;
+				border-style: dashed solid solid dashed;
+				border-color: transparent #ffffff #ffffff transparent;
+				left: -40px;
+				top: 60px;
+			}
+		</style>
+		<div class="test">
+			<span class="bot"></span>
+			<span class="top"></span> CSS “边框法”实现气泡对话框效果一
+		</div>
+		<style type="text/css">
+			.test1 {
+				width: 300px;
+				padding: 80px 20px;
+				margin-left: 100px;
+				background: #beceeb;
+				-webkit-border-top-left-radius: 220px 120px;
+				-webkit-border-top-right-radius: 220px 120px;
+				-webkit-border-bottom-right-radius: 220px 120px;
+				-webkit-border-bottom-left-radius: 220px 120px;
+				-moz-border-radius: 150px / 120px;
+				border-radius: 150px / 120px;
+				position: relative;
+			}
+			
+			.test1 span {
+				width: 0;
+				height: 0;
+				font-size: 0;
+				background: #beceeb;
+				overflow: hidden;
+				position: absolute;
+			}
+			
+			.test1 span.bot {
+				width: 30px;
+				height: 30px;
+				-moz-border-radius: 30px;
+				-webkit-border-radius: 30px;
+				border-radius: 30px;
+				left: 10px;
+				bottom: -20px;
+			}
+			
+			.test1 span.top {
+				width: 15px;
+				height: 15px;
+				-moz-border-radius: 15px;
+				-webkit-border-radius: 15px;
+				border-radius: 15px;
+				left: 0px;
+				bottom: -40px;
+			}
+		</style>
+		<div class="test1">
+			<span class="bot"></span>
+			<span class="top"></span> CSS3 border-radius实现气泡对话框效果
+		</div>
+		<style type="text/css">
+			.triangle_border_right {
+				width: 0;
+				height: 0;
+				border-width: 30px 0 30px 30px;
+				border-style: solid;
+				border-color: transparent transparent transparent #333;
+				/*透明 透明 透明 灰*/
+				margin: 40px auto;
+				position: relative;
+			}
+			
+			.triangle_border_right span {
+				display: block;
+				width: 0;
+				height: 0;
+				border-width: 28px 0 28px 28px;
+				border-style: solid;
+				border-color: transparent transparent transparent #fc0;
+				/*透明 透明 透明 黄*/
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+		</style>
+		<div class="triangle_border_right">
+			<span></span>
+		</div>
+	</body>
+
+</html>

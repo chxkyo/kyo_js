@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			body{
+				background: transparent;
+			}
+			.mui-pop{
+				position: fixed;
+				bottom: 100px;
+				margin: 0px;
+				padding: 0px;
+			}
+			.mui-pop li{
+				display: inline-block;
+				width: 24%;
+				margin: 10px 0px;
+				padding: 0px;
+				list-style: none;
+				text-align: center;
+			}
+			.mui-pop li a{
+				display: inline-block;
+				width: 100%;
+				color: #fff;
+			}
+			.mui-pop li a img{
+				width: 80%;
+			}
+			.closeBtn{
+				position: fixed;
+				left: 0px;
+				right: 0px;
+				bottom: 0px;
+				text-align: center;
+				background-color: #fff;
+				cursor: pointer;
+			}
+			.closeBtn span{	
+				color: #ff7e00;	
+				font-size: 50px;
+				padding: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+		    <ul class="mui-pop">
+	            <li>
+	            	<a href="#editor">
+	                    <img src="../img/i-editor.png"/>
+	                    <div class="mui-media-body">文字</div>
+	            	</a>
+	            </li>
+	            <li>
+	            	<a href="#picture">
+	                    <img src="../img/i-picture.png"/>
+	                    <div class="mui-media-body">照片/视频</div>
+	            	</a>
+	            </li>
+	            <li>
+	            	<a href="#headline">
+	                    <img src="../img/i-headline.png"/>
+	                    <div class="mui-media-body">头条文章</div>
+	            	</a>
+	            </li>
+	            <li>
+	            	<a href="#location">
+	                    <img src="../img/i-location.png"/>
+	                    <div class="mui-media-body">签到</div>
+	            	</a>
+	            </li>
+	            <li>
+	            	<a href="#camera">
+	                    <img src="../img/i-camera.png"/>
+	                    <div class="mui-media-body">直播</div>
+	            	</a>
+	            </li>
+	            <li>
+	            	<a href="#contact">
+	                    <img src="../img/i-contact.png"/>
+	                    <div class="mui-media-body">来往</div>
+	            	</a>
+	            </li>
+	             <li>
+	            	<a href="#share">
+	                    <img src="../img/i-share.png"/>
+	                    <div class="mui-media-body">分享</div>
+	            	</a>
+	            </li>
+	            <li>
+	            	<a href="#more">
+	                    <img src="../img/i-more.png"/>
+	                    <div class="mui-media-body">更多</div>
+	            	</a>
+	            </li>
+	           	<div class="mui-action-back closeBtn">
+	        		<span class="mui-icon mui-icon-closeempty"></span>
+	        	</div>
+		    </ul>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			mui(".mui-pop li").on("tap","a",function(){
+				var keyword = this.getAttribute("href").replace("#","");
+				mui.alert(keyword);
+			});
+			//重写back方法
+			mui.back = function(){
+				//隐藏弹出层
+				plus.webview.currentWebview().hide();
+				//隐藏遮罩
+				plus.webview.getWebviewById('mask').close();
+			}
+		</script>
+	</body>
+
+</html>

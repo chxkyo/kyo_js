@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script type="text/javascript">
+			var ws = null,nw = null,canback = null,canforward = null,i = 0;
+			function plusReady(){
+				ws = plus.webview.currentWebview();
+				nw = plus.webview.create("http://weibo.com/dhnetwork");
+				ws.append(nw);
+				plus.key.addEventListener("backbutton",function(){
+					nw.canBack(function(e){
+						canback = e.canback;
+						console.log("canback:"+canback);
+					});
+					nw.forward(function(e){
+						canforward = e.canforward;
+						console.log("canforward:"+canforward);
+					})
+					if(canback){
+						nw.back();
+					}else{
+						if(canforward){
+							exit();
+						}else{
+							i++;
+							if(i>1){
+								exit();
+							}
+						}
+					}
+				});
+				function exit(){
+					plus.nativeUI.confirm("您想退出吗?",function(e){
+						if(e.index == 0){
+							plus.runtime.quit();
+						}
+					},"您想退出吗?",["yes","No"]);
+				}
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<style type="text/css">
+			
+			*{
+				margin: 0px;
+				padding: 0px;
+				font-family: "microsoft yahei";
+			}
+			.header{
+				width: 100%;
+				height: 50px;
+				background-color: #00A7FF;
+			}
+			.header h1{
+				text-align: center;
+				line-height: 50px;
+				font-size: 18px;
+				color: #fff;
+			}
+			
+			@media screen and (min-width: 750px) {
+			    .header{	
+					height: 100px;
+				}
+				.header h1{
+					font-size: 25px;
+					line-height: 100px;
+				}
+			}
+			
+			.translation input,.translation button{
+				display: block;
+				width: 80%;
+				height: 40px;
+				max-width: 600px;
+				margin: 20px auto;
+				outline: none;
+			}
+			
+			.translation input{
+				text-indent: 15px;
+			}
+			
+			.translation button{
+				height: 50px;
+				color: #fff;
+				border: none;
+				cursor: pointer;
+				background-color: #00A7FF;
+			}
+			.translation button:hover{
+				background-color: #007CC3;
+			}
+			
+			#result{
+				display: none;
+			}
+			
+			/* toast */
+			.ui-toast{
+				position: fixed;
+			    left: 50%;
+			    bottom: 50%;
+			    padding: 30px!important;
+			    text-align: center;
+			    width:180px;
+			    margin-left: -120px;
+			    color: #fff;
+			    background-color: rgba(126,126,126,0.8);
+			}
+			
+			/* jsoncode */
+			pre.ui-code {
+				width: 80%;
+				outline: 1px solid #ccc; 
+				padding: 10px; 
+				margin: 5px auto; 
+				word-wrap:break-word;
+			}
+			.ui-code .string { 
+				color: green; 
+			}
+			.ui-code .number { 
+				color: darkorange; 
+			}
+			.ui-code .boolean { 
+				color: blue; 
+			}
+			.ui-code .null { 
+				color: magenta; 
+			}
+			.ui-code .key { 
+				color: red; 
+			}
+		
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<h1>音乐</h1>
+		</div>
+		<div class="translation">
+			<input id="input" type="text" placeholder="输入关键词">
+			<button id="submit">音乐</button>
+		</div>
+		<pre id="result" class="ui-code"></pre>
+		<script type="text/javascript">
+			var input = document.getElementById("input");
+			document.getElementById("submit").addEventListener("click",function(){
+				var value = input.value;
+				if(!value){
+					toast("关键字不能为空!!");
+					return;
+				}
+				var url = "http://s.music.163.com/search/get/";
+				var data = {
+					"type":1,
+					"limit":1,
+					"s":value,
+					"callback":"jsonpCallback"
+				};
+				var buffer = [];
+				for(var key in data){
+					buffer.push(key+ "=" + encodeURIComponent(data[key]));
+				}
+				var fullPath = url + "?" + buffer.join("&");
+				createScript(fullPath);
+			});
+			//提示框
+			function toast(msg,time){
+				var time = time || 3000;
+				var toast = document.createElement("div");
+				toast.className = "ui-toast";
+				toast.textContent = msg;
+				document.body.appendChild(toast);
+				setTimeout(function(){
+					document.body.removeChild(toast);
+				},time);
+			}
+			function createScript(src){
+				var script = document.createElement("script");
+				script.src = src;
+				script.async = true;
+				script.defer = true;
+				document.body.appendChild(script);
+			}
+			function jsonpCallback(rs){
+				var result = document.getElementById("result");
+				result.innerHTML = syntaxHighlight(rs);
+				result.style.display = 'block';
+			}
+			function syntaxHighlight(json) {
+				if (typeof json != 'string') {
+					json = JSON.stringify(json, undefined, 2);
+				}
+				json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
+				return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+					var cls = 'number';
+					if (/^"/.test(match)) {
+						if (/:$/.test(match)) {
+							cls = 'key';
+						} else {
+							cls = 'string';
+						}
+					} else if (/true|false/.test(match)) {
+						cls = 'boolean';
+					} else if (/null/.test(match)) {
+						cls = 'null';
+					}
+					return '<span class="' + cls + '">' + match + '</span>';
+				});
+			}
+		</script>
+	</body>
+</html>
