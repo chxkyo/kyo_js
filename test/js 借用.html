@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+
+		if(!Function.prototype.bind){
+			Function.prototype.bind = function(o){
+				var fun = this;
+				arguments.length>1 && (var args = [].slice.call(arguments,1));
+				return function (){
+					fun.apply(o,args.concat([].slice.call(arguments)));
+				}
+			}
+		}
+		//借用数组join方法
+		console.log(Array.prototype.join.call("abc","|"));
+		//借用数组的filter方法 找出一段字符串中的不重复
+		var unique = Array.prototype.filter.call("abbceedfg",function(value,index,arr){
+			return arr.indexOf(value) === index;
+		});
+		console.log(unique.join(""));
+		console.log("".toUpperCase.call(["i","am","kyo"]).split(","));
+		//bind(Array.prototype.join)返回的this指向Array.prototype.join
+		var join = Function.prototype.call.bind(Array.prototype.join);
+		console.log(join('abc',"||"));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

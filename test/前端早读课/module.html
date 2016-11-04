@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var globalv = "I am a global variable";
+			var myCaculate = (function(){
+				var grades = [70,65,85,95,100];
+				var average = function(){
+					var total = grades.reduce(function(prev,current){
+						return prev + current;
+					},0);
+					return total/grades.length;
+				}
+				var failing = function(){
+					var failinggroups = grades.filter(function(item){
+						return item < 80;
+					});
+					return '不及格:'+failinggroups;
+				}
+//				console.log(average());
+//				console.log(failing());
+//				console.log(globalv);
+				return {
+					average:average,
+					failing:failing,
+				}
+			})();
+			console.log(myCaculate.average());
+			console.log(myCaculate.failing());
+		</script>
+		
+	</head>
+	<body>
+	</body>
+</html>

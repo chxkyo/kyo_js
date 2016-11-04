@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function jump(){
+//				window.location.href = "http://www.baidu.com";
+//				parent.location.href = 'http://www.baidu.com';
+				top.location.href = 'http://www.baidu.com';
+			}
+		</script>
+	</head>
+	<body>
+		<span>这是d.html：</span><span id="span1"></span><br />
+		<input type='button' onclick='jump();' value='跳转' id="btn">
+<!--	<iframe src="d.html" width="500px" height="300px"></iframe>-->
+	</body>
+</html>

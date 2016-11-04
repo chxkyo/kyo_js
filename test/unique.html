@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function unique2(arr){
+				//hash是索引数组
+				var result=[],hash=[],index;
+				for(var i=0,elem;i<arr.length;i++){
+					elem=arr[i];
+					//用hash数组记录已压进result数组的元素
+					if(!hash[elem]){
+						hash[elem]=1;
+					}else{
+						hash[elem]++;
+					}
+				}
+				for(var key in hash){
+					if(hash[key] == 1){
+						result.push(parseInt(key));
+					}
+				}
+				return result;
+			}
+			var arr = [1,2,2,3,3,4,5,6,7,7,7,8];
+			unique2(arr);
+			console.log(unique2(arr));
+			
+			var unique = arr.filter(function(val,idx,arr){
+				return arr.indexOf(val) == idx;
+			});
+			console.log(unique);
+			
+			function getLocalTime() {     
+       			return new Date().toLocaleString().replace(/年|月/g, "-").replace(/日/g, " ");      
+    		}     
+    		console.log(new Date().toLocaleString());
+    		console.log(new Date().toLocaleDateString());
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

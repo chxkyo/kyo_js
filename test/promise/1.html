@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function runAsync(){
+				var p = new Promise(function(resolve,reject){
+					setTimeout(function(){
+						console.log("程序执行完成");
+						resolve("随便什么数据");
+					},2000);
+				});
+				return p;
+			}
+			console.log("我先完成");
+			runAsync().then(function(data){
+				console.log(data);
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

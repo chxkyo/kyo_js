@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		.box {
+			width:512px; 
+			margin-left: auto;
+			margin-right: auto;
+			position:relative;
+			overflow: hidden;
+		}
+		.cover {
+			height: 100%;
+			background-color: rgba(0,0,0,.35);
+			position: absolute;
+			top: 0;
+			right: -20px;
+		}
+		.cover textarea {
+		    width: 20px; height: 20px;
+		    margin-top: 160px;
+		    border: 0; padding: 0;
+		    resize: horizontal;
+		    opacity:0; filter:alpha(opcity=0);
+		    position:relative; z-index:1; left:-20px;
+			cursor: e-resize;
+		}
+		.instead {
+		    width: 17px; height: 20px;
+		    background:url(divide.png) no-repeat center;
+		    position: absolute; right:0; top:160px;
+		}
+		.instead::after { 
+		    content: '↑拖移这个';
+		    line-height: 1;
+		    margin-top: 26px;
+		    color: #fff;
+		    font-style: normal;
+		    position:absolute;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<div class="demo">
+            	<div class="box">
+                	<img src="http://image.zhangxinxu.com/image/study/s/s512/mm1.jpg" />                    
+                    <div class="cover"><textarea></textarea></div>
+                    <i class="instead"></i>
+               </div>
+            </div>
+		</div>
+	</body>
+</html>

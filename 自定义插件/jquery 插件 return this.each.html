@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="三级联动/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<span>1</span>
+        <span>1</span>
+        <span>1</span>
+        <span>1</span>
+        <span id="n5">多层嵌套1</span>
+		<span id="n6">多层嵌套2</span>
+        <script type="text/javascript">
+        	$.fn.color = function(c){
+                this.each(function(){
+                    $(this).css('color', c);
+                })
+            }
+            alert( $('span').color('red') ) //undefined
+             
+            //加了 return this.each... 表示返回jQuery对象，以便链接式操作
+            $.fn.color2 = function(c){
+                return this.each(function(){
+                    $(this).css('color', c);
+                })
+            }
+            alert( $('span').color2('blue').html(123) ) // object
+            
+            
+            $("#n5").wrap( '<div><p><em><b></b></em></p></div>' );
+            $("#n6").wrap( '<div><p> <em><b></b></em></p></div>' );
+        </script>
+	</body>
+</html>

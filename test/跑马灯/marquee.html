@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+		重要属性：
+
+		1.滚动方向direction（包括4个值：up、 down、 left和 right）
+		
+		　　语法：<marquee direction="滚动方向">...</marquee>
+		
+		2.滚动方式behavior（scroll:循环滚动，默认效果； slide:只滚动一次就停止； alternate:来回交替进行滚动）
+		
+		　　语法：<marquee behavior="滚动方式">...</marquee>
+		
+		3.滚动速度scrollamount（滚动速度是设置每次滚动时移动的长度，以像素为单位）
+		
+		　　语法：<marquee scrollamount="5">...</marquee>
+		
+		4.滚动延迟scrolldelay（设置滚动的时间间隔，单位是毫秒）
+		
+		　　语法：<marquee scrolldelay="100">...</marquee>
+		
+		5.滚动循环loop（默认值是-1，滚动会不断的循环下去）
+		
+		　　语法：<marquee loop="2">...</marquee>
+		
+		6.滚动范围width、height
+		
+		7.滚动背景颜色bgcolor
+		
+		8.空白空间hspace、vspace
+				-->
+		<marquee direction="up" behavior="scroll" scrollamount="1" scrolldelay="0" loop="-1" width="1000" height="50" bgcolor="#0099FF" hspace="20" vspace="20">
+		指整个Marquee对齐方式; (2)behavior:设置滚动的方式: scroll:表示由一端滚动到另一端,会重复,缺陷是不能无缝滚动。 slide:表示由一段滚动到另一端,不会重复...
+		</marquee>
+	</body>
+</html>

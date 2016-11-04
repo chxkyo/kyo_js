@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box h3 {
+				text-align: center;
+				position: relative;
+				top: 80px;
+			}
+			
+			.box {
+				width: 70%;
+				height: 200px;
+				background: #fff;
+				margin: 40px auto;
+			}
+			
+			.effect2 {
+				position: relative;
+			}
+			
+			.effect2:before,
+			.effect2:after {
+				z-index: -1;
+				position: absolute;
+				content: "";
+				bottom: 15px;
+				left: 10px;
+				width: 50%;
+				top: 80%;
+				max-width: 300px;
+				background: #777;
+				box-shadow: 0 15px 10px #777;
+				transform: rotate(-3deg);
+			}
+			
+			.effect2:after {
+				transform: rotate(3deg);
+				right: 10px;
+				left: auto;
+			}
+			
+			.effect3 {
+				box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+				position: relative;
+			}
+			
+			.effect3:before,
+			.effect3:after {
+				content: "";
+				position: absolute;
+				z-index: -1;
+				box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+				top: 10px;
+				bottom: 10px;
+				left: 0;
+				right: 0;
+				border-radius: 100px / 10px;
+			}
+			
+			.effect3:after {
+				right: 10px;
+				left: auto;
+				transform: skew(8deg) rotate(3deg);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box effect2">
+			<h3>Effect 2</h3>
+		</div>
+		<div class="box effect3">
+			<h3>effect3</h3>
+		</div>
+	</body>
+
+</html>
