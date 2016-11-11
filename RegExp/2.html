@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/html" id="template">
+			<p>name: {{name}}</p>
+			<p>age: {{age}}</p>
+		</script>
+		<script type="text/javascript">
+			var mtpl = function(tpl,data){
+				var re = /{{(.+?)}}/g,cursor = 0;
+				tpl = tpl.replace(/\s+/gi,"");;
+				while((match = re.exec(tpl)) !== null){
+					console.log(tpl.slice(cursor,match.index));
+					console.log(match[1]);
+					cursor = match.index + match[0].length;
+				}
+				console.log(tpl.substr(cursor,tpl.length - cursor));
+			}
+//			var mtpl = function(tpl,data){
+//				var sTag = "{%";
+//				var eTag = "%}";
+//				tpl = tpl.replace(/\s+/g,"");
+//				var matchs = tpl.split(sTag);//matchs = ["<p>name:","name%}</p><p>age:","age%}</p>"];
+//				for(var i = 0,len = matchs.length;i<len;i++){
+//					var match = matchs[i].split(eTag);
+//					if(match.length == 1){
+//						console.log(match[0]);
+//					}else{
+//						if(match[0]){
+//							console.log(match[0]);
+//						}
+//						if(match[1]){
+//							console.log(match[1]);
+//						}
+//					}
+//				}
+//			}
+			var tpl =  document.getElementById("template").innerHTML;
+			mtpl(tpl,null);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var data = {
+    			name: 'zhaomenghuan',
+    			age: 22
+			}    
+			var code = 'var r=[];\n';
+//			code += "<p>";
+//			code += "this.name";
+//			code += "</p><p>";
+//			code += "this.age";
+//			code += "</p>";
+			code += 'r.push("<p>");\n';
+			code += 'r.push(this.name);\n'
+			code += 'r.push("</p><p>");\n';
+			code += 'r.push(this.age);\n';
+			code += 'r.push("</p>");\n';
+			code += 'return r.join("");';
+			console.log(code);
+			var fn = new Function(code.replace(/[\r\t\n]/g,"")).apply(data);
+			console.log(fn);
+		</script>
+	</body>
+</html>

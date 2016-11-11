@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div class="content">
+		</div>
+		<template id="template">
+			<style>
+				.coloured {
+					color: red;
+				}
+			</style>
+			<p>My favorite colour is: <strong class="coloured">Red</strong></p>
+		</template>
+	</body>
+	<script type="text/javascript">
+		var isSupport = 'content' in document.createElement("template");
+		if(isSupport){
+			var tpl = document.getElementById("template");
+			var content = document.querySelector(".content");
+			var clone = document.importNode(tpl.content,true);
+			content.appendChild(clone);
+		}else{
+			alert("is not support template");
+		}
+	</script>
+
+</html>

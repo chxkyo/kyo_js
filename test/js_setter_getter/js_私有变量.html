@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var Accommodation = (function(){
+				function Accommodation(){}
+				//私有变量
+				var _isLocked = false,
+					_isAlarmed = false,
+					_alarmMessage = "Alarm actiated!";
+				//私有函数
+				function _alarm(){
+					_isAlarmed = true;
+					alert(_alarmMessage);
+				}
+				function _disabledAlarm(){
+					_isAlarmed = false;
+				}
+				//在原型链上定义的为共有的
+				Accommodation.prototype.lock = function(){
+					_isLocked = false;
+					_alarm();
+				}
+				Accommodation.prototype.unlock = function(){
+					_isLocked = true;
+					_disabledAlarm();
+				}
+				Accommodation.prototype.getter = function(){
+					return {_isLocked:_isLocked,_isAlarmed:_isAlarmed};
+				}
+				Accommodation.prototype.setter = function(message){
+					_alarmMessage = message;
+				}
+				return Accommodation;
+			}());
+			var house = new Accommodation();
+			house.lock();
+//			house._alarm();
+//			alert(house._isLocked);
+//			alert(house._isAlarmed);
+			console.log(house.getter()._isLocked);
+			console.log(house.getter()._isAlarmed);
+			house.setter("啦啦啦啦德玛西亚");
+			house.lock();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
