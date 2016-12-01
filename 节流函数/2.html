@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="search" name="search" />
+		<script type="text/javascript">
+			function queryData(text){
+				console.log("搜索: "+text);
+			}
+			/*
+			 * @author kYo
+			 * @description 节流函数
+			 * @param fn 主要执行的函数 context 上下文 delay 定时器时间 text fn的参数 
+			 */
+			function throttle(fn,context,delay,text){
+				clearTimeout(fn.timeoutId);
+				fn.timeoutId = setTimeout(function(){
+					fn.call(context,text);
+				},delay);
+			}
+			
+			document.getElementById("search").addEventListener("keyup",function(){
+				throttle(queryData,null,500,this.value);
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="search" name="search"/>
+		<script type="text/javascript">
+			function queryData(text){
+				console.log("搜索:"+text);
+			}
+			document.getElementById("search").addEventListener("keyup",function(){
+				queryData(this.value);
+			});
+		</script>
+	</body>
+</html>

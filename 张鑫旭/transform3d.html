@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.title_area {
+				text-align: center;
+				font-size: 1.1em;
+			}
+			
+			.title_area:nth-of-type(2) {
+				margin-top: 3em;
+			}
+			
+			.range_area {
+				text-align: center;
+			}
+			
+			[type="range"] {
+				width: 500px;
+			}
+			
+			.stage_area {
+				width: 900px;
+				height: 100px;
+				margin-left: auto;
+				margin-right: auto;
+				padding: 100px 50px;
+				background-color: #f0f0f0;
+				box-shadow: inset 0 0 3px rgba(0, 0, 0, .35);
+				-webkit-transition: top .5s;
+				position: relative;
+				z-index: 2;
+				top: 0;
+			}
+			
+			.perspective {
+				color: #cd0000;
+			}
+			
+			.piece {
+				width: 100px;
+				height: 100px;
+				background-color: #cad5eb;
+				padding: 10px;
+				-moz-box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+				float: left;
+				position: relative;
+			}
+			
+			.chrome_fix {
+				position: absolute;
+				left: 1em;
+				top: 1em;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="main">
+			<div id="body" class="light">
+				<div id="content" class="show">
+					<h3>展示</h3>
+					<div class="demo">
+						<h4 class="title_area">舞台宽度1000像素，整个舞台为视角对象，目前视角大小为perspective: <span id="perspFirst" class="perspective">500</span>px;</h4>
+						<p class="range_area">100 <input type="range" id="rangeFirst" min="100" max="1000" step="100" value="500" autocomplete="off" /> 1000</p>
+						<div id="stageFirst" class="stage_area">
+							<div class="piece"></div>
+							<div class="piece"></div>
+							<div class="piece"></div>
+							<div class="piece"></div>
+							<div class="piece"></div>
+							<div class="piece"></div>
+							<div class="piece"></div>
+							<div class="piece"></div>
+							<div class="piece"></div>
+						</div>
+
+						<h4 class="title_area">舞台宽度1000像素，舞台中的每个方块作为视角对象，目前视角大小为：transform: perspective( <span id="perspSecond" class="perspective">500</span>px );</h4>
+						<p class="range_area">100 <input type="range" id="rangeSecond" min="100" max="1000" step="100" value="500" autocomplete="off" /> 1000</p>
+						<div id="stageSecond" class="stage_area">
+							<div class="piece"></div>
+							<div class="piece"></div>
+							<div class="piece"></div>
+							<div class="piece"></div>
+							<div class="piece"></div>
+							<div class="piece"></div>
+							<div class="piece"></div>
+							<div class="piece"></div>
+							<div class="piece"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			(function() {
+				if(typeof window.screenX === "number") {
+					// 随机颜色HSL
+					var randomHsl = function() {
+							return "hsla(" + Math.round(360 * Math.random()) + "," + "60%, 50%, .75)";
+						}
+						// CSS transform变换应用
+						,
+						transform = function(element, value, key) {
+							key = key || "Transform";
+							["Moz", "O", "Ms", "Webkit", ""].forEach(function(prefix) {
+								element.style[prefix + key] = value;
+							});
+
+							return element;
+						}
+						// 浏览器选择器API
+						,
+						$ = function(selector) {
+							return document.querySelector(selector);
+						},
+						$$ = function(selector) {
+							return document.querySelectorAll(selector);
+						};
+					// 元素遍历的方法
+					Object.prototype.each = function(fn) {
+						var length = this.length;
+						for(var index = 0; index < length; index++) {
+							fn.call(this[index], this[index], index);
+						}
+						return this;
+					};
+
+					// 元素
+					var eleStageFirst = $("#stageFirst"),
+						eleRangeFirst = $("#rangeFirst"),
+						elePieceFirst = $$("#stageFirst > div");
+
+					//
+					[].forEach.call(elePieceFirst, function(ele, index, arr) {
+						ele.style.backgroundColor = randomHsl();
+						ele.style.zIndex = Math.round(100 / Math.abs(4.2 - index));
+						transform(ele, "rotateY(45deg)");
+					});
+
+					Array.prototype.toUpperCase = function() {
+						for(var i = 0; i < this.length; i++) {
+							if(i in this) {
+								console.log(i + " : " + this[i]);
+								if(typeof this[i] === "string") {
+									this[i] = this[i].toUpperCase();
+								} else {
+									throw new TypeError("数组元素只能为字符串");
+								}
+							}
+
+						}
+						return this;
+					}
+
+					try {
+						console.log(["i", "am", "kyo"].toUpperCase());
+					} catch(e) {
+						alert(e.message);
+					}
+
+					//					console.log(''.toUpperCase.call(["i","am","kyo"]).split(","));
+
+					//					elePieceFirst.each(function(element, indexFirst) {
+					//						this.style.backgroundColor = randomHsl();
+					//						this.style.zIndex = Math.round(100 / Math.abs(4.2 - indexFirst));
+					//						transform(this, "rotateY(45deg)");
+					//					});
+
+					eleRangeFirst.addEventListener("change", function() {
+						transform(eleStageFirst, this.value + "px", "Perspective");
+						$("#perspFirst").innerHTML = this.value;
+					});
+					transform(eleStageFirst, eleRangeFirst.value + "px", "Perspective");
+
+					// 第二部分
+					var eleStageSecond = $("#stageSecond"),
+						eleRangeSecond = $("#rangeSecond"),
+						elePieceSecond = $$("#stageSecond > div");
+
+					elePieceSecond.each(function(element, indexSecond) {
+						element.style.backgroundColor = randomHsl();
+						element.style.zIndex = Math.round(100 / Math.abs(4.2 - indexSecond));
+						transform(element, "perspective(" + eleRangeSecond.value + "px) rotateY(45deg)");
+					});
+
+					eleRangeSecond.addEventListener("change", function() {
+						var value = this.value;
+						elePieceSecond.each(function(element, indexSecond) {
+							transform(element, "perspective(" + eleRangeSecond.value + "px) rotateY(45deg)");
+						});
+
+						$("#perspSecond").innerHTML = value;
+					});
+
+					// 垂直位置居中 - Chrome浏览器
+					var funStageValign = function(element) {
+						var scrollTop = document.documentElement.scrollTop,
+							clientHeight = document.documentElement.clientHeight;
+						offsetTop = element.getBoundingClientRect().top;
+
+						if(parseInt(window.getComputedStyle(element).top) === 0) {
+							element.style.top = scrollTop + (window.innerHeight - 300) / 2 - offsetTop;
+						} else {
+							element.style.top = "0px";
+						}
+					};
+
+					if(/chrome/i.test(navigator.userAgent)) {
+						// 创建Chrome浏览器视区修正按钮
+						var eleButtonFirst = document.createElement("input"),
+							eleButtonSecond = document.createElement("input");
+						var arrValue = ["舞台位置窗体区域垂直居中", "垂直位置还原"];
+
+						[eleButtonFirst, eleButtonSecond].forEach(function(button) {
+							button.type = "button";
+							button.value = arrValue[0];
+							button.className = "chrome_fix";
+							button.addEventListener("click", function() {
+								this.value = arrValue[Number(this.value !== arrValue[1])];
+								var stage = this.parentNode;
+								funStageValign(stage);
+
+								if(stage === eleStageFirst) {
+									eleStageSecond.style.zIndex = 2;
+								} else {
+									eleStageFirst.style.zIndex = 2;
+								}
+								stage.style.zIndex = 3;
+							});
+						});
+
+						eleStageFirst.appendChild(eleButtonFirst);
+						eleStageSecond.appendChild(eleButtonSecond);
+					}
+				} else {
+					alert("你好，养猪场不是飞机场，是开不了战斗机的！");
+				}
+			})();
+		</script>
+
+	</body>
+
+</html>

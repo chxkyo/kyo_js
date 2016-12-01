@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图解用HTML5的popstate如何玩转浏览器历史记录</title>
+</head>
+<body>
+
+
+<span class="js-news">新闻</span>
+<span class="js-music">音乐</span>
+<script>
+
+    var locationHref = location.href;
+//  document.addEventListener("click", function (event) {
+//      var target = event.target;
+//      if (target.className == "js-news") {
+//          history.pushState("首页", "", locationHref + "#news");
+//      } else if (target.className == "js-music") {
+//          history.pushState("音乐", "", locationHref + "#music");
+//      }
+//  });
+
+//  document.addEventListener("click",function(event){
+//	     var target = event.target;
+//	     if(target.className == "js-news"){
+//	     history.replaceState("首页","",locationHref + "#news");
+//	     }else if(target.className == "js-music"){
+//	     history.replaceState("音乐","",locationHref + "#music");
+//	     }
+//   });
+
+    window.addEventListener("popstate", function () {
+        console.log(history.state);
+    })
+</script>
+</body>
+</html>

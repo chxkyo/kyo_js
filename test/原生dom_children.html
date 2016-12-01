@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="ul">
+			<div id='i'>
+				<span>1</span>
+			</div>
+			<div id="ii">
+				<span>2</span>
+			</div>
+			<div></div>
+		</div>
+		<script type="text/javascript">
+			var children = document.getElementById("ul").children;
+			for(i in children) {
+				console.log(children[i]);
+			}
+			console.log(Object.keys(children));
+			console.log(Object.getOwnPropertyNames(children));
+			var ultZeroize = function(v, l) {
+				var z = "";
+				l = l || 2;
+				v = String(v);
+				for(var i = 0; i < l - v.length; i++) {
+					z += "0";
+				}
+				return z + v;
+			}
+			console.log(ultZeroize(5));
+			console.log(ultZeroize(20));
+		</script>
+	</body>
+
+</html>

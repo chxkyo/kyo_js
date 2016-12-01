@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				overflow-x: hidden;
+			}
+			
+			ul {
+				padding: 0;
+				margin: 0;
+				list-style-type: none;
+			}
+			
+			.cr {
+				color: #cd0000;
+			}
+			
+			.equal_height {
+				width: 100%;
+				height: 9999px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			.cho_link,
+			.cho_btn,
+			.cho_desc,
+			.cho_asc {
+				background: url(../image/choose_bg.png) no-repeat;
+			}
+			
+			.cho_search {
+				width: 170px;
+				margin-right: -20px;
+				padding-right: 20px;
+				*vertical-align: -2px;
+			}
+			
+			.cho_box {
+				border: 1px solid #bfbfbf;
+				background-color: #ebebeb;
+				*position: relative;
+				overflow-y: hidden;
+			}
+			
+			.cho_line {
+				display: block;
+				padding-top: 2px;
+				background-color: #d2d2d2;
+				border-bottom: 1px solid #f0f0f0;
+			}
+			
+			.cho_left {
+				width: 20%;
+				margin-right: 10px;
+				float: left;
+				position: relative;
+			}
+			
+			.cho_equal_height {
+				border-right: 1px solid #ccc;
+				background-color: #fff;
+			}
+			
+			.cho_menu {
+				padding-bottom: 72px;
+				padding-top: 1px;
+			}
+			
+			.cho_link,
+			.cho_link_on {
+				display: block;
+				line-height: 32px;
+				padding-left: 19px;
+				color: #333;
+				*zoom: 1;
+			}
+			
+			.cho_link {
+				background-color: #fafafa;
+				border-bottom: 1px solid #f6f6f6;
+				outline: none;
+			}
+			
+			.cho_link:hover {
+				background: #f6f6f6;
+				border-bottom: 1px solid #e0e0e0;
+				text-decoration: none;
+			}
+			
+			.cho_link_on {
+				margin: -1px -1px 0 0;
+				background: #ebebeb;
+				border-bottom: 1px solid #ccc;
+				border-top: 1px solid #ccc;
+				position: relative;
+				cursor: default;
+			}
+			
+			.cho_link_on:first-child {
+				border-top: 0;
+			}
+			
+			.cho_link_on:hover {
+				text-decoration: none;
+			}
+			
+			.cho_list,
+			.cho_list_title {
+				line-height: 21px;
+				padding: 5px 20px;
+				border-bottom: 1px solid #d9d9d9;
+			}
+			
+			.cho_list_title {
+				border-bottom-color: #ccc;
+			}
+			
+			.cho_list_hover,
+			.cho_list:hover {
+				background-color: #f3f3f3;
+			}
+			
+			.cho_list_on,
+			.cho_list_on:hover {
+				background-color: #fbfbfb;
+			}
+			
+			.cho_loading {
+				height: 400px;
+				background: url(http://www.zhangxinxu.com/study/image/loading.gif) no-repeat 35% center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="main">
+			<h1>HTML5 history API与ajax分页实例页面</h1>
+			<div id="body" class="light">
+				<div id="content" class="show">
+					<h3>展示</h3>
+					<div class="article_new">
+						<a href="http://www.zhangxinxu.com/wordpress/?p=3432">回到相关文章 »</a>
+					</div>
+					<div class="demo">
+						<h4 class="tc f14">上海3月开盘项目汇总</h4>
+						<div class="mt10 cho_box z">
+							<b class="cho_line"></b>
+							<div class="fix">
+								<!-- 左边的选菜项 -->
+								<div class="cho_left">
+									<div class="equal_height cho_equal_height"></div>
+									<ul id="choMenu" class="rel cho_menu">
+										<li>
+											<a href="http://www.zhangxinxu.com/study/201306/ajax.php?area=pudong" class="cho_link">浦东区<span class="ml20">8</span></a>
+										</li>
+										<li>
+											<a href="http://www.zhangxinxu.com/study/201306/ajax.php?area=baoshan" class="cho_link">宝山区<span class="ml20">7</span></a>
+										</li>
+										<li>
+											<a href="http://www.zhangxinxu.com/study/201306/ajax.php?area=jiading" class="cho_link">嘉定区<span class="ml20">8</span></a>
+										</li>
+										<li>
+											<a href="http://www.zhangxinxu.com/study/201306/ajax.php?area=qingpu" class="cho_link">青浦区<span class="ml20">3</span></a>
+										</li>
+										<li>
+											<a href="http://www.zhangxinxu.com/study/201306/ajax.php?area=minhang" class="cho_link">闵行区<span class="ml20">4</span></a>
+										</li>
+										<li>
+											<a href="http://www.zhangxinxu.com/study/201306/ajax.php?area=putuo" class="cho_link">普陀区<span class="ml20">2</span></a>
+										</li>
+										<li>
+											<a href="http://www.zhangxinxu.com/study/201306/ajax.php?area=jinshan" class="cho_link">金山区<span class="ml20">3</span></a>
+										</li>
+										<li>
+											<a href="http://www.zhangxinxu.com/study/201306/ajax.php?area=songjiang" class="cho_link">松江区<span class="ml20">3</span></a>
+										</li>
+										<li>
+											<a href="http://www.zhangxinxu.com/study/201306/ajax.php?area=zhabei" class="cho_link">闸北区<span class="ml20">1</span></a>
+										</li>
+										<li>
+											<a href="http://www.zhangxinxu.com/study/201306/ajax.php?area=fengxian" class="cho_link">奉贤区<span class="ml20">5</span></a>
+										</li>
+										<li>
+											<a href="http://www.zhangxinxu.com/study/201306/ajax.php?area=huangpu" class="cho_link">黄浦区<span class="ml20">1</span></a>
+										</li>
+										<li>
+											<a href="http://www.zhangxinxu.com/study/201306/ajax.php?area=changning" class="cho_link">长宁区<span class="ml20">1</span></a>
+										</li>
+										<li>
+											<a href="http://www.zhangxinxu.com/study/201306/ajax.php?area=jingan" class="cho_link">静安区<span class="ml20">1</span></a>
+										</li>
+										<li>
+											<a href="http://www.zhangxinxu.com/study/201306/ajax.php?area=zhoubian" class="cho_link">上海周边<span class="ml20">1</span></a>
+										</li>
+									</ul>
+								</div>
+
+								<!-- 右侧主列表 -->
+								<div class="cell">
+									<ul class="fix cho_list_title">
+										<li class="l pct20">楼盘名</li>
+										<li class="l pct30">价格</li>
+										<li class="cell">项目地址</li>
+									</ul>
+									<div id="listBox">
+										<div class="cho_loading"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script id="tempChoList" type="text/template">
+			<ul class="fix cho_list">
+				<li class="l pct20">$name$</li>
+				<li class="l pct30">$price$</li>
+				<li class="cell">$address$</li>
+			</ul>
+		</script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script>
+			var eleMenuOn = null,
+				eleListBox = $("#listBox"),
+				tempList = $("#tempChoList").html(),
+				clMenuOn = "cho_link_on";
+
+			String.prototype.temp = function(obj) {
+				return this.replace(/\$\w+\$/gi, function(matchs) {
+					var returns = obj[matchs.replace(/\$/g, "")];
+					return(returns + "") == "undefined" ? "" : returns;
+				});
+			};
+			var eleMenus = $("#choMenu a").bind("click", function(event) {
+				var query = this.href.split("?")[1];
+				if(history.pushState && query && !$(this).hasClass(clMenuOn)) {
+					eleMenuOn && eleMenuOn.removeClass("cho_link_on");
+					eleMenuOn = $(this).addClass("cho_link_on");
+					eleListBox.html('<div class="cho_loading"></div>');
+					$.ajax({
+						url: this.href,
+						dataType: "json",
+						success: function(data) {
+							var html = '';
+							if($.isArray(data)) {
+								$.each(data, function(i, obj) {
+									html += tempList.temp(obj);
+								});
+							}
+							eleListBox.html(html || '<div class="tc cr pt30">丫的没数据啊！</div>');
+						},
+						error: function() {
+							eleListBox.html('<div class="tc cr pt30">数据获取失败！</div>');
+						}
+					});
+
+					// history处理
+					var title = "上海3月开盘项目汇总-" + $(this).text().replace(/\d+$/, "");
+					document.title = title;
+					//点击前进后退不会push
+					if(event && /\d/.test(event.button)) {
+						history.pushState({
+							title: title
+						}, title, location.href.split("?")[0] + "?" + query);
+					}
+				}
+				return false;
+			});
+
+			var fnHashTrigger = function(target) {
+				var query = location.href.split("?")[1],
+					eleTarget = target || null;
+				if(typeof query == "undefined") {
+					if(eleTarget = eleMenus.get(0)) {
+						history.replaceState(null, document.title, location.href.split("#")[0] + "?" + eleTarget.href.split("?")[1]) + location.hash;
+						fnHashTrigger(eleTarget);
+					}
+				} else {
+					eleMenus.each(function() {
+						if(eleTarget === null && this.href.split("?")[1] === query) {
+							eleTarget = this;
+						}
+					});
+
+					if(!eleTarget) {
+						history.replaceState(null, document.title, location.href.split("?")[0]);
+						fnHashTrigger();
+					} else {
+						$(eleTarget).trigger("click");
+					}
+				}
+			};
+			if(history.pushState) {
+				window.addEventListener("popstate", function() {
+					fnHashTrigger();
+				});
+
+				// 默认载入
+				fnHashTrigger();
+			}
+		</script>
+	</body>
+
+</html>
