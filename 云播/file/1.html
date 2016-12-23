@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			.filePicker {
+				width: 160px;
+				height: 44px;
+				line-height: 44px;
+				text-align: center;
+				color: #fff;
+				background: #00b7ee;
+			}
+			
+			.filePicker input[type="file"] {
+				position: relative;
+				top: -44px;
+				left: 0px;
+				width: 160px;
+				height: 44px;
+				opacity: 0;
+				cursor: pointer;
+				overflow: hidden;
+				z-index: 0;
+			}
+			
+			.container {
+				width: 160px;
+				margin: 30px auto;
+			}
+			
+			.ui_button {
+				display: inline-block;
+				line-height: 38px;
+				font-size: 14px;
+				text-align: center;
+				color: #545a6c;
+				border: 1px solid #d0d0d5;
+				border-radius: 4px;
+				padding: 0 15px;
+				min-width: 50px;
+				background-color: #fff;
+				background-repeat: no-repeat;
+				background-position: center;
+				-webkit-transition: border-color .15s, background-color .15s;
+				transition: border-color .15s, background-color .15s;
+				outline: 0 none;
+				cursor: pointer;
+				overflow: visible
+			}
+			
+			.ui_button_primary {
+				border: 1px solid #00a5e0;
+				background-color: #00a5e0;
+				color: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="filePicker">
+				<label>点击选择文件</label>
+				<input id="fileInput" type="file" name="file" multiple="multiple" accept="image/*">
+			</div>
+
+			<div class="otherfilepicker" style="margin-top:100px;">
+				<label for="xfile" class="ui_button ui_button_primary">上传文件</label>
+				<form action="">
+					<input type="file" id="xFile" style="position: absolute;clip:rect(0,0,0,0);" />
+				</form>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var inputFile = document.getElementById("fileInput");
+			function readFileSize(file){
+			    var size = file.size / 1024;
+			    var aMultiples = ["KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+			    
+			    var fileSizeString = '';
+			    for(var i = 0; size > 1; size /= 1024, i++) {
+			       fileSizeString = size.toFixed(2) + " " + aMultiples[i];
+			    }
+			    return fileSizeString;
+			}
+			inputFile.addEventListener("change",function(){
+				console.log(inputFile.files[0]);
+				console.log(readFileSize(inputFile.files[0]));
+			});
+		</script>
+	</body>
+
+</html>

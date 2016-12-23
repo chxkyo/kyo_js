@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.child{
+				width:60px;
+				height: 60px;
+			}
+			img{
+				vertical-align: middle;
+				max-width: 100%;
+				height: auto;
+			}
+			.lazyload,
+			.lazyloading{
+			    opacity: 0;
+			}
+			.lazyloaded{
+			    opacity: 1;
+			    transition: opacity 500ms; //加上transition就可以实现渐现的效果
+			}
+					</style>
+		<script src="lazysize.min.js"></script>
+	</head>
+	<body>
+		<div class="parent">
+			<div class="child">
+				<img src="images/lazyload.gif" alt="" data-src="images/temp.jpg" class="lazyload">
+			</div>
+		</div>
+	</body>
+</html>

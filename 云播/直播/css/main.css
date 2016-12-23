@@ -1,0 +1,11 @@
+/*header*/
+.header .header-child{
+	width:1140px;
+	margin:0 auto;
+	height: 30px;
+	line-height: 30px;
+	padding: 15px 0px;
+}
+.header .fr div a{
+	margin: 0px 10px;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="ui.css" />
+		<style type="text/css">
+		.delete > img {
+			vertical-align: -2px;
+		}
+		.demo,
+		.ui_dropanel_x {
+			font-family: 'microsoft yahei';
+		}
+
+		</style>
+	</head>
+
+	<body>
+		<div class="show">
+			<div class="demo">
+				<a href="javascript:" class="delete"><img src="http://www.zhangxinxu.com/study/201610/delete.png" width="16" height="16"> 删除我</a>
+			</div>
+		</div>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/dropPanel.js"></script>
+		<script type="text/javascript">
+			new DropPanel($('.delete'), {
+				title: "标题",
+				content: '确定删除？'	
+			});
+		</script>
+	</body>
+
+</html>

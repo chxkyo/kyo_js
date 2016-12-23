@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.mulit_line {
+				line-height: 150px;
+				border: 1px dashed #cccccc;
+				padding-left: 5px;
+			}
+			
+			.mulit_line span {
+				display: -moz-inline-stack;
+				display: inline-block;
+				line-height: 1.4em;
+				vertical-align: middle;
+			}
+			
+			.mulit_line i {
+				width: 0;
+				display: -moz-inline-stack;
+				display: inline-block;
+				vertical-align: middle;
+				font-size: 0;
+			}
+			
+			.zxx_align_box_2 {
+				display: table-cell;
+				width: 550px;
+				height: 1.14em;
+				padding: 0 0.1em;
+				border: 4px solid #beceeb;
+				color: #069;
+				font-size: 10em;
+				vertical-align: middle;
+			}
+			
+			.zxx_align_box_2 span.zxx_align_word {
+				display: inline-block;
+				font-size: 0.1em;
+				vertical-align: middle;
+			}
+		</style>
+	</head>
+
+	<body>
+		<p class="mulit_line">
+			<span style="font-size:12px;">这里是高度为150像素的标签内的多行文字，文字大小为12像素。<br />这里是第二行，用来测试多行的显示效果。</span><i>&nbsp;</i>
+		</p>
+		<div class="zxx_align_box_2"><span class="zxx_align_word">这里显示多行文字。<br />这里是第二行，用来测试多行的显示效果。</span></div>
+	</body>
+
+</html>

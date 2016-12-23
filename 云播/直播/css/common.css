@@ -1,0 +1,38 @@
+@charset "utf-8";
+/*reset*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, input, button, textarea, p, th, td { margin:0; padding:0; }
+table, td { border-collapse:collapse; border:0; }
+a img, img { border:0; }
+li { list-style:none; }
+h1, h2, h3, h4, h5, h6 { font-size:100%; font-weight:normal;}
+input { border:0; font-size:100%; }
+button, input, select, textarea { font:13px/1.5 "微软雅黑"; vertical-align:middle; }
+font { font-size:12px; }
+/* end reset */
+/* ==float clear && grid == */
+.fix { clear:both; zoom:1; }
+.fix:after { display:block; clear:both; height:0; overflow:hidden; visibility:hidden; content:"."; }
+/*common*/
+body { font:12px/1.5 "微软雅黑"; color:#717171;}
+a { color:#66717c; text-decoration:none; }
+a:hover { text-decoration:underline; color:#36b9fd; }
+.arial { font-family:Arial, Helvetica, sans-serif;}
+.red { color:red;}
+.fl { float:left;}
+.fr { float:right;}
+
+.goup { display:none; position:fixed; width:45px; height:45px; right:0; bottom:122px; background:url(../images/gotop.png) no-repeat;}
+/*分页*/
+.nodeDestory { text-align:right;}
+.ndLeft { display:inline-block; line-height:26px; margin-right:10px; vertical-align:bottom;}
+.pageList{ display:inline-block;}
+.pageList a{display:inline-block;height:24px;line-height:24px;padding:0px 8px; margin:0 1px; border:1px solid #dfdfdf;color:#333;font-size:12px; vertical-align:top;}
+.pageList a:hover,.pageList a.current,.pageList a.current:hover{border:1px solid #f8dcec;background:#ffbfbb; color:#666; text-decoration:none;}
+.pageListClear{float:none;}
+
+/*dataTable*/
+.dataTable table { margin:10px 0; width:100%;}
+.dataTable table th { background:#8eceff; height:30px; font-weight:normal; color:#fff; border:1px solid #e5e5e5;}
+.dataTable table td { border:1px solid #e5e5e5; padding:5px 0; text-align:center;}
+.dataTable table td .act a { display:inline-block; width:10px; height:11px; margin:0 3px;}
+.dataTable table td .act .del { background:url(../../images/user/del.png) no-repeat center center;}
