@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>图片列表延迟加载技术</title>
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+		<link rel="stylesheet" href="css/reset.css">
+		<script src="js/zepto.min.js"></script>
+		<script>
+			$(function() {
+				var imgList = [];
+				$.ajax({
+					url: 'https://git-onepixel.github.io/lazy/data/pic.json?v=1',
+					dataType: 'json',
+					success: function(data) {
+						var html = [];
+						data.forEach(function(obj) {
+							html.push('<li class="nopic"><img data-src="' + obj.src + '" ></li>')
+						});
+						$('ul').html(html.join(''));
+						imgList = document.querySelectorAll('li img');
+						lazyLoad()
+					}
+				});
+				function getOffsetTop(ele){
+					if(ele){
+						var offsetTop = ele.offsetTop;
+						var offsetParent = ele.offsetParent;
+						while(offsetParent != null){
+							offsetTop += offsetParent.offsetTop;
+							offsetParent = offsetParent.offsetParent;
+						}
+						return offsetTop;
+					}
+				}
+
+				function lazyLoad() {
+					var windowHeight = window.innerHeight;
+					var scrollTop = document.body.scrollTop;
+					for(var i = 0; i < imgList.length; i++) {
+						var obj = imgList[i];
+						if(!obj.src) {
+							if((getOffsetTop(obj) - scrollTop) < windowHeight) {
+								obj.src = obj.getAttribute('data-src');
+								obj.parentNode.className = 'show'
+							} else {
+								break;
+							}
+						}
+					}
+					//还没有展示出来的图片
+					imgList = Array.prototype.filter.call(imgList, function(o) {
+						return !o.src
+					});
+				}
+
+				document.addEventListener('scroll', function() {
+					if(imgList.length) {
+						lazyLoad()
+					}
+				})
+
+			})
+		</script>
+		<style>
+			html,
+			body {
+				height: 100%
+			}
+			
+			body {
+				overflow: auto;
+				-webkit-overflow-scrolling: touch;
+				background: #fff;
+			}
+			
+			ul {
+				text-align: center;
+				padding: 15px 0;
+				font-size: 0;
+			}
+			
+			li {
+				margin: 2%;
+				display: inline-block;
+				width: 42%;
+			}
+			
+			li.show {
+				-webkit-animation: show 0.4s ease-out;
+			}
+			
+			li.nopic {
+				background: url("https://assets.alicdn.com/mw/s/common/icons/nopic/no-90.png") no-repeat;
+				background-size: 100% 100%;
+				background-position: center center;
+				padding: 21%;
+				box-sizing: border-box;
+			}
+			
+			ul img {
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+			
+			@-webkit-keyframes show {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul></ul>
+	</body>
+
+</html>
