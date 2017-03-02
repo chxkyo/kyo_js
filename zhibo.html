@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="format-detection" content="telephone=no">
+		<!--<meta name="screen-orientation" content="portrait">-->
+		<!--<meta name="x5-orientation" content="portrait">-->
+		<style type="text/css">
+			a,
+			abbr,
+			acronym,
+			address,
+			applet,
+			article,
+			aside,
+			audio,
+			b,
+			big,
+			blockquote,
+			body,
+			canvas,
+			caption,
+			center,
+			cite,
+			code,
+			dd,
+			del,
+			details,
+			dfn,
+			div,
+			dl,
+			dt,
+			em,
+			embed,
+			fieldset,
+			figcaption,
+			figure,
+			footer,
+			form,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			header,
+			hgroup,
+			html,
+			i,
+			iframe,
+			img,
+			ins,
+			kbd,
+			label,
+			legend,
+			li,
+			mark,
+			menu,
+			nav,
+			object,
+			ol,
+			output,
+			p,
+			pre,
+			q,
+			ruby,
+			s,
+			samp,
+			section,
+			small,
+			span,
+			strike,
+			strong,
+			sub,
+			summary,
+			sup,
+			table,
+			tbody,
+			td,
+			tfoot,
+			th,
+			thead,
+			time,
+			tr,
+			tt,
+			u,
+			ul,
+			var,
+			video {
+				margin: 0;
+				padding: 0;
+				border: 0;
+				font: inherit;
+				vertical-align: baseline
+			}
+			
+			article,
+			aside,
+			details,
+			figcaption,
+			figure,
+			footer,
+			header,
+			hgroup,
+			menu,
+			nav,
+			section {
+				display: block
+			}
+			
+			body {
+				line-height: 1
+			}
+			
+			ol,
+			ul {
+				list-style: none
+			}
+			
+			blockquote,
+			q {
+				quotes: none
+			}
+			
+			blockquote:after,
+			blockquote:before,
+			q:after,
+			q:before {
+				content: none
+			}
+			
+			table {
+				border-collapse: collapse;
+				border-spacing: 0
+			}
+			
+			address,
+			caption,
+			cite,
+			code,
+			dfn,
+			em,
+			i,
+			th,
+			var {
+				font-style: normal;
+				font-weight: 500
+			}
+			
+			a img,
+			fieldset,
+			img {
+				border: 0
+			}
+			
+			a {
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				text-decoration: none
+			}
+			
+			.clearfix:after {
+				content: "";
+				display: block;
+				height: 0;
+				clear: both;
+				visibility: hidden
+			}
+			
+			.clearfix {
+				zoom: 1
+			}
+			
+			body,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			html,
+			p {
+				margin: 0;
+				padding: 0
+			}
+			
+			html {
+				font-size: 12px;
+				-webkit-text-size-adjust: 100%
+			}
+			
+			a,
+			body,
+			button,
+			input,
+			select,
+			textarea {
+				font-family: "微软雅黑", "Microsoft Yahei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif
+			}
+		</style>
+		<style type="text/css">
+			.maincontainer {
+				background: #ebebeb;
+			}
+			
+			.maincontainer,
+			.play-wrap,
+			.video_wrap {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.live-player {
+				background-color: #000;
+				overflow: hidden;
+				height: 400px;
+			}
+			
+			.video_wrap video {
+				display: inline-block;
+				margin: auto;
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0
+			}
+			
+			.video_wrap .h5_player_tip_btn {
+				background-size: 100% 100%;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 4;
+			}
+			
+			.video_wrap .h5_player_pause {
+				width: 93px;
+				height: 93px;
+				top: 50%;
+				margin-left: -46px;
+				margin-top: -46.5px;
+				background-position: left -193px
+			}
+			
+			.video_wrap .h5_player_pause,
+			.video_wrap .h5_player_waiting {
+				left: 50%;
+				background-image: url(http://static.huajiao.com/huajiao/activity/resource_dev/share/image/icons_1-86a6beae66.png);
+				z-index: 4;
+				position: absolute
+			}
+			
+			.hjPopbox {
+				position: absolute;
+				left: 10px;
+				height: 20%;
+				top: 20%;
+				z-index: 8;
+				width: 240px;
+				overflow: hidden
+			}
+			
+			.hjPopbox .hj_showArea {
+				width: 100%;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				overflow: hidden
+			}
+			
+			.hjPopbox .hj_showArea ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				width: 100%;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+			}
+			
+			.hjPopbox .hj_showArea li {
+				list-style: none;
+				display: table;
+				border-radius: 5px;
+				box-sizing: border-box;
+				padding: 4px 8px;
+				font-size: 14px;
+				line-height: 14px;
+				color: #FFF;
+				-webkit-text-shadow: 0 1px 0 #000;
+				-moz-text-shadow: 0 1px 0 #000;
+				-ms-text-shadow: 0 1px 0 #000;
+				-o-text-shadow: 0 1px 0 #000;
+				text-shadow: 0 1px 0 #000;
+				-webkit-transition: opacity .3s;
+				-moz-transition: opacity .3s;
+				-ms-transition: opacity .3s;
+				-o-transition: opacity .3s;
+				transition: opacity .3s
+			}
+			
+			.js_playerArea .level_info {
+				width: 29px;
+				height: 15px;
+				line-height: 15px;
+				display: inline-block;
+				background: url(http://p1.qhimg.com/d/inn/fef6565a/level.png) no-repeat;
+				background-position: -29px 0;
+				background-size: 145px 105px;
+				font-style: normal;
+				font-size: 9px;
+				color: #fff;
+				padding: 0 4px 0 11px;
+				-webkit-box-sizing: border-box;
+				-ms-box-sizing: border-box;
+				-o-box-sizing: border-box;
+				box-sizing: border-box;
+				text-align: center;
+				margin-right: 3px
+			}
+			
+			.js_playerArea .level_1 {
+				background: url(http://p1.qhimg.com/d/inn/fef6565a/level.png) no-repeat;
+				background-position: -29px 0;
+				background-size: 145px 105px
+			}
+			
+			.js_playerArea .level_2 {
+				background: url(http://p1.qhimg.com/d/inn/fef6565a/level.png) no-repeat;
+				background-position: -87px -15px;
+				background-size: 145px 105px
+			}
+			
+			.js_playerArea .level_3 {
+				background: url(http://p1.qhimg.com/d/inn/fef6565a/level.png) no-repeat;
+				background-position: 0 -15px;
+				background-size: 145px 105px
+			}
+			
+			.js_playerArea .level_4 {
+				background: url(http://p1.qhimg.com/d/inn/fef6565a/level.png) no-repeat;
+				background-position: -29px -15px;
+				background-size: 145px 105px
+			}
+			
+			.js_playerArea .level_5 {
+				background: url(http://p1.qhimg.com/d/inn/fef6565a/level.png) no-repeat;
+				background-position: 0 -30px;
+				background-size: 145px 105px
+			}
+			
+			.js_playerArea .level_6 {
+				background: url(http://p1.qhimg.com/d/inn/fef6565a/level.png) no-repeat;
+				background-position: -29px -30px;
+				background-size: 145px 105px
+			}
+			
+			.js_playerArea .level_7 {
+				background: url(http://p1.qhimg.com/d/inn/fef6565a/level.png) no-repeat;
+				background-position: -58px 0;
+				background-size: 145px 105px
+			}
+			
+			.js_playerArea .level_8 {
+				background: url(http://p1.qhimg.com/d/inn/fef6565a/level.png) no-repeat;
+				background-position: -58px -15px;
+				background-size: 145px 105px
+			}
+			
+			.js_playerArea .level_9 {
+				background: url(http://p1.qhimg.com/d/inn/fef6565a/level.png) no-repeat;
+				background-position: -58px -30px;
+				background-size: 145px 105px
+			}
+			
+			.js_playerArea .level_10 {
+				background: url(http://p1.qhimg.com/d/inn/fef6565a/level.png) no-repeat;
+				background-position: 0 -45px;
+				background-size: 145px 105px
+			}
+			
+			.hjPopbox .color_0 {
+				color: #EFBA35
+			}
+			
+			.hjPopbox .hj_showArea .type_follow {
+				color: #1daeff
+			}
+			
+			.hjPopbox .hj_showArea .type_gift {
+				color: #1daeff
+			}
+			
+			.top {
+				position: absolute;
+				width: 100%;
+				height: 54px;
+				left: 0;
+				top: 4px;
+				z-index: 9;
+				padding: 10px 0 0
+			}
+			
+			.author-avatar {
+				position: relative;
+				width: 100px;
+				height: 30px;
+				border-radius: 30px;
+				padding: 0 10px 0 0;
+				display: block;
+				background: rgba(0, 0, 0, .2);
+				left: 10px
+			}
+			
+			.js_hj_download {
+				cursor: hand;
+				cursor: pointer
+			}
+			
+			.author-span {
+				position: relative;
+				display: inline-block;
+				float: left
+			}
+			
+			.author-avatar img {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				margin-right: 10px
+			}
+			
+			.author-span .vip,
+			.paper-sm,
+			.red-paper {
+				position: absolute;
+				background-repeat: no-repeat;
+				background-image: url(http://static.huajiao.com/huajiao/activity/resource_dev/share/image/icons-09a154c2a9.png)
+			}
+			
+			.author-span .vip {
+				width: 15px;
+				height: 15px;
+				right: 10px;
+				top: 15px;
+				background-position: -122px -423px;
+				background-size: 151px 519px
+			}
+			
+			.author-avatar h3,
+			.author-avatar p {
+				width: 60px;
+				font-size: 12px;
+				color: #fff;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap
+			}
+			
+			.author-avatar h3 {
+				height: 12px;
+				padding-top: 3px
+			}
+			
+			.follow,
+			.notice_txt {
+				font-size: 16px;
+				position: absolute
+			}
+			
+			.follow {
+				float: right;
+				width: 80px;
+				height: 30px;
+				border-radius: 30px;
+				-moz-border-radius: 30px;
+				background: #fc0;
+				top: 10px;
+				right: 10px;
+				text-align: center;
+				line-height: 30px;
+				color: #333
+			}
+			
+			.hj-userid,
+			.hj-userid-inner,
+			.typeTest {
+				color: #fff;
+				padding: 8px 10px;
+				font-size: 12px
+			}
+			
+			.hj-userid,
+			.hj-userid-inner {
+				position: relative;
+				background: rgba(0, 0, 0, .2);
+				border-bottom-right-radius: 30px;
+				border-top-right-radius: 30px;
+				-moz-border-bottom-right-radius: 30px;
+				-moz-border-top-right-radius: 30px;
+				width: 102px
+			}
+			
+			.hj-userid-inner {
+				margin-top: 10px
+			}
+			
+			.tool-bar {
+				position: absolute;
+				left: 0;
+				bottom: 10px;
+				width: 100%;
+				z-index: 102
+			}
+			
+			.author-leave,
+			.author-leave img,
+			.give-gift,
+			.line-slow,
+			.toolsArea {
+				position: absolute
+			}
+			
+			.gift-icon,
+			.give-gift {
+				height: 57px;
+				background-image: url(http://static.huajiao.com/huajiao/activity/resource_dev/share/image/icons-09a154c2a9.png);
+				background-repeat: no-repeat
+			}
+			
+			.give-gift {
+				display: none;
+				cursor: pointer;
+				width: 140px;
+				line-height: 57px;
+				right: 0;
+				top: -100px;
+				font-size: 16px;
+				color: #fff;
+				background-position: left -695px
+			}
+			
+			.gift-icon,
+			.paper-sm {
+				transform-origin: center center;
+				-webkit-animation: shake-horizontal 3s linear infinite;
+				-moz-animation: shake-horizontal 3s linear infinite;
+				-o-animation: shake-horizontal 3s linear infinite;
+				animation: shake-horizontal 3s linear infinite
+			}
+			
+			.gift-icon {
+				margin-top: 0;
+				width: 57px;
+				display: inline-block;
+				background-position: -23px -831px;
+				margin-left: 5px;
+				vertical-align: middle
+			}
+			
+			@keyframes shake-horizontal {
+				75% {
+					transform: translate(1px, 0) rotate(0)
+				}
+				75.5% {
+					transform: translate(4px, 0) rotate(0)
+				}
+				76% {
+					transform: translate(7px, 0) rotate(0)
+				}
+				76.5%,
+				77% {
+					transform: translate(-1px, 0) rotate(0)
+				}
+				77.5% {
+					transform: translate(1px, 0) rotate(0)
+				}
+				78% {
+					transform: translate(-3px, 0) rotate(0)
+				}
+				78.5% {
+					transform: translate(-8px, 0) rotate(0)
+				}
+				79% {
+					transform: translate(-9px, 0) rotate(0)
+				}
+				79.5% {
+					transform: translate(-3px, 0) rotate(0)
+				}
+				80% {
+					transform: translate(-9px, 0) rotate(0)
+				}
+				80.5% {
+					transform: translate(1px, 0) rotate(0)
+				}
+				81% {
+					transform: translate(10px, 0) rotate(0)
+				}
+				81.5% {
+					transform: translate(9px, 0) rotate(0)
+				}
+				82% {
+					transform: translate(-2px, 0) rotate(0)
+				}
+				82.5% {
+					transform: translate(9px, 0) rotate(0)
+				}
+				83% {
+					transform: translate(2px, 0) rotate(0)
+				}
+				83.5% {
+					transform: translate(-5px, 0) rotate(0)
+				}
+				84% {
+					transform: translate(3px, 0) rotate(0)
+				}
+				84.5% {
+					transform: translate(0, 0) rotate(0)
+				}
+				85% {
+					transform: translate(4px, 0) rotate(0)
+				}
+				85.5% {
+					transform: translate(-7px, 0) rotate(0)
+				}
+				86% {
+					transform: translate(-4px, 0) rotate(0)
+				}
+				86.5% {
+					transform: translate(9px, 0) rotate(0)
+				}
+				87% {
+					transform: translate(-6px, 0) rotate(0)
+				}
+				87.5% {
+					transform: translate(-3px, 0) rotate(0)
+				}
+				88% {
+					transform: translate(3px, 0) rotate(0)
+				}
+				88.5% {
+					transform: translate(6px, 0) rotate(0)
+				}
+				89% {
+					transform: translate(-5px, 0) rotate(0)
+				}
+				89.5% {
+					transform: translate(-6px, 0) rotate(0)
+				}
+				90%,
+				90.5% {
+					transform: translate(8px, 0) rotate(0)
+				}
+				91% {
+					transform: translate(-7px, 0) rotate(0)
+				}
+				91.5% {
+					transform: translate(8px, 0) rotate(0)
+				}
+				92% {
+					transform: translate(6px, 0) rotate(0)
+				}
+				92.5% {
+					transform: translate(5px, 0) rotate(0)
+				}
+				93% {
+					transform: translate(6px, 0) rotate(0)
+				}
+				93.5% {
+					transform: translate(7px, 0) rotate(0)
+				}
+				94% {
+					transform: translate(-2px, 0) rotate(0)
+				}
+				94.5% {
+					transform: translate(1px, 0) rotate(0)
+				}
+				95% {
+					transform: translate(0, 0) rotate(0)
+				}
+				95.5% {
+					transform: translate(-6px, 0) rotate(0)
+				}
+				96% {
+					transform: translate(0, 0) rotate(0)
+				}
+				96.5% {
+					transform: translate(1px, 0) rotate(0)
+				}
+				97% {
+					transform: translate(-1px, 0) rotate(0)
+				}
+				0%,
+				100% {
+					transform: translate(0, 0) rotate(0)
+				}
+			}
+			
+			.tool-bar-open,
+			.tool-bar-open-redpackage {
+				margin-right: 10px;
+				position: absolute;
+				right: 0
+			}
+			
+			.tool-bar-open {
+				line-height: 23px;
+				color: #000;
+				display: block;
+				padding: 7px 10px 7px 0;
+				border-radius: 5px;
+				background-image: url(http://static.huajiao.com/huajiao/activity/resource_dev/share/image/live/sun-34e2d0089b.png);
+				background-size: 100% 100%;
+				top: -83px;
+				width: 68px;
+				height: 66px
+			}
+			
+			.tool-bar-left {
+				width: 95%;
+				height: 40px;
+				margin: 0 auto;
+				border: 1px solid #fff;
+				color: #333;
+				border-radius: 30px;
+				position: relative
+			}
+			
+			.tool-bar-left .bg {
+				height: 100%;
+				width: 100%;
+				border-radius: 30px;
+				filter: alpha(opacity=70);
+				opacity: .7;
+				line-height: 40px;
+				text-align: left;
+				background: #fff;
+				font-size: 16px;
+				float: left
+			}
+			
+			.tool-bar-left .name {
+				max-width: 135px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				float: left;
+				padding-left: 10px;
+				height: 40px;
+				white-space: nowrap
+			}
+			
+			.tool-bar-left .accept {
+				width: 80px;
+				height: 30px;
+				background: #fc0;
+				float: right;
+				border-radius: 30px;
+				line-height: 30px;
+				text-align: center;
+				position: absolute;
+				right: 5px;
+				top: 5px;
+				font-size: 16px
+			}
+			@media all and (orientation: portrait) {
+  				.hjPopbox{ width: 120px; }
+			}
+
+			@media all and (orientation: landscape) {
+			  .hjPopbox{ width: 360px; }
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div class="maincontainer">
+			<section class="live-player">
+				<div class="play-wrap">
+					<div class="video_wrap">
+						<div class="h5_player">
+							<video src="http://hls.1234tv.com/live/201934/playlist.m3u8" webkit-playsinline="true" x-webkit-airplay="true" x5-video-player-type="h5" playsinline width="100%" height="667" preload="auto" poster="http://image.huajiao.com/f0e9a22d5947460d1012316a05313a89-360_640.jpg" id="mymedia"></video>
+						</div>
+						<div class="h5_player_tip_btn">
+							<div class="h5_player_pause"></div>
+						</div>
+						<!-- 聊天-->
+						<div class="hjPopbox">
+							<div class="hj_showArea">
+								<ul>
+									<li class="type_in"><em class="level_info level_1">1</em><span class="color_0">看烟花18ff2</span><span>来了</span></li>
+									<li class="type_msg"><em class="level_info level_1">2</em><span class="color_0">💋柒柒姐姐--👀：</span><span>@小流氓的小妖精 [花痴]</span></li>
+									<li class="type_follow"><em class="level_info level_1">4</em><span>爱王小兜的大玉儿</span><span>关注了播主</span></li>
+								</ul>
+							</div>
+						</div>
+						<!-- 主播头部信息 -->
+						<div class="top">
+							<a class="author-avatar js_hj_download app-item" data-dot-mark="4" data-download-id="h5_live" data-sid="2981222" data-key="主播名称和头像" data-open="true" data-pname="com.huajiao" data-size="22064161">
+								<span class="author-span">
+                            <img src="http://image.huajiao.com/0146a14ccfe83dd3061d8cbb5b37437e-100_100.jpg">
+                            <i class="vip"></i>                        </span>
+
+								<h3>
+                            杜米琦🐭                        </h3>
+								<p>9207人</p>
+							</a>
+							<div class="hj-userid-inner">
+								花椒号: 23308343 </div>
+							<a class="js_hj_download app-item" data-dot-mark="4" data-download-id="h5_live" data-sid="2981222" data-key="主播名称和头像" data-open="true" data-pname="com.huajiao" data-size="22064161">
+								<div class="follow">+关注</div>
+							</a>
+						</div>
+						<!--主播底部 -->
+						<div class="tool-bar">
+							<a data-sid="2981222" data-pname="com.huajiao" data-size="22064161" class="app-item js_download js_hj_download" data-key="免费礼物" "=" " data-dot-mark="6 " data-open="true ">
+								<div class="give-gift js_give_gift ">
+									<span class="gift-icon "></span>
+								</div>
+							</a>
+							<a href="javascript:; " data-sid="2981222 " data-pname="com.huajiao " data-size="22064161 " data-key="用花椒打开 " data-dot-mark="13 " data-open="true " class="js_hj_download ">
+								<div class="tool-bar-open "></div>
+								<div class="tool-bar-left ">
+									<div class="bg ">
+										<span class="name ">杜米琦🐭</span>邀请你陪TA聊天</div><span class="accept ">接受</span>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<script type="text/javascript">
+			  (function(){
+    var supportsOrientation = (typeof window.orientation == 'number' && typeof window.onorientationchange == 'object');
+    var HTMLNode = document.body.parentNode;
+    var updateOrientation = function() {
+      // rewrite the function depending on what's supported
+      if(supportsOrientation) {
+        updateOrientation = function() {
+          var orientation = window.orientation;
+
+          switch(orientation) {
+            case 90: case -90:
+              orientation = 'landscape';
+              alert("111");
+            break;
+            default:
+              orientation = 'portrait';
+              alert("222");
+          }
+
+          // set the class on the HTML element (i.e. )
+//        HTMLNode.setAttribute('class', orientation);
+        }
+      } else {
+        updateOrientation = function() {
+          // landscape when width is biggest, otherwise portrait
+          var orientation = (window.innerWidth > window.innerHeight) ? 'landscape': 'portrait';
+	
+          // set the class on the HTML element (i.e. )
+//        HTMLNode.setAttribute('class', orientation);
+        }
+      }
+
+      updateOrientation();
+    }
+    var init = function() {
+      // initialize the orientation
+      updateOrientation();
+
+      if(supportsOrientation) {
+        window.addEventListener('orientationchange', updateOrientation, false);
+      } else {
+        // fallback: update every 5 seconds
+        setInterval(updateOrientation, 5000);
+      }
+
+    }
+    window.addEventListener('DOMContentLoaded', init, false);
+    			var video = document.getElementById("mymedia");
+			document.querySelector(".h5_player_pause").addEventListener("click ",function(){
+				alert("111");
+				this.style.display = 'none';
+				if(video.paused){
+					video.play();
+				}
+			},false);
+  })();
+		</script>
+		<script type="text/javascript ">
+
+		</script>
+	</body>
+
+</html>

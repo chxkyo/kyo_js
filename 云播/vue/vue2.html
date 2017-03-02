@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>vue 实例 </title>
+	</head>
+
+	<body>
+		<div id="example">
+			<p>Original message: "{{message}}"</p>
+			<p>Computed reversed message: "{{reversedMessage}}"</p>
+			<p>{{now}}</p>
+			<p>{{fullName}}</p>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#example',
+				data: {
+					message: "Hello",
+					firstName:"Foo",
+					lastName:"Bar",
+				},
+				computed: {
+					reversedMessage: function() {
+						return this.message.split("").reverse().join('');
+					},
+					now:function(){
+						return Date.now();
+					},
+					fullName:function(){
+						return this.firstName + this.lastName;
+					}
+				},
+				methods:{
+					
+				}
+			});
+		</script>
+	</body>
+
+</html>

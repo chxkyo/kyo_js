@@ -532,17 +532,13 @@
 			var time   = T,
 				minute = parseInt(time/60),
 				second = parseInt((time%60).toFixed(2));
-
 			if( minute < 10 ){
 				minute = '0' + minute;
 			}
 			if( second < 10 ){
 				second = '0' + second;
 			}
-
 			return minute + ':' + second;
-
-
 		}
 
 

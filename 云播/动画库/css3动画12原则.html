@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html {
+				font-size: 62.5%
+			}
+			
+			body {
+				font-size: 1.8em;
+				line-height: 1.8;
+				font-weight: 400;
+				font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+				-webkit-user-select: none;
+			}
+			
+			.animation-box {
+				width: 800px;
+				margin: 0 auto;
+			}
+			
+			.demo-container {
+				border-radius: 0.5em;
+				margin: 2em -35% 2em 0;
+			}
+			
+			.principle {
+				background: #e9b59f;
+				width: 100%;
+				height: 24em;
+				position: relative
+			}
+			
+			.wrapper {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0
+			}
+			
+			.shape {
+				background: #2d97db;
+				border: 1em solid #fff;
+				width: 4em;
+				height: 4em;
+				position: absolute;
+				top: calc(50% - 2em);
+				left: calc(50% - 2em)
+			}
+			
+			.principle-one .shape {
+				-webkit-animation: one 4s infinite ease-out;
+				animation: one 4s infinite ease-out;
+			}
+			
+			.principle-one .surface {
+				background: #000;
+				height: 10em;
+				width: 1em;
+				position: absolute;
+				top: calc(50% - 4em);
+				left: calc(50%+ 10em);
+			}
+			
+			@-webkit-keyframes one {
+				0%,
+				15% {
+					opacity: 0
+				}
+				15%,
+				25% {
+					-webkit-transform: none;
+					transform: none;
+					-webkit-animation-timing-function: cubic-bezier(1, -1.92, 0.95, 0.89);
+					animation-timing-function: cubic-bezier(1, -1.92, 0.95, 0.89);
+					width: 4em;
+					height: 4em;
+					top: calc(50% - 2em);
+					left: calc(50% - 2em);
+					opacity: 1
+				}
+				35%,
+				45% {
+					-webkit-transform: translateX(6em);
+					transform: translateX(6em);
+					height: 6em;
+					width: 2em;
+					top: calc(50% - 3em);
+					-webkit-animation-timing-function: linear;
+					animation-timing-function: linear;
+					opacity: 1
+				}
+				70%,
+				100% {
+					-webkit-transform: translateX(6em) translateY(5em);
+					transform: translateX(6em) translateY(5em);
+					height: 6em;
+					width: 2em;
+					top: calc(50% - 3em);
+					opacity: 0
+				}
+			}
+			
+			@keyframes one {
+				0%,
+				15% {
+					opacity: 0
+				}
+				15%,
+				25% {
+					-webkit-transform: none;
+					transform: none;
+					-webkit-animation-timing-function: cubic-bezier(1, -1.92, 0.95, 0.89);
+					animation-timing-function: cubic-bezier(1, -1.92, 0.95, 0.89);
+					width: 4em;
+					height: 4em;
+					top: calc(50% - 2em);
+					left: calc(50% - 2em);
+					opacity: 1
+				}
+				35%,
+				45% {
+					-webkit-transform: translateX(8em);
+					transform: translateX(8em);
+					height: 6em;
+					width: 2em;
+					top: calc(50% - 3em);
+					-webkit-animation-timing-function: linear;
+					animation-timing-function: linear;
+					opacity: 1
+				}
+				70%,
+				100% {
+					-webkit-transform: translateX(8em) translateY(5em);
+					transform: translateX(8em) translateY(5em);
+					height: 6em;
+					width: 2em;
+					top: calc(50% - 3em);
+					opacity: 0
+				}
+			}
+			
+			@-webkit-keyframes two {
+				0%,
+				15% {
+					opacity: 0;
+					-webkit-transform: none;
+					transform: none
+				}
+				15%,
+				25% {
+					opacity: 1;
+					-webkit-transform: none;
+					transform: none;
+					-webkit-animation-timing-function: cubic-bezier(0.5, 0.05, 0.91, 0.47);
+					animation-timing-function: cubic-bezier(0.5, 0.05, 0.91, 0.47)
+				}
+				28%,
+				38% {
+					-webkit-transform: translateX(-2em);
+					transform: translateX(-2em)
+				}
+				40%,
+				45% {
+					-webkit-transform: translateX(-4em);
+					transform: translateX(-4em)
+				}
+				50%,
+				52% {
+					-webkit-transform: translateX(-4em) rotateZ(-20deg);
+					transform: translateX(-4em) rotateZ(-20deg)
+				}
+				70%,
+				75% {
+					-webkit-transform: translateX(-4em) rotateZ(-10deg);
+					transform: translateX(-4em) rotateZ(-10deg)
+				}
+				78% {
+					-webkit-transform: translateX(-4em) rotateZ(-24deg);
+					transform: translateX(-4em) rotateZ(-24deg);
+					opacity: 1
+				}
+				86%,
+				100% {
+					-webkit-transform: translateX(-6em) translateY(4em) rotateZ(-90deg);
+					transform: translateX(-6em) translateY(4em) rotateZ(-90deg);
+					opacity: 0
+				}
+			}
+			
+			@keyframes two {
+				0%,
+				15% {
+					opacity: 0;
+					-webkit-transform: none;
+					transform: none
+				}
+				15%,
+				25% {
+					opacity: 1;
+					-webkit-transform: none;
+					transform: none;
+					-webkit-animation-timing-function: cubic-bezier(0.5, 0.05, 0.91, 0.47);
+					animation-timing-function: cubic-bezier(0.5, 0.05, 0.91, 0.47)
+				}
+				28%,
+				38% {
+					-webkit-transform: translateX(-2em);
+					transform: translateX(-2em)
+				}
+				40%,
+				45% {
+					-webkit-transform: translateX(-4em);
+					transform: translateX(-4em)
+				}
+				50%,
+				52% {
+					-webkit-transform: translateX(-4em) rotateZ(-20deg);
+					transform: translateX(-4em) rotateZ(-20deg)
+				}
+				70%,
+				75% {
+					-webkit-transform: translateX(-4em) rotateZ(-10deg);
+					transform: translateX(-4em) rotateZ(-10deg)
+				}
+				78% {
+					-webkit-transform: translateX(-4em) rotateZ(-24deg);
+					transform: translateX(-4em) rotateZ(-24deg);
+					opacity: 1
+				}
+				86%,
+				100% {
+					-webkit-transform: translateX(-6em) translateY(4em) rotateZ(-90deg);
+					transform: translateX(-6em) translateY(4em) rotateZ(-90deg);
+					opacity: 0
+				}
+			}
+			
+			.principle-two .shape {
+				-webkit-animation: two 5s infinite ease-out;
+				animation: two 5s infinite ease-out;
+				-webkit-transform-origin: 50% 7em;
+				transform-origin: 50% 7em;
+			}
+			
+			.principle-two .surface {
+				background: #000;
+				width: 8em;
+				height: 1em;
+				position: absolute;
+				top: calc(50%+ 4em);
+				left: calc(50% - 3em);
+			}
+			
+			.principle-three .shape.a {
+				transform: translateX(-12em);
+				-webkit-transform: translateX(-12em);
+			}
+			
+			.principle-three .shape.c {
+				transform: translateX(12em);
+				-webkit-transform: translateX(12em);
+			}
+			
+			@-webkit-keyframes threeb {
+				0%,
+				20% {
+					-webkit-filter: none;
+					filter: none
+				}
+				40%,
+				50% {
+					-webkit-filter: blur(5px);
+					filter: blur(5px)
+				}
+				65%,
+				100% {
+					-webkit-filter: none;
+					filter: none
+				}
+			}
+			
+			@keyframes threeb {
+				0%,
+				20% {
+					-webkit-filter: none;
+					filter: none
+				}
+				40%,
+				50% {
+					-webkit-filter: blur(5px);
+					filter: blur(5px)
+				}
+				65%,
+				100% {
+					-webkit-filter: none;
+					filter: none
+				}
+			}
+			
+			.principle-eight .shape.a,
+			.principle-eight .shape.c {
+				animation: threeb 5s linear infinite;
+				-webkit-animation: threeb 5s linear infinite;
+			}
+			
+			@-webkit-keyframes three {
+				0%,
+				10% {
+					-webkit-transform: none;
+					transform: none;
+					-webkit-animation-timing-function: cubic-bezier(0.57, -0.5, 0.43, 1.53);
+					animation-timing-function: cubic-bezier(0.57, -0.5, 0.43, 1.53)
+				}
+				26%,
+				30% {
+					-webkit-transform: rotateZ(-40deg);
+					transform: rotateZ(-40deg)
+				}
+				32.5% {
+					-webkit-transform: rotateZ(-38deg);
+					transform: rotateZ(-38deg)
+				}
+				35% {
+					-webkit-transform: rotateZ(-42deg);
+					transform: rotateZ(-42deg)
+				}
+				37.5% {
+					-webkit-transform: rotateZ(-38deg);
+					transform: rotateZ(-38deg)
+				}
+				40% {
+					-webkit-transform: rotateZ(-40deg);
+					transform: rotateZ(-40deg)
+				}
+				42.5% {
+					-webkit-transform: rotateZ(-38deg);
+					transform: rotateZ(-38deg)
+				}
+				45% {
+					-webkit-transform: rotateZ(-42deg);
+					transform: rotateZ(-42deg)
+				}
+				47.5% {
+					-webkit-transform: rotateZ(-38deg);
+					transform: rotateZ(-38deg);
+					-webkit-animation-timing-function: cubic-bezier(0.57, -0.5, 0.43, 1.53);
+					animation-timing-function: cubic-bezier(0.57, -0.5, 0.43, 1.53)
+				}
+				58%,
+				100% {
+					-webkit-transform: none;
+					transform: none
+				}
+			}
+			
+			@keyframes three {
+				0%,
+				10% {
+					-webkit-transform: none;
+					transform: none;
+					-webkit-animation-timing-function: cubic-bezier(0.57, -0.5, 0.43, 1.53);
+					animation-timing-function: cubic-bezier(0.57, -0.5, 0.43, 1.53)
+				}
+				26%,
+				30% {
+					-webkit-transform: rotateZ(-40deg);
+					transform: rotateZ(-40deg)
+				}
+				32.5% {
+					-webkit-transform: rotateZ(-38deg);
+					transform: rotateZ(-38deg)
+				}
+				35% {
+					-webkit-transform: rotateZ(-42deg);
+					transform: rotateZ(-42deg)
+				}
+				37.5% {
+					-webkit-transform: rotateZ(-38deg);
+					transform: rotateZ(-38deg)
+				}
+				40% {
+					-webkit-transform: rotateZ(-40deg);
+					transform: rotateZ(-40deg)
+				}
+				42.5% {
+					-webkit-transform: rotateZ(-38deg);
+					transform: rotateZ(-38deg)
+				}
+				45% {
+					-webkit-transform: rotateZ(-42deg);
+					transform: rotateZ(-42deg)
+				}
+				47.5% {
+					-webkit-transform: rotateZ(-38deg);
+					transform: rotateZ(-38deg);
+					-webkit-animation-timing-function: cubic-bezier(0.57, -0.5, 0.43, 1.53);
+					animation-timing-function: cubic-bezier(0.57, -0.5, 0.43, 1.53)
+				}
+				58%,
+				100% {
+					-webkit-transform: none;
+					transform: none;
+				}
+			}
+			
+			.principle-three .shape.b {
+				animation: three 5s ease-out infinite;
+				-webkit-animation: three 5s ease-out infinite;
+			}
+			
+			.principle-four .shape.a {
+				left: calc(50% - 12em);
+				animation: four 6s infinite cubic-bezier(0.57, -0.5, 0.43, 1.53);
+				-webkit-animation: four 6s infinite cubic-bezier(0.57, -0.5, 0.43, 1.53);
+			}
+			
+			.principle-four .shape.b {
+				left: calc(50%+ 6em);
+				animation: four 6s infinite steps(1);
+				-webkit-animation: four 6s infinite steps(1);
+			}
+			
+			@keyframes four {
+				0%,
+				10% {
+					transform: none;
+					-webkit-transform: none;
+				}
+				25%,
+				30% {
+					transform: rotateZ(-45deg) scale(1.25);
+					-webkit-transform: rotateZ(-45deg) scale(1.25);
+				}
+				40% {
+					transform: rotateZ(-45deg) scale(1.8);
+					-webkit-transform: rotateZ(-45deg) scale(1.8);
+				}
+				65%,
+				70% {
+					transform: rotateZ(-45deg) scale(1.1);
+					-webkit-transform: rotateZ(-45deg) scale(1.1);
+				}
+				90%,
+				100% {
+					transform: none;
+					-webkit-transform: none;
+				}
+			}
+			
+			@-webkit-keyframes four {
+				0%,
+				10% {
+					transform: none;
+					-webkit-transform: none;
+				}
+				25%,
+				30% {
+					transform: rotateZ(-45deg) scale(1.25);
+					-webkit-transform: rotateZ(-45deg) scale(1.25);
+				}
+				40% {
+					transform: rotateZ(-45deg) scale(1.8);
+					-webkit-transform: rotateZ(-45deg) scale(1.8);
+				}
+				65%,
+				70% {
+					transform: rotateZ(-45deg) scale(1.1);
+					-webkit-transform: rotateZ(-45deg) scale(1.1);
+				}
+				90%,
+				100% {
+					transform: none;
+					-webkit-transform: none;
+				}
+			}
+			
+			@keyframes five-container {
+				0%,
+				35% {
+					-webkit-transform: none;
+					transform: none;
+				}
+				65%,
+				70% {
+					-webkit-transform: skewX(20deg);
+					transform: skewX(20deg);
+				}
+				95%,
+				100% {
+					-webkit-transform: none;
+					transform: none;
+				}
+			}
+			
+			@-webkit-keyframes five-container {
+				0%,
+				35% {
+					-webkit-transform: none;
+					transform: none;
+				}
+				65%,
+				70% {
+					-webkit-transform: skewX(20deg);
+					transform: skewX(20deg);
+				}
+				95%,
+				100% {
+					-webkit-transform: none;
+					transform: none;
+				}
+			}
+			
+			.principle-five .shape-container {
+				/*animation: five-container 4s infinite cubic-bezier(0.64, -0.36, 0.1, 2);
+				-webkit-animation: : five-container 4s infinite cubic-bezier(0.64, -0.36, 0.1, 2);*/
+				position: absolute;
+				left: calc(50% - 4em);
+				top: calc(50% - 4em);
+			}
+			
+			@keyframes five {
+				0%,
+				15% {
+					opacity: 0;
+					transform: translateX(-12em) skewX(0deg);
+					-webkit-transform: translateX(-12em) skewX(0deg);
+				}
+				45%,
+				55% {
+					opacity: 1;
+					transform: translateX(-12em) skewX(20deg);
+					-webkit-transform: translateX(-12em) skewX(20deg);
+				}
+				;
+				85%,
+				95% {
+					opacity: 1;
+					transform: translateX(12em) scaleX(20deg);
+					-webkit-transform: translateX(12em) skewX(20deg);
+				}
+				100% {
+					opacity: 0;
+					transform: translateX(12em) skewX(0deg);
+					-webkit-transform: translateX(12em) skewX(0deg);
+				}
+			}
+			
+			@-webkit-keyframes five {
+				0%,
+				15% {
+					opacity: 0;
+					transform: translateX(-12em) skewX(0deg);
+					-webkit-transform: translateX(-12em) skewX(0deg);
+				}
+				45%,
+				55% {
+					opacity: 1;
+					transform: translateX(-12em) skewX(20deg);
+					-webkit-transform: translateX(-12em) skewX(20deg);
+				}
+				;
+				85%,
+				95% {
+					opacity: 1;
+					transform: translateX(12em) scaleX(20deg);
+					-webkit-transform: translateX(12em) skewX(20deg);
+				}
+				100% {
+					opacity: 0;
+					transform: translateX(12em) skewX(0deg);
+					-webkit-transform: translateX(12em) skewX(0deg);
+				}
+			}
+			
+			.principle-five .shape {
+				-webkit-animation: five 4s infinite cubic-bezier(0.64, -0.36, 0.1, 1);
+				animation: five 4s infinite cubic-bezier(0.64, -0.36, 0.1, 1);
+				position: relative;
+				left: auto;
+				top: auto
+			}
+			
+			@keyframes six {
+				0%,
+				5% {
+					transform: translateX(-14em);
+					-webkit-transform: translateX(-14em);
+				}
+				45%,
+				55% {
+					transform: translateX(12em);
+					-webkit-transform: translateX(12em);
+				}
+				95%,
+				100% {
+					transform: translateX(-14em);
+					-webkit-transform: translateX(-14em);
+				}
+			}
+			
+			.principle-six .shape.a {
+				animation: six 3s infinite cubic-bezier(0.5, 0, 0.5, 1);
+				-webkit-animation: six 3s infinite cubic-bezier(0.5, 0, 0.5, 1);
+			}
+			
+			@keyframes move-right {
+				0% {
+					transform: translateX(-20em);
+					-webkit-transform: translateX(-20em);
+					opacity: 1;
+				}
+				80% {
+					opacity: 1;
+				}
+				100% {
+					transform: translateX(20em);
+					-webkit-transform: translateX(20em);
+					opacity: 0;
+				}
+			}
+			
+			@-webkit-keyframes move-right {
+				0% {
+					transform: translateX(-20em);
+					-webkit-transform: translateX(-20em);
+					opacity: 1;
+				}
+				80% {
+					opacity: 1;
+				}
+				100% {
+					transform: translateX(20em);
+					-webkit-transform: translateX(20em);
+					opacity: 0;
+				}
+			}
+			
+			.principle-seven .shape-container {
+				position: absolute;
+				left: calc(50% - 4em);
+				top: calc(50% - 4em);
+				-webkit-animation: move-right 6s infinite cubic-bezier(0.35, 0.54, 0.49, 0.67);
+				animation: move-right 6s infinite cubic-bezier(0.35, 0.54, 0.49, 0.67);
+			}
+			
+			@keyframes bounce {
+				0% {
+					-webkit-transform: translateY(-8em);
+					transform: translateY(-8em);
+					-webkit-animation-timing-function: cubic-bezier(0.51, 0.01, 0.79, 0.02);
+					animation-timing-function: cubic-bezier(0.51, 0.01, 0.79, 0.02)
+				}
+				15% {
+					-webkit-transform: translateY(8em);
+					transform: translateY(8em);
+					-webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.7, 1);
+					animation-timing-function: cubic-bezier(0.19, 1, 0.7, 1)
+				}
+				25% {
+					-webkit-transform: translateY(-4em);
+					transform: translateY(-4em);
+					-webkit-animation-timing-function: cubic-bezier(0.51, 0.01, 0.79, 0.02);
+					animation-timing-function: cubic-bezier(0.51, 0.01, 0.79, 0.02)
+				}
+				32.5% {
+					-webkit-transform: translateY(8em);
+					transform: translateY(8em);
+					-webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.7, 1);
+					animation-timing-function: cubic-bezier(0.19, 1, 0.7, 1)
+				}
+				40% {
+					-webkit-transform: translateY(0em);
+					transform: translateY(0em);
+					-webkit-animation-timing-function: cubic-bezier(0.51, 0.01, 0.79, 0.02);
+					animation-timing-function: cubic-bezier(0.51, 0.01, 0.79, 0.02)
+				}
+				45% {
+					-webkit-transform: translateY(8em);
+					transform: translateY(8em);
+					-webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.7, 1);
+					animation-timing-function: cubic-bezier(0.19, 1, 0.7, 1)
+				}
+				50% {
+					-webkit-transform: translateY(3em);
+					transform: translateY(3em);
+					-webkit-animation-timing-function: cubic-bezier(0.51, 0.01, 0.79, 0.02);
+					animation-timing-function: cubic-bezier(0.51, 0.01, 0.79, 0.02)
+				}
+				56% {
+					-webkit-transform: translateY(8em);
+					transform: translateY(8em);
+					-webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.7, 1);
+					animation-timing-function: cubic-bezier(0.19, 1, 0.7, 1)
+				}
+				60% {
+					-webkit-transform: translateY(6em);
+					transform: translateY(6em);
+					-webkit-animation-timing-function: cubic-bezier(0.51, 0.01, 0.79, 0.02);
+					animation-timing-function: cubic-bezier(0.51, 0.01, 0.79, 0.02)
+				}
+				64% {
+					-webkit-transform: translateY(8em);
+					transform: translateY(8em);
+					-webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.7, 1);
+					animation-timing-function: cubic-bezier(0.19, 1, 0.7, 1)
+				}
+				66% {
+					-webkit-transform: translateY(7.5em);
+					transform: translateY(7.5em);
+					-webkit-animation-timing-function: cubic-bezier(0.51, 0.01, 0.79, 0.02);
+					animation-timing-function: cubic-bezier(0.51, 0.01, 0.79, 0.02)
+				}
+				70%,
+				100% {
+					-webkit-transform: translateY(8em);
+					transform: translateY(8em);
+					-webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.7, 1);
+					animation-timing-function: cubic-bezier(0.19, 1, 0.7, 1)
+				}
+			}
+			
+			.principle-seven .shape {
+				animation: bounce 6s infinite linear;
+				-webkit-animation: bounce 6s infinite linear;
+				border-radius: 50%;
+				position: relative;
+				left: auto;
+				top: auto;
+			}
+			
+			@keyframes eight {
+				100% {
+					transform: rotateZ(360deg);
+					-webkit-transform: rotateZ(360deg);
+				}
+			}
+			
+			.principle-eight .shape.a {
+				left: calc(50% - 10em);
+				top: calc(50% - 2em);
+				animation: eight 3s infinite linear;
+				-webkit-animation: eight 3s infinite linear;
+				transform-origin: 10em 50%;
+				-webkit-transform-origin: 10em 50%;
+			}
+			
+			.principle-eight .shape.b {
+				width: 2em;
+				height: 2em;
+				background: yellow;
+				left: calc(50% - 1em);
+				top: calc(50% - 1em);
+				animation: eight 6s infinite linear;
+				-webkit-animation: eight 6s infinite linear;
+			}
+			
+			@keyframes nine-shapea {
+				0%,
+				50% {
+					transform: translateX(-5.5em);
+				}
+				70%,
+				100% {
+					transform: translateX(-12em);
+				}
+			}
+			
+			@keyframes nine-shapec {
+				0%,
+				50% {
+					transform: translateX(3.5em);
+				}
+				70%,
+				100% {
+					transform: translateX(10em);
+				}
+			}
+			
+			@keyframes nine-shapeb {
+				0% {
+					-webkit-transform: none;
+					transform: none
+				}
+				20%,
+				30% {
+					-webkit-transform: translateY(-1.5em);
+					transform: translateY(-1.5em);
+					opacity: 1;
+					-webkit-animation-timing-function: cubic-bezier(0.57, -0.5, 0.43, 1.53);
+					animation-timing-function: cubic-bezier(0.57, -0.5, 0.43, 1.53)
+				}
+				32% {
+					-webkit-transform: translateY(-1.25em);
+					transform: translateY(-1.25em);
+					opacity: 1
+				}
+				34% {
+					-webkit-transform: translateY(-1.75em);
+					transform: translateY(-1.75em);
+					opacity: 1
+				}
+				36%,
+				38% {
+					-webkit-transform: translateY(-1.25em);
+					transform: translateY(-1.25em);
+					opacity: 1
+				}
+				42%,
+				60% {
+					-webkit-transform: translateY(-1.5em);
+					transform: translateY(-1.5em);
+					opacity: 1
+				}
+				75%,
+				100% {
+					-webkit-transform: translateY(-8em);
+					transform: translateY(-8em);
+					opacity: 1
+				}
+			}
+			
+			.principle-nine .shape.a {
+				transform: translateX(-8em);
+				-webkit-transform: translateX(-8em);
+				animation: nine-shapea 4s cubic-bezier(0.57, -0.5, 0.43, 1.53) infinite;
+				-webkit-animation: nine-shapea 4s cubic-bezier(0.57, -0.5, 0.43, 1.53) infinite;
+			}
+			
+			.principle-nine .shape.c {
+				transform: translateX(6em);
+				-webkit-transform: translateX(6em);
+				animation: nine-shapec 4s cubic-bezier(0.57, -0.5, 0.43, 1.53) infinite;
+				-webkit-animation: nine-shapec 4s cubic-bezier(0.57, -0.5, 0.43, 1.53) infinite;
+			}
+			
+			.principle-nine .shape.b {
+				top: calc(50%+ 6em);
+				left: calc(50% - 3em);
+				opacity: 0;
+				animation: nine-shapeb 4s linear infinite;
+				-webkit-animation: nine-shapeb 4s linear infinite;
+			}
+			
+			@keyframes ten {
+				0%,
+				10% {
+					transform: translateX(0);
+					-webkit-transform: translateX(0);
+				}
+				40%,
+				50% {
+					transform: rotateZ(90deg);
+					-webkit-transform: rotateZ(90deg);
+				}
+				90%,
+				100% {
+					transform: translateX(0);
+					-webkit-transform: translateX(0);
+				}
+			}
+			
+			.principle-ten .shape.a {
+				animation: ten 4s infinite cubic-bezier(0.93, 0, 0.67, 1.21);
+				-webkit-animation: ten 4s infinite cubic-bezier(0.93, 0, 0.67, 1.21);
+				transform-orign: 100% 100%;
+				-webkit-transform-origin: 100% 100%;
+				left: calc(50% - 14em);
+			}
+			
+			.principle-ten .shape.b {
+				animation: ten 2s infinite cubic-bezier(0.93, 0, 0.67, 1.21);
+				-webkit-animation: ten 2s infinite cubic-bezier(0.93, 0, 0.67, 1.21);
+				transform-orign: 100% 100%;
+				-webkit-transform-origin: 100% 100%;
+				left: calc(50%+ 2em);
+			}
+			
+			@keyframes eleven {
+				0%,
+				10% {
+					transform: none;
+					-webkit-transform: none;
+					-webkit-animation-timing-function: cubic-bezier(0.87, -1.05, 0.66, 1.31);
+					animation-timing-function: cubic-bezier(0.87, -1.05, 0.66, 1.31)
+				}
+				40% {
+					transform: scale(2) rotateZ(-45deg);
+					-webkit-transform: scale(2) rotateZ(-45deg);
+					-webkit-animation-timing-function: cubic-bezier(0.16, 0.54, 0, 1.38);
+					animation-timing-function: cubic-bezier(0.16, 0.54, 0, 1.38);
+				}
+				70%,
+				100% {
+					transform: scale(1) rotateZ(360deg);
+					-webkit-transform: scale(1) rotateZ(360deg);
+				}
+			}
+			
+			.principle-eleven .shape {
+				top: calc(50% - 6em);
+				left: calc(50% - 3em);
+				transform-origin: 50% 8em;
+				-webkit-transform-origin: 50% 8em;
+				animation: eleven 4s infinite linear;
+				-webkit-animation: eleven 4s infinite linear;
+			}
+			.principle-twelve .shape{
+				left: calc(50% - 3em);
+				perspective: 400px;
+				-webkit-perspective: 400px;
+				perspective-origin: center;
+				-webkit-perspective-origin: center;
+				background: none;
+				border: none;
+			}
+			.principle-twelve .shape .container{
+				transform-style: preserve-3d;
+				-webkit-transform-style: preserve-3d;
+				/*animation: twelve 4s infinite cubic-bezier(0.6, -0.44, 0.37, 1.44);*/
+				/*-webkit-animation: twelve 4s infinite cubic-bezier(0.6, -0.44, 0.37, 1.44);*/
+			}
+			.principle-twelve .front{
+				transform: translateZ(3em);
+				-webkit-transform: translateZ(3em);
+			}
+			.principle-twelve .back{
+				transform: translateZ(-3em);
+				-webkit-transform: translateZ(-
+				3em);
+			}
+			.principle-twelve .left{
+				transform: rotateY(-90deg) translateZ(-3em) ;
+				-webkit-transform: rotateY(90deg) translateZ(-
+				3em);
+			}
+			.principle-twelve .right{
+				transform:rotateY(-90deg) translateZ(3em) ;
+				-webkit-transform: rotateY(-90deg) translateZ(
+				3em);
+			}
+			.principle-twelve .container>div{
+				    display: block;
+				    position: absolute;
+				    opacity: 1;
+				    width: 4em;
+				    height: 4em;
+				    border: 1em solid #fff;
+				    background: #2d97db;
+			}
+			.principle-twelve .top{
+				transform: rotateX(-90deg) translateZ(-3em) ;
+				-webkit-transform: rotateZ(-90deg) translateZ(-
+				3em);
+			}
+			.principle-twelve .bottom{
+				transform: rotateX(-90deg) translateZ(3em) ;
+				-webkit-transform:  rotateX(-90deg) translateZ(3em);
+			}
+			@keyframes twelve{
+				0%{
+					opacity: 0;
+				}
+				10%,40%{
+					opacity: 1;
+					transform: none;
+					-webkit-transform: none;
+				}
+				60%,75%{
+					transform: rotateX(-20deg) rotateY(-45deg) translateY(4em);
+					-webkit-transform: rotateX(-20deg) rotateY(-45deg) translateY(4em);
+					animation-timing-function:cubic-bezier(1, -0.05, 0.43, -0.16);
+					-webkit-animation-timing-function:cubic-bezier(1, -0.05, 0.43, -0.16);
+					opacity: 1;
+				}
+				100%{
+					transform: translateZ(-180em) translateX(20em);
+					-webkit-transform: translateZ(-180em) translateX(20em);
+					opacity: 0;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<h3 style="text-align: center;">动画</h3>
+		<div class="animation-box">
+			<section class="demo-container principle principle-one">
+				<div class="wrapper">
+					<div class="shape"></div>
+					<div class="surface"></div>
+				</div>
+			</section>
+			<section class="demo-container principle principle-two">
+				<div class="wrapper">
+					<div class="shape"></div>
+					<div class="surface"></div>
+				</div>
+			</section>
+			<section class="demo-container principle principle-three">
+				<div class="wrapper">
+					<div class="shape a"></div>
+					<div class="shape b"></div>
+					<div class="shape c"></div>
+				</div>
+			</section>
+			<section class="demo-container principle principle-four">
+				<div class="wrapper">
+					<div class="shape a"></div>
+					<div class="shape b"></div>
+				</div>
+			</section>
+			<section class="demo-container principle principle-five">
+				<div class="wrapper">
+					<div class="shape-container">
+						<div class="shape">
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="demo-container principle principle-six">
+				<div class="wrapper">
+					<div class="shape a"></div>
+				</div>
+			</section>
+			<section class="demo-container principle principle-seven">
+				<div class="wrapper">
+					<div class="shape-container">
+						<div class="shape a"></div>
+					</div>
+				</div>
+			</section>
+			<section class="demo-container principle principle-eight">
+				<div class="wrapper">
+					<div class="shape a"></div>
+					<div class="shape b"></div>
+				</div>
+			</section>
+			<section class="demo-container principle principle-nine">
+				<div class="wrapper">
+					<div class="shape a"></div>
+					<div class="shape b"></div>
+					<div class="shape c"></div>
+				</div>
+			</section>
+			<section class="demo-container principle principle-ten">
+				<div class="wrapper">
+					<div class="shape a"></div>
+					<div class="shape b"></div>
+				</div>
+			</section>
+			<section class="demo-container principle principle-eleven">
+				<div class="wrapper">
+					<div class="shape"></div>
+				</div>
+			</section>
+			<section class="demo-container principle principle-twelve">
+				<div class="wrapper">
+					<div class="shape">
+						<div class="container">
+							<div class="front"></div>
+							<div class="back"></div>
+							<div class="left"></div>
+							<div class="right"></div>
+							<div class="top"></div>
+							<div class="bottom"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</body>
+
+</html>

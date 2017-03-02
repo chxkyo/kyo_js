@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="el">
+			{{message}}
+		</div>
+		<div id="app-2">
+			<span v-bind:title="message">
+				Hover your mouse over me for a few seconds to see my dynamically bound title!
+			</span>
+		</div>
+		<div id="app-3">
+			<p v-if="{seen}">Now you see me</p>
+		</div>
+		<div id="app-4">
+			<ol>
+				<li v-for="todo in todos">
+					{{todo.text}}
+				</li>
+			</ol>
+		</div>
+		<div id="app-5">
+			<p>{{message}}</p>
+			<button v-on:click="reverseMessage">Reverse Message</button>
+		</div>
+		<div id="app-6">
+			<p>{{message}}</p>
+			<input type="text" v-model="message" />
+		</div>
+		<div id="app-7">
+			<ol>
+				<todo-item v-for="item in groceryList"></todo-item>
+			</ol>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			var app = new Vue({
+				el:'#el',
+				data:{
+					message:"Hello Vue",
+				}
+			});
+			var app2 = new Vue({
+				el:"#app-2",
+				data:{
+					message:'You loaded this page on' + new Date()
+				}
+			});
+			var app3 = new Vue({
+				el:"#app-3",
+				data:{
+					seen:true
+				}
+			});
+			var app4 = new Vue({
+				el:"#app-4",
+				data:{
+					todos:[
+						{text:"learn javascript"},
+						{text:"learn Vue"},
+						{text:"build something "}
+						]
+				}
+			});
+			var app5 = new Vue({
+				el:"#app-5",
+				data:{
+					message:"Hello Vue.js!"
+				},
+				methods:{
+					reverseMessage:function(){
+						this.message = this.message.split("").reverse().join('');
+					}
+				}
+			});
+			var app6 = new Vue({
+				el:"#app-6",
+				data:{
+					message:"Hello Vue!"
+				}
+			})
+			var app7 =new Vue({
+				el:"#app-7",
+				data:{
+					groceryList:[
+						{text:'Vegetables'},
+						{text:"Cheese"},
+						{text:"Whateevr else humans are supposed to eat"}
+					]
+				}
+			});
+			Vue.component("todo-item",{
+				props:['todo'],
+				template:'<li>{{todo.text}}</li>'
+			});
+		</script>
+	</body>
+</html>

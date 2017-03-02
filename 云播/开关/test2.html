@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.mui_switch {
+				position: relative;
+				display: block;
+				width: 74px;
+				height: 30px;
+				-webkit-transition-timing-function: ease-in-out;
+				transition-timing-function: ease-in-out;
+				-webkit-transition-duration: .2s;
+				transition-duration: .2s;
+				-webkit-transition-property: background-color, border;
+				transition-property: background-color, border;
+				border: 2px solid #ddd;
+				border-radius: 20px;
+				background-color: #fff;
+				background-clip: padding-box;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			
+			.mui_switch.mui_active {
+				border-color: #4cd964;
+				background-color: #4cd964
+			}
+			
+			.mui_switch:before {
+				font-size: 13px;
+				position: absolute;
+				top: 5px;
+				right: 11px;
+				content: 'Off';
+				text-transform: uppercase;
+				color: #999
+			}
+			
+			.mui_switch .mui_switch_handle {
+				position: absolute;
+				z-index: 1;
+				top: -1px;
+				left: -1px;
+				width: 28px;
+				height: 28px;
+				-webkit-transition: .2s ease-in-out;
+				transition: .2s ease-in-out;
+				-webkit-transition-property: -webkit-transform, width, left;
+				transition-property: transform, width, left;
+				border-radius: 16px;
+				background-color: #fff;
+				background-clip: padding-box;
+				-webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .4);
+				box-shadow: 0 2px 5px rgba(0, 0, 0, .4);
+				-webkit-transform: translate(0px, 0);
+				transform: translate(0px, 0);
+			}
+			
+			.mui_switch.mui_active .mui_switch_handle {
+				-webkit-transform: translate(43px, 0);
+				transform: translate(43px, 0)
+			}
+			
+			.mui_switch.mui_active:before {
+				right: auto;
+				left: 15px;
+				content: 'On';
+				color: #fff
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui_switch">
+			<div class="mui_switch_handle"></div>
+		</div>
+		<script type="text/javascript">
+			window.onload = function() {
+				document.querySelector(".mui_switch").addEventListener("click", function() {
+					if(this.classList.contains("mui_active")) {
+						this.classList.remove("mui_active");
+					} else {
+						this.classList.add("mui_active");
+					}
+				});
+				//				var div2 = document.getElementById("div2");
+				//				var div1 = document.getElementById("div1");
+				//				div1.onclick = function() {
+				//					div1.className = (div1.className == "close1") ? "open1" : "close1";
+				//					div2.className = (div2.className == "close2") ? "open2" : "close2";
+				//				}
+			}
+		</script>
+	</body>
+
+</html>

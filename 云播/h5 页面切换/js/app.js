@@ -3,7 +3,7 @@
     var currentPoint = -1;   //记录当前点的位置
     var pageNow = 1;   //当前页码
     var points = null; //页码数
-
+	var index = 0;//分页器索引
     var app = {
         init:function(){
 //         if(/(windows)/i.test(navigator.userAgent)){
@@ -27,8 +27,14 @@
             //    console.log('click')
             //})
         },
-
-
+        updateIndex:function(){
+        	index = pageNow - 1;
+        },
+		trigger:function(){
+			if(){
+				
+			}
+		},
         //页面平移
         transform:function(translate){
            this.style.webkitTransform = "translate3d("+translate+"px,0,0)";
@@ -122,7 +128,7 @@
                     this.transform.call(viewport,translate);
                     //计算当前的页码
                     pageNow = Math.round(Math.abs(translate) / pageWidth) + 1;
-
+					this.updateIndex();
                     setTimeout(function(){
                         //设置页码，DOM操作需要放到子线程中，否则会出现卡顿
                         this.setPageNow();

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>表单控件绑定</title>
+	</head>
+
+	<body>
+		<div id="example">
+			<input type="text" v-model.lazy = "msg"/>
+			<span>message is:{{msg}}</span>
+			<input type="checkbox" v-model="toggle" v-bind:true-value="a" v-bind:false-value="b" />
+			<label for="check">{{toggle}}</label>
+			<input type="radio" v-model="picked" value="a" />
+			<label for="check">{{picked}}</label>
+			<select v-model="selected">
+				<!-- 内联对象字面量 -->
+				<option v-bind:value="{ number: 123 }">123</option>
+			</select>
+			<span>selectd:{{selected}}</span>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			new Vue({
+				el: "#example",
+				data: {
+					toggle: null,
+					picked: null,
+					a: "选中了",
+					b: "没选中哎",
+					selected:null,
+					msg:"",
+				}
+			});
+		</script>
+	</body>
+
+</html>

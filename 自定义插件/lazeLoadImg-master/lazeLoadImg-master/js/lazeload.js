@@ -54,6 +54,7 @@
                 }
                 return elementScrollTop;
             },
+			//可以直接用getBoundingClientRect().top
             ElementViewTop: function (ele) {
                 if (ele) {
                     var actualTop = ele.offsetTop;

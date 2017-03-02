@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.demo {
+				font-size: 14px;
+				font-weight: bold;
+			}
+			
+			.grebtn {
+				display: inline-block;
+				padding: 0.25em 1.25em;
+				border: 1px solid;
+				border-radius: 2px;
+				vertical-align: bottom;
+				font-weight: inherit;
+				border-color: #208000 #1F7F00;
+				background-color: #289600;
+				box-shadow: inset 0 0 1px rgba(255, 255, 255, .6), 0 1px #8DBF62;
+				color: #fff;
+				text-shadow: 0 -1px #137900;
+			}
+			
+			a.grebtn:hover {
+				background-color: #2C9D00;
+				text-decoration: none;
+				color: #fff;
+			}
+			
+			.ani_dot {
+				font-family: simsun;
+			}
+			
+			:root .ani_dot {
+				display: inline-block;
+				width: 1.5em;
+				vertical-align: bottom;
+				overflow: hidden;
+			}
+			
+			@-webkit-keyframes dot {
+				0% {
+					width: 0;
+					margin-right: 1.5em;
+				}
+				33% {
+					width: .5em;
+					margin-right: 1em;
+				}
+				66% {
+					width: 1em;
+					margin-right: .5em;
+				}
+				100% {
+					width: 1.5em;
+					margin-right: 0;
+				}
+			}
+			
+			@keyframes dot {
+				0% {
+					width: 0;
+					margin-right: 1.5em;
+				}
+				33% {
+					width: .5em;
+					margin-right: 1em;
+				}
+				66% {
+					width: 1em;
+					margin-right: .5em;
+				}
+				100% {
+					width: 1.5em;
+					margin-right: 0;
+				}
+			}
+			
+			.ani_dot {
+				animation: dot 3s infinite steps(5,start);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="demo">
+			<a href="javascript:" id="submit" class="grebtn">提交订单</a>
+		</div>
+		<script type="text/javascript">
+			document.getElementById("submit").addEventListener("click", function() {
+				if(!this.ajaxing) {
+					this.ajaxing = true;
+					this.innerHTML = '提交订单中<span class="ani_dot">...</span>';
+					setTimeout(function() {
+						this.ajaxing = false;
+						this.innerHTML = "提交超时";
+					}.bind(this), 300000);
+				}
+			});
+		</script>
+	</body>
+
+</html>

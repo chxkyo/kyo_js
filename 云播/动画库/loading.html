@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.demo {
+				font-size: 14px;
+				font-weight: bold;
+			}
+			
+			.grebtn {
+				display: inline-block;
+				padding: 0.25em 1.25em;
+				border: 1px solid;
+				border-radius: 2px;
+				vertical-align: bottom;
+				font-weight: inherit;
+				border-color: #208000 #1F7F00;
+				background-color: #289600;
+				box-shadow: inset 0 0 1px rgba(255, 255, 255, .6), 0 1px #8DBF62;
+				color: #fff;
+				text-shadow: 0 -1px #137900;
+			}
+			
+			a.grebtn:hover {
+				background-color: #2C9D00;
+				text-decoration: none;
+				color: #fff;
+			}
+			
+			.ani_prog {
+				position: relative;
+			}
+			
+			.ani_prog::before,
+			.ani_prog::after {
+				content: '';
+				height: 8px;
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: -15px;
+			}
+			
+			.ani_prog::before {
+				background-color: #ddd;
+			}
+			
+			.ani_prog::after {
+				padding-right: 0%;
+				background-color: #34538b;
+				background-clip: content-box;
+				box-sizing: border-box;
+				/*-webkit-animation: progress 30s;*/
+				/*animation: progress 30s;*/
+			}
+			/* 等待结束直接到底显示 */
+			
+			.ani_prog_finish::after {
+				-webkit-animation: none;
+				animation: none;
+			}
+			
+			@-webkit-keyframes progress {
+				0% {
+					padding-right: 100%;
+				}
+				1% {
+					padding-right: 50%;
+				}
+				3% {
+					padding-right: 30%;
+				}
+				10% {
+					padding-right: 20%;
+				}
+				20% {
+					padding-right: 8%;
+				}
+				30% {
+					padding-right: 5%;
+				}
+				40% {
+					padding-right: 4%;
+				}
+				60% {
+					padding-right: 2%;
+				}
+				80% {
+					padding-right: 1%;
+				}
+			}
+			
+			@keyframes progress {
+				0% {
+					padding-right: 100%;
+				}
+				1% {
+					padding-right: 50%;
+				}
+				3% {
+					padding-right: 30%;
+				}
+				10% {
+					padding-right: 20%;
+				}
+				20% {
+					padding-right: 8%;
+				}
+				30% {
+					padding-right: 5%;
+				}
+				40% {
+					padding-right: 4%;
+				}
+				60% {
+					padding-right: 2%;
+				}
+				80% {
+					padding-right: 1%;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="demo">
+			<br><br>
+			<a href="javascript:" id="submit" class="grebtn">提交超时</a>
+			<br><br><br><br>
+			<a href="javascript:" name="request" class="grebtn" data-url="http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg">请求小图</a>
+			<br><br><br><br>
+			<a href="javascript:" name="request" class="grebtn" data-url="http://ww4.sinaimg.cn/bmiddle/79a00895jw1e5lsnfbbt3g207g0434qq.gif">请求大图</a>
+		</div>
+		<script src="kyo.js"></script>
+		<script type="text/javascript">
+			$("#submit").bind("click", function() {
+				if(!this.ajaxing) {
+					this.ajaxing = true;
+					this.innerHTML = '提交订单中...';
+					this.className += " ani_prog";
+					setTimeout(function() {
+						this.ajaxing = false;
+						this.className = "grebtn";
+						this.innerHTML = "提交超时";
+					}.bind(this), 30000);
+				}
+			});
+
+			$("a[name=request]").bind("click", function() {
+				var src = $(this).attr("data-url"),
+					myImg = null;
+				if(this.loading !== true) {
+					src = src + "?r=" + Date.now();
+					myImg = new Image();
+					// 状态变化
+					this.loading = true;
+					this.innerHTML = '图片请求中...';
+					this.className += " ani_prog";
+					myImg.onload = function() {
+						this.className += " ani_prog_finish";
+						setTimeout(function() {
+							//在元素的最后一个子元素后面
+							this.insertAdjacentHTML("afterend", '<br><br><img src="' + src + '">');
+							this.className = "grebtn";
+							this.innerHTML = '图片请求成功';
+						}.bind(this), 16);
+					}.bind(this);
+					myImg.onerror = function() {
+						this.className = "grebtn";
+						this.innerHTML = '图片请求失败，点击重试';
+						this.loading = false;
+					}.bind(this);
+					myImg.src = src;
+				}
+				return false;
+			});
+		</script>
+	</body>
+
+</html>

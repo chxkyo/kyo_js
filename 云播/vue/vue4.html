@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="demo">
+			<div v-if="Math.random()>0.5">
+				sorry
+			</div>
+			<div v-else>
+				Not sorry
+			</div>
+		</div>
+		<div id="no-key-example">
+			<div>
+				<template v-if="loginType === 'username'">
+					<label>UserName</label>
+					<input placeholder="Enter your username" />
+				</template>
+				<template v-else>
+					<label>Email</label>
+					<input type="text" placeholder="Enter your email address" />
+				</template>
+			</div>
+			<button @click="toggleLoginType">Toggle login type</button>
+		</div>
+		<div id="key-example">
+			<div>
+				<template v-if="loginType === 'username'">
+					<label>UserName</label>
+					<input placeholder="Enter your username" key="user-input" />
+				</template>
+				<template v-else>
+					<label>Email</label>
+					<input type="text" placeholder="Enter your email address" key="user-input" />
+				</template>
+			</div>
+			<button @click="toggleLoginType">Toggle login type</button>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			new Vue({
+				el: "#demo",
+			});
+			new Vue({
+				el: "#no-key-example",
+				data: {
+					loginType: "username",
+				},
+				methods: {
+					toggleLoginType: function() {
+						return this.loginType = this.loginType === 'username' ? 'email' : 'username';
+					}
+				}
+			});
+			new Vue({
+				el: "#key-example",
+				data: {
+					loginType: "username",
+				},
+				methods: {
+					toggleLoginType: function() {
+						return this.loginType = this.loginType === 'username' ? 'email' : 'username';
+					}
+				}
+			});
+		</script>
+	</body>
+
+</html>

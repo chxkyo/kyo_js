@@ -14,13 +14,13 @@
 			 */
 			function throttle(context, fn, delay, text, mustApplyTime) {
 				clearTimeout(fn.timer);
-				fn_cur = new Date();
-				if(!fn_start) {
-					fn_start = fn_cur;
+				fn._cur = new Date();
+				if(!fn._start) {
+					fn._start = fn._cur;
 				}
-				if(fn_cur - fn_start > mustApplyTime) {
+				if(fn._cur - fn._start > mustApplyTime) {
 					fn.call(context, text);
-					fn_start = fn_cur;
+					fn._start = fn._cur;
 				} else {
 					fn.timer = setTimeout(function() {
 						fn.call(context, text);

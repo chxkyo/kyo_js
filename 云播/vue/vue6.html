@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>vue 实例</title>
+	</head>
+
+	<body>
+		<div id="example-2">
+			<button v-on:click="greet">Greet</button>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:"#example-2",
+				data:{
+					name:'Vue.js',
+				},
+				methods:{
+					greet:function(event){
+						alert("Hello"+this.name);
+						alert(event.target.tagName);
+					}
+				}
+			});
+			vm.greet();
+		</script>
+	</body>
+
+</html>

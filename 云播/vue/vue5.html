@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<ul id="demo">
+			<li v-for="(item,index) in items">
+				{{parentMessage}}-{{index}}-{{item.message}}
+			</li>
+		</ul>
+		<ul id="repeat-object"> 
+			<li v-for="(value,key,index) in object">
+				{{key}}.{{index}}.{{value}}
+			</li>
+		</ul>
+		<div id="todo-list-example">
+			<input v-model = 'newToDoText' v-on:keyup.enter='addNewToDo' placeholder="Add a todo"/>
+			<li is="todo-item" v-for="(todo,index) in todos" v-bind:title="todo" v-on:remove="todos.splice(index,1)"></li>
+		</div>
+		<div id="parent">
+			<ul>
+				<li v-for="n in evenNumbers">{{n}}</l>
+			</ul>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			new Vue({
+				el:"#demo",
+				data:{
+					parentMessage:"parent",
+					items:[
+						{message:'Foo'},
+						{message:'Bar'}
+					]
+				}
+			});
+			new Vue({
+				el:"#repeat-object",
+				data:{
+					object:{
+						FirstName:"John",
+						LastName:"Doe",
+						Age:30
+					}
+				}
+			});
+			Vue.component('todo-item',{
+				template:'\
+						<li>\
+							{{title}}\
+							<button v-on:click="$emit(\'remove\')">删除</button>\
+						</li>\
+						',
+				props:['title']
+			});
+			new Vue({
+				el:"#todo-list-example",
+				data:{
+					newToDoText:'',
+					todos:[
+						'Do the dishes',
+						'Take out the dash',
+						'Mow the lawn'
+					]
+				},
+				methods:{
+					addNewToDo:function(){
+						this.todos.push(this.newToDoText);
+						this.newToDoText = '';
+					}
+				}
+			})
+			new Vue({
+				el:"#parent",
+				data:{
+					number:[1,2,3,4,5],
+				},
+				computed:{
+					evenNumbers:function(){
+						return this.number.filter(function(number){
+							return number % 2 == 0;
+						})
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

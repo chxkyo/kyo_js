@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="demo" v-bind:class="classObject"></div>
+		<div id="demo2" v-bind:class="[activeClass,errorClass]"></div>
+		<my-component class="boo"></my-component>
+		<div v-if="Math.random()>0.5">
+			sorry
+		</div>
+		<div v-else>
+			Not sorry
+		</div>
+		<div id="demo3" v-bind:style="styleObject"></div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: "#demo",
+				data: {
+					isActive: true,
+					error: null
+				},
+				computed: {
+					classObject: function() {
+						return {
+							active: this.isActive && !this.error,
+							'text-danger': this.error && this.error.type === "fatal",
+						}
+					}
+				}
+			});
+			var vm2 = new Vue({
+				el: "#demo2",
+				data: {
+					activeClass: 'active',
+					errorClass: 'text-danger'
+				}
+			});
+			Vue.component("my-component", {
+				template: '<p class="foo bar">Hi</p>'
+			});
+			var vm3 = new Vue({
+				el: "#demo3",
+				data: {
+					styleObject: {
+						color: "orange",
+						border: "1px solid",
+						width: "100px",
+						height: "100px"
+					}
+				}
+			});
+		</script>
+	</body>
+
+</html>

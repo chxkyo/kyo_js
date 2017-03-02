@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>跨域</title>
+		<script src="jquery-1.11.1.min.js"></script>
+	</head>
+	<body>
+		<input type="button" value="点我获取跨域数据" id="btn"/>
+		<script type="text/javascript">
+			(function($){
+				var data = function(){
+					$("#btn").on("click",function(){
+						//跨域
+//						$.getJSON("http://58.214.2.206:9099/grainplat/news_newsbyType?typecode=1&callback=?",function(data){
+//							console.log(data.news);
+//						});
+						$.ajax({
+							type:"get",
+							url:"http://58.214.2.206:9099/grainplat/news_newsbyType?typecode=1",
+							dataType:"jsonp",
+							jsonp: "jsoncallback",
+ 	        				//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
+ 	        				jsonpCallback:"success_jsonpCallback",
+ 	        				success:function(data){
+ 	        					console.log(data);
+ 	        				}
+						})
+					});
+				}
+				data();
+			})(jQuery)
+		</script>
+	</body>
+</html>

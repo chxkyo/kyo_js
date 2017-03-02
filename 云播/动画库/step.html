@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			body {
+				background: #ccc;
+			}
+			
+			.step {
+				width: 88.83333333333333px;
+				height: 54px;
+				margin: 10px auto;
+				background: url(http://images2015.cnblogs.com/blog/855573/201603/855573-20160321142616886-1770837455.png) no-repeat;
+				animation: step 3s steps(6) both infinite;
+				-webkit-animation: step 3s steps(6) both infinite;
+			}
+			
+			@keyframes step {
+				100% {
+					background-position: -533px 0;
+				}
+			}
+			
+			@-webkit-keyframes step {
+				100% {
+					background-position: -533px 0;
+				}
+			}
+			
+			.step_start {
+				width: 88.83333333333333px;
+				height: 54px;
+				margin: 10px auto;
+				background: url(http://images2015.cnblogs.com/blog/855573/201603/855573-20160321142616886-1770837455.png) no-repeat;
+				background-position: -0 0;
+				animation: step_start 3s steps(6, start) both infinite;
+				-webkit-animation: step_start 3s steps(6, start) both infinite;
+			}
+			
+			@keyframes step_start {
+				100% {
+					background-position: -533px 0;
+				}
+			}
+			
+			@-webkit-keyframes step_start {
+				100% {
+					background-position: -533px 0;
+				}
+			}
+			
+			.step1 {
+				width: 88.83333333333333px;
+				height: 54px;
+				margin: 10px auto;
+				background: url(http://images2015.cnblogs.com/blog/855573/201603/855573-20160321142616886-1770837455.png) no-repeat;
+				animation: step1 3s steps(1) both infinite;
+				-webkit-animation: step1 3s steps(1) both infinite;
+			}
+			
+			@keyframes step1 {
+				0% {
+					background-position: 0;
+				}
+				16.7% {
+					background-position: -90px 0;
+				}
+				33.4% {
+					background-position: -180px 0;
+				}
+				50.1% {
+					background-position: -270px 0;
+				}
+				67.8% {
+					background-position: -360px 0;
+				}
+				84.5% {
+					background-position: -450px 0;
+				}
+				100% {
+					background-position: -533px 0;
+				}
+			}
+			
+			@-webkit-keyframes step1 {
+				0% {
+					background-position: 0;
+				}
+				16.7% {
+					background-position: -90px 0;
+				}
+				33.4% {
+					background-position: -180px 0;
+				}
+				50.1% {
+					background-position: -270px 0;
+				}
+				67.8% {
+					background-position: -360px 0;
+				}
+				84.5% {
+					background-position: -450px 0;
+				}
+				100% {
+					background-position: -533px 0;
+				}
+			}
+			
+			.step_end {
+				width: 88.83333333333333px;
+				height: 54px;
+				margin: 10px auto;
+				background: url(http://images2015.cnblogs.com/blog/855573/201603/855573-20160321142616886-1770837455.png) no-repeat;
+				animation: step_end 3s steps(6, end) both infinite;
+				-webkit-animation: step_end 3s steps(6, end) both infinite;
+			}
+			
+			@keyframes step_end {
+				100% {
+					background-position: -533px 0;
+				}
+			}
+			
+			@-webkit-keyframes step_end {
+				100% {
+					background-position: -533px 0;
+				}
+			}
+			
+			.step-start {
+				width: 1000px;
+				height: 178px;
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			.step-start img {
+				display: block;
+				width: 192px;
+				height: 178px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				animation: stepStart 10s step-start 0s infinite alternate both;
+				-webkit-animation: stepStart 10s step-start 0s infinite alternate both;
+			}
+			
+			@keyframes stepStart {
+				0% {
+					left: 0;
+				}
+				100% {
+					left: 200px;
+				}
+			}
+			
+			@-webkit-keyframes stepStart {
+				0% {
+					left: 0;
+				}
+				100% {
+					left: 200px;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="step"></div>
+		<div class="step_start"></div>
+		<div class="step1"></div>
+		<div class="step_end"></div>
+		<!--<div class="step-start">
+			<img src="http://images2015.cnblogs.com/blog/855573/201603/855573-20160321142616886-1770837455.png" alt="" />
+		</div>-->
+	</body>
+
+</html>

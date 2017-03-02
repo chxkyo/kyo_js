@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.bsize1 {
+				width: 400px;
+				height: 200px;
+				background: url("http://images2015.cnblogs.com/blog/561794/201603/561794-20160310002800647-50077395.jpg") no-repeat;
+				border: 1px solid red;
+				overflow: hidden;
+			}
+			
+			.bsize2 {
+				background-size: 400px 200px;
+			}
+			
+			.bsize3 {
+				background-size: 400px;
+			}
+			
+			.bsize4 {
+				background-size: 100% 100%;
+			}
+			
+			.cover {
+				background-size: cover;
+			}
+			
+			.contain {
+				background-size: contain;
+			}
+			
+			.cover-paddingTop {
+				position: relative;
+				padding-top: 30.85%;
+				overflow: hidden;
+			}
+			
+			.cover-paddingTop img {
+				width: 100%;
+				position: absolute;
+				top: 0;
+			}
+			
+			.column {
+				max-width: 1024px;
+			}
+			
+			.figure {
+				padding-top: 30.85%;
+				/* 316 / 1024 */
+				background: url("http://images2015.cnblogs.com/blog/561794/201603/561794-20160310002800647-50077395.jpg") no-repeat;
+				background-size: cover;
+				background-position: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h3>固定宽度400px和高度200px后的图片</h3>
+		<div class="bsize1"></div>
+		<h3>固定宽度400px和高度200px－使用background－size:400px 200px缩放设置</h3>
+		<div class="bsize1 bsize2"></div>
+		<h3>固定宽度400px和高度200px－使用background-size:400px;的缩放设置</h3>
+		<div class="bsize1 bsize3"></div>
+		<h3>固定宽度400px和高度200px－使用background-size:100% 100%的缩放设置</h3>
+		<div class="bsize1 bsize4"></div <h3>使用属性cover来设置背景图片</h3>
+		<div class="bsize1 cover"></div>
+		<h3>使用属性contain来设置背景图片</h3>
+		<div class="bsize1 contain"></div>
+		<h3>给图片设置属性宽度为100%的情况下，可自适应图片</h3>
+		<div class="bsize-padding"><img src="http://images2015.cnblogs.com/blog/561794/201603/561794-20160310002800647-50077395.jpg" width="100%" /></div>
+		<h3>图片自适应问题，图片宽度设置100%，页面加载时会存在高度塌陷的问题</h3>
+		<p>可以使用padding－top来设置百分比值来实现自适应 padding-top = (图片的高度/图片的宽度)*100</p>
+		<div class="cover-paddingTop">
+			<img src="http://images2015.cnblogs.com/blog/561794/201603/561794-20160310002800647-50077395.jpg" />
+		</div>
+		<h3>使用padding-top实现响应性背景图片(图片的宽度是1024px，高度是316px)</h3>
+		<div class="column">
+			<div class="figure"></div>
+		</div>
+
+	</body>
+
+</html>

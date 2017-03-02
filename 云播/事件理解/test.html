@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#p {
+				width: 300px;
+				height: 300px;
+				padding: 10px;
+				border: 1px solid black;
+			}
+			
+			#c {
+				width: 100px;
+				height: 100px;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="p">
+			parent
+			<div id="c">
+				child
+			</div>
+		</div>
+		<script src="jquery-1.11.1.min.js"></script>
+		<script type="text/javascript">
+			var p = document.getElementById('p'),
+				c = document.getElementById('c');
+			c.addEventListener('click', function(e) {
+				alert('子节点捕获')
+			}, true);
+
+			c.addEventListener('click', function(e) {
+				alert('子节点冒泡')
+			}, false);
+
+			p.addEventListener('click', function(e) {
+				alert('父节点捕获')
+			}, true);
+
+			p.addEventListener('click', function(e) {
+				alert('父节点冒泡')
+			}, false);
+		</script>
+		<script type="text/javascript">
+			var sum1 = 0,
+				sum2 = 0,
+				sum3 = 0;
+			len = 200;
+			var arr = [];
+			for(var i = 0; i < len; i++) {
+				arr.push(i)
+			}
+			for(var i = 0; i < len; i++) {
+				setTimeout(function() {
+					sum1 += arr[i];
+				}, 0);
+			}
+			$.each(arr, function(i, v) {
+				setTimeout(function() {
+					sum2 += v;
+				}, 0);
+			});
+			for(var i = 0; i < len; i++) {
+				sum3++;
+			}
+			//sum3不管，答出len=2与len=200000时，sum1,sum2的值
+			console.log(sum1);
+			console.log(sum2);
+			console.log(sum3);
+		</script>
+	</body>
+
+</html>
