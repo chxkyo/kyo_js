@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo_2">
+			<input v-model="parentMsg" />
+			<br />
+			<child :my-message='parentMsg'><child>
+		</div>
+		<div id="counter-example">
+			<p>{{total}}</p>
+			<button-counter v-on:increment='incrementTotal'></button-counter>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			new Vue({
+				el:"#demo_2",
+				data:{
+					parentMsg:"lalal",
+				},
+				components:{
+					child:{
+						template:"<span>{{myMessage}}</span>",
+						props:['myMessage']
+					}
+				}
+			});
+			Vue.component('button-counter',{
+				template:'<button v-on:click="increment">{{conuter}}</button>',
+				data:function(){
+					return{
+						counter:0,
+					}
+				},
+				methods:{
+					increment:function(){
+						this.counter += 1;
+						this.$emit('increment');
+					}
+				}
+			});
+			new Vue({
+				el:"#counter-example",
+				data:{
+					total:0
+				},
+				methods:{
+					incrementTotal:function(){
+						this.total += 1;
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

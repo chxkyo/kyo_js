@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="parent">
+			<my-list>
+				<template slot="item" scope="props">
+					<li class="my-fancy-item">{{props.text}}</li>
+				</template>
+			</my-list>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			var items = [
+						{text:'text1'},
+						{text:'text2'}
+					];
+			Vue.component("my-list",{
+				template:'\
+					<ul>\
+						<slot name="item" v-for="item in items" :text="item.text"></slot>\
+					</ul>\
+				',
+				data:function(){
+					return items;
+				}
+			});
+			new Vue({
+				el:'#parent',
+			});
+		</script>
+	</body>
+</html>

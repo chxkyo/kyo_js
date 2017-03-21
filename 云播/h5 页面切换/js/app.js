@@ -3,38 +3,16 @@
     var currentPoint = -1;   //记录当前点的位置
     var pageNow = 1;   //当前页码
     var points = null; //页码数
-	var index = 0;//分页器索引
+
     var app = {
         init:function(){
-//         if(/(windows)/i.test(navigator.userAgent)){
-//             location.href = 'views/pc.html';
-//         }
            document.addEventListener('DOMContentLoaded',function(){
                points = document.querySelectorAll('.pagenumber div') ;
                app.bindTouchEvent(); //绑定触摸事件
-               app.bindBtnClick();   //绑定按钮点击事件
                app.setPageNow();     //设置初始页码
+               app.pagnation();
            }.bind(app),false);
         }(),
-
-
-        bindBtnClick:function(){
-            var button = document.querySelector('#testbtn');
-            button.addEventListener('touchstart',function(){
-                console.log('touch')
-            })
-            //button.addEventListener('click',function(){
-            //    console.log('click')
-            //})
-        },
-        updateIndex:function(){
-        	index = pageNow - 1;
-        },
-		trigger:function(){
-			if(){
-				
-			}
-		},
         //页面平移
         transform:function(translate){
            this.style.webkitTransform = "translate3d("+translate+"px,0,0)";
@@ -51,7 +29,24 @@
             currentPoint = pageNow - 1;
             points[currentPoint].className = 'now';
         },
+		//点击分页器
+		pagnation:function(){
+				var that =this;
+				$(".pagenumber div").on("tap",function(){
+					var idx = $(this).attr("index"),idx2 = 0;
+					var translate = (idx - idx2)*-window.innerWidth;
+					var viewport =  document.querySelector('#viewport');
+					viewport.style.webkitTransition = "0.3s ease -webkit-transform";
+					that.transform.call(viewport,translate);
+					pageNow = Math.round(Math.abs(translate) / window.innerWidth) + 1;
+					setTimeout(function(){
+                        //设置页码，DOM操作需要放到子线程中，否则会出现卡顿
+                        that.setPageNow();
+                        viewport.style.webkitTransition = "";
+                    }.bind(this),100);
+				});
 
+		},
         /**
          * 绑定触摸事件
          */
@@ -128,7 +123,6 @@
                     this.transform.call(viewport,translate);
                     //计算当前的页码
                     pageNow = Math.round(Math.abs(translate) / pageWidth) + 1;
-					this.updateIndex();
                     setTimeout(function(){
                         //设置页码，DOM操作需要放到子线程中，否则会出现卡顿
                         this.setPageNow();

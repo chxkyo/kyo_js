@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var a = [];
+			for(let i = 0; i < 10; i++) {
+				a[i] = function() {
+					console.log(i);
+				};
+			}
+			a[6]();
+			let obj = {
+				p:[
+					'Hello',
+					{y:'World'}
+				]
+			};
+			let{p:[x,{y}]} = obj;
+			console.log(x);
+			console.log(y);
+			console.log(p);
+			
+		</script>
+
+	</body>
+
+</html>

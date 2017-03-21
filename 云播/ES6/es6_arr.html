@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>es6之数组</title>
+	</head>
+
+	<body>
+		<div>
+			<span class="name">kyo</span>
+			<span class="name">kYo</span>
+			<span class="name">kyO</span>
+		</div>
+		<script type="text/javascript">
+			let spans = document.querySelectorAll(".name");
+			let names = Array.from(spans, s => s.textContent);
+			console.log(names);
+			console.log(Array.from([1, , 2, , 3], (n) => n || 0));
+			var x = 1;
+
+			function foo(x) {
+				x = 3;
+				console.log(x);
+			}
+
+			foo() // 2
+			console.log(x); // 1
+		</script>
+	</body>
+
+</html>

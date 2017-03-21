@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue小demo</title>
+		<link rel="stylesheet" href="css/demo_2.css" />
+	</head>
+	<body>
+		<div id="app">
+			<fieldset id="">
+				<legend>create newperson</legend>
+				<div class="form-group">
+					<label for="name">Person:</label>
+					<input type="text" v-model="newPerson.name" />
+				</div>
+				
+			</fieldset>
+		</div>
+		<script src="js/vue_1.0.js"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					newPerson:{
+						name:'',
+						age:0,
+						sex:''
+					},
+					people:[
+						{
+							name:"吴建",
+							age:25,
+							sex:"女"
+						},
+						{
+							name:"kYo",
+							age:25,
+							sex:"男"
+						},
+						{
+							name:"林翔",
+							age:24,
+							sex:"女"
+						}
+					]
+				},
+				methods:function(){
+					createPerson:function(){
+						this.people.push(this.newPerson);
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="parent">
+			<span>可编辑状态:</span>
+			<a href="#">啦啦啦啦</a>
+			<button id="btn">点我</button>
+		</div>
+		<script type="text/javascript">
+//			function Timer(){
+//				this.s1 = 0;
+//				this.s2 = 0;
+//				setInterval(()=>this.s1++,1000);
+//				setInterval(function(){
+//					this.s2++;
+//				}.bind(this),1000)
+//			}
+//			var timer = new Timer();
+//			setTimeout(()=>console.log("s1：",timer.s1),3100);
+//			setTimeout(()=>console.log("s2：",timer.s2),3100);
+			let insert = (value)=>({into:(array)=>({after:(afterValue)=>{
+				array.splice(array.indexOf(afterValue)+1,0,value);
+				return array;
+			}})});
+			console.log(insert(2).into([1,3]).after(1));
+			document.getElementById("btn").onclick = function(){
+				console.log("点到我了");
+			}
+		</script>
+	</body>
+</html>

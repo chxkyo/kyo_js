@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+			<div id="example">
+				<app-layout>
+					<h1 slot="header">
+						页头
+					</h1>
+					<p>另外的主要内容</p>
+					<p slot="footer">
+						页脚
+					</p>
+				</app-layout>
+			</div>
+			<div id="example2">
+				<div class="parent">
+					<child>
+						<template scope="props">
+							<span>hello form parent</span>
+							<span>{{props.text}}</span>
+						</template>
+					</child>
+				</div>
+			</div>
+			<script src="https://unpkg.com/vue/dist/vue.js"></script>
+			<script type="text/javascript">
+				Vue.component("app-layout",{
+					template:'\
+						<div class="container">\
+							<header>\
+								<slot name="header">\
+								<slot>\
+							</header>\
+							<main>\
+								<slot>\
+								</slot>\
+							</main>\
+							<footer>\
+								<slot name="footer">\
+								<slot>\
+							</footer>\
+						</div>\
+					',
+				});
+				new Vue({
+					el:"#example",
+				});
+				Vue.component("child",{
+					template:'\
+						<div class="child">\
+							<slot text="hello form child"></slot>\
+						</div>\
+					',
+				});
+				new Vue({
+					el:"#example2"
+				});
+			</script>
+	</body>
+</html>

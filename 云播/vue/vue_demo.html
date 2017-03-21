@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>vue demo</title>
+		<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<div id="app">
+						<table border="" cellspacing="" cellpadding="" class="table">
+							<thead>
+								<tr>
+									<th @click="sortBy('id')">序列号</th>
+									<th @click="sortBy('name')">书名</th>
+									<th @click="sortBy('author')">作者</th>
+									<th @click="sortBy('price')">价格</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr v-for="book in books">
+									<td>{{book.id}}</td>
+									<td>{{book.author}}</td>
+									<td>{{book.name}}</td>
+									<td>{{book.price}}</td>
+									<template v-if="book.id%2==0">
+										<td class="text-right"><button type="button" class="btn btn-success" @click="delBook(book)">删除</button></td>
+									</template>
+									<template v-else>
+										<td class="text-right"><button type="button" class="btn btn-danger" @click="delBook(book)">删除</button></td>
+									</template>
+								</tr>
+								<td class="text-right" colspan="5">
+									<h4>总价:{{sum}}</h4></td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="add-book">
+							<legend>添加书籍</legend>
+							<div class="form-group"> <label for="">书名</label> <input type="text" class="form-control" v-model="book.name"> </div>
+							<div class="form-group"> <label for="">作者</label> <input type="text" class="form-control" v-model="book.author"> </div>
+							<div class="form-group"> <label for="">价格</label> <input type="text" class="form-control" v-model="book.price"> </div> <button class="btn btn-primary btn-block" v-on:click="addBook()">添加</button> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			new Vue({
+				el: '#app',
+				data: { sortparam: '', book: { id: 0, author: '', name: '', price: '' }, books: [{ id: 1, author: '曹雪芹', name: '红楼梦', price: 32.0 }, { id: 2, author: '施耐庵', name: '水浒传', price: 30.0 }, { id: '3', author: '罗贯中', name: '三国演义', price: 24.0 }, { id: 4, author: '吴承恩', name: '西游记', price: 20.0 }] },
+				methods: {
+					addBook: function() {
+						this.book.id = this.books.length + 1;
+						this.books.push(this.book);
+						this.book = { id: 0, author: '', name: '', price: '' };
+					},
+					delBook: function(book) {
+						var index = this.books.indexOf(book);
+						this.books.splice(index, 1);
+					},
+					sortBy: function(sortparam) {
+						this.sortparam = sortparam;
+					},
+				},
+				computed:{
+					sum:function(){
+						var result = 0;
+						for(var i =0;i<this.books.length;i++){
+							result += Number(this.books[i].price);
+						}
+						return result;
+					}
+				}
+			});
+		</script>
+	</body>
+
+</html>

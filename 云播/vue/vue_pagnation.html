@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			@charset "utf-8";
+			/*reset*/
+			
+			body,
+			div,
+			dl,
+			dt,
+			dd,
+			ul,
+			ol,
+			li,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			form,
+			input,
+			button,
+			textarea,
+			p,
+			th,
+			td {
+				margin: 0;
+				padding: 0;
+			}
+			
+			table,
+			td {
+				border-collapse: collapse;
+				border: 0;
+			}
+			
+			a img,
+			img {
+				border: 0;
+			}
+			
+			li {
+				list-style: none;
+			}
+			
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				font-size: 100%;
+				font-weight: normal;
+			}
+			
+			input {
+				border: 0;
+				font-size: 100%;
+			}
+			
+			button,
+			input,
+			select,
+			textarea {
+				font: 13px/1.5 "微软雅黑";
+				vertical-align: middle;
+			}
+			
+			font {
+				font-size: 12px;
+			}
+			#parent li{
+				border:1px solid #dbdbdb;
+				display: inline-block;
+				padding: 10px 15px;
+				border-radius: 2px;
+				color: green;
+			}
+			#parent li.active{
+				background:green;
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="parent">
+			<ul>
+				<li v-for="n in pageCount" v-bind:class="n === activeNumber?'active':''">{{n}}</li>
+			</ul>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:"#parent",
+				data:{
+					activeNumber:1,
+					pageCount:10
+				}
+			})
+		</script>
+	</body>
+
+</html>
