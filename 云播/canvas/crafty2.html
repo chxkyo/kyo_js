@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="https://cdn.rawgit.com/craftyjs/Crafty/testing/dist/crafty-min.js"></script>
+		<script type="text/javascript">
+			Crafty.init(400, 400);
+			var helloText = Crafty.e("2D,DOM,Text").attr({
+				x:10,
+				y:10
+			});
+			helloText.text("hahaha").textColor("blue");
+		</script>
+	</body>
+</html>

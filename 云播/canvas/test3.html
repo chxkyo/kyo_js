@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="200" height="200"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			if(canvas.getContext){
+				var ctx = canvas.getContext('2d');
+				ctx.beginPath();
+				ctx.arc(75,75,50,0,Math.PI*2);
+				ctx.stroke();
+				ctx.beginPath();
+				ctx.arc(75,75,35,0,Math.PI,false);
+				ctx.stroke();
+				ctx.beginPath();
+				ctx.arc(55,60,5,0,Math.PI*2);
+				ctx.stroke();
+				ctx.beginPath();
+				ctx.arc(100,60,5,0,Math.PI*2);
+				ctx.stroke();
+			}
+		</script>
+	</body>
+</html>

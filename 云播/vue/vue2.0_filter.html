@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="name" />
+			<ul>
+				<li v-for="user in newUsers">
+					{{user.name}}
+				</li>
+			</ul>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			new Vue({
+				el:"#app",
+				data:{
+					name:"",
+					users:[
+						{name:"lal"},
+						{name:"kYo"},
+						{name:"chx"}
+					]
+				},
+				computed:{
+					newUsers:function(){
+						var that = this;
+						return that.users.filter(function(user){
+							return user.name.toLowerCase().indexOf(that.name.toLowerCase()) !== -1;
+						});
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

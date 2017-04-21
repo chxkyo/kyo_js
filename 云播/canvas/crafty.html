@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<script src="https://cdn.rawgit.com/craftyjs/Crafty/testing/dist/crafty-min.js"></script>
+		<meta charset="utf-8">
+		<title>JS Bin</title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//创建一个舞台
+			Crafty.init(400, 400);
+			var square = Crafty.e('2D, Canvas, Color');
+			square.attr({
+				x: 20,
+				y: 20,
+				w: 100,
+				h: 100
+			}).color('red');
+
+			square.origin("center")
+
+			square.bind('EnterFrame', function() {
+				this.rotation = this.rotation + 1;
+			});
+		</script>
+	</body>
+
+</html>

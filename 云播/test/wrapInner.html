@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+<!--		<span class="warning">你被管理员禁止发言5分钟!</span>-->
+		<script src="zepto.min.js"></script>
+		<script type="text/javascript">
+			var info = '<span class="warning">你被管理员禁止发言5分钟!</span>',li = $(info);
+			if($(info)[0].nodeName !== 'LI'){
+				li = $("<li>"+info+"</li>");
+			}
+			console.log(li[0]);
+		</script>
+	</body>
+</html>

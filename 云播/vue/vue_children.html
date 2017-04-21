@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<parent-component></parent-component>
+		</div>
+		<template id="parent-component">
+			<child-component1></child-component1>
+			<child-component2></child-component2>
+			<!--<button v-on:click="showChildComponentData"></button>-->
+		</template>
+		<template id="child-component1">
+			<h2>This is child component1</h2>
+		</template>
+		<template id="child-component2">
+			<h2>This is child component2</h2>
+		</template>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			Vue.component('parent-component',{
+				template:"#parent-component",
+				components:{
+					'child-component1':{
+						template:"#child-component1",
+						data:function(){
+							return {
+								msg:'child component 111'
+							}
+						}
+					},
+					'child-component2':{
+						template:"#child-component2",
+						data:function(){
+							return {
+								msg:"child component 222"
+							}
+						}
+					}
+				},
+				methods:{
+					showChildComponentData:function(){
+						for(var i=0;i<this.$children.length;i++){
+							alert(this.$children[i].msg);
+						}
+					}
+				}
+			});
+			new Vue({
+				el:"#app",
+			});
+		</script>
+	</body>
+</html>

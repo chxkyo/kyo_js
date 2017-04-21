@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>H5 HandLock</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="author" content="宋进忠">
+  <meta name="email" content="songjz.ecnu@gmail.com">
+  <style type="text/css">
+    *{ padding: 0;margin: 0; }
+    html, body{ width: 100%; height: 100%;}
+    body{ background-color: #f0f0f2; text-align: center;}
+    #handlock { width: 100%; height: auto;max-width: 500px; min-width: 300px; margin: 0 auto; position: relative;}
+    #handlock .info{ position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; width: 300px; height: 50px; background-color: rgba(255, 255, 255, 0.6); color: #f702ef; line-height: 50px; font-size: 22px; border-radius: 50px; display: none;}
+    #handlock canvas{ margin: 0 auto; }
+    #select{ font-size: 20px; font-weight: bold; }
+    #select .message{ color: red; padding: 0 10px;}
+    #select .radio label{ display: block; margin: 10px 0 }
+  </style>
+</head>
+<body>
+  <div id="handlock">
+    <div class="info"></div>
+  </div>
+  <div id="select">
+    <div class="message">请输入手势密码</div>
+    <div class="radio">
+      <label><input type="radio" name="pass">设置手势密码</label>
+      <label><input type="radio" name="pass">验证手势密码</label>
+    </div>
+  </div>
+  <script type="text/javascript" src="handlock.js"></script>
+  <script type="text/javascript">
+    var el = document.getElementById('handlock'),
+      info = el.getElementsByClassName('info')[0],
+      select = document.getElementById('select'),
+      message = select.getElementsByClassName('message')[0],
+      radio = select.getElementsByClassName('radio')[0],
+      setPass = radio.children[0].children[0],
+      checkPass = radio.children[1].children[0];
+    new handLock({
+      el: el,
+      info: info,
+      message: message,
+      setPass: setPass,
+      checkPass: checkPass,
+      n: 3
+    }).init();
+  </script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?513bc3e28555252418b03cc8e660bc31";
+      var s = document.getElementsByTagName("head")[0]; 
+      s.appendChild(hm);
+    })();
+  </script>
+</body>
+</html>

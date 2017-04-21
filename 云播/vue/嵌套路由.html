@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p>
+				<router-link to="/user/foo">/user/foo</router-link>
+				<router-link to="/user/foo/profile">/user/foo/profile</router-link>
+				<router-link to="/user/foo/posts">/user/foo/posts</router-link>
+			</p>
+			<router-view></router-view>
+		</div>
+		<script type="text/javascript">
+			const user = {
+				template:'<div	class="user"><h2>User {{$route.params.id}}</h2><router-view></router-view></div>'
+			}
+			const userHome = {
+				template:'<div>userHome</div>'
+			};
+			const userProfile = {
+				template:'<div>Profile</div>'
+			};
+			const userPosts = {
+				template:"<div>Posts</div>"
+			};
+			const router = new VueRouter({
+				routes:[
+				{
+					path:'/user/:id',component:user,
+					children:[
+						{path:"",component:userHome},
+						{path:'profile',component:userProfile},
+						{path:"posts",component:userPosts}
+					]
+				}
+				]
+			})
+			new Vue({
+				router
+			}).$mount("#app");
+		</script>
+	</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="app">
+			<div id="searchBar">
+				Search <input type="text" v-model="searchQuery" />
+			</div>
+			<simple-grid :data="gridData" :filter-key="searchQuery" :columns="gridColumns">
+			</simple-grid>
+		</div>
+		<template id="grid-template">
+			<table>
+				<thead>
+					<tr>
+						<th v-for="col in columns">
+							{{col | capitalize}}
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="entry in data|filterBy filterKey">
+						<td v-for="col in columns">
+							{{entry[col]}}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</template>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			Vue.component('simple-grid', {
+				template: "#grid-template",
+				props: {
+					data: Array,
+					columns: Array,
+					filterKey: String,
+				}
+			});
+			var demo = new Vue({
+				el: "#app",
+				data: {
+					searchQuery: '',
+					gridColumns: ['name', 'age', 'sex'],
+					gridData: [{
+						name: "Jack",
+						age: 30,
+						sex: 'Male'
+					}, {
+						name: "Bill",
+						age: 31,
+						sex: 'Male'
+					}, {
+						name: "kYo",
+						age: 24,
+						sex: 'Male'
+					}]
+				}
+			});
+		</script>
+	</body>
+
+</html>

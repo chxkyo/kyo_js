@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="div1">
+			<child :level="1">
+				Hello world!
+				<h2>
+           			woqu
+            		<h3>what</h3>
+        		</h2>
+			</child>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			var getChildrenTextContent = function(children) {
+				return children.map(function(node) {
+					return node.children ?
+						getChildrenTextContent(node.children) :
+						node.text
+				}).join('')
+			}
+			Vue.component('child', {
+				render: function(createElement) {
+					debugger;
+					// create kebabCase id
+					var headingId = getChildrenTextContent(this.$slots.default)
+						.toLowerCase()
+						.replace(/\W+/g, '-')
+						.replace(/(^\-|\-$)/g, '')
+					return createElement(
+						'h' + this.level, [
+							createElement('a', {
+								attrs: {
+									name: headingId,
+									href: '#' + headingId
+								}
+							}, this.$slots.default)
+						]
+					)
+				},
+				props: {
+					level: {
+						type: Number,
+						required: true
+					}
+				}
+			})
+			new Vue({
+				el: "#div1",
+			})
+		</script>
+	</body>
+
+</html>
