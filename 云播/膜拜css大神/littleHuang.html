@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				margin: 0;
+				padding: 0;
+			}
+			.wrapper{
+				width:300px;
+				margin: 100px auto;
+			}
+			.littleH{
+				position: relative;
+			}
+			.bodyH{
+				position: absolute;
+				width: 240px;
+				height: 400px;
+				border: 5px solid #000;
+				border-radius: 115px;
+				background: rgb(249,217,70);
+				overflow: hidden;
+				z-index: 2;
+			}
+			.bodyH .trousers{
+				position: absolute;
+				height: 100px;
+				bottom: 0;
+				width: 100%;
+				border-top: 6px solid #000;
+				background: rgb(32,116,160);
+			}
+			.trousers_top{
+				position: absolute;
+				width: 160px;
+				height: 60px;
+				border: 6px solid #000;
+				border-bottom: none;
+				background: rgb(32,116,160);
+				bottom: 100px;
+				left: 34px;
+			}
+			.condoleBelt{
+				position: absolute;
+			}
+			.bodyH .left,.bodyH .right{
+				position: absolute;
+				width: 100px;
+				height: 16px;
+				border: 5px solid #000;
+				background: rgb(32,116,160);
+				top: -92px;
+				z-index: 2;
+				-webkit-transform: rotate(45deg);
+				left: -30px;
+			}
+			.bodyH .right{
+				left: 160px;
+				-webkit-transform: rotate(-45deg);
+			}
+			.bodyH .left::after,.bodyH .right::after{
+				content: "";
+				position: absolute;
+				width:8px;
+				height: 8px;
+				background: #000;
+				border-radius: 5px;
+				top: 4px;
+				left: 88px;
+			}
+			.bodyH .right::after{
+				left: 5px;
+			}
+			.pocket{
+				position: absolute;
+				width:60px;
+				height: 45px;
+				border: 6px solid #000;
+				border-radius: 0px 0px 25px 25px;
+				left: 84px;
+				top:-20px;
+			}
+			.line_left{
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				border-bottom: 6px solid #000;
+				border-left: 6px solid #000;
+				border-bottom-left-radius:50px;
+				left: 0px;
+				transform: rotate(280deg);
+				bottom: 60px;
+			}
+			.line_right{
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				border-bottom: 6px solid #000;
+				border-right: 6px solid #000;
+				border-bottom-right-radius:50px;
+				right: 0px;
+				bottom: 60px;
+				transform: rotate(80deg);
+			}
+			.line_bottom{
+				position: absolute;
+				height: 40px;
+				border-radius: 3px;
+				border:3px solid #000;
+				bottom: 0px;
+				left: 117px;
+			}
+			.eyes{
+				position: relative;
+				z-index: 3;
+			}
+			.eyes .leftEye,.eyes .rightEye{
+				position: absolute;
+				width: 85px;
+				height: 85px;
+				border-radius: 50%;
+				border: 6px solid #000;
+				background: #fff;
+				left: 27px;
+				top: 60px;
+			}
+			.eyes .rightEye{
+				left: 124px;
+			}
+			.eyes .leftEye .left_blackEye,.eyes .rightEye .right_blackEye{
+				position: absolute;
+				width: 40px;
+				height: 40px;
+				background: #000;
+				top: 23px;
+				left: 22px;
+				border-radius: 50%;
+				-webkit-animation: blackeye 5s infinite ease-in-out;
+			}
+			.eyes .leftEye .left_blackEye .left_white,.right_blackEye .right_white{
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				border-radius: 50%;
+				background: #fff;
+				top: 7px;
+				left: 17px;
+				-webkit-animation: whiteeye 5s infinite ease-in-out;
+			}
+			.eyes .leftEye:after,.eyes .rightEye:after{
+				content: "";
+				position:absolute ;
+				width:28px;
+				height: 18px;
+				background: #000;
+				-webkit-transform: skewX(20deg) rotate(7deg);
+				left:-30px;
+				top: 36px;
+			}
+			.eyes .rightEye:after{
+				left:89px;
+				-webkit-transform: skewX(-20deg) rotate(-7deg);
+			}
+			.mouse{
+				position: relative;
+			}
+			.mouse .mouse_shape{
+				position: absolute;
+				width: 45px;
+				height:24px;
+				border:5px solid #000;
+				background: #fff;
+				border-bottom-left-radius:30px;
+				-webkit-transform: rotate(-35deg);
+				top: 180px;
+				left: 90px;
+				z-index: 3;
+				-webkit-animation: mouse 5s infinite ease-in-out;
+			}
+			.mouse .mouse_shape:after{
+				content: "";
+				position: absolute;
+				width: 76px;
+				height: 35px;
+				background: rgb(249,217,70);
+				-webkit-transform: rotate(35deg);
+				border-bottom: 5px solid #000;
+				top: -18px;
+				left: -1px;
+				-webkit-animation: mouse_shape 5s infinite ease-in-out;
+			}
+			.hands{
+				position: relative;
+			}
+			.hands .lefthand,.hands .righthand{
+				position: absolute;
+				width: 80px;
+				height: 80px;
+				border: 6px solid #000;
+				border-radius: 25px;
+				background: rgb(249,217,70);
+				top: 220px;
+				left: -25px;
+				-webkit-transform: rotate(40deg);
+				-webkit-animation: lefthand .8s ease-in-out infinite;
+			}
+			.hands .righthand{
+				left:182px;
+				-webkit-animation: righthand .8s ease-in-out infinite;
+			}
+			.hands .lefthand::after,.hands .righthand::after{
+				content: "";
+				position: absolute;
+				border: 3px solid #000;
+				height: 5px;
+				top: 42px;
+				left: 13px;
+				border-radius: 3px;
+			}
+			.hands .righthand::after{
+				transform: rotate(90deg);
+				left:50px;
+				top: 12px;
+			}
+			.feets .left_foot,.feets .right_foot{
+				position: absolute;
+				width: 36px;
+				height: 54px;
+				background: #000000;
+				border-bottom-right-radius:6px;
+				left: 86px;
+				top: 400px;
+				-webkit-animation: leftfoot 0.8s ease-in-out infinite;
+			}
+			.feets .left_foot::after,.feets .right_foot::after{
+				position: absolute;
+				content: "";
+				width: 70px;
+				height: 35px;
+				background: #000;
+				top: 19px;
+				left: -42px;
+				border-radius: 20px;
+			}
+			.feets .right_foot{
+				left: 130px;
+				border-bottom-left-radius: 6px;
+				-webkit-animation: rightfoot 0.8s ease-in-out infinite;
+			}
+			.feets .right_foot::after{
+				left:10px;			
+			}
+			.hair{
+				position: relative;
+			}
+			.left_hair_one{
+				position: absolute;
+				width: 160px;
+				height: 100px;
+				border-radius: 50%;
+				border-top: 8px solid #000;
+				left: 2px;
+				top: -10px;
+				-webkit-transform: rotate(30deg);
+				-webkit-animation: lefthair 2s ease-in-out infinite;
+			}
+			.left_hair_two{
+				position: absolute;
+				width:80px;
+				height: 80px;
+				border-radius: 50%;
+				border-top: 6px solid #000;
+				-webkit-transform: rotate(30deg);
+				left:36px;
+				top: -6px;
+			}
+			.shadow{
+				position:relative ;
+				width: 200px;
+				height: 2px;
+				border-radius: 50%;
+				background: rgba(0,0,0,0.3);
+				box-shadow: 0 0 2px 4px rgba(0,0,0,0.3);
+				top: 454px;
+				left: 22px;
+			}
+			/*动画*/
+			@-webkit-keyframes lefthair{
+				0%,20%,100%{}
+				30%{
+					-webkit-transform: rotate(31deg) translate3d(-2px,-1px,0px);
+				}
+			}
+			@-webkit-keyframes blackeye{
+				0%,20%,50%,70%,100%{
+					-webkit-transform: translateX(0px);
+				}
+				30%,40%{
+					-webkit-transform: translateX(15px);
+				}
+				80%,90%{
+					-webkit-transform: translateX(-15px);
+				}
+			}
+			@-webkit-keyframes whiteeye{
+				0%,20%,50%,70%,100%{
+					-webkit-transform: translateX(0px);
+				}
+				30%,40%{
+					-webkit-transform: translate3d(3px,4px,0);
+				}
+				80%,90%{
+					-webkit-transform: translate3d(-15px,4px,0);
+				}
+			}
+			@-webkit-keyframes mouse{
+				0%,25%,75%,100%{
+					width: 55px;
+					height: 35px;
+					top: 175px;
+					-webkit-transform: rotate(-35deg);
+				}
+				50%{
+					width:45px;
+					height: 24px;
+					top: 180px;
+				}
+			}
+			@-webkit-keyframes mouse_shape{
+				0%,25%,75%,100%{
+					width: 76px;
+					top: -18px;
+					left: -1px;
+					-webkit-transform: rotate(35deg);
+				}
+				50%{
+					width: 67px;
+					top: -24px;
+					left: -2px;
+				}
+			}
+			@-webkit-keyframes lefthand{
+				0%,50%,100%{
+					-webkit-transform: rotate(40deg);
+				}
+				30%{
+					-webkit-transform: rotate(35deg) translateX(1px);
+				}
+			}
+			@-webkit-keyframes righthand{
+				0%,50%,100%{
+					-webkit-transform: rotate(40deg);
+				}
+				80%{
+					-webkit-transform: rotate(45deg) translateX(1px);
+				}
+			}
+			@-webkit-keyframes leftfoot{
+				0%,50%,100%{
+					-webkit-transform: rotate(0deg);
+				}
+				80%{
+					-webkit-transform: rotate(10deg);
+				}
+			}
+			@-webkit-keyframes rightfoot{
+				0%,50%,100%{
+					-webkit-transform: rotate(0deg);
+				}
+				30%{
+					-webkit-transform: rotate(-10deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="littleH">
+				<!-- 头发 -->
+				<div class="hair">
+					<span class="left_hair_one"></span>
+					<span class="left_hair_two"></span>
+				</div>
+				<div class="bodyH">
+					<div class="trousers">
+						<!--裤子上方-->
+						<div class="trousers_top"></div>
+						<div class="condoleBelt">
+							<div class="left"></div>
+							<div class="right"></div>
+						</div>
+						<!--口袋-->
+						<div class="pocket"></div>
+						<span class="line_left"></span>
+						<span class="line_right"></span>
+						<span class="line_bottom"></span>
+					</div>
+				</div>
+				<!-- 眼睛 -->
+				<div class="eyes">
+					<div class="leftEye">
+						<div class="left_blackEye">
+							<div class="left_white"></div>
+						</div>
+					</div>
+					<div class="rightEye">
+						<div class="right_blackEye">
+							<div class="right_white">
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 嘴巴 -->
+				<div class="mouse">
+					<div class="mouse_shape">
+					</div>
+				</div>
+				<!--双手-->
+				<div class="hands">
+					<div class="lefthand"></div>
+					<div class="righthand"></div>
+				</div>
+				<!-- 双脚 -->
+				<div class="feets">
+					<div class="left_foot"></div>
+					<div class="right_foot"></div>
+				</div>
+				<!--阴影-->
+				<div class="shadow"></div>
+			</div>
+		</div>
+	</body>
+</html>

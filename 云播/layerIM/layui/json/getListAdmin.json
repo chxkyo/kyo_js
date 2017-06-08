@@ -1,0 +1,38 @@
+{
+  "code": 0
+  ,"msg": ""
+  ,"data": {
+    "mine": {
+      "username": "纸飞机"
+      ,"id": "100000"
+      ,"status": "online"
+      ,"sign": "在深邃的编码世界，做一枚轻盈的纸飞机"
+      ,"avatar": "http://cdn.firstlinkapp.com/upload/2016_6/1465575923433_33812.jpg"
+    }
+    ,"friend": [{
+      "groupname": "用户列表"
+      ,"id": 1
+      ,"online": 2
+      ,"list": []
+    },{
+      "groupname": "麦序列表"
+      ,"id": 2
+      ,"online": 3
+      ,"list": []
+    },{
+    "groupname": "分配列表"
+      ,"id": 3
+      ,"online": 4
+      ,"list": []
+    }]
+    ,"group": [{
+      "groupname": "前端群"
+      ,"id": "101"
+      ,"avatar": "http://tp2.sinaimg.cn/2211874245/180/40050524279/0"
+    },{
+      "groupname": "Fly社区官方群"
+      ,"id": "102"
+      ,"avatar": "http://tp2.sinaimg.cn/5488749285/50/5719808192/1"
+    }]
+  }
+}

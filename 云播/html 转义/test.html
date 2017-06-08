@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			function HTMLEncode(html) {
+				var temp = document.createElement("div");
+				(temp.textContent != null) ? (temp.textContent = html) : (temp.innerText = html);
+				var output = temp.innerHTML;
+				temp = null;
+				return output;
+			}
+
+			function HTMLDecode(text) {
+				var temp = document.createElement("div");
+				temp.innerHTML = text;
+				var output = temp.innerText || temp.textContent;
+				temp = null;
+				return output;
+			}
+			console.log(HTMLDecode("&lt;p&gt;哈哈哈&lt;&#47;p&gt;"));
+		</script>
+	</body>
+
+</html>

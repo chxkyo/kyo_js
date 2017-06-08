@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<select name="" id="">
+<!--				<option value="0">请选择</option>-->
+				<option value="1">kyo</option>
+				<option value="2">kYo</option>
+				<option value="3">kyO</option>
+			</select>
+		</div>
+		<script src="jquery-1.11.3.js"></script>
+		<script type="text/javascript">
+			$("select option").eq(0).prop("selected",true);
+			console.log($("select option:selected")[0].innerText);
+		</script>
+	</body>
+</html>
