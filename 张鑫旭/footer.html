@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>页脚</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+		<style type="text/css">
+			html,body{
+				margin: 0;
+				padding: 0;
+				width:100% ;
+				height: 100%;
+			}
+			ul{
+				margin:0 ;
+				padding: 0;
+			}
+			ul li{
+				list-style: none;
+			}
+			.fixed_top header{
+				width: 100%;
+				background: #fe5400;
+				height: 74px;
+			}
+			.scroll_view{
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				display: -webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-orient: vertical;
+				-webkit-box-direction: normal;
+				-moz-box-orient: vertical;
+				-moz-box-direction: normal;
+				-webkit-flex-direction: column;
+				-ms-flex-direction: column;
+				flex-direction: column;
+			}
+			.fixed_footer{
+				left: 0px;
+				bottom:0px ;
+				width: 100%;
+				display: block;
+			}
+			.scroll_wrap{
+				display: block;
+				-webkit-box-flex: 1;
+				-moz-box-flex: 1;
+				-webkit-flex: 1;
+				-ms-flex: 1;
+				flex: 1;
+				overflow-y:scroll ;
+				position: relative;
+			}
+			.fixed_footer footer{
+				padding-top:8px ;
+				height: 76px;
+				border-top: 1px solid #e7e7e7;
+				border-bottom:1px solid #f8f8f8;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="scroll_view">
+			<div class="fixed_top">
+				<header></header>
+			</div>
+			<div class="scroll_wrap">
+				<div class="scroll_content" style="position:absolute;height: 2000px;width: 100%;">
+					<ul>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#">6</a></li>
+						<li><a href="#">7</a></li>
+						<li><a href="#">8</a></li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#">6</a></li>
+						<li><a href="#">7</a></li>
+						<li><a href="#">8</a></li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#">6</a></li>
+						<li><a href="#">7</a></li>
+						<li><a href="#">8</a></li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#">6</a></li>
+						<li><a href="#">7</a></li>
+						<li><a href="#">8</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="fixed_footer">
+				<footer>
+				</footer>
+			</div>
+		</div>	
+		<script src="js/iscroll.js"></script>
+		<script type="text/javascript">
+			var myscroll = new IScroll(".scroll_wrap");
+		</script>
+	</body>
+</html>

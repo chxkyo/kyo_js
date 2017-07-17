@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="format-detection" content="telephone=no">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+		<link rel="stylesheet" href="../swiper-3.4.1.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../mobile_reset.css"/>
+		<link rel="stylesheet" href="../index.css" />
+		<style type="text/css">
+			.swiper-pagination-bullet-active{
+				background-color: #ed424b;
+			}
+		</style>
+	</head>
+	<body class="unlogin">
+		<div class="page page-home">
+			<div class="content">
+				<header id="header" class="header header-index">
+					<a href="/" class="logo-a">
+						<h1 class="logo">起点中文网</h1>
+					</a>
+					<nav class="btn-group btn-group-small">
+						<h3 class="btn-group-cell">
+							<a href="/male" class="btn-tab active">男生</a>
+						</h3>
+						<h3 class="btn-group-cell">
+							<a href="/female" class="btn-tab">女生</a>
+						</h3>
+					</nav>
+					<div class="header-operate red">
+						<a id="aUserCentger" href="/user" class="icon icon-person" title="个人设置">
+							<svg class="jsGuestWrapper"><use xlink:href="#icon-person"></use></svg>
+							<img id="avatar" class="header-avatar jsUserWrapper" hidden="" style="display: none;">
+						</a>
+						<a href="javascript:;" class="icon icon-book" title="我的书架" data-eid="mqd_A05"><svg><use xlink:href="#icon-book"></use></svg></a>
+					</div>
+				</header>
+				<div class="guide">
+					<i id="guideOverlay" class="guide-overlay"></i>
+					<div class="guide-content">
+						<nav class="guide-nav">
+							<a href="/" class="guide-nav-a">
+								<i class="icon icon-home"></i>
+								<h4 class="guide-nav-h">首页</h4>
+							</a>
+							<a href="/" class="guide-nav-a">
+								<i class="icon icon-sort"></i>
+								<h4 class="guide-nav-h">分类</h4>
+							</a>
+							<a href="/" class="guide-nav-a">
+								<i class="icon icon-rank"></i>
+								<h4 class="guide-nav-h">排行</h4>
+							</a>
+							<a href="/" class="guide-nav-a">
+								<i class="icon icon-free"></i>
+								<h4 class="guide-nav-h">免费</h4>
+							</a>
+							<a href="/" class="guide-nav-a">
+								<i class="icon icon-end"></i>
+								<h4 class="guide-nav-h">完本</h4>
+							</a>
+							<a href="/" class="guide-nav-a">
+								<i class="icon icon-account"></i>
+								<h4 class="guide-nav-h">账户</h4>
+							</a>
+						</nav>
+						<div class="guide-footer">
+							<a href="/" class="btn-primary" style="width: 17.5rem;">我的书架</a>
+						</div>
+					</div>
+				</div>
+				<div id="sliderContainer" class="swiper-container-horizontal slide-container">
+					<ul class="swiper-wrapper slide-ul">
+						<li class="slide-li swiper-slide">
+							<a href="http://m.qidian.com/book/1005401501" class="slide-a">
+								<img src="http://qidian.qpic.cn/qidian_common/349573/b4bd1cd4c105618076b4a54241e807e5/0" alt="" class="slide-img"/>
+							</a>
+						</li>
+												<li class="slide-li swiper-slide">
+							<a href="http://m.qidian.com/book/1005401501" class="slide-a">
+								<img src="http://qidian.qpic.cn/qidian_common/349573/560d7e6916a46d1654ed38c9f725ab34/0" alt="" class="slide-img"/>
+							</a>
+						</li>
+												<li class="slide-li swiper-slide">
+							<a href="http://m.qidian.com/book/1005401501" class="slide-a">
+								<img src="http://qidian.qpic.cn/qidian_common/349573/37632e8eb25f672c2b3be6027eeaa104/0" alt="" class="slide-img"/>
+							</a>
+						</li>
+												<li class="slide-li swiper-slide">
+							<a href="http://m.qidian.com/book/1005401501" class="slide-a">
+								<img src="http://qidian.qpic.cn/qidian_common/349573/8b7bf89fb2ac29dd5094802a88babd83/0" alt="" class="slide-img"/>
+							</a>
+						</li>
+					</ul>
+					<div class="swiper-pagination"></div>
+				</div>
+				<a href="javascript:" class="search-guide">
+					<svg class="icon icon-find" role="img" aria-label="搜索"><use xlink:href="#icon-find"></use></svg>
+					民国之文豪崛起
+				</a>
+				<nav class="home-nav">
+					<a href="/" class="guide-nav-a">
+						<i class="icon icon-sort"></i>
+						<h4 class="guide-nav-h">分类</h4>
+					</a>
+					<a href="/" class="guide-nav-a">
+						<i class="icon icon-rank"></i>
+						<h4 class="guide-nav-h">排行</h4>
+					</a>
+					<a href="/" class="guide-nav-a">
+						<i class="icon icon-free"></i>
+						<h4 class="guide-nav-h">免费</h4>
+					</a>
+					<a href="/" class="guide-nav-a">
+						<i class="icon icon-end"></i>
+						<h4 class="guide-nav-h">完本</h4>
+					</a>
+					<a href="/" class="guide-nav-a">
+						<i class="icon icon-god"></i>
+						<h4 class="guide-nav-h">大神</h4>
+					</a>
+				</nav>
+				<div class="home-pure-ad">
+					<a href="" class="module-ad">
+						<img src="http://qidian.qpic.cn/qidian_common/349573/1366cef51c6193f45f45beb3d219d3a6/0" alt="广告" />
+					</a>
+				</div>
+				<div class="module">
+					<div class="module-header">
+						<div class="module-header-l">
+							<h3 class="module-title">热门小说</h3>
+							<span class="module-title-desc">起点编辑推荐</span>
+						</div>
+					</div>
+						<div class="module-slide">
+							<ol class="module-slide-ol">
+								<li class="module-slide-li">
+									<a href="" class="module-slide-a">
+										<img src="http://qidian.qpic.cn/qdbimg/349573/1001788040/150" alt="" class="module-slide-img"/>
+										<figcaption class="module-slide-caption">草根石布衣</figcaption>
+										<p class="module-slide-author">
+											<aria>作者：</aria>
+											<span class="gray">中秋月明</span>
+										</p>
+									</a>
+								</li>
+								<li class="module-slide-li">
+									<a href="" class="module-slide-a">
+										<img src="http://qidian.qpic.cn/qdbimg/349573/1003779332/150" alt="" class="module-slide-img"/>
+										<figcaption class="module-slide-caption">草根石布衣</figcaption>
+										<p class="module-slide-author">
+											<aria>作者：</aria>
+											<span class="gray">中秋月明</span>
+										</p>
+									</a>
+								</li>
+								<li class="module-slide-li">
+									<a href="" class="module-slide-a">
+										<img src="http://qidian.qpic.cn/qdbimg/349573/1004588586/150" alt="" class="module-slide-img"/>
+										<figcaption class="module-slide-caption">草根石布衣</figcaption>
+										<p class="module-slide-author">
+											<aria>作者：</aria>
+											<span class="gray">中秋月明</span>
+										</p>
+									</a>
+								</li>
+								<li class="module-slide-li">
+									<a href="" class="module-slide-a">
+										<img src="http://qidian.qpic.cn/qdbimg/349573/1009410786/150" alt="" class="module-slide-img"/>
+										<figcaption class="module-slide-caption">草根石布衣</figcaption>
+										<p class="module-slide-author">
+											<aria>作者：</aria>
+											<span class="gray">中秋月明</span>
+										</p>
+									</a>
+								</li>
+								<li class="module-slide-li">
+									<a href="" class="module-slide-a">
+										<img src="http://qidian.qpic.cn/qdbimg/349573/1005406733/150" alt="" class="module-slide-img"/>
+										<figcaption class="module-slide-caption">草根石布衣</figcaption>
+										<p class="module-slide-author">
+											<aria>作者：</aria>
+											<span class="gray">中秋月明</span>
+										</p>
+									</a>
+								</li>
+							</ol>
+						</div>
+				</div>
+				<div class="home-btn-line-x">
+					<nav class="btn-group">
+						<h3 class="btn-group-cell">
+							<a class="btn-line" href="/">新书强推</a>
+						</h3>
+						<h3 class="btn-group-cell">
+							<a href="/" class="btn-line">
+								三江<span class="char-dot">.</span>网文新风
+							</a>
+						</h3>
+					</nav>
+				</div>
+				<div class="module">
+					<div class="module-header">
+						<div class="module-header-l">
+							<h3 class="module-title">限时免费</h3><time class="time">
+								<span class="time-day">00</span><span class="time-hour">00</span><span class="time-minute">00</span><span class="time-second">00</span>
+							</time>
+						</div>
+						<div class="module-header-r">
+							<a href="/" class="module-header-btn">
+								更多<svg class="icon icon-arrow-r">
+									<use xlink:href="#icon-arrow-r"></use>
+								</svg>
+							</a>
+						</div>
+					</div>
+						<div class="module-slide">
+							<ol class="module-slide-ol">
+								<li class="module-slide-li">
+									<a href="" class="module-slide-a">
+										<img src="http://qidian.qpic.cn/qdbimg/349573/1001788040/150" alt="" class="module-slide-img"/>
+										<figcaption class="module-slide-caption">草根石布衣</figcaption>
+										<p class="module-slide-author">
+											<aria>作者：</aria>
+											<span class="gray">中秋月明</span>
+										</p>
+									</a>
+								</li>
+								<li class="module-slide-li">
+									<a href="" class="module-slide-a">
+										<img src="http://qidian.qpic.cn/qdbimg/349573/1003779332/150" alt="" class="module-slide-img"/>
+										<figcaption class="module-slide-caption">草根石布衣</figcaption>
+										<p class="module-slide-author">
+											<aria>作者：</aria>
+											<span class="gray">中秋月明</span>
+										</p>
+									</a>
+								</li>
+								<li class="module-slide-li">
+									<a href="" class="module-slide-a">
+										<img src="http://qidian.qpic.cn/qdbimg/349573/1004588586/150" alt="" class="module-slide-img"/>
+										<figcaption class="module-slide-caption">草根石布衣</figcaption>
+										<p class="module-slide-author">
+											<aria>作者：</aria>
+											<span class="gray">中秋月明</span>
+										</p>
+									</a>
+								</li>
+								<li class="module-slide-li">
+									<a href="" class="module-slide-a">
+										<img src="http://qidian.qpic.cn/qdbimg/349573/1009410786/150" alt="" class="module-slide-img"/>
+										<figcaption class="module-slide-caption">草根石布衣</figcaption>
+										<p class="module-slide-author">
+											<aria>作者：</aria>
+											<span class="gray">中秋月明</span>
+										</p>
+									</a>
+								</li>
+								<li class="module-slide-li">
+									<a href="" class="module-slide-a">
+										<img src="http://qidian.qpic.cn/qdbimg/349573/1005406733/150" alt="" class="module-slide-img"/>
+										<figcaption class="module-slide-caption">草根石布衣</figcaption>
+										<p class="module-slide-author">
+											<aria>作者：</aria>
+											<span class="gray">中秋月明</span>
+										</p>
+									</a>
+								</li>
+							</ol>
+						</div>
+				</div>
+				<div class="module">
+					<div class="module-header">
+						<div class="module-header-l">
+							<h3 class="module-title">排行榜</h3>
+						</div>
+						<div class="module-header-r">
+							<a href="/" class='module-header-btn'>
+								更多<svg class="icon icon-arrow-r"><use xlink:href="#icon-arrow-r"></use></svg>
+							</a>
+						</div>
+					</div>
+					<div class="module-tab moduleTab">
+						<nav class="btn-group">
+							<h3 class="btn-group-cell">
+								<a href="javascript:" class="btn-tab active">热销榜</a>
+							</h3>
+							<h3 class="btn-group-cell">
+								<a href="javascript:" class="btn-tab">风云榜</a>
+							</h3>
+							<h3 class="btn-group-cell">
+								<a href="javascript:" class="btn-tab">签约榜</a>
+							</h3>
+							<h3 class="btn-group-cell">
+								<a href="javascript:" class="btn-tab">推荐榜</a>
+							</h3>
+						</nav>
+					</div>
+					<div class="module-slide">
+							<ol class="module-slide-ol">
+								<li class="module-slide-li">
+									<a href="" class="module-slide-a">
+										<span class="corner-rank red">
+											<em>top1</em>
+										</span>
+										<img src="http://qidian.qpic.cn/qdbimg/349573/1004608738/150" alt="" class="module-slide-img"/>
+										<figcaption class="module-slide-caption">圣墟</figcaption>
+										<p class="module-slide-author">
+											<aria>作者：</aria>
+											<span class="gray">辰东</span>
+										</p>
+									</a>
+								</li>
+								<li class="module-slide-li">
+									<a href="" class="module-slide-a">
+										<img src="http://qidian.qpic.cn/qdbimg/349573/1003354631/150" alt="" class="module-slide-img"/>
+										<figcaption class="module-slide-caption">一念永恒</figcaption>
+										<p class="module-slide-author">
+											<aria>作者：</aria>
+											<span class="gray">耳根</span>
+										</p>
+									</a>
+								</li>
+								<li class="module-slide-li">
+									<a href="" class="module-slide-a">
+										<img src="http://qidian.qpic.cn/qdbimg/349573/1003307568/150" alt="" class="module-slide-img"/>
+										<figcaption class="module-slide-caption">不朽凡人</figcaption>
+										<p class="module-slide-author">
+											<aria>作者：</aria>
+											<span class="gray">鹅是老五</span>
+										</p>
+									</a>
+								</li>
+								<li class="module-slide-li">
+									<a href="" class="module-slide-a">
+										<img src="http://qidian.qpic.cn/qdbimg/349573/1009410786/150" alt="" class="module-slide-img"/>
+										<figcaption class="module-slide-caption">草根石布衣</figcaption>
+										<p class="module-slide-author">
+											<aria>作者：</aria>
+											<span class="gray">中秋月明</span>
+										</p>
+									</a>
+								</li>
+								<li class="module-slide-li">
+									<a href="" class="module-slide-a">
+										<img src="http://qidian.qpic.cn/qdbimg/349573/1005406733/150" alt="" class="module-slide-img"/>
+										<figcaption class="module-slide-caption">草根石布衣</figcaption>
+										<p class="module-slide-author">
+											<aria>作者：</aria>
+											<span class="gray">中秋月明</span>
+										</p>
+									</a>
+								</li>
+							</ol>
+						</div>
+				</div>
+				<div class="home-pure-ad">
+					<a href="/" class="module-ad">
+						<img src="http://qidian.qpic.cn/qidian_common/349573/d367b129b8694df7e1876c9c86083ffb/0" class="home-pure-ad-img" />
+					</a>
+				</div>
+				<div class="module">
+					<div class="module-header">
+						<div class="module-header-l">
+							<h3 class="module-title">新书抢鲜</h3>
+							<span class="module-title-desc">24小时热销新书</span>
+						</div>
+						<div class="module-header-r">
+							<a href="/" class="module-header-btn">更多<svg class="icon icon-arrow-r"><use xlink:href="#icon-arrow-r"></use></svg></a>
+						</div>
+					</div>
+					<ol class="book-ol book-ol-normal">
+						<li class="book-li">
+							<a href="/" class="book-layout">
+								<img src="http://qidian.qpic.cn/qdbimg/349573/1005401501/150" alt="" class="book-cover"/>
+								<div class="book-cell">
+									<h4 class="book-title">极道天魔</h4>
+									<p class="book-desc">
+										妖魔横行，世人苦难。神兵魔刃，遮耀天下。——————————————————————手机上的一款游戏修改器，意外成了路胜脑海里的异能。也成了他在这个黑暗乱世唯一的依靠。~~~~~~~欢迎加入企鹅群滚开书友群，群号码：331453690V群号码：231786531
+									</p>
+								</div>
+								<div class="book-meta">
+									<div class="book-meta-l">
+										<span class="book-author">
+											<svg class="icon icon-human"><use xlink:href="#icon-human"></use></svg>
+											<aria>作者： </aria>
+											滚开
+										</span>
+									</div>
+									<div class="book-meta-r">
+										<span class="tag-small-group origin-right">
+											<em class="tag-small gray">仙侠</em>
+											<em class="tag-small red">连载中</em>
+											<em class="tag-small blue">83.75万字</em>
+										</span>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ol>
+				</div>
+				<div class="module">
+					<div class="module-header">
+						<div class="module-header-l">
+							<h3 class="module-title">精选专题</h3>
+						</div>
+					</div>
+					<div class='module-field'>
+						<a href="#" class="module-field-cell"><img src="http://qidian.qpic.cn/qidian_common/349573/6926e07889a55d0ee4879fab7f5f7cd5/0" alt="" class="module-field-img"/></a>
+						<a href="#" class="module-field-cell"><img src="http://qidian.qpic.cn/qidian_common/349573/b6a9e23c430cf2f66a07dad64f125e2e/0" alt="" class="module-field-img"/></a>
+						<a href="#" class="module-field-cell"><img src="http://qidian.qpic.cn/qidian_common/349573/7625a5d04e8369ffd33cd2a835f42a63/0" alt="" class="module-field-img"/></a>
+						<a href="#" class="module-field-cell"><img src="http://qidian.qpic.cn/qidian_common/349573/2ccdbe7af32a44b9d11da9f50a615d4d/0" alt="" class="module-field-img"/></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../zepto.min.js"></script>
+		<script src="../swiper-3.4.1.min.js"></script>
+		<script src="../sprite.js"></script>
+		<script type="text/javascript">
+			var swiper = new Swiper('.swiper-container-horizontal', {
+		      	initialSlide:1,
+		        autoplay: 5000,
+		        loop: true,
+		        setWrapperSize :true,
+		        pagination : '.swiper-pagination',
+		        paginationClickable :true,
+		        observeParents:true,
+		        autoplayDisableOnInteraction : false,
+			});
+			var dialog = function(){
+				var flag = true;
+				$(".icon-book").on("tap",function(){
+					if(flag){
+						$(".guide").addClass("active");
+						flag = false;
+					}else{
+						$(".guide").removeClass("active");
+						flag = true;
+					}
+					return false;
+				});
+				$(".guide-overlay").on("tap",function(){
+					$(".guide").removeClass("active");
+					flag = true;
+				});
+			}
+			dialog();
+		</script>
+	</body>
+</html>

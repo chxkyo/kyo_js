@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var asyncFun = function(callback) {
+			    setTimeout(callback, 1000); // delay 1 sec
+			    console.log('异步方法返回'); // 4
+			};
+			asyncFun(function() {
+			    console.log('这是异步回调'); // 6
+			});
+			console.log('异步方法不会阻塞当前逻辑'); // 5
+		</script>
+	</body>
+</html>

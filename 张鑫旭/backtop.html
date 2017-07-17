@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.wrap{
+				padding-top: 200vh;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<a style="width: 100px;height: 30px;background: #dedede;border-radius: 5px;cursor: pointer;padding: 10px 30px;" onclick="backToTop(4)">backTop</a>
+		</div>
+		<script type="text/javascript">
+			// requestAnimationFrame的兼容处理
+			if(!window.requestAnimationFrame) {
+				requestAnimationFrame = function(fn) {
+					setTimeout(fn, 17);
+				};
+			}
+			// 滚动到顶部缓动实现
+			// rate表示缓动速率
+			var backToTop = function(rate) {
+				var doc = document.body.scrollTop ? document.body : document.documentElement;
+				var scrollTop = doc.scrollTop;
+
+				var top = function() {
+					scrollTop = scrollTop + (0 - scrollTop) / (rate || 2);
+
+					if(scrollTop < 1) {
+						doc.scrollTop = 0;
+						return;
+					}
+					doc.scrollTop = scrollTop;
+					requestAnimationFrame(top);
+				};
+				top();
+			};
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div class="app1">{{msg}}</div>
+		<div class="app2">{{msg}}</div>
+		<div class="app3">{{msg}}</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			var vue = new Vue({
+				el: '.app1',
+				data: {
+					msg: 'Hello, Vue.js.'
+				},
+				template: '<div>Hello, world.</div>',
+				render: (h) => h('div', {}, 'Hi, there.')
+			})
+
+			new Vue({
+				el: '.app2',
+				data: {
+					msg: 'Hello, Vue.js.'
+				},
+				template: '<div>Hello, world</div>'
+			})
+
+			new Vue({
+				el: '.app3',
+				data: {
+					msg: 'Hello, Vue.js.'
+				}
+			})
+			console.log(vue);
+		</script>
+	</body>
+
+</html>

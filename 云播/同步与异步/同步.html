@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var syncFun = function(callback) {
+			    var start = new Date();
+			    while(new Date() - start < 10000) { // delay 1 sec
+			        ;
+			    }
+			    callback();
+			    console.log('同步方法返回'); // 2
+			};
+			
+			syncFun(function() {
+			    console.log('这是同步回调'); // 1
+			});
+			console.log('同步方法会阻塞当前逻辑'); // 3
+		</script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.dialog{
+				width:600px;
+				height: 400px;
+				margin: auto;
+				border:1px solid #ddd;
+				border-radius:15px;
+				background-color: #fff;
+				box-shadow:0 3px 18px rgba(0,0,0,.5);
+			}
+			.dialog_absolute{
+				position: absolute;
+				left:0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				z-index: 1;
+			}
+			.button{
+				position:absolute ;
+				display: block;
+				width: 160px;
+				height: 36px;
+				font-size: 14px;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="demo">
+          	<div id="dialog" class="dialog dialog_absolute">
+              	<input type="button" id="button" class="button" value="点击弹框降落~~">
+            </div>
+        </div>
+	</body>
+</html>
