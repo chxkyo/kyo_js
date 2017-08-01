@@ -29,3 +29,9 @@ img{border:0;}
 .blue{
 	color: #4284ed;
 }
+.dark{color:#33373d ;}
+.cell{
+	display: table-cell;
+	width: 1920px;
+	width: 101vw;
+}

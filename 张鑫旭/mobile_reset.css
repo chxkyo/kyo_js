@@ -106,6 +106,11 @@ body {
 .blue{
 	color: #4284ed;
 }
+.white{
+	color: #fff;
+}
+.orange{color: #f0643a;}
+.yellow{color: #f0c53a;}
 /*common*/
 .clip,aria{
 	position: absolute;
@@ -113,4 +118,18 @@ body {
 }
 aria{
 	font-size: 0;
+}
+.ell{
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.dark{color:#33373d ;}
+.cell{
+	display: table-cell;
+	width: 1920px;
+	width: 101vw;
+}
+.rel{
+	position: relative;
 }
