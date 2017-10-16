@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../static/hellow/hellow.css" /> 
+	</head>
+	
+	<body>
+		<h4>seaJS 例子 example 01</h4>
+		<div id="div01" class="div01">
+			<span id="span01" class="span01">my TEXT 001 seaJS 例子，鼠标移动到上面看看边框变化...</span>
+		</div>
+		<br>
+		<div id="div02" class="div02">my TEXT 002 seaJS 例子，鼠标放到上面等下看</div>
+		<script type="text/javascript" src="../sea-modules/sea.js"></script>
+		<script type="text/javascript">
+			// seajs 的简单配置  
+			seajs.config({  
+			    //all alias path base on this//所有别名基于本路径  
+			    base:"../sea-modules/"  
+			    ,alias:{ //auto add suffix .js  
+			        "jQuery1.11":"jQuery/jquery-1.11.1.min"  
+			        ,"hellow":"./hellow"  
+			    }  
+			    ,preload:'jQuery1.11'  
+//			    ,vars:{  
+//			        'locale':'zh-cn' //本例未启用,在模块中可用格式{key},即{locale}表示变量  
+//			    }  
+			});
+			seajs.use(["jQuery1.11","../static/hellow/hellowMain.js"],function($,hm){
+				hm.initEvent();
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  		<meta name="format-detection"content="telephone=no">
+		<title></title>
+		<style type="text/css">
+			#anim{ width:120px; height:120px; position: absolute; top: 50%; left: 50%; margin-top: -60px; margin-left: -60px; background-repeat: no-repeat;}
+		  .animImg img{width: 100%;height: 100%;}
+		  .animImg:nth-child(1){display: block;}
+		  .animImg:nth-child(2){display: none;}
+		  .animImg:nth-child(3){display: none;}
+		  .animImg:nth-child(4){display: none;}
+		  .animImg:nth-child(5){display: none;}
+		  .animImg:nth-child(6){display: none;} 
+		</style>
+	</head>
+	<body>	
+	<div id="anim">
+      <div class="animImg1 animImg"><img src="http://www.h5-share.com/test/fbfanimation-3/images/anim-01.png"></div>
+      <div class="animImg2 animImg"><img src="http://www.h5-share.com/test/fbfanimation-3/images/anim-02.png"></div>
+      <div class="animImg3 animImg"><img src="http://www.h5-share.com/test/fbfanimation-3/images/anim-03.png"></div>
+      <div class="animImg4 animImg"><img src="http://www.h5-share.com/test/fbfanimation-3/images/anim-04.png"></div>
+      <div class="animImg5 animImg"><img src="http://www.h5-share.com/test/fbfanimation-3/images/anim-05.png"></div>
+      <div class="animImg6 animImg"><img src="http://www.h5-share.com/test/fbfanimation-3/images/anim-06.png"></div>
+    </div>
+
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript">
+	    $(function(){
+	      var animImg = 1;
+	      var animImages = setInterval(function () {
+	          animImg++;
+	          if (animImg >= 7) {
+	              animImg = 1;
+	          }
+	          $(".animImg").hide();
+	          $(".animImg" + animImg).show();
+	      },100);
+	    });
+	</script>
+	</body>
+</html>

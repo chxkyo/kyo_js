@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="parent">
+			哈哈哈
+			<span class="child">1</span>
+			<span class="child">2</span>
+			<span class="child">3</span>
+		</div>
+		<script src="kyo.js"></script>
+		<script type="text/javascript">
+			console.log(kyo('.parent'));
+			console.log(kyo('.parent')[0].innerHTML.replace(/^\s+/,''));
+			console.log(kyo('.parent').find("child"));
+		</script>
+	</body>
+</html>

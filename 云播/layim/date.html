@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var date = function(timestamp) {
+				return new Date(timestamp || new Date()).toLocaleString()
+					.replace(/\//g, "-").replace(/(\s)\D*(\d)/g, "$1$2");
+			};
+			date(new Date);
+		</script>
+	</body>
+
+</html>

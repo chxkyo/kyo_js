@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <meta name="format-detection"content="telephone=no">
+  <title>demoJs-2</title>
+  <style type="text/css">
+  #anim{
+      background-image: url(http://www.h5-share.com/test/fbfanimation-3/images/anim.png);
+      width:120px;
+      height:120px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -60px;
+      margin-left: -60px;
+      background-repeat: no-repeat;
+  }
+  </style>
+</head>
+<body onload="play()">
+    <div id="anim"></div>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript">
+    (function(){
+        window.frameAnimation = {
+            anims:(function(){
+                /*
+                obj=>需要执行背景动画的对象；
+                width:图片的总宽度
+                steps=>需要的帧数；
+                eachtime=>一次完整动画需要的时间；
+                times=>动画执行的次数 0表示无限反复
+                */
+                return function(obj,width,steps,eachtime,times,order,callback){
+                    var runing = false;
+                    var handler = null;         //obj,width,steps,eachtime,times定时器
+                    var step = 0;       //当前帧
+                    var time = 0;       //当前第几轮
+                    var speed = eachtime*500/steps;      
+                    var oneStepWidth = width/steps;
+                    function _play(){
+                        if(step >= steps){
+                                step = 0;
+                                time++;
+                        }
+                        if(0 == times || time <times){
+                            obj.css('background-position', -oneStepWidth * step + 'px 0px');
+                            step++;
+                        }else{
+                            control.stop();
+                            callback && callback();
+                        }
+                    }
+                    
+                    var control = {
+                        start:function(){
+                            if(!runing){
+                                runing = true;
+                                step = time = 0;
+                                handler = setInterval(_play, speed);
+                            }
+                            return this;
+                        }
+                      
+                        ,stop:function(restart){
+                            if(runing){
+                                runing = false;
+                                if(handler){
+                                    clearInterval(handler);
+                                    handler = null;
+                                }
+                                if(restart){
+                                    obj.css('background-position', '0 0');
+                                    step = 0;
+                                    time = 0;
+                                }
+                            }
+                        }
+                        ,dispose:function(){
+                            this.stop();
+                            //console.log('anim dispose');
+                        }
+                    };
+                    return control;
+                }
+            })()
+        }
+    })(window);
+
+    function play(){
+        var anim = frameAnimation.anims($('#anim'),720,6,1,0);
+        anim.start();
+    }
+    
+</script>
+</body>
+</html>

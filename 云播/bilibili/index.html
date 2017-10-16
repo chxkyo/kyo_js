@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>bilibili</title>
+		<link rel="stylesheet" href="common.css" />
+		<link rel="stylesheet" href="index.css" />
+	</head>
+
+	<body>
+		<div class="z-top-container has-banner" style="display: none;">
+			<div class="z-top b-header-blur ">
+				<div class="b-header-mask-wrp">
+					<div class="b-header-mask-bg" style="background-image: url(" //i0.hdslb.com/bfs/archive/17759bd2d61eb97e992642f79a15ddabd015d0dc.png ");"></div>
+					<div class="b-header-mask"></div>
+				</div>
+				<div class="z_header">
+					<div class="z_top_nav">
+						<ul>
+							<li class="home">
+								<a class="i-link" href="//www.bilibili.com/index.html"><span>主站</span></a>
+							</li>
+							<li class="hbili">
+								<a class="i-link" href="http://h.bilibili.com/" title="画友">画友</a>
+							</li>
+							<li class="b-gc">
+								<a class="i-link" href="https://game.bilibili.com/" title="游戏中心">游戏中心</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="elevator-module">
+			<div class="nav-bg">
+				<div class="tips-img"></div>
+			</div>
+			<div class="nav-list"><div sortindex="0" class="item sortable">直播</div><div sortindex="1" class="item sortable">动画</div><div sortindex="2" class="item sortable">番剧</div><div sortindex="3" class="item sortable">国创</div><div sortindex="4" class="item sortable">音乐</div><div sortindex="5" class="item sortable">舞蹈</div><div sortindex="6" class="item sortable">游戏</div><div sortindex="7" class="item sortable">科技</div><div sortindex="8" class="item sortable">生活</div><div sortindex="9" class="item sortable">鬼畜</div><div sortindex="10" class="item sortable">时尚</div><div sortindex="11" class="item sortable">广告</div><div sortindex="12" class="item sortable">娱乐</div><div sortindex="13" class="item sortable">电影</div><div sortindex="14" class="item sortable">TV剧</div><div class="item customize"><i class="icon"></i>排序</div></div>
+			<div class='s-line'></div>
+			<div class="back-top icon"></div>
+			<div class="app-download">
+				<a href="javascript:;">
+					<div class="app-icon" style="background-position-x:0px">
+					</div>
+					<div class="app-tips-icon"></div>
+				</a>
+			</div>
+		</div>
+		<div class="elevator-mask"></div>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/Sortable.js"></script>
+		<script type="text/javascript">
+			Math.easeout = function (A, B, rate, callback) {
+			    if (A == B || typeof A != 'number') {
+			        return;    
+			    }
+			    B = B || 0;
+			    rate = rate || 2;
+			    var step = function () {
+			        A = A + (B - A) / rate;
+			        if (A < 1) {
+			            callback(B, true);
+			            return;
+			        }
+			        callback(A, false);
+			        requestAnimationFrame(step);    
+			    };
+		    	step();
+			};
+		</script>
+		<script type="text/javascript">
+			    (function(){
+        window.frameAnimation = {
+            anims:(function(){
+                /*
+                obj=>需要执行背景动画的对象；
+                width:图片的总宽度
+                steps=>需要的帧数；
+                eachtime=>一次完整动画需要的时间；
+                times=>动画执行的次数 0表示无限反复
+                */
+                var step;
+                return function(obj,width,steps,eachtime,times,order,callback){
+                    var runing = false;
+                    var speed = eachtime*500/steps;      
+                    var oneStepWidth = width/steps;
+                    function _play(){
+                            obj.css('background-position-x', -oneStepWidth * step + 'px');
+                            order?(step++):(step--);
+                            if(!order && step < 0 ){
+                            	control.stop();
+                            	callback && callback();
+                            }
+                            if(order && step >= steps){
+                            	step = step - 4;
+                            }
+                    }
+                    
+                    var control = {
+                    	handler:null,
+                        start:function(){
+                            if(!runing){
+                                runing = true;
+                                time = 0;
+                                order?(step = 0):(step = step -1);
+                                this.handler = setInterval(_play, speed);
+                            }
+                            return this;
+                        }
+                        ,stop:function(restart){
+                            if(runing){
+                                runing = false;
+                                if(this.handler){
+                                    clearInterval(this.handler);
+                                    this.handler = null;
+                                }
+                            }
+                        }
+                        ,dispose:function(){
+                            this.stop();
+                        }
+                    };
+                    return control;
+                }
+            })()
+        }
+    })(window);
+		</script>
+		<script type="text/javascript">
+				var anim_mouseenter,anim_mouseleave;
+				$(".app-download").hover(function(){
+					$(".app-tips-icon").removeClass('hide');
+					$(".app-tips-icon").show();
+					$(".app-tips-icon").addClass('show');
+					anim_mouseenter = frameAnimation.anims($('.app-icon'),1280,16,2.5,1,true);
+					if(anim_mouseleave){
+						clearInterval(anim_mouseleave.handler);
+                    	anim_mouseleave.handler = null;
+					}
+        			anim_mouseenter.start();
+				},function(){
+					$(".app-tips-icon").removeClass('show');
+					$(".app-tips-icon").addClass('hide')
+					setTimeout(function(){$(".app-tips-icon").hide()},900);
+					anim_mouseleave = frameAnimation.anims($('.app-icon'),1280,16,2.5,1,false);
+					if(anim_mouseenter){
+						clearInterval(anim_mouseenter.handler);
+						anim_mouseenter.handler = null;
+					}
+        			anim_mouseleave.start();
+				});
+				$(".back-top").on("click",function(){
+					var doc = document.body.scrollTop?document.body:document.documentElement;
+					Math.easeout(doc.scrollTop,0,4,function(value){
+						doc.scrollTop = value;
+					});
+				})
+				$(".customize").on("click",function(){
+					$(".elevator-module").addClass("edit-state")
+					$(".nav-bg").addClass("open");
+					$(".elevator-mask").show();
+				});
+				$(".elevator-mask").on("click",function(){
+					$(".elevator-mask").hide();
+					$(".nav-bg").removeClass("open");
+				});
+				var el = document.querySelector('.nav-list');
+				var sortable = Sortable.create(el,{chosenClass:'select'});
+		</script>
+	</body>
+
+</html>

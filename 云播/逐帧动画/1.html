@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+		<meta name="format-detection" content="telephone=no">
+		<title></title>
+		<style type="text/css">
+			.loading-num {
+				width: 200px;
+				height: 200px;
+				font-size: 36px;
+				text-align: center;
+				line-height: 200px;
+				display: block;
+				z-index: 9999;
+				background: #fff;
+			}
+			
+			#anim {
+				background-image: url(http://www.h5-share.com/test/fbfanimation-3/images/anim.png);
+				width: 120px;
+				height: 120px;
+				-webkit-animation: auto-circle 0.5s steps(5) infinite;
+			}
+			
+			@-webkit-keyframes auto-circle {
+				100% {
+					background-position-x: 600px;
+				}
+			}
+@-webkit-keyframes auto-circle2{
+  0%{background-position-x: 0;}
+  20%{background-position-x: 120px;}
+  40%{background-position-x: 240px;}
+  60%{ background-position-x: 360px;}
+  80%{background-position-x: 480px;}
+  100%{background-position-x: 600px;}
+}
+				#anim2 {
+					background-image: url(http://www.h5-share.com/test/fbfanimation-3/images/anim.png);
+					width: 120px;
+					height: 120px;
+					-webkit-animation: auto-circle2 0.5s step-end infinite;
+				}
+		</style>
+	</head>
+
+	<body>
+		<div id="anim"></div>
+		<div id="anim2"></div>
+	</body>
+
+</html>

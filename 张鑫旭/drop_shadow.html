@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.demo {
+				background-color: #ddd;
+			}
+			
+			.box {
+				margin: 40px;
+				padding: 50px;
+				background-color: #fff;
+				position: relative;
+				font-size: 24px;
+			}
+			
+			.cor {
+				position: absolute;
+				left: -40px;
+				width: 0;
+				height: 0;
+				overflow: hidden;
+				border: 20px solid transparent;
+				border-right-color: #fff;
+			}
+			
+			.box-shadow {
+				box-shadow: 5px 5px 10px black;
+			}
+			
+			.drop-shadow {
+				-webkit-filter: drop-shadow(5px 5px 10px black);
+				filter: drop-shadow(5px 5px 10px black);
+			}
+		</style>
+	</head>
+
+	<body class="demo">
+		<div class="box box-shadow">
+			<i class="cor"></i> box-shadow
+		</div>
+		<div class="box drop-shadow">
+			<i class="cor"></i> filter: drop-shadow
+		</div>
+	</body>
+
+</html>

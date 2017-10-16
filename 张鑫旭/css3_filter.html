@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="reset.css"/>
+		<style type="text/css">
+			.demo-1,.demo-2{
+				position: relative;
+				width: 100px;
+				height: 100px;
+				margin: 100px auto 0;
+			}
+			.demo_img,.btn{
+				position: absolute;
+				left: 0;
+				right:0 ;
+				margin: auto;
+			}
+			.demo_img:hover,.btn:hover{
+				-webkit-transition: filter .3s;
+				transition: filter .3s;
+    			-webkit-filter: brightness(1.1) contrast(110%);
+			}
+			.btn{
+				width: 68px;
+				line-height: 32px;
+				background-color: #99d533;
+				text-align: center;
+				text-decoration:none ;
+			}
+			.demo_img{
+				bottom: 0px;
+			}
+			.container{
+				width: 200px;
+			}
+			.avator{
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				border-radius:50%;
+				background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505822443&di=941986df9c6514d5d43eaba4aa938347&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.qqtouxiang8.net%2Fuploads%2Fallimg%2Fc150313%2F142623130563050-922006.jpg);
+				background-size: 100% 100%;
+			}
+			.avator:after{
+				content:'' ;
+				position: absolute;
+				top: 10%;
+				left: 0%;
+		        width: 100%;
+		        height: 100%;
+		        background: inherit;
+		        background-size: 100% 100%;
+		        border-radius: 50%;
+		        transform: scale(.95);
+		       	-webkit-filter: blur(10px) brightness(80%) opacity(.8);
+		        filter: blur(10px) brightness(80%) opacity(.8);
+		        z-index: -1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="demo-1">
+			<a href="javascript:;" class="btn">btn</a>
+			<img src="https://w2.hoopchina.com.cn/88/eb/bb/88ebbba6a7080b8b6b452f22a660e3f5002.png" alt="图片" width="68px" height="56px" class="demo_img"/>
+		</div>
+		<div class="demo-2 container">
+			<div class="avator"></div>
+    		<p>bulr shadow</p>
+		</div>
+	</body>
+</html>

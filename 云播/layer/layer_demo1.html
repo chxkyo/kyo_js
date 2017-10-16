@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="general.css" />
+		<link rel="stylesheet" href="src/css/layui.css">
+		<style type="text/css">
+			.icon{display: inline-block;width: 14px;height: 14px;}
+			.icon_yes{background: url(src/images/yes.gif);background-size: contain;}
+			.icon_no{background: url(src/images/no.gif);background-size: contain;}
+		</style>
+	</head>
+
+	<body>
+		
+		<div class="wrap">
+			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+				<legend>水平导航菜单</legend>
+			</fieldset>
+			<form class="layui-form layui-form-pane1" action="">
+				<div class="layui-form-item">
+					<div class="layui-input-inline" style="width: 90px;">
+						<select name="live_status" lay-filter="aihao">
+							<option value="">直播状态</option>
+							<option value="1">未直播</option>
+							<option value="2">直播中</option>
+						</select>
+					</div>
+					<div class="layui-input-inline" style="width: 200px;">
+						<select name="family_id">
+							<option value="">全部团队</option>
+							<option value="1002">九牛财经 (已32房)</option>
+							<option value="1005">涨停俱乐部 (已8房)</option>
+							<option value="1009">测试团队01 (已1房)</option>
+							<option value="1012">zqt (已4房)</option>
+						</select>
+					</div>
+					<div class="layui-input-inline" style="width: 68px;">
+						<select name="intro_type">
+							<option value="">全部</option>
+							<option value="is_lock">锁定</option>
+							<option value="is_hidden">隐藏</option>
+							<option value="is_recommend">推荐</option>
+						</select>
+					</div>
+					<div class="layui-input-inline">
+						<select name="room_version">
+							<option value="">企业版</option>
+							<option value="1">一周内到期</option>
+							<option value="2">已到期</option>
+							<option value="3">未付费</option>
+						</select>
+					</div>
+					<label class="layui-form-label" style="width:50px ;">房间名称</label>
+				    <div class="layui-input-inline">
+				      <select name="room_name"  lay-search>
+				        <option value=""></option>
+				        <option value="0">老兵</option>
+				        <option value="1">阅读</option>
+				        <option value="2">游戏</option>
+				        <option value="3">音乐</option>
+				        <option value="4">旅行</option>
+				        <option value="5">读书</option>
+				      </select>
+				    </div>
+				    <div class="layui-input-inline">
+				      <button class="layui-btn" lay-submit lay-filter="*">立即提交</button>
+				    </div>
+				    <div class="layui-input-inline" style="float: right;">
+				    	<button class="layui-btn" ><i class="layui-icon">&#xe654;</i>添加房间</button>
+				    </div>
+				</div>
+			</form>
+		</div>
+		<!--<div class="layui-btn-group">
+			<button class="layui-btn" data-type="getCheckData">获取选中行数据</button>
+			<button class="layui-btn" data-type="getCheckLength">获取选中数目</button>
+			<button class="layui-btn" data-type="isAll">验证是否全选</button>
+		</div>-->
+
+		<table class="layui-table" lay-data="{url:'json/table/demo2.json', page:true, id:'test'}" lay-filter="test">
+			<thead>
+				<tr>
+					<th lay-data="{checkbox:true, fixed: true,align:'center'}" rowspan="3"></th>
+					<th lay-data="{field:'username', width:80,edit: 'text', templet: '#usernameTpl',align:'center'}" rowspan="3">联系人</th>
+					<th lay-data="{field:'amount', width:120,align:'center'}" rowspan="3">金额</th>
+					<th lay-data="{field:'hide', width:80,templet: '#hidenTpl',align:'center',event: 'isHide'}" rowspan="3">是否隐藏</th>
+					<th lay-data="{align:'center'}" colspan="5">地址1</th>
+					<th lay-data="{align:'center'}" colspan="2">地址2</th>
+					<th lay-data="{fixed: 'right', width: 180, align: 'center', toolbar: '#barDemo',align:'center'}" rowspan="3">操作</th>
+				</tr>
+				<tr>
+					<th lay-data="{field:'province', width:80,align:'center'}" rowspan="2">省</th>
+					<th lay-data="{field:'city', width:80,align:'center'}" rowspan="2">市</th>
+					<th lay-data="{align:'center'}" colspan="2">详细</th>
+					<th lay-data="{field:'zone', width:80,align:'center'}" rowspan="2">区</th>
+					<th lay-data="{field:'province', width:80,align:'center'}" rowspan="2">省</th>
+					<th lay-data="{field:'city', width:80,align:'center'}" rowspan="2">市</th>
+				</tr>
+				<tr>
+					<th lay-data="{field:'address', width:120,align:'center'}">小区</th>
+					<th lay-data="{field:'house', width:120,align:'center'}">单元</th>
+				</tr>
+			</thead>
+		</table>
+		<div class="layui-hide" id="barDemo">
+			<a class="layui-btn layui-btn-warm layui-btn-mini" lay-event="join">加入</a>
+			<a class="layui-btn layui-btn-mini" lay-event="edit">编辑</a>
+			<a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
+		</div>
+		<script type="text/html" id="usernameTpl">
+			<a href="" class="layui-table-link">{{d.username || ''}}</a>
+		</script>
+		<script type="text/html" id="hidenTpl">
+			{{# if(d.hidden){ }}
+				<a class="icon icon_yes" href="javascript:;"></a>
+			{{#  } else { }}
+				<a class="icon icon_no" href="javascript:;"></a>
+			{{# } }}
+		</script>
+		<script src="src/layui.js"></script>
+		<script>
+			layui.use(['form','table'], function() {
+				var form = layui.form;
+				//事件监听
+				form.on('select', function(data) {
+					console.log(this);
+				})
+				//监听提交
+//				form.on('submit(*)', function(data){
+//			    	console.log(data)
+//			   	 return false;
+//			 	 });
+				var table = layui.table;
+
+				//监听表格复选框选择
+				table.on('checkbox(test)', function(obj) {
+					console.log(obj)
+				});
+
+				//监听单元格编辑
+				table.on('edit(test)', function(obj) {
+					var value = obj.value //得到修改后的值
+						,
+						data = obj.data //得到所在行所有键值
+						,
+						field = obj.field; //得到字段
+
+				});
+
+				//监听工具条
+				table.on('tool(test)', function(obj) {
+					var data = obj.data;
+					//删除
+					if(obj.event === 'del') {
+						/*layer.confirm('真的删除行么', function(index) {
+							obj.del();
+							layer.close(index);
+						});*/
+						
+						//编辑
+					} else if(obj.event === 'edit') {
+						console.log(data);
+						layer.prompt({
+							formType: 2,
+							value: data.username
+						}, function(value, index) {
+							obj.update({
+								username: value
+							});
+							layer.close(index);
+						});
+						//加入
+					}else if(obj.event === 'join'){
+						
+					}else if(obj.event == "isHide"){
+							obj.update({
+								hidden: !obj.data.hidden
+							});
+							for(var key in table.param ){
+								console.log("参数为："+key+"值为："+table.param[key]);
+							}
+							if($(obj.tr).find(".icon").hasClass("icon_yes")){
+								$(obj.tr).find(".icon").removeClass("icon_yes").addClass("icon_no");
+							}else{
+								$(obj.tr).find(".icon").removeClass("icon_no").addClass("icon_yes");
+							}
+//							table.reload('test', {
+//								  where: { //设定异步数据接口的额外参数，任意设
+//								    page: '2'
+//								    ,limit: '40'
+//								    //…
+//								  }
+//							});
+					}
+				});
+
+				//监听排序
+				table.on('sort(test)', function(obj) {
+					console.log(this, obj.field, obj.type)
+
+					return;
+					table.reload('test', {
+						initSort: obj,
+						where: { //重新请求服务端
+							key: obj.field //排序字段
+								,
+							order: obj.type //排序方式
+						}
+						//,height: 300
+					});
+				});
+
+				var $ = layui.jquery,
+					active = {
+						getCheckData: function() {
+							var checkStatus = table.checkStatus('test'),
+								data = checkStatus.data;
+							layer.alert(JSON.stringify(data));
+						},
+						getCheckLength: function() {
+							var checkStatus = table.checkStatus('test'),
+								data = checkStatus.data;
+							layer.msg('选中了：' + data.length + ' 个');
+						},
+						isAll: function() {
+							var checkStatus = table.checkStatus('test');
+							layer.msg(checkStatus.isAll ? '全选' : '未全选')
+						},
+						parseTable: function() {
+							table.init('parse-table-demo');
+						}
+					};
+
+				$('.layui-btn').on('click', function() {
+					var type = $(this).data('type');
+					active[type] ? active[type].call(this) : '';
+				});
+			});
+		</script>
+	</body>
+
+</html>

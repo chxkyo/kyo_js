@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			var config = {
+				width: '100px',
+				height: "100px"
+			};
+
+			function deepCopy(p, c) {
+				/*@param p [必选] [对象] 被克隆对象
+				 **c ：[可选] p对象被克隆到c身上，c被改变
+				 **返回值为深度克隆后的c*/
+				var c = c || {};
+				for(var i in p) {
+					if(typeof p[i] === 'object') {
+						c[i] = (p[i].constructor === Array) ? [] : {};
+						arguments.callee(p[i], c[i]);
+					} else {
+						c[i] = p[i];
+					}
+				}
+				return c;
+			};
+			// 至少传入2个参数，传入的参数都将会被深度复制，不会影响原对象，然后返回扩展后的新对象
+			function hrExtend() { //扩展对象
+				var args = arguments;
+				if(args.length < 2) return;
+				var temp = deepCopy(args[0]); //调用复制对象方法
+				for(var n = 1; n < args.length; n++) {
+					for(var i in args[n]) {
+						temp[i] = args[n][i];
+					}
+				}
+				return temp;
+			}
+			var new_config = hrExtend(config,{width:'200px',height:"200px",time:"2000"});
+			console.log(new_config);
+		</script>
+	</body>
+
+</html>

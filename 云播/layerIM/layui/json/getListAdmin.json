@@ -7,7 +7,7 @@
       ,"id": "100000"
       ,"status": "online"
       ,"sign": "在深邃的编码世界，做一枚轻盈的纸飞机"
-      ,"avatar": "http://cdn.firstlinkapp.com/upload/2016_6/1465575923433_33812.jpg"
+      ,"avatar": "http://static.1234tv.com/resources/assets/org/layui/images/face/2.png"
     }
     ,"friend": [{
       "groupname": "用户列表"
@@ -28,11 +28,11 @@
     ,"group": [{
       "groupname": "前端群"
       ,"id": "101"
-      ,"avatar": "http://tp2.sinaimg.cn/2211874245/180/40050524279/0"
+      ,"avatar": "http://static.1234tv.com/resources/assets/org/layui/images/face/2.png"
     },{
       "groupname": "Fly社区官方群"
       ,"id": "102"
-      ,"avatar": "http://tp2.sinaimg.cn/5488749285/50/5719808192/1"
+      ,"avatar": "http://static.1234tv.com/resources/assets/org/layui/images/face/2.png"
     }]
   }
 }

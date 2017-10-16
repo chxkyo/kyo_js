@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+		<script type="text/javascript">
+			var canvas = document.getElementById("canvas");
+			var context = canvas.getContext('2d');
+			function draw(x,y,r,start,end,fill,fillstyle){
+				context.beginPath();
+				if(typeof(fillstyle) != 'undefined'){
+					context.fillStyle = fillstyle;
+				}
+				context.arc(x,y,r,start,end);
+				context.closePath();
+				fill?context.fill():context.stroke();
+			}
+			/*先画大的空心圆*/
+			draw(250,250,200,0,2*Math.PI,false);
+			/*再画一般实心圆*/
+			draw(250,250,200,Math.PI/2,Math.PI*3/2,true);
+			/*再画一个小黑实心圆*/
+			draw(250,150,100,0,2*Math.PI,true);
+			/*再画一个小白实心圆*/
+			draw(250,350,100,0,2*Math.PI,true,'white');
+			draw(250,150,30,0,2*Math.PI,true,'white');
+			draw(250,350,30,0,2*Math.PI,true,'black');
+		</script>
+	</body>
+</html>

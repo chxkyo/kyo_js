@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.icon{display:inline-block; width:20px; height:20px; background:url(icon.gif) no-repeat center;}
+			:root .icon-up,:root .icon-down{background-image:none;}
+			.icon-up::before{
+			    content: ''; position: absolute; margin: 5px 0 0 9px; 
+			    height: 4px; border-left: 1px solid #bdbdbd; 
+			    box-shadow: 1px 1px #bdbdbd, 2px 2px #bdbdbd, 3px 3px #bdbdbd, 4px 4px #bdbdbd, 5px 5px #bdbdbd, 
+			               -1px 1px #bdbdbd, -2px 2px #bdbdbd, -3px 3px #bdbdbd, -4px 4px #bdbdbd, -5px 5px #bdbdbd;     
+			}
+			.icon-down::before{
+			    content: ''; position: absolute; margin: 5px 0 0 9px; 
+			    height: 4px; border-left: 1px solid #bdbdbd; 
+			    box-shadow: 1px -1px #bdbdbd, 2px -2px #bdbdbd, 3px -3px #bdbdbd, 4px -4px #bdbdbd, 5px -5px #bdbdbd, 
+			               -1px -1px #bdbdbd, -2px -2px #bdbdbd, -3px -3px #bdbdbd, -4px -4px #bdbdbd, -5px -5px #bdbdbd;     
+			}
+		</style>
+	</head>
+	<body>
+		<i class="icon icon-up"></i>
+		<i class="icon icon-down"></i>
+	</body>
+</html>

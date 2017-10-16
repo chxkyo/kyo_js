@@ -1,0 +1,48 @@
+@charset "utf-8";  
+*{font-family:"微软雅黑","microsoft Yahei",verdana;}  
+pre{margin:0px;padding:2px 0px;font-size:13px;font-family:verdana;}  
+  
+.div01{  
+    border:1px solid red;  
+    width:600px;  
+    min-height:100px;  
+    padding:10px;  
+    box-sizing:border-box;  
+}  
+  
+.span01{  
+    border:1px solid blue;  
+    display:inline-block;     
+}  
+  
+.div02{  
+    border:1px dotted #666;  
+    min-height:60px;  
+    font-size:20px;  
+    margin:20px 0px 0px 0px;  
+}  
+  
+.alignRight{  
+    text-align:right;  
+    font-size:30px;  
+    animation:myplay01 2s linear 2s infinite normal;  
+}  
+  
+@keyframes myplay01 {  
+    0% {  
+        background: white;   
+        transform: rotate(0deg);  
+        transform:translate(0,0);  
+    }     
+    100% {  
+        background: #CCC;   
+        transform: rotate(30deg);  
+        transform:translate(0px,100px)  
+    }  
+}  
+  
+.text01{  
+    line-height:20px;  
+    font-size:13px;  
+    font-family:verdana;  
+}  

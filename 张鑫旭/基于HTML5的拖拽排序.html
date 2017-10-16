@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{background:#a0b3d6; font-size:87.5%; margin:0; line-height:1.5; color:#333; font-family:Arial, sans-serif;}
+a{color:#34538b; text-decoration:none;}a:hover{text-decoration:underline;}
+a img { border: 0; }
+input,select,textarea{font-size:100%;}
+#header{height:60px; padding:0 0 0 40px;}
+#header .logo{margin-top:12px; overflow:hidden; float:left;}
+#main{width:100%; background:#beceeb; overflow:hidden;}
+#main h1{line-height:40px; margin:0; text-align:center; font-size:18px; background:#c1d5eb; font-family:'kaiti','microsoft yahei'; text-shadow:0px 1px 0px #f2f2f2;}
+#body{padding:0; overflow:hidden;}
+#body .part{width:50%; min-height:400px; _height:400px; background:white;}
+#code{float:left; margin-left:-1px; margin-bottom:-999em; padding-bottom:999em;}
+#effect{float:right; margin-right:-1px; margin-bottom:-999em; padding-bottom:999em;}
+#body h3{line-height:30px; margin:0; font-size:15px; background:#f0f3f9; padding-left:10px; border-bottom:1px solid #ededed; color:#4e4e4e; text-shadow:0px 1px 0px white; font-family: 'microsoft yahei';}
+#footer{line-height:1.4; font-size:12px; padding:15px 0; border-top:1px solid #486aaa; font-family:'Lucida Grande',Verdana, Sans-Serif; text-align:center; text-shadow:1px 1px #cad5eb;}
+#footer:before{display:block; height:1px; content:''; background-color:#909BAF; color:#aaa; overflow:hidden; position:relative; top:-15px;}
+#footer img{margin-bottom:-3px;}
+.show{padding-bottom:20px;}
+.show h5{font-size:13px; line-height:20px; padding:10px 0 2px 2px; margin:0 0 0 8px;}
+.demo{padding:10px; *zoom:1;}
+.demo:after{display:table; content:""; clear:both;}
+.demo .remind {
+	color: gray;
+	font-size: 12px;	
+}
+pre{
+  font:14px/1.3 Consolas, Monaco, monospace;
+  padding:5px 10px;
+  margin:0;
+  white-space:pre-wrap;
+  word-wrap:break-word;
+}
+#ad {display:block!important; text-align:center; }
+.ad,.topa { height:60px; position: absolute; top: 0; right: 0; left: 250px; text-align:right; overflow:hidden; }
+@media screen and (max-width: 700px) {
+   .ad,.topa { display: none; }
+}
+.light{background:#f0f3f9;}
+.description{font-size:12px; color:gray;}
+#content{min-height:500px; _height:500px; background:white; border:solid #cad5eb; border-width:0 2px; font-family:'Lucida Grande',Verdana;}
+.article{font-family:Arial; padding:10px 0; font-size:12px; clear:both;}
+.article_new{ margin:-31px 10px 0 0; line-height: 20px; font-family:Arial; padding:5px 0; font-size:12px; clear:both; text-align:right;}
+.article_new a { display: inline-block; }
+#back{line-height:40px;margin-top:-40px; position:absolute; right:20px; padding: 0 10px 0 13px; background-color: #fff; animation:tada 1s 1s; color: #cd0000; font-size:12px;}
+@keyframes tada {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  10%, 20% {
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  }
+  30%, 50%, 70%, 90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+  40%, 60%, 80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+			.demo {
+	padding-top: 30px;
+}
+.container {
+	background-color: #f0f3f9;
+	font-family: 'PingFang SC', 'Microsoft Yahei';
+	min-height: 610px;
+	position: relative;
+	overflow: hidden;
+}
+.module-ul {
+	width: 180px;
+	position: absolute; top: 0; bottom: 0; left: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	background-color: #34538b;
+}
+.module-li {
+	margin: 20px auto;
+	padding: 10px 0;
+	background-color: #fff;
+	width: 150px;
+	text-align: center;
+	cursor: move;
+	position: relative;
+}
+.module-li:hover::before {
+	content: '';	
+	position: absolute;
+	left: 0; right: 0; top: 0; bottom: 0;
+	padding: 10px;
+	background-color: rgba(0,0,0,.5);
+}
+.module-body {
+	margin-left: 180px;
+}
+.module-stage {
+	max-width: 90%;
+	min-width: 600px;
+	margin: 0 auto;
+}
+.module-placeholder {
+    height: 584px;
+    background-color: #fff;
+    position: relative;
+	margin: 20px 0;
+}
+.module-placeholder:empty::before {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+	-ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: #aaa;
+    content: '从左侧拖模块放这里';
+    font-size: 20px;
+}
+.module-placeholder.dragenter {
+	outline: 2px dashed #ddd;
+}
+
+.module-drag {
+	padding: 10px 0;
+	margin: 20px 0;
+	background-color: #fff;
+	text-align: center;
+	cursor: move;
+	position: relative;
+}
+.module-drag.dragstart {
+	opacity: .5;
+}
+.module-drag:hover::before {
+	content: '';
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+}
+
+/* 模块拖拽删除 */
+.module-remove {
+	position: absolute;
+	top: 0; bottom: 0; left: -180px;
+	width: 180px;
+	padding-top: 40px;
+	background-color: #34538b;
+	transition: left .25s, background-color .2s;
+	z-index: 1;
+}
+.module-remove.dragenter {
+	left: 0;
+}
+.module-remove-icon {
+	position: absolute;
+	font-size: 160px;
+	left: 50%; top: 45%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	color: #fff;
+}
+.module-remove:hover,
+.module-remove.dragover {
+	background-color: #F15656;
+}
+
+		</style>
+	</head>
+	<body>
+		<div class="container">
+	<ul id="module" class="module-ul">	
+        <li class="module-li" draggable="true" data-url="http://image.zhangxinxu.com/image/study/s/s512/mm1.jpg">
+            <img class="module-img" src="http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg" height="96" alt="模块占位图1">
+        </li>
+	    <li class="module-li" draggable="true" data-url="http://image.zhangxinxu.com/image/study/s/s512/mm2.jpg">
+            <img class="module-img" src="http://image.zhangxinxu.com/image/study/s/s128/mm2.jpg" height="96" alt="模块占位图2">
+        </li>
+        <li class="module-li" draggable="true" data-url="http://image.zhangxinxu.com/image/study/s/s512/mm3.jpg">
+            <img class="module-img" src="http://image.zhangxinxu.com/image/study/s/s128/mm3.jpg" height="96" alt="模块占位图3">
+        </li>
+        <li class="module-li" draggable="true" data-url="http://image.zhangxinxu.com/image/study/s/s512/mm4.jpg">
+            <img class="module-img" src="http://image.zhangxinxu.com/image/study/s/s128/mm4.jpg" height="86" alt="模块占位图4">
+        </li>
+	</ul>
+    <div id="moduleRemove" class="module-remove"><span class="module-remove-icon">×</span></div>
+    <div id="moduleBody" class="module-body">
+    	<div id="moduleStage" class="module-stage">
+        	<div id="modulePlaHd" class="module-placeholder"></div>
+        </div>
+    </div>
+</div>
+<!-- 演示区域 结束 -->
+                
+            </div>
+        </div>       
+    </div>
+</div>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+<script type="text/javascript">
+	var moduleDrag = (function() {
+	// 模块操作类名，标记用
+	var CL_MODULE = 'jsDragModule';
+	// 状态类名
+	var CL_DRAGENTER = 'dragenter';
+	var CL_DRAGOVER = 'dragover';
+	var CL_DRAGSTART = 'dragstart';
+	
+	return  {
+		el: {},
+		store: {},
+		events: function() {
+			var self = this;
+			// 拖拽相关的事件
+			var el = self.el;
+			// 元素
+			var module = el.module, stage = el.stage;
+			// 拖拽模块
+			var modlder = el.modlder;
+			
+			var lis = module.find('li'), elDrag = null;
+
+			// 左侧拖拽
+			module.delegate('li', {
+				dragstart: function(event) {
+					var li = $(this);
+					// 标记当前拖拽元素
+			        elDrag = li;
+					event.originalEvent.dataTransfer.setData('text/plain', 'for firefox');
+				},
+				dragend: function(event) {
+					// 拖拽结束
+			        elDrag = null;
+					event.preventDefault();
+				}
+			});
+
+			// 经过占位模块元素
+			modlder.on({
+				dragover: function(event) {
+					event.preventDefault();
+				},
+				dragenter: function() {
+					modlder.addClass(CL_DRAGENTER);
+				},
+				drop: function(event) {
+					var url = elDrag && elDrag.attr('data-url');
+					if (url) {
+						// 从左侧拖动到主内容区域时候放下的回调
+						// 在本例子中，就是插入大图
+						modlder.empty().hide();
+						// 在占位符元素的前面插入模块
+						self.insertModule('<img src="'+ url +'" height="'+ (elDrag.find('img').height() * 4) +'">', modlder, 'before');
+					}
+					modlder.removeClass(CL_DRAGENTER);
+					
+					event.preventDefault();
+				}
+			});
+
+			// 模块响应左侧的拖拽以及其他模块的拖拽
+			var body = el.body;
+
+			// 实时记录鼠标的位置，方便判断鼠标当前在鼠标的上半区还是下半区
+			var pos = {};
+			document.addEventListener("dragover", function(event){
+			    pos.y = event.pageY;
+			}, false);
+
+			body.delegate('.' + CL_MODULE, {
+				dragover: function(event) {
+					// 触发的节奏是：歘歘歘
+					var current = $(this);
+					// 1. 求得模块的水平中心位置
+					var centerY = current.offset().top + current.height() * 0.5;
+
+					if (typeof pos.y != 'number' || this == elDrag[0]) {
+						return;
+					}
+
+					if (!elDrag) {
+						return;
+					}
+					// 上半区还是下半区
+					if (pos.y <= centerY) {
+						// 上
+						// 如果拖拽的是li元素，认为是左侧列表
+						if (elDrag.is('li')) {
+							modlder.show().insertBefore(current);
+						} else if (elDrag.hasClass(CL_MODULE)) {
+							var prev = current.prev();
+							if (prev.length && prev.hasClass(CL_MODULE)) {
+								if (prev[0] !== elDrag[0]) {
+									elDrag.insertBefore(current);
+								}
+							} else {
+								elDrag.insertBefore(current);
+							}				
+						}
+					} else {
+						if (elDrag.is('li')) {
+							modlder.show().insertAfter(current);
+						} else if (elDrag.hasClass(CL_MODULE)) {
+							// 当拖拽位置在下半区的时候
+							// 同时，拖拽元素不是检测元素的下一个的时候
+							// 执行位置调整
+							var next = current.next();
+							// 如果后面没元素，或者元素不是模块元素
+							if (next.length && next.hasClass(CL_MODULE)) {
+								if (next[0] !== elDrag[0]) {
+									// 如果后面的元素不是拖动的元素，位置变化
+									elDrag.insertAfter(current);
+								}
+							} else {
+								elDrag.insertAfter(current);
+							}
+						}
+					}
+					event.preventDefault();
+				},
+				dragenter: function(event) {
+					// 触发的节奏是： 歘  歘  歘
+					event.preventDefault();
+				},
+				// 模块间的拖来拖去
+				dragstart: function(event) {
+					elDrag = $(this).addClass(CL_DRAGSTART);
+
+					// 右侧删除
+					el.remove.addClass(CL_DRAGENTER);
+					
+					event.originalEvent.dataTransfer.setData('text/plain', 'for firefox');
+				},
+				dragend: function(event) {
+					/*拖拽结束*/
+					$(this).removeClass(CL_DRAGSTART);
+					elDrag = null;
+
+					// 右侧删除
+					el.remove.removeClass(CL_DRAGENTER);
+					
+					event.preventDefault();
+				}
+			});
+			
+			// 拖动到删除元素时候
+			el.remove.on({
+				dragenter: function() {
+					$(this).addClass(CL_DRAGOVER);
+				},
+				dragover: function(event) {
+					event.preventDefault();
+				},
+				dragout: function() {
+					$(this).removeClass(CL_DRAGOVER);
+				},
+				drop: function(event) {
+					// 删除
+					if (elDrag && elDrag.hasClass(CL_MODULE)) {
+						var id = elDrag.attr('id');
+						if (id) {
+							// 删除该模块存储数据
+							delete self.store[id];
+						}
+						
+						elDrag.remove();
+
+						if ($('.' + CL_MODULE).length == 0) {
+							modlder.show();
+						}
+					}
+
+					// 功成身退
+					$(this).removeClass(CL_DRAGENTER).removeClass(CL_DRAGOVER);
+					
+					event.preventDefault();
+				}
+			});
+		},
+		
+		insertModule: function(html) {
+			var self = this;
+			// 创建随机id
+			var id = ('id_' + Math.random()).replace('0.', '');
+			//  给模块HTML穿上一件可拖拽的外衣
+			var htmlWrap = '<div id="'+ id +'" class="'+ CL_MODULE +' module-drag" draggable="true">'
+			+ html
+			+ '</div>';
+
+			// 缓存颜色
+			var module = $(htmlWrap);
+
+			// 是否已经有过此模块
+			var isModuled = false;
+			$.each(self.store, function(id, obj) {
+				// 如果HTML内容一样，认为是同一模块
+				if (obj && obj.html && obj.html == html) {
+					isModuled = true;
+					return false;
+				}
+			});
+
+			if (isModuled && window.console) {
+				alert('此模块已经被选择');
+				return self;
+			}
+			
+			// 存储
+			self.store[id] = {
+				html: html
+			};
+			
+			// 占位符前面插入内容
+			self.el.modlder.before(module);
+
+			return self;
+		},
+		
+		init: function() {
+			var self = this;
+
+			// 一些元素
+			self.el = $.extend(self.el, {
+				module: $('#module'),
+				remove: $('#moduleRemove'),
+				body: $('#moduleBody'),
+				stage: $('#moduleStage'),
+				modlder: $('#modulePlaHd')
+			});
+			
+			self.events();
+		}
+	};	
+})();
+moduleDrag.init();
+</script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html {
+  overflow-y: scroll;
+}
+
+:root {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+:root body {
+  position: absolute;
+}
+
+body {
+  width: 100vw;
+  overflow: hidden;
+}
+	.demo {
+	/*margin-left: -webkit-calc(100vw - 100%);
+	margin-left: calc(100vw - 100%);*/
+	text-align: center; overflow: hidden;
+	-webkit-animation: scrollbar-toggle 2s infinite alternate;
+	animation: scrollbar-toggle 2s infinite alternate;	
+}
+	@-webkit-keyframes scrollbar-toggle {
+		from {
+			height: 0vh;
+		}
+		to {
+			height: 80vh;
+		}
+	}
+	@keyframes scrollbar-toggle {
+		from {
+			height: 0vh;
+		}
+		to {
+			height: 80vh;
+		}
+	}
+		</style>
+	</head>
+	<body>
+		<div style="height:15vh;"></div>
+		<div class="demo">
+			<p>我不像标题，我是一个不会晃动的安静的小天使！</p>
+		</div>
+		<div style="height: 15vh;"></div>
+	</body>
+</html>

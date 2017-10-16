@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    div{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+    }
+    .box1{
+        background-color: red;
+        top: 100px;
+        animation: move 1s;
+    }
+    .box2{
+        background-color: blue;
+        top: 250px;
+        animation: move 2s;
+    }
+    .box3{
+        background-color: green;
+        top: 350px;
+        animation: move 2s -1s;/*使动画马上开始跳过1s前的动画*/
+    }
+    @keyframes move{
+        0%{
+            left: 0;
+        }
+        100%{
+            left: 500px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+</body>
+</html>

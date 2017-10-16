@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div>
-			<select name="" id="">
+			<select name="" id="select">
 <!--				<option value="0">请选择</option>-->
 				<option value="1">kyo</option>
 				<option value="2">kYo</option>
@@ -15,8 +15,12 @@
 		</div>
 		<script src="jquery-1.11.3.js"></script>
 		<script type="text/javascript">
-			$("select option").eq(0).prop("selected",true);
+			var select = document.getElementById("select");
+			$("select option").eq(1).prop("selected",true);
 			console.log($("select option:selected")[0].innerText);
+			console.log("被选中option的索引:"+select.selectedIndex);
+			console.log("被选中option的文本:"+select.options[select.selectedIndex].text);
+			alert(document.getElementById("select").value);
 		</script>
 	</body>
 </html>

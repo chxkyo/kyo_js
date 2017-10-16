@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.btn{
+				display: inline-block;
+				line-height: 32px;
+				width: 100px;
+				border-radius:4px ;
+				background-color: lightblue;
+				text-align: center;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="javascript:;" class="btn">节目发布</a>
+		<script type="text/javascript">
+			if(location.hash == '#none'){
+				document.querySelector(".btn").style.display = 'none';
+			}else{
+				document.querySelector(".btn").style.display = 'block';
+			}
+
+		</script>
+	</body>
+</html>
