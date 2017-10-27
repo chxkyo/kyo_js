@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				background: #a0b3d6;
+				font-size: 87.5%;
+				margin: 0;
+				line-height: 1.5;
+				color: #333;
+				font-family: Arial, sans-serif;
+			}
+			
+			a {
+				color: #34538b;
+				text-decoration: none;
+			}
+			
+			a:hover {
+				text-decoration: underline;
+			}
+			
+			a img {
+				border: 0;
+			}
+			
+			input,
+			select,
+			textarea {
+				font-size: 100%;
+			}
+			
+			#header {
+				height: 60px;
+				padding: 0 0 0 40px;
+			}
+			
+			#header .logo {
+				margin-top: 12px;
+				overflow: hidden;
+				float: left;
+			}
+			
+			#main {
+				width: 100%;
+				background: #beceeb;
+				overflow: hidden;
+			}
+			
+			#main h1 {
+				line-height: 40px;
+				margin: 0;
+				text-align: center;
+				font-size: 18px;
+				background: #c1d5eb;
+				font-family: 'kaiti', 'microsoft yahei';
+				text-shadow: 0px 1px 0px #f2f2f2;
+			}
+			
+			#body {
+				padding: 0;
+				overflow: hidden;
+			}
+			
+			#body .part {
+				width: 50%;
+				min-height: 400px;
+				_height: 400px;
+				background: white;
+			}
+			
+			#code {
+				float: left;
+				margin-left: -1px;
+				margin-bottom: -999em;
+				padding-bottom: 999em;
+			}
+			
+			#effect {
+				float: right;
+				margin-right: -1px;
+				margin-bottom: -999em;
+				padding-bottom: 999em;
+			}
+			
+			#body h3 {
+				line-height: 30px;
+				margin: 0;
+				font-size: 15px;
+				background: #f0f3f9;
+				padding-left: 10px;
+				border-bottom: 1px solid #ededed;
+				color: #4e4e4e;
+				text-shadow: 0px 1px 0px white;
+				font-family: 'microsoft yahei';
+			}
+			
+			#footer {
+				line-height: 1.4;
+				font-size: 12px;
+				padding: 15px 0;
+				border-top: 1px solid #486aaa;
+				font-family: 'Lucida Grande', Verdana, Sans-Serif;
+				text-align: center;
+				text-shadow: 1px 1px #cad5eb;
+			}
+			
+			#footer:before {
+				display: block;
+				height: 1px;
+				content: '';
+				background-color: #909BAF;
+				color: #aaa;
+				overflow: hidden;
+				position: relative;
+				top: -15px;
+			}
+			
+			#footer img {
+				margin-bottom: -3px;
+			}
+			
+			.show {
+				padding-bottom: 20px;
+			}
+			
+			.show h5 {
+				font-size: 13px;
+				line-height: 20px;
+				padding: 10px 0 2px 2px;
+				margin: 0 0 0 8px;
+			}
+			
+			.demo {
+				padding: 10px;
+				*zoom: 1;
+			}
+			
+			.demo:after {
+				display: table;
+				content: "";
+				clear: both;
+			}
+			
+			.demo .remind {
+				color: gray;
+				font-size: 12px;
+			}
+			.mw_slide{width:558px; height:80px; margin-left:auto; margin-right:auto; overflow:hidden; position:relative;}
+.mw_slide_inner{width:2000px; margin:0; padding:0; position:absolute; list-style-type:none;}
+.mw_slide_list{width:140px; float:left;}
+		</style>
+	</head>
+
+	<body>
+		<div class="demo">
+			<div class="mw_slide">
+				<ul id="slideBox" class="mw_slide_inner">
+					<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
+					<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
+					<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
+					<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
+					<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
+					<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
+					<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
+				</ul>
+			</div>
+
+		</div>
+		<script src="sea-moudle/sea.js"></script>
+		<script type="text/javascript">
+			var $ = function(id) {
+				return document.getElementById(id);
+			};
+			seajs.use("./static/slide.js", function(slide) {
+				slide.init($("slideBox"));
+			});
+		</script>
+	</body>
+
+</html>
