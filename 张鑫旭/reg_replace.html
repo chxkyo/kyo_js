@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var prices ={
+				"pr_1":"$1.99",
+				"pr_2":"$9.99",
+				"pr_3":"$5.00"
+			};
+			var template = '<span id="pr_1"></span><span id="pr_2"></span><span id="pr_3"></span>';
+			var str = template.replace(/(<span id=")(\w+)(">)(<\/span>)/g,function(match,$1,$2,$3,$4){
+				return $1+$2+$3+prices[$2]+$4;
+			});
+			console.log(str);
+		</script>
+	</body>
+</html>

@@ -39,6 +39,25 @@ define(function(require, exports, module) {
 				 
 				 event.preventDefault();
 			});
+			Event.addEvent(document.querySelector('.left_btn'), "click", function(event) {
+				console.log(this);
+				if(self.index < length - self.visible) {
+					 // 往下
+					 self.index++;					 
+				}
+				 clearTimeout(_timer);
+				 _move(box, -1 * self.index * 140);
+				 event.preventDefault();
+			});
+			Event.addEvent(document.querySelector('.right_btn'), "click", function(event) {
+				if(self.index >0) {
+					 // 往下
+					 self.index--;					 
+				}
+				 clearTimeout(_timer);
+				 _move(box, -1 * self.index * 140);
+				 event.preventDefault();
+			});
 		}
 	};
 });

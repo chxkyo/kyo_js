@@ -149,24 +149,32 @@
 				color: gray;
 				font-size: 12px;
 			}
-			.mw_slide{width:558px; height:80px; margin-left:auto; margin-right:auto; overflow:hidden; position:relative;}
-.mw_slide_inner{width:2000px; margin:0; padding:0; position:absolute; list-style-type:none;}
-.mw_slide_list{width:140px; float:left;}
+			.mw_slide{height:80px; margin-left:auto; margin-right:auto;position:relative;}
+			.mw_slide_inner{width:2000px; margin:0; padding:0; position:absolute; list-style-type:none;}
+			.mw_slide_list{width:140px; float:left;}
+			.left_btn,.right_btn{display:block;position:relative;top:12px;float:left;width:14px;height:36px;cursor:pointer;background-color:#35a0f1;border-radius:3px;}
+			.left_btn i,.right_btn i{position: absolute;top: 10.5px;left: 2px;width: 10px;height: 15px;background: url(gift_icon.png) no-repeat;}
+			.left_btn i{background-position: -12px -22px;}.right_btn i{background-position:-8px -64px ;}
+			.slide_wrapper{position:relative;width: 520px;height:inherit;overflow: hidden;float: left;}
 		</style>
 	</head>
 
 	<body>
 		<div class="demo">
 			<div class="mw_slide">
-				<ul id="slideBox" class="mw_slide_inner">
-					<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
-					<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
-					<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
-					<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
-					<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
-					<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
-					<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
-				</ul>
+				<div class="left_btn"><i></i></div>
+				<div class="slide_wrapper">
+					<ul id="slideBox" class="mw_slide_inner">
+						<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
+						<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
+						<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
+						<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
+						<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
+						<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
+						<li class="mw_slide_list"><img src="http://05.imgmini.eastday.com/mobile/20170929/aacd3020acbec1f764560fe4ebcb2286.jpeg" width="120"></li>
+					</ul>
+				</div>
+				<div class="right_btn"><i></i></div>
 			</div>
 
 		</div>

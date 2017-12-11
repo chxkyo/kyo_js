@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			Array.prototype.remove = function(from, to) {
+			  var rest = this.slice((to || from) + 1 || this.length);
+			  this.length = from < 0 ? this.length + from : from;
+			  return this.push.apply(this, rest);
+			};
+			var arr = [1,2,3,4,56,7],arr2 = [1,2,3,4,56,7];
+			arr.remove(1);
+			arr2.splice(1,1);
+			console.log(arr);
+			console.log(arr2);
+		</script>
+	</body>
+</html>

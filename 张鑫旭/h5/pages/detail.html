@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
@@ -8,20 +9,30 @@
 		<link rel="stylesheet" type="text/css" href="../../mobile_reset.css" />
 		<link rel="stylesheet" href="../index.css" />
 	</head>
+
 	<body class="unlogin">
 		<script type="text/javascript">
-			if (/iphone/i.test(navigator.userAgent)) {
-		        document.body.style.webkitTapHighlightColor = 'rgba(0,0,0,.05)';
-		        document.body.classList.add('iphone');
-		    }
+			if(/iphone/i.test(navigator.userAgent)) {
+				document.body.style.webkitTapHighlightColor = 'rgba(0,0,0,.05)';
+				document.body.classList.add('iphone');
+			}
 		</script>
 		<div class="page page-book-detail">
 			<div class="content">
-				<header id="header" class="header" >
-					<a href="javascript:history.go(-1)" class="header-back jsBack"><svg class="icon icon-arrow-l"><title>返回</title><use xlink:href="#icon-arrow-l"></use></svg></a>
+				<header id="header" class="header">
+					<a href="javascript:history.go(-1)" class="header-back jsBack">
+						<svg class="icon icon-arrow-l">
+							<title>返回</title>
+							<use xlink:href="#icon-arrow-l"></use>
+						</svg>
+					</a>
 					<h1 class="header-back-title">特拉福买家俱乐部</h1>
 					<div class="header-operate">
-						<a href="javascript:" class="icon icon-search" id="onSearchPopup"><svg><use xlink:href="#icon-search"></use></svg></a>
+						<a href="javascript:" class="icon icon-search" id="onSearchPopup">
+							<svg>
+								<use xlink:href="#icon-search"></use>
+							</svg>
+						</a>
 						<a href="javascript:" class="icon icon-more" id="openGuide"></a>
 					</div>
 				</header>
@@ -47,9 +58,15 @@
 						</div>
 						<div class="book-detail-btn">
 							<ul class="btn-group">
-								<li class="btn-group-cell"><a href="javascript:" class="btn-normal red" id="btnReadBook">免费试读</a></li>
-								<li class="btn-group-cell"><a href="javascript:" class="btn-normal white" id="btnAddToBookShelf">加入书架</a></li>
-								<li class="btn-group-cell"><a href="javascript:" class="btn-normal white" id="myCart">VIP订阅</a></li>
+								<li class="btn-group-cell">
+									<a href="javascript:" class="btn-normal red" id="btnReadBook">免费试读</a>
+								</li>
+								<li class="btn-group-cell">
+									<a href="javascript:" class="btn-normal white" id="btnAddToBookShelf">加入书架</a>
+								</li>
+								<li class="btn-group-cell">
+									<a href="javascript:" class="btn-normal white" id="myCart">VIP订阅</a>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -73,8 +90,7 @@
 							<div class="book-meta-r">
 								<p class="gray ell">
 									昨日23:30更新
-									<span class="chat-dot">.</span>
-									连载至第一百四十七章 风雪不归人
+									<span class="chat-dot">.</span> 连载至第一百四十七章 风雪不归人
 								</p>
 								<svg class="icon icon-arrow-r">
 									<use xlink:href="#icon-arrow-r"></use>
@@ -92,7 +108,9 @@
 					<ul id="payTicketsX" class="btn-group">
 						<li class="btn-group-cell">
 							<a href="javascript:" class="book-pay">
-								<svg class="icon icon-pay-month"><use xlink:href="#icon-pay-month"></use></svg>
+								<svg class="icon icon-pay-month">
+									<use xlink:href="#icon-pay-month"></use>
+								</svg>
 								<h5 class="book-pay-h">投月票</h5>
 								<p class="book-pay-p">
 									<span class="month-ticket-cnt">757</span>票<span class="char-dot">.</span>第<span class="month-ticket-rank">438</span>位
@@ -101,7 +119,9 @@
 						</li>
 						<li class="btn-group-cell">
 							<a href="javascript:" class="book-pay">
-								<svg class="icon icon-pay-month"><use xlink:href="#icon-pay-like"></use></svg>
+								<svg class="icon icon-pay-month">
+									<use xlink:href="#icon-pay-like"></use>
+								</svg>
 								<h5 class="book-pay-h">推荐投票</h5>
 								<p class="book-pay-p">
 									<span class="month-ticket-cnt">953</span>周推荐票<span class="char-dot">.</span>第<span class="month-ticket-rank">190</span>位
@@ -110,7 +130,9 @@
 						</li>
 						<li class="btn-group-cell">
 							<a href="javascript:" class="book-pay">
-								<svg class="icon icon-pay-pay"><use xlink:href="#icon-pay-pay"></use></svg>
+								<svg class="icon icon-pay-pay">
+									<use xlink:href="#icon-pay-pay"></use>
+								</svg>
 								<h5 class="book-pay-h">打赏</h5>
 								<p class="book-pay-p">本周<span class="reward-week-cnt">4</span>人打赏</p>
 							</a>
@@ -131,77 +153,175 @@
 							<div class="fans-li book-fans-me">
 								<img src="http://qidian.gtimg.com/qd/images/ico/default_user.0.2.png" alt="我的头像" class="fans-cover"/>
 								<p class="fans-name ell"><strong>我</strong><span class="char-dot">.</span>未上榜</p>
-							</div>
-						</span>
-						<div class="cell book-fans-cell">
-							<ul class="btn-group">
-								<li class="btn-group-cell fans-li">
-									<div class="rel"><i class="fans-icon icon-fans-1"></i></div>
-									<img src="http://file1.qidian.com/face/17/50/175034850x50.png" alt="" class="fans-cover"/>
-									<div class="rel"><em class="tag-honor dark">盟主</em></div>
-									<p class="fans-name ell">天偌水</p>
-								</li>
-								<li class="btn-group-cell fans-li">
-									<div class="rel"><i class="fans-icon icon-fans-1"></i></div>
-									<img src="http://file1.qidian.com/face/17/50/175034850x50.png" alt="" class="fans-cover"/>
-									<div class="rel"><em class="tag-honor dark">盟主</em></div>
-									<p class="fans-name ell">天偌水</p>
-								</li>
-																<li class="btn-group-cell fans-li">
-									<div class="rel"><i class="fans-icon icon-fans-1"></i></div>
-									<img src="http://file1.qidian.com/face/17/50/175034850x50.png" alt="" class="fans-cover" />
-									<div class="rel"><em class="tag-honor dark">盟主</em></div>
-									<p class="fans-name ell">天偌水</p>
-								</li>
-							</ul>
-						</div>
 					</div>
-				</div>
-				<div class="mybook-game-ad mybook-ad-lazy">
-					<a href="javascript:" class="module-ad"><img src="http://qidian.qpic.cn/qidian_common/349573/950e0d8892697d84bc15bcb6292fec68/0" alt="广告" /></a>
-				</div>
-				<div class="module trigger-book-comment">
-					<div class="module-header">
-						<h3 class="module-title">书评区</h3>
-						<span class="module-title-desc"><output>19012</output>条评论</span>
-					</div>
-					<div class="module-content">
-						<ol class="module-loading book-ol-comment">
-							<li class="book-li">
-								<a href="javascript:" class="book-layout">
-									<div class="book-author-vv">
-										<img src="http://file2.qidian.com/face/41/11/411135150x50.png" alt="" class="book-author-avatar" />
-										<em class="tag-honor yellow">弟子</em>
-									</div>
-									<div class="book-cell">
-										<div class='book-meta-comment'>
-											<div class="book-meta-l">书痴711002 </div>
-											<div class="book-meta-r">
-												<i class="icon-nice-comment">精华书评</i>
-												126
-												<svg class="icon icon-comment"><use xlink:href="#icon-comment"></use></svg>
-											</div>
-										</div>
-										<time class="book-comment-time">8小时</time>
-										<p class="book-comment-p">签到，打卡，滴</p>
-									</div>
-								</a>
+					</span>
+					<div class="cell book-fans-cell">
+						<ul class="btn-group">
+							<li class="btn-group-cell fans-li">
+								<div class="rel"><i class="fans-icon icon-fans-1"></i></div>
+								<img src="http://file1.qidian.com/face/17/50/175034850x50.png" alt="" class="fans-cover" />
+								<div class="rel"><em class="tag-honor dark">盟主</em></div>
+								<p class="fans-name ell">天偌水</p>
 							</li>
-						</ol>
+							<li class="btn-group-cell fans-li">
+								<div class="rel"><i class="fans-icon icon-fans-1"></i></div>
+								<img src="http://file1.qidian.com/face/17/50/175034850x50.png" alt="" class="fans-cover" />
+								<div class="rel"><em class="tag-honor dark">盟主</em></div>
+								<p class="fans-name ell">天偌水</p>
+							</li>
+							<li class="btn-group-cell fans-li">
+								<div class="rel"><i class="fans-icon icon-fans-1"></i></div>
+								<img src="http://file1.qidian.com/face/17/50/175034850x50.png" alt="" class="fans-cover" />
+								<div class="rel"><em class="tag-honor dark">盟主</em></div>
+								<p class="fans-name ell">天偌水</p>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
+			<div class="mybook-game-ad mybook-ad-lazy">
+				<a href="javascript:" class="module-ad"><img src="http://qidian.qpic.cn/qidian_common/349573/950e0d8892697d84bc15bcb6292fec68/0" alt="广告" /></a>
+			</div>
+			<div class="module trigger-book-comment">
+				<div class="module-header">
+					<h3 class="module-title">书评区</h3>
+					<span class="module-title-desc"><output>19012</output>条评论</span>
+				</div>
+				<div class="module-content">
+					<ol class="module-loading book-ol book-ol-comment">
+						<li class="book-li">
+							<a href="javascript:" class="book-layout">
+								<div class="book-author-vv">
+									<img src="http://file2.qidian.com/face/41/11/411135150x50.png" alt="" class="book-author-avatar" />
+									<em class="tag-honor yellow">弟子</em>
+								</div>
+								<div class="book-cell">
+									<div class='book-meta-comment'>
+										<div class="book-meta-l">书痴711002 </div>
+										<div class="book-meta-r">
+											<i class="icon-nice-comment">精华书评</i> 126
+											<svg class="icon icon-comment">
+												<use xlink:href="#icon-comment"></use>
+											</svg>
+										</div>
+									</div>
+									<time class="book-comment-time">8小时</time>
+									<p class="book-comment-p">签到，打卡，滴</p>
+								</div>
+							</a>
+						</li>
+					</ol>
+					<a href="#" class="book-li-more book-li-more-comments">更多书评</a>
+				</div>
+			</div>
+			<div class="module trigger-book-rate">
+				<div class="module-header">
+					<div class="module-header-l">
+						<h3 class="module-title">书友评价</h3>
+						<span class="module-title-desc"><output class="book-rate-count">626</output>条评论</span>
+					</div>
+				</div>
+				<div class="module-content">
+					<ol class="book-ol book-ol-comment module-loading loading-animation">
+						<li class="book-li">
+							<div class="book-layout">
+								<div class="book-author-vv"><img class="book-author-avatar" src="//facepic.qidian.com/qd_face/349573/5451733/50" alt="ai？d？l？l头像"></div>
+								<div class="book-cell">
+									<div class="book-meta-comment">
+										<div class="book-meta-l">ai？d？l？l</div>
+									</div>
+									<div>
+										<span class="start-group">
+											<output class="star-score" data-score="5"></output>
+										</span>
+									</div>
+									<p class="book-comment-p jsCommMore enabled" rows="4">
+										作为老书虫 这书很温馨 也很爽 吕树的毒鸡汤 吕小鱼的毒舌 让人影响深刻 并且这作者写书让人感觉很用心 并不是忽悠我们这些读者 很实在 说实话 这是我第一本全订的的书 虽然我还是一个高中生 但是对这么有诚意的作者还是要小小的支持一下 谢谢作者的诚心相待
+										<span class="book-comment-more">
+	                        				<svg class="icon icon-arrow-r" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-arrow-r"></use></svg>
+	                   					</span>
+									</p>
+									<div class="book-meta-comment book-time-count">
+										<div class="book-meta-l"><time>2017-11-17 18:32</time></div>
+										<a href="javascript:" class="book-meta-r jsLike " title="取消赞" role="button" data-class="red">
+											<output>12</output>
+											<svg class="icon icon-like">
+												<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-like"></use>
+											</svg>
+										</a>
+									</div>
+									</div>
+								</div>
+						</li>
+					</ol>
+					<a href="#" class="book-li-more book-li-more-comments">更多书友评价</a>
+				</div>
+			</div>
+			<div class="module">
+				<div class="module-header">
+					<div class="module-header-l"><h3 class="module-title">本书作者</h3></div>
+				</div>
+				<div class="module-content">
+					<ol class="book-ol book-ol-author">
+						<li class="book-li">
+							<a href="" class="book-layout">
+								<div class="book-author-vv">
+									<img class="book-author-avatar" src="//facepic.qidian.com/qd_face/349573/a7746844/0" alt="会做菜的猫的头像.">
+									<div>
+										<em class="tag-honor red">大神</em>
+									</div>
+								</div>
+								<div class="book-cell">
+									<div class="book-title-x">
+                                        <h4 class="book-title">会做菜的猫</h4>
+                                    </div>
+                                    <p class="book-desc">阅文集团大神作者</p>
+								</div>
+								<svg class="icon icon-arrow-r" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-arrow-r"></use></svg>
+							</a>
+						</li>
+					</ol>
+				</div>
+			</div>
 		</div>
+		</div>
+		<a href="javascript:;" class="footer-backtop-circle jsBackToTop" title="返回顶部" data-l1="40" data-eid="mqd_A51"><svg class="icon icon-backtop"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-backtop"></use></svg></a>
 		<script src="../zepto.min.js"></script>
 		<script src="../sprite.js"></script>
 		<script type="text/javascript">
-			var open = function(){
+			if (!window.requestAnimationFrame) {
+			    requestAnimationFrame = function(fn) {
+			        setTimeout(fn, 17);
+			    };	
+			}
+			Math.easeout = function (A, B, rate, callback) {
+				if (A == B || typeof A != 'number') {
+					return;	
+				}
+				B = B || 0;
+				rate = rate || 2;
+				
+				var step = function () {
+			        A = A + (B - A) / rate;
+			        
+			        if (A < 1) {
+			            callback(B, true);
+			            return;
+			        }
+			        callback(A, false);
+			        requestAnimationFrame(step);    
+			    };
+			    step();
+			};
+		</script>
+		<script type="text/javascript">
+			var open = function() {
 				var flag = true;
-				$(".book-summary-more").on("tap",function(){
-					if(flag){
-						$("#bookSummary").attr("open","").css("height","auto");
+				$(".book-summary-more").on("tap", function() {
+					if(flag) {
+						$("#bookSummary").attr("open", "").css("height", "auto");
 						flag = false;
-					}else{
+					} else {
 						$("#bookSummary").removeAttr("open");
 						$("#bookSummary")[0].style.cssText = '';
 						flag = true;
@@ -209,7 +329,99 @@
 				});
 			}
 			open();
-
+			var scroll = function(){
+				$(window).on("scroll",function(){
+					if($(this).scrollTop() > $(this).height()){
+						$(".footer-backtop-circle").css({
+							visibility:"visible",
+							opacity:1
+						})
+					}else{
+						$(".footer-backtop-circle").css({
+							visibility:"hidden",
+							opacity:0
+						})
+					}
+				})
+				$(".jsBackToTop").on("tap",function(){
+					var doc = document.body.scrollTop ? document.body : document.documentElement;
+                    Math.easeout(doc.scrollTop, 0, 4, function(value) {
+                        doc.scrollTop = value;
+                    });
+				});
+			}
+			scroll();
 		</script>
+		    <script>
+        (function () {
+            //设置cookie
+            function setCookie(name, value, domain, path, expires) {
+                if(expires){
+                    expires = new Date(+new Date() + expires);
+                }
+                var tempcookie = name + '=' + escape(value) +
+                        ((expires) ? '; expires=' + expires.toGMTString() : '') +
+                        ((path) ? '; path=' + path : '') +
+                        ((domain) ? '; domain=' + domain : '');
+                //Ensure the cookie's size is under the limitation
+                if(tempcookie.length < 4096) {
+                    document.cookie = tempcookie;
+                }
+            }
+            //获取cookie
+            function getCookie(name) {
+                var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+                if (arr = document.cookie.match(reg))
+                    return (arr[2]);
+                else
+                    return null;
+            }
+            //创建并发送请求
+            function createSender(url){
+                var img = new Image();
+                img.onload = img.onerror = function(){
+                    img = null;
+                };
+                img.src = url;
+            }
+            /*
+             *防劫持逻辑所需参数在此处设置参数即可
+             *cookieName:用于记录连续被劫持的次数，为防止死循环，cookie值为3以上则不进行url重置
+             *cookieDomain:cookie所在的域
+             *reportUrl:非连续性劫持时上报的接口地址【如无需上报，可不填】
+             *reportUrl2：连续性劫持时上报的接口地址【如无需上报，可不填】
+             */
+            var cookieName = 'hiijack';
+            var cookieDomain = '';
+            var reportUrl = '';
+            var reportUrl2 = '';
+            //判断是否被iframe
+            if (top.location !== self.location) {
+                //用于记录被劫持的次数
+                var countHijack;
+                //如果未设置cookie，则需要set一下cookie，否则获取此cookie的值
+                if(!getCookie(cookieName)){
+                    setCookie(cookieName,0 ,cookieDomain, '', 30*24*60*60*1000);
+                    countHijack = 0;
+                }else{
+                    countHijack = parseInt(getCookie(cookieName));
+                }
+                //如果连续被劫持的次数大于等于3次，则发请求上报此情况,否则上报非连续性的情况,同时累加被劫持次数、重置当前url
+                console.log(countHijack);
+                if(countHijack >= 3){
+                    reportUrl2 && reportUrl2!='' && createSender(reportUrl2);
+                }else{
+                    reportUrl && reportUrl!=''&& createSender(reportUrl);
+                    countHijack ++;
+                    setCookie(cookieName, countHijack ,cookieDomain, '', 30*24*60*60*1000);
+//                  top.location = self.location;
+                }
+            }
+            //每次成功进入页面则计数清0
+//          setCookie(cookieName, 0 ,cookieDomain, '', 30*24*60*60*1000);
+            console.log(parseInt(getCookie(cookieName)));
+        })();
+    </script>
 	</body>
+
 </html>

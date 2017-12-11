@@ -7,8 +7,10 @@
 				dataChild:""
 			},options);
 		 	function main(){
-				var firstLevelSelect = options.selects[0],secondLevelSelect = options.selects[1],
-				thirdLevelSelect = options.selects[2],html = "";
+				var firstLevelSelect = options.selects[0],secondLevelSelect = options.selects[1],,html = "";
+				if(options.selects.length >= 3){
+					var thirdLevelSelect = options.selects[2]
+				}
 				var first = function(){
 					$.each(options.data,function(index,value){
 						html += "<option value'"+value.name+"'>"+value.name+"</option>";
@@ -23,7 +25,7 @@
 						html += "<option value'"+value.name+"'>"+value.name+"</option>";
 					});
 					$(secondLevelSelect).html(html);
-					third();
+					options.selects.length >= 3 && third();
 				}
 				var third = function(){
 					html = "";

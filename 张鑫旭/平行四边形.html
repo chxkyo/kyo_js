@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				line-height: 1.4;
+				color: #333;
+				font-family: arial;
+				font-size: 12px;
+				background: white;
+			}
+			
+			input,
+			textarea,
+			select {
+				font-size: 12px;
+				font-size: 100%;
+				font-family: arial;
+				font-family: inherit;
+			}
+			
+			body,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			p,
+			ul,
+			ol,
+			form {
+				margin: 0;
+			}
+			.para{
+				position:relative ;
+				width: 12px;
+				height: 24px;
+				display: inline-block;
+				background-color:red;
+				margin:  50px;
+			}
+			.para::after,.para::before{
+				content: '';
+				position:absolute ;
+				height: 0;
+				width: 0;
+				border-width: 12px 6px;
+				border-style: solid;
+			}
+			.para::before{border-color: transparent red red transparent;left: -12px;}
+			.para::after{border-color: red transparent transparent red;right: -12px;}
+		</style>
+	</head>
+
+	<body>
+		<div class="">
+			<div class="para"></div>
+		</div>
+	</body>
+
+</html>

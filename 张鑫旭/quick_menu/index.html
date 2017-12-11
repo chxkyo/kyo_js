@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../reset.css" />
+		<style type="text/css">
+			.sidebar-menu .treeview-menu {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-left: 5px;
+}
+.sidebar-menu .treeview-menu .treeview-menu {
+  padding-left: 20px;
+}
+.sidebar-menu .treeview-menu > li {
+  margin: 0;
+}
+.sidebar-menu .treeview-menu > li > a {
+  padding: 5px 5px 5px 15px;
+  display: block;
+  font-size: 14px;
+}
+.sidebar-menu .treeview-menu > li > a > .fa,
+.sidebar-menu .treeview-menu > li > a > .glyphicon,
+.sidebar-menu .treeview-menu > li > a > .ion {
+  width: 20px;
+}
+.sidebar-menu .treeview-menu > li > a > .fa-angle-left,
+.sidebar-menu .treeview-menu > li > a > .fa-angle-down {
+  width: auto;
+}
+.quick_wrap{display: none;}
+		</style>
+	</head>
+	<body class="sidebar-menu">
+		<div class="quick_wrap">
+			快捷菜单：
+			<ul>
+				
+			</ul>
+		</div>
+		<ul class="treeview-menu menu-open" style="display: block;">
+		         	<li><a href="/tvadmin/general/gift_logs?res=a3bd139574154eb1b8149e9b061ad76b&amp;cur=ae547636b630406ba724e2d39a8a5542" style=""><i class="fa fa-file"></i> 礼物记录</a></li>
+		         	<li><a href="/tvadmin/general/live_logs?res=a3bd139574154eb1b8149e9b061ad76b&amp;cur=a977b6bdb2134f93a1bda78bef2ba376" style=""><i class="fa fa-file"></i> 麦时统计</a></li>
+		         	<li><a href="/tvadmin/report/room_statistics?res=a3bd139574154eb1b8149e9b061ad76b&amp;cur=8e6d3c469c5040b3ae818cad524864e8" style=""><i class="fa fa-file"></i> 房间在线统计</a></li>
+		         	<li><a href="/tvadmin/report/active_statistics?res=a3bd139574154eb1b8149e9b061ad76b&amp;cur=bca75c0288434c26aeca411605456b1a" style=""><i class="fa fa-file"></i> 活跃统计</a></li>
+		         	<li><a href="/reports/mgmt/recordAgainViews?res=a3bd139574154eb1b8149e9b061ad76b&amp;cur=e856a34590f143f2ad2c7b7b91b5bdf1" style=""><i class="fa fa-file"></i> 回头统计</a></li>
+		         	<li><a href="/tvadmin/report/peak_statistics?res=a3bd139574154eb1b8149e9b061ad76b&amp;cur=d4bfa48ec74d4a9f957c976128eade18" style=""><i class="fa fa-file"></i> 峰值统计</a></li>
+		         	<li><a href="/tvadmin/report/realtime_statistics?res=a3bd139574154eb1b8149e9b061ad76b&amp;cur=c8552e3d2b464b46aa87e8fd539baf36" style=""><i class="fa fa-file"></i> 实时统计</a></li>
+		         	<li><a href="/tvadmin/report/recharge_reward?res=a3bd139574154eb1b8149e9b061ad76b&amp;cur=54b4a9a94efe42a4b7c10de3dd31b770" style=""><i class="fa fa-file"></i> 充值消费统计</a></li>
+		         	<li><a href="/tvadmin/report/get_all_coin_bean?res=a3bd139574154eb1b8149e9b061ad76b&amp;cur=a0ffecdf819b4a05840bf6424a28b5ec" style=""><i class="fa fa-file"></i> U币U豆统计</a></li>
+		         	<li><a href="/reports/mgmt/accessViews?res=a3bd139574154eb1b8149e9b061ad76b&amp;cur=73a1487e751d421e9e1a7dcbca3874a4" style=""><i class="fa fa-file"></i> 访问统计</a></li>
+		</ul>
+		<script src="../js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var li_arr = [];
+				//设置cookie
+	            function setCookie(name, value, domain, path, expires) {
+	                if(expires){
+	                    expires = new Date(+new Date() + expires);
+	                }
+	                var tempcookie = name + '=' + escape(value) +
+	                        ((expires) ? '; expires=' + expires.toGMTString() : '') +
+	                        ((path) ? '; path=' + path : '') +
+	                        ((domain) ? '; domain=' + domain : '');
+	                //Ensure the cookie's size is under the limitation
+	                if(tempcookie.length < 4096) {
+	                    document.cookie = tempcookie;
+	                }
+	            }
+	            //获取cookie
+	            function getCookie(name) {
+	                var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+	                if (arr = document.cookie.match(reg))
+	                    return (unescape(arr[2]));
+	                else
+	                    return null;
+	            }
+	            if(JSON.parse(getCookie("quick_menu")) && JSON.parse(getCookie("quick_menu")).length>0){
+	            	li_arr = JSON.parse(getCookie("quick_menu"));
+	            	$(".quick_wrap").show();
+	            	var li="";
+	            	for(var i =li_arr.length-1;i>=0;i--){
+	            		li += "<li>"+li_arr[i]+"</li>";
+	            	}
+	            	$(".quick_wrap ul").html(li);
+	            }
+	            $(document).on("click",".treeview-menu li",function(){
+	            		for(var i=0;i<li_arr.length;i++){
+	            			if($(this).html() == li_arr[i]){
+	            				return;
+	            			}
+	            		}
+	            	li_arr.push($(this).html());
+	            	setCookie("quick_menu",JSON.stringify(li_arr),'','',30*24*60*60*1000);
+	            });
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../reset.css" />
+		<style type="text/css">
+			.box{width:600px; height:600px; margin-left:auto; margin-right:auto; background:#f0f3f9 url(/study/image/loading.gif) no-repeat center; text-align:center; overflow:hidden; position:relative;}
+			.box img{vertical-align:middle;}
+			.vline{display:inline-block; height:100%; width:0; vertical-align:middle;}
+			.prev, .next{width:50%; _height:2000px; background-image:url(about:blank); position:absolute; top:0; bottom:0; outline:none;}
+			.prev{cursor:url(../images/pic_prev.cur), auto; left:0;}
+			.next{cursor:url(../images/pic_next.cur), auto; right:0;}
+		</style>
+	</head>
+	<body>
+		<div id="box" class="box">                	
+            <s class="prev"></s>
+            <s class="next"></s>
+            <img src="../images/mm1.jpg"><i class="vline"></i>
+        </div>
+        <script>
+		var eleBox = document.getElementById("box"), eleImg = null, eleLink = null;
+		var indexImage = 0, indexLoop = 0
+			// arrImgUrl实际应该是图片地址数组，这里的测试图片地址有规律，因此，直接数值代替
+			, arrImgUrl = [1, 2, 3, 4, 5];
+		
+		if (eleBox && 
+			(eleImg = eleBox.getElementsByTagName("img")[0]) &&
+			(eleLink = eleBox.getElementsByTagName("s")).length === 2)
+		{
+			for (; indexLoop < 2; indexLoop += 1) {
+				(function(index) {
+					eleLink[index].onclick = function() {
+						var indexWill = indexImage + (index? 1: -1);
+						if (arrImgUrl[indexWill]) {
+							eleImg.src = eleImg.src.replace(/mm\d/, "mm" + arrImgUrl[indexWill]);
+							indexImage = indexWill;
+						}
+						if (indexWill <= 0) {
+							eleLink[0].title = "这是第一张图片";
+						} else {
+							eleLink[0].title = "上一张";
+						}
+						if (indexWill >= arrImgUrl.length - 1) {
+							eleLink[1].title = "这是最后一张图片";	
+						} else {
+							eleLink[1].title = "下一张";
+						}
+						return false;
+					};
+					// 右键上下文
+					eleLink[index].onmouseup = function(event) {
+						event = event || window.event;
+						var target = this;
+						if (/^2|6|4|7$/.test(event.button)) {
+							target.style.visibility = "hidden";
+							setTimeout(function() { target.style.visibility = "visible";}, 16);			
+						}		
+					};
+				})(indexLoop);
+			}
+		}
+		</script>
+	</body>
+</html>
