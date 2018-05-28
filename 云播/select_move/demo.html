@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>读取并修改元素的内容</title>
+<meta charset="utf-8" />
+<style>
+	select{width:100px;height:85px;}
+	div{display:inline-block;width:50px}
+</style>
+
+</head>
+<body>
+	<!--假设两个select元素，分别保存备选地区列表和选中地区列表
+实现两选择框之间选项的交换：
+    包括：当个选中项左右移动
+              多个选中项左右移动
+              全左移和全右移
+要求：两个select中的地区都要按照名称首字母排序
+-->
+	<select id="unsel" size="1" multiple>
+		<option>Argentina</option>
+		<option>Brazil</option>
+		<option>Canada</option>
+		<option>Chile</option>
+		<option>China</option>
+		<option>Cuba</option>
+		<option>Denmark</option>
+		<option>Egypt</option>
+		<option>France</option>
+		<option>Greece</option>
+		<option>Spain</option>
+	</select>
+	<div>
+<button onclick="countries.move(this.innerHTML)">&gt;&gt;</button>
+<button onclick="countries.move(this.innerHTML)">&gt;</button>
+<button onclick="countries.move(this.innerHTML)">&lt;</button>
+<button onclick="countries.move(this.innerHTML)">&lt;&lt;</button>
+	</div>
+	<select id="sel" size="5" multiple>
+	</select>
+	<script src="./demo.js"></script>
+</body>
+</html>

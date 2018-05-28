@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>
+			setInterval
+		</title>
+	</head>
+	<body>
+		<input type="button" value="start" class="start">
+		<input type="button" value="stop" class="stop">
+		<script>
+			var counter = 0;
+			var clock = {
+					start: function() {
+						setInterval(this.step.bind(null, ++counter),1000);
+					},
+					step: function(flag) {
+						var date = new Date();
+						var h = date.getHours();
+						var m = date.getMinutes();
+						var s = date.getSeconds();
+						console.log("%d-----> %d:%d:%d",flag, h, m, s);
+					}
+				}
+			document.querySelector('.start').addEventListener('click', clock.start.bind(clock),false);
+			document.querySelector('.stop').addEventListener('click',function() {
+				console.log('----> stop <----');
+				clock =null;
+				},
+			false);
+		</script>
+	</body>
+
+</html>

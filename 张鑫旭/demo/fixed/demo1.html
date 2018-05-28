@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>absolute 模拟 fixed</title>
+		<style type="text/css">
+			html,body{
+				height: 100%;
+				overflow: hidden;
+			}
+			.page{
+				height: 100%;
+				overflow: auto;
+			}
+			.fixed{position: absolute;width: 100px;height: 100px;background-color: blueviolet;}
+		</style>
+	</head>
+	<body>
+		<div class="page">固定定位元素</div>
+		<div class="fixed"></div>
+	</body>
+</html>

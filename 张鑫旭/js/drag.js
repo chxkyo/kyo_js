@@ -43,11 +43,21 @@ var startDrag = function(bar, target, callback){
 	};
 	document.onmousemove = function(event){
 		var e = event ? event: window.event;
+		var X,Y,targetWidth = parseInt(getCss(target, "width"))+2*parseInt(getCss(target, "padding"))
+		targetHeight = parseInt(getCss(target, "height"))+2*parseInt(getCss(target, "padding")),scrollX,scrollY;
 		if(params.flag){
 			var nowX = e.clientX, nowY = e.clientY;
 			var disX = nowX - params.currentX, disY = nowY - params.currentY;
-			target.style.left = parseInt(params.left) + disX + "px";
-			target.style.top = parseInt(params.top) + disY + "px";
+			scrollX = getCss(target, "position") == 'fixed'?0:document.body.scrollTop | document.documentElement.scrollTop;
+			scrollY = getCss(target, "position") == 'fixed'?0:document.body.scrollLeft | document.documentElement.scrollLeft;
+			X = parseInt(params.left) + disX;
+			Y = parseInt(params.top) + disY;
+			X<scrollX && (X = scrollX);
+			(X>document.documentElement.clientWidth - targetWidth+scrollX)&&(X=document.documentElement.clientWidth - targetWidth+scrollX);
+			Y<scrollY && (Y = scrollY);
+			(Y>document.documentElement.clientHeight - targetHeight+scrollY)&&(Y=document.documentElement.clientHeight - targetHeight+scrollY);
+			target.style.left = X + "px";
+			target.style.top = Y + "px";
 			if (event.preventDefault) {
 				event.preventDefault();
 			}

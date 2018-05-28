@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.test-table-box table {
+				border-bottom: 1px solid red;
+				border-left: 1px solid red;
+			}
+			
+			.layout-fixed {
+				table-layout: fixed;
+			}
+			
+			.wb {
+				/*连续英文数字字符换行*/
+				word-break: break-all;
+			}
+			
+			.ellipse {
+				/*单行文字超出时用省略号显示*/
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			
+			.test-table-box th,
+			.test-table-box td {
+				border-top: 1px solid red;
+				border-right: 1px solid red;
+				padding: 5px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="test-table-box">
+			<table width="900px" cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<th scope="col">1</th>
+					<th scope="col">2</th>
+					<th scope="col">3</th>
+				</tr>
+				<tr>
+					<td>中文</td>
+					<td class="ellipse">table-layout属性有auto、fixed和inherit三个值那么这三个值的效果是什么样的呢？</td>
+					<td>2016/07/21 14:28</td>
+				</tr>
+				<tr>
+					<td>英文</td>
+					<td class="wb">haolezheyihangwomendouhuachenghanyupinyinkanxiayingwendexiaoguoshishenmeyangdehuibuhuihuanhangshenmedeceshiyixiaxiaoguo</td>
+					<td>2016/07/21 14:28</td>
+				</tr>
+			</table>
+		</div>
+		<div class="test-table-box">
+			<table class="layout-fixed" width="900px" cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<th scope="col">1</th>
+					<th scope="col" width="10px">2</th>
+					<th scope="col">3</th>
+				</tr>
+				<tr>
+					<td>中文</td>
+					<td class="ellipse">table-layout属性有auto、fixed和inherit三个值那么这三个值的效果是什么样的呢？</td>
+					<td>2016/07/21 14:28</td>
+				</tr>
+				<tr>
+					<td>英文</td>
+					<td class="wb">haolezheyihangwomendouhuachenghanyupinyinkanxiayingwendexiaoguoshishenmeyangdehuibuhuihuanhangshenmedeceshiyixiaxiaoguo</td>
+					<td>2016/07/21 14:28</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+
+</html>

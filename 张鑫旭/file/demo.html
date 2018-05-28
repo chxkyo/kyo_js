@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="file.js">下载file.js</a>
+		<a id="aLink">下载</a>
+		<script type="text/javascript">
+			function downloadFile (el, fileName, content) {
+		        var aLink = document.querySelector(el);
+		        var blob = new Blob([content]);                
+		        aLink.download = fileName;
+		        aLink.href = URL.createObjectURL(blob);
+		    }
+		    document.querySelector('#aLink').addEventListener('click',function () {
+		        downloadFile('#aLink', 'hello.txt', '<h1>hello world</h1>');
+		    })
+		</script>
+	</body>
+</html>

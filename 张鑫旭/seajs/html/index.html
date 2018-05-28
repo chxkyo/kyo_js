@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1 id="title">seajs demo</h1>
+		<h2 id="title2"></h2>
+		<button id="button">点击toggle</button>
+		<script src="sea-moudle/sea.js"></script>
+		<script type="text/javascript">
+			seajs.config({
+				alias:{
+					'changeText':'./changeText.js',
+					'jquery':'jquery/jquery.js',
+					'main':'./static/main.js'
+				}
+			})
+			seajs.use(['main','jquery','./static/changeText.js','./static/overlay'],function(main,$,change,overlay){
+				    $('#title').after('<button id="show">showText</button>');
+			        $('#show').on('click',function() {
+			            main.showText()
+			        })
+			        $("#title2").text(change.init());
+					myOverlay = overlay.overlay;
+			});
+			document.getElementById("button").onclick = function() {
+				myOverlay[myOverlay.display? "hide": "show"]();	
+			};
+		</script>
+	</body>
+</html>

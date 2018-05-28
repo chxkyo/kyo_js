@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+	<body>
+		<input type="button" value="搜索" class="btn"/>
+		
+		<script type="text/javascript">
+			document.querySelectorAll(".btn")[0].addEventListener("touchstart",function(e){
+				console.log("touchstart触发")
+				e.preventDefault()
+			})
+			document.querySelectorAll(".btn")[0].addEventListener("click",function(){
+				console.log("click触发")
+			})
+		</script>
+	</body>
+</html>

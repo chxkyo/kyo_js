@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="ejs.min.js"></script>
+		<script type="text/html" id="demo">
+			<ul>
+				<%if(flag){%>
+					<%for(var i=0;i<data1.length;i++){%>
+					<li><%=data1[i]%></li>
+					<%}%>
+				<%}else{%>
+					<%for(var i=0;i<data2.length;i++){%>
+					<li><%=data2[i]%></li>
+					<%}%>
+				<%}%>	
+			</ul>
+		</script>
+		<script type="text/javascript">
+			var data={flag:true,
+                data1:["====1","====2","====3"],
+                data2:["====4","====5","====6"]
+            };
+            var html = ejs.render(document.getElementById("demo").innerHTML,data);
+            document.getElementsByTagName("body")[0].insertAdjacentHTML("beforeend",html);
+		</script>
+	</body>
+</html>

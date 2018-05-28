@@ -34,6 +34,10 @@ input,select,textarea {
     font-family: inherit;
     box-sizing: border-box
 }
+input {
+  line-height: normal;
+  border: none;
+  outline: none; }
 
 img {
     display: inline-block

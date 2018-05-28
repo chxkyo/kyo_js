@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h3>计算器</h3>
+		<form action="calculate.php" onsubmit="return submit2();">
+			<p><label for="first">第一个数:</label><input type="text" id="first" name="first"/></p>
+			<p><label for="opera">运算符：</label><select name="opera" id="opera">
+					<option value="+">+</option>
+					<option value="-">-</option>
+					<option value="*">*</option>
+					<option value="/">/</option>
+				</select>
+			</p>
+			<p><label for="second">第二个数：</label><input type="text" id="second" name="second"/></p>
+			<p><input type="submit" value="提交"/></p>
+		</form>
+		<script src="jquery-1.11.1.min.js"></script>
+		<script type="text/javascript">
+			function submit2(){
+				if($("#first").val().replace(/^\s+|\s+$/,"") == "" || $("#second").val().replace(/^\s+|\s+$/,"") == ""){
+					alert("输入不能为空!!");
+					return false;
+				}
+			}
+			$("#first,#second").on("keyup",function(){
+				if(!/^[0-9][0-9]*$/.test($(this).val())){
+					$(this).val(this.value.substr(0,this.value.length - 1));
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			[type='submit']{
+				position: absolute;
+				clip: rect(0 0 0 0);
+			}
+			.btn{
+				display: inline-block;
+				padding: 2px 12px;
+				background-color: #CD0000;
+				color: #fff;
+				font-size:14px ;
+				cursor: pointer;
+			}
+			:focus+.btn{
+				outline: 1px dotted Highlight;
+				outline: 5px auto -webkit-focus-ring-color;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="" method="post" onsubmit="return false;">
+			<input type="submit" value="" id="t"/>
+			<label for="t" class="btn">提交</label>
+		</form>
+	</body>
+</html>

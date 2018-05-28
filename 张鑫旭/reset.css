@@ -22,16 +22,4 @@ ul,ol{
     list-style-type:none;
 }
 img{border:0;}
-.gray{color: #969ba3;}
-.red{
-    color: #ed424b;
-}
-.blue{
-	color: #4284ed;
-}
-.dark{color:#33373d ;}
-.cell{
-	display: table-cell;
-	width: 1920px;
-	width: 101vw;
-}
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>基于border实现的小圆角效果实例页面</title>
+		<link rel="stylesheet" href="../../common.css" />
+		<style type="text/css">
+			.button {
+			    display: inline-block;
+			    line-height: 36px;
+			    padding: 0 40px;
+			    color: #fff;
+			    background-color: #cd0000;
+			    position: relative;
+			}
+			.button:before,
+			.button:after {
+			    content: "";
+			    position: absolute;
+			    left: 0; right: 0;
+			    border-style: solid;
+			}
+			.button:before {
+			    top: -2px;
+			    border-width: 0 2px 2px;
+			    border-color: transparent transparent #cd0000;
+			}
+			.button:after {
+			    bottom: -2px;
+			    border-width: 2px 2px 0;
+			    border-color: #cc0000 transparent transparent;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="" class="button"></a>
+	</body>
+</html>

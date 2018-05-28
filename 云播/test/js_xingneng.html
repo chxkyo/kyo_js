@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="test">点击我</button>
+		<script type="text/javascript">
+			var buf = [];
+			for (var i = 0; i < 100; i++) {
+			    buf.push(i.toString());
+			}
+			var all = buf.join("");
+			console.log(all);
+			
+			var init = function(){
+				var el = document.getElementById("test");
+				el.onclick = function(){
+					console.log("hha");
+				}
+			}
+			init();
+		</script>
+	</body>
+</html>

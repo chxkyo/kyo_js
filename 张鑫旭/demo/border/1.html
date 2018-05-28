@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>优雅增加点击区域之搜索框清除按钮实例页面</title>
+		<link rel="stylesheet" href="../../common.css" />
+		<style type="text/css">
+			input[type] {
+		    width: 200px;
+		    height: 40px;
+		    padding: 10px 40px 10px 10px;
+		    border: 1px solid #ccc;
+		    -ms-box-sizing: border-box;
+		    box-sizing: border-box;
+		}
+		.icon-clear {
+		    width: 16px; height: 16px;
+		    line-height: 15px;
+		    margin: 1px 0 0 -38px;
+		    border: 11px solid transparent;
+		    border-radius: 50%;
+		    background-color: #999;
+		    background-clip: padding-box;
+		    color: white;
+		    position: absolute;
+		    visibility: hidden;
+		}
+		.icon-clear:before {
+		    content: "×";
+		}
+		input:valid + .icon-clear { 
+		    visibility: visible;
+		}
+		
+		input::-webkit-search-cancel-button {
+		    -webkit-appearance: none;
+		}
+		input::-ms-clear { 
+		    display: none;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="demo">
+			<input type="search" id="search" value="我是初始值" required=""/>
+			<label for="search" class="icon-clear"></label>
+		</div>
+	</body>
+</html>

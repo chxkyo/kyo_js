@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.block-a,.block-a-2{display: block;width: 200px;height: 200px;border: 1px solid #333;position: relative;z-index: 1;}
+			.absolute-i,.absolute-i-2{position: absolute;width: 300px;height: 300px;background-color: orange;}
+			.absolute-i-2{background-color: pink;}
+		</style>
+	</head>
+	<body>
+		<div class="parent">
+			<a href="javascript:alert('fuck');" class="block-a">
+				<i class="absolute-i"></i>
+			</a>
+			<a href="" class="block-a-2">
+				<i class="absolute-i-2"></i>
+			</a>
+		</div>
+	</body>
+</html>

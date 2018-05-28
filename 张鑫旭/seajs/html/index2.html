@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<a href="javascript:;" id="test" title="点击查看大图">
+			<img src="http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg" />
+		</a>
+		<script src="../sea-moudle/sea.js"></script>
+		<script>
+			seajs.use("../static/main2.js", function(test) {
+				test.bind(document.getElementById("test"));
+			});
+		</script>
+	</body>
+
+</html>

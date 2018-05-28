@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			table{
+				border-collapse:collapse;
+				/*table-layout: fixed;*/
+				/*width: 200px;*/
+				word-wrap: break-word;
+				width: 100%;	
+			}
+			table td,th{
+				/*width: 50%;*/
+			}
+			.wb {
+				/*连续英文数字字符换行*/
+				word-break: break-word;
+			}
+			.fix{*zoom:1;}
+			.fix:after{display:table; content:''; clear:both;}
+			.fl{float: left; height: 200px;}
+			.cell{display: table-cell;height: 200px;width: 3000px;}
+		</style>
+	</head>
+	<body>
+		<div>
+			<table border="" cellspacing="" cellpadding="">
+				<thead>
+					<tr><th>Header</th><th>Data</th></tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>aaaaaaaaaaaaaaaaaaaaaaa</td>
+						<td class="wb" width="50px">bbbbbbbbbbbbbbbbbbbbbbbbbbbbb</td>
+					</tr>
+				</tbody>
+	
+			</table>
+		</div>
+		<div class="fix">
+			<div class="fl" style="background-color: yellow;width: 200px;"></div>
+			<div class="cell wb" style="background-color: blue;width: 50px;" >aaaaaaaaaaaaaaaaaaaaaaa</div>
+		</div>
+	</body>
+</html>

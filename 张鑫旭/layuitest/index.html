@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="../js/layui.js"></script>
+		<script type="text/javascript">
+			var config = layui.config({
+				name:"kyo",
+				age:'24',
+				sex:"male",
+			});
+			console.log(config)
+			var router = layui.router();
+			console.log(router);
+			var data = layui.data('data',{
+				value:'25',
+			});
+			console.log(data);
+			console.log("设备为:"+layui.device());
+		</script>
+	</body>
+</html>
