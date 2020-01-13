@@ -1,0 +1,110 @@
+@charset 'UTF-8';a,blockquote,body,dd,div,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,input,li,ol,p,pre,td,textarea,th,ul {
+    margin: 0;
+    padding: 0
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-size: 14px
+}
+
+li,ol,ul {
+    list-style: none outside none
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse
+}
+
+fieldset,img {
+    border: 0 none
+}
+
+html {
+    min-width: 990px
+}
+
+body {
+    font-family: PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
+    text-align: left;
+    color: #262626;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased
+}
+
+input::-moz-focus-inner {
+    padding: 0;
+    border: none
+}
+
+a img {
+    border: none
+}
+
+a {
+    text-decoration: none;
+    color: #262626;
+    outline: 0
+}
+
+a:hover {
+    color: #ed4259
+}
+
+.loaded a {
+    transition: color .3s,background-color .3s
+}
+
+textarea {
+    font: 14px/1.8 PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
+    resize: none;
+    outline: 0
+}
+
+select {
+    font-family: PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif
+}
+
+button,input {
+    font-family: PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light','Microsoft YaHei',sans-serif;
+    border: none;
+    outline: 0
+}
+
+input::-ms-clear {
+    display: none
+}
+
+label {
+    cursor: pointer
+}
+
+cite,em,i {
+    font-style: normal
+}
+
+:-moz-placeholder {
+    color: #ccc
+}
+
+::-moz-placeholder {
+    color: #ccc
+}
+
+input:-ms-input-placeholder,textarea:-ms-input-placeholder {
+    color: #ccc
+}
+
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder {
+    color: #ccc
+}
+
+p {
+    word-wrap: break-word;
+    word-break: break-all
+}
+
+.lbf-combobox .lbf-combobox-label .lbf-combobox-icon:before {
+    visibility: hidden
+}

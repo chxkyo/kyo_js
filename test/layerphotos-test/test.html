@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="layer-photos-demo" class="layer-photos-demo">
+          <img layer-src="./mm1.jpg" layer-pid="" src="./mm1.jpg" alt="说好的，一起Fly" layer-index="0">
+          <img layer-src="./mm2.jpg" layer-pid="" src="./mm2jpg" alt="LayIM" layer-index="1">
+          <img layer-src="./mm3.jpg" layer-pid="" src="./mm3.jpg" alt="凤姐是个好人" layer-index="2">
+          <img layer-src="./mm4.jpg" layer-pid="" src="./mm4.jpg" alt="星空如此深邃" layer-index="3">
+        </div>
+		<script src="layui/layui.js"></script>
+		<script type="text/javascript">
+			layui.use(['layer'], function(){
+			  var layer = layui.layer
+				layer.photos({
+				  photos: '#layer-photos-demo'
+				  ,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+				},true); 
+			});
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ceshi.daheiniu.info/snail-portal/RES/lottery/js/jquery-1.10.2.js"></script>
+ <script src="https://ceshi.daheiniu.info/snail-portal/RES/lottery/js/awardRotate.js"></script>
+<script type="text/javascript">
+
+function getQueryString(name) { 
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+        var r = window.location.search.substr(1).match(reg); 
+        if (r != null) return unescape(r[2]); 
+        return null; 
+    } 
+
+ 
+var zjType = "";//中奖类型 
+ var turnplate={
+            restaraunts:[],				//大转盘奖品名称
+            colors:[],					//大转盘奖品区块对应背景颜色
+            outsideRadius:125,			//大转盘外圆的半径
+            textRadius:100,				//大转盘奖品位置距离圆心的距离
+            insideRadius:40,			//大转盘内圆的半径
+            startAngle:205.35,				//开始角度
+            bRotate:false				//false:停止;ture:旋转
+        };
+
+ 
+	       turnplate.restaraunts.push('酒瓶伞伞'); 
+	       turnplate.restaraunts.push('电影票伞'); 
+	       turnplate.restaraunts.push('我是四字'); 
+	       turnplate.restaraunts.push('蓝牙耳机'); 
+	       turnplate.restaraunts.push('手机支架'); 
+	       turnplate.restaraunts.push('谢谢参与'); 
+	       turnplate.restaraunts.push('蜗牛优惠'); 
+	turnplate.colors = ["#fe7576", "#fe6869", "#fe7576", "#fe6869","#fe7576", "#fe6869","#fe7576"];
+function drawRouletteWheel() {    
+  var canvas = document.getElementById("wheelcanvas");    
+  if (canvas.getContext) {
+	  var arc = Math.PI / (turnplate.restaraunts.length/2);
+	  var ctx = canvas.getContext("2d");
+	    ctx.clearRect(0,0,300,300);
+	  ctx.strokeStyle = "#fff";
+	 ctx.font = '14px Microsoft YaHei ';
+	  for(var i = 0; i < turnplate.restaraunts.length; i++) {       
+		  var angle = turnplate.startAngle + i * arc;
+		  ctx.fillStyle = turnplate.colors[i];
+		  ctx.beginPath();
+	   ctx.arc(150, 150, turnplate.outsideRadius, angle, angle + arc, false);
+       ctx.arc(150, 150, turnplate.insideRadius, angle + arc, angle, true);
+		  ctx.stroke();  
+		  ctx.fill();
+		  ctx.save();   
+		  ctx.fillStyle = "#1F1F1F";//设置字体颜色
+		  var text = turnplate.restaraunts[i];
+		 var img=document.getElementById("tulip"+ i +"");
+		    
+		  var line_height = 17;
+		 
+		  ctx.translate(150 + Math.cos(angle + arc / 2) * turnplate.textRadius, 150 + Math.sin(angle + arc / 2) * turnplate.textRadius);
+		  ctx.rotate(angle + arc / 2 + Math.PI / 2);
+		    ctx.fillText(text, -ctx.measureText(text).width / 2, 0,100);
+		  // ctx.drawImage(img,(-ctx.measureText(text).width / 2), 10); 
+		  if(img){ 
+		    ctx.drawImage(img,(-27), 0,54,40);
+	     } 
+		   
+		  ctx.restore();
+	  }     
+  } 
+}
+
+
+  function _hide(){
+        $('.popup').hide();
+        $('.popup_bg').hide();
+        $('.span-tip').hide();
+    }
+    
+    //toast效果
+  function _popx(text, time, cb) { 
+            time = time * 1e3;
+            var pop_info = "<span class='span-tip'>" + text + "</span>";
+            $("body").append(pop_info);
+            $(".span-tip i").on("click", function() {
+                $(this).parent().remove();
+            });
+            $(".span-tip").css("margin-left", function() {
+                return -$(".span-tip")[0].offsetWidth / 2;
+            });
+            $(".span-tip").fadeOut(time, function() {
+                $(this).remove();
+                if (cb && typeof cb == "function") {
+                    cb();
+                }
+            });
+   }
+   //显示弹出框
+   function messageDialogShow(zjTitle){
+   $("#zjTitle").html("此次抽奖结果为:"+zjTitle);
+    $('#apply').show();
+    $('#apply_bg').show(); 
+    
+    if(zjType==1){
+      $("#xzDiv").show();
+    }else{
+      $("#xzDiv").hide();
+    }
+    
+   }
+   //关闭弹出框
+   function messageDialogHide(){
+	    $('#apply').hide();
+	    $('#apply_bg').hide(); 
+	  // setTimeout(function(){
+	 //      window.location.reload();
+	 //  },"2000") 
+   }  
+   window.onload=function(){ 
+      drawRouletteWheel();
+	};
+		
+ 
+ 
+ 
+</script>
+
+<style>
+body{
+   	width: 100%;
+	height: 100%;
+  	padding: 40rpx 30rpx;
+  	box-sizing: border-box;
+  	background: #7aca4d;
+} 
+
+.play {
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: .7rem;
+    line-height: .7rem;
+    background-color: #FFEAB2;
+}
+
+.play span {
+   // background: url(../img/icon-laba.png) no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: .5rem;
+    width: 1.5rem;
+    margin: 0 1.7rem
+ }   
+   
+.qimo8{ overflow:hidden;}
+.qimo8 .qimo {/*width:99999999px;*/width:8000%;}
+.qimo8 .qimo div{ float:left;}
+.qimo8 .qimo ul{float:left;overflow:hidden; zoom:1; }
+.qimo8 .qimo ul li{float:left; list-style:none; font-size: 0.4rem;margin: 0 1rem;} 
+
+div,
+			ul,
+			li {
+				margin: 0;
+				padding: 0
+			}
+			/*先初始化一下默认样式*/
+			
+			.notice {
+				width: 300px;
+				/*单行显示，超出隐藏*/
+				height: 35px;
+				/*固定公告栏显示区域的高度*/
+				background-color: rgba(0,0,0,0.7);
+				border-radius: 100px;
+				overflow: hidden;
+				margin:40px auto;
+			}
+			
+			.noticeLeft{
+				width: 25rpx;
+			  	height: 25rpx;
+	  	    	margin-left: 20px;
+    			margin-right: 10px;
+    			margin-top: 3px;
+			  	float: left;
+			}
+			.notice ul li {
+				list-style: none;
+				line-height: 35px;
+				/*以下为了单行显示，超出隐藏*/
+				display: block;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+			
+			.luckyrotate-head{
+			  width: 245px;
+			  height: 35px;
+			  border-radius: 100px;
+			  float: left;
+			}
+			.luckyrotate-headItem{
+			  width: 100%;
+			  height: 100%;
+			  box-sizing: border-box;
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			}
+			.luckyrotate-headItem-tel{
+			  margin: 0 20px 0 30px;
+			  box-sizing: border-box;
+			  font-size: 14px;
+			  color: #fff;
+			}
+			.luckyrotate-headItem-award{
+			  font-size: 14px;
+			  color: #ffdc44;
+			}
+			.luckyrotate-con{
+			  width: 90%;
+			  padding: 40px 0 40px 0;
+			  box-sizing: border-box;
+			  background: #fff;
+			  border-radius: 10px;
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			  flex-direction: column;
+			  margin: 0 auto;
+			}
+			.luckyrotate-con-top{
+			  width: 250px;
+			  height: 100px;
+			}
+			.luckyrotate-con-top img{
+			  width: 100%;
+			  height: 100%;
+			}
+			.game_btn{
+			  width: 145px;
+			  height: 45px;
+			  background: #e54c37;
+			  color: #fff;
+			  font-size: 16px;
+			  border-radius: 50px;
+			  display: flex;
+			  justify-content: center;
+			  align-items: center;
+			  box-shadow: 0 2px 0 2px #ba2c19;
+			}
+			.banner .turnplate {
+			    display: block;
+			    width: 100%;
+			    position: relative;
+			    left: 1%;
+			}
+			body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;}
+body{color:#333; font-size:12px;font-family:"Microsoft YaHei"}
+ul,ol{list-style-type:none;}
+select,input,img,select{vertical-align:middle;}
+input{ font-size:12px;}
+a{ text-decoration:none; color:#000;}
+a:hover{color:#c00; text-decoration:none;}
+.clear{clear:both;}
+
+/* 大转盘样式 */
+.banner{display:block;margin:0.2rem auto;}
+.banner .turnplate{display:block;width:86%;position:relative;left:7%;}
+.banner .turnplate canvas.item{width:100%;}
+.banner .turnplate img.pointer{position:absolute;width:37.5%;height:45%;left:31.6%;top:23%;}
+.game_text{
+    font-size: 0.36rem;
+    line-height: 0.6rem;
+    font-weight: normal;
+    margin-left: 5%;
+    padding-top: 0.5rem;
+    color: #fff;
+}
+.game_text span{
+    color:yellow;
+    font-weight: bolder;
+}
+.popup{
+    width:84%;
+    height:2rem;
+    background: #fbe3cc;
+    border-radius: 10px;
+    position: absolute;
+    top:0;
+    left: 0;
+    bottom:0;
+    right:0;
+    margin:auto;
+    z-index: 10;
+    display: none;
+    text-align: center;
+    line-height: 2rem;
+}
+.popup_bg{
+    width:100vw;
+    height:100vh;
+    position: fixed;
+    top:0;
+    left: 0;
+    background:#333;
+    opacity: 0.6;
+    z-index: 5;
+    display: none;
+}
+.span-tip {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    min-width: 2.5rem;
+    padding:0.8rem 0.4rem;
+    line-height: 0.6rem;
+    margin-top: -50%;
+    margin-left: -1.25rem;
+    border-radius: 10px;
+    font-size: 0.26rem;
+    text-align: center;
+    color: #fff;
+    background: #000;
+    z-index: 9999;
+    opacity:0.9;
+}
+.game_top{
+    width:100%;
+    height:2.71rem;
+   /* background: url("../images/game_banner.png") no-repeat center bottom;*/
+    background-size: 100% 100%;
+}
+.game_top img{
+    width:1rem;
+    height:0.77rem;
+    margin:0.2rem 0 0 0.2rem;
+}
+.game_bottom{
+    margin-top: 0.2rem;
+    /*height:1.3rem;*/
+}
+.game_btn{
+    width: 3rem;
+    height:0.87rem;
+    margin:0 auto;
+    background: url("../images/game_btn.png") no-repeat center;
+    background-size: contain;
+    text-align: center;
+    line-height: 0.87rem;
+    font-size: 0.3rem;
+    color:#fff;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.tulip{
+    display: none;
+}
+.ps01{
+    text-align: center;
+    line-height: 0.5rem;
+    font-size: 0.28rem;
+    font-weight: bold;
+    color:#000;
+}
+.ps02{
+    line-height: 0.35rem;
+    font-size: 0.28rem;
+    font-weight: bold;
+    color:#000;
+    padding:0 10%;
+}
+</style>
+</head>
+
+<body>
+	<div class="banner">
+		<div class="turnplate" style="background-image:url('https://ceshi.daheiniu.info/snail-portal/RES/lottery/images/game_bg.png');background-size:100% 100%;">
+				<canvas class="item" id="wheelcanvas" width="300px" height="300px"></canvas>
+				<img class="pointer" src="https://ceshi.daheiniu.info/snail-portal/RES/lottery/images/game_pointer.png">
+		</div>
+<blockquote><h2 class="rich_media_title">PMI再创新低，通胀再度回落——海通宏观周报（姜超等）</h2></blockquote>
+	</div>
+
+</body>
+<script type="text/javascript">
+			var rotateFn = function (item, txt){
+		var angles = 360-(item-1)* (360 / turnplate.restaraunts.length);
+		$('#wheelcanvas').stopRotate();
+		$('#wheelcanvas').rotate({
+			angle:200,
+			animateTo:angles+1800,
+			duration:8000,
+			callback:function (){
+			//   _popx("此次抽奖结果为："+txt,5000);  
+			messageDialogShow(txt);
+		   turnplate.bRotate = !turnplate.bRotate;
+			// setTimeout(function(){
+			//    window.location.reload();
+			// },"4000") 
+				
+			}
+		});
+	};
+	
+    //点击抽奖按钮
+		$('.pointer').click(function (){  
+		   //去掉绑定事件
+		//   $('.pointer').unbind('click');
+		
+			if(turnplate.bRotate)return;
+				turnplate.bRotate = !turnplate.bRotate;
+				var form_id = getQueryString("form_id");
+				var userId = getQueryString("userId");
+				rotateFn(1, turnplate.restaraunts[0]);
+//				$.post("https://ceshi.daheiniu.info/snail-portal/lottery/rotateDraw.htm?form_id=null&userId=628800149403",{},function(result){ 
+//						if(result.code=="fail"){ 
+//						    _popx(result.errormsg,5000);
+//						}else if(result.code=="nologin"){
+//						       _popx("需注册会员方可参与",2000);
+//					  
+//						} 
+//						else{ 
+//						    zjType = result.itemType; 
+//
+//						  }
+//			 },"json");  
+		});
+		var str = '<blockquote><p class="profile_meta">功能介绍海通证券宏观债券研究员，发布个人观点，及时更新，以更便捷的方式和大家交流</p></blockquote>';
+		console.log()
+//		console.log(str);
+</script>
+<!-- <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script> -->
+
+ 
+
+</html>

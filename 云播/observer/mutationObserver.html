@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.container {
+				margin: 10px;
+			}
+			
+			.button {
+				background: purple;
+				color: white;
+				cursor: pointer;
+				display: inline-block;
+				font-size: 20px;
+				padding: 1.75rem 1rem;
+				text-align: center;
+				text-decoration: none;
+				font-weight: bold;
+				margin: 5px;
+			}
+			
+			.button:hover {
+				background: #AD1457;
+			}
+			
+			.parent {
+				border: 1px solid #ccc;
+				padding: 10px;
+			}
+			
+			.child {
+				background: #673AB7;
+				color: #fff;
+				padding: 10px;
+				margin-top: 5px;
+			}
+			
+			.infoBoard {
+				padding: 10px;
+				border: 1px solid #ccc;
+				font-size: 20px;
+				padding: 1.75rem 1rem;
+				background: #f4f4f4;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div>
+				<div class="button addBtn">Add Child Node</div>
+				<div class="button removeBtn">Remove Child Node</div>
+				<div class="button changeAttrBtn">Change Attribute Value</div>
+			</div>
+			<div class="parent" data-count="0">
+				<div class="child"> Child </div>
+			</div>
+			<div class="infoBoard">
+
+			</div>
+		</div>
+		<script type="text/javascript">
+			if(!("MutationObserver" in window)) {
+				document.body.innerText = "Not supported by your browser";
+			}
+
+			/* Create mutation observer */
+			const config = {
+				childList: true,
+				attributes: true,
+				characterData: true
+			};
+			const observer = new MutationObserver(handler);
+
+			/* Observe target */
+			const parent = document.querySelector(".parent");
+			observer.observe(parent, config);
+
+			/* Callback function when mutation happens */
+			function handler(mutationRecords, observer) {
+				console.log(mutationRecords);
+				mutationRecords.forEach((mutationRecord) => {
+					const info = document.querySelector(".infoBoard");
+					switch(mutationRecord.type) {
+						case "childList":
+							info.innerText = "Mutation Observer handler: Child node added or removed";
+
+							break;
+						case "attributes":
+							info.innerText = `Mutation Observer handler: Parent attribute modified: ${mutationRecord.attributeName} : ${mutationRecord.target.children.length}`;
+							break;
+						default:
+							info.innerText = "";
+					}
+				});
+			}
+
+			/* Add child nodes when clicked on add child node button */
+
+			document.querySelector(".addBtn").addEventListener("click", () => {
+				console.log("Add child");
+				const child = document.createElement("div");
+				child.className = "child";
+				child.innerText = "Child ";
+				parent.appendChild(child);
+			});
+
+			/* Remove child nodes when clicked on remove child node button */
+			document.querySelector(".removeBtn").addEventListener("click", () => {
+				console.log("Remove child");
+				const child = parent.firstChild;
+				parent.removeChild(child);
+			});
+
+			/* Change attribute value when clicked on change attribute button */
+			document.querySelector(".changeAttrBtn").addEventListener("click", () => {
+				console.log("Change attribute value");
+				parent.setAttribute("data-count", parent.childNodes.length);
+			});
+		</script>
+	</body>
+
+</html>

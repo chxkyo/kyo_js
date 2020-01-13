@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			// 在此感谢Benjamin Gruenbaum （@benjamingr on GitHub）的巨大改进！
+			function run(gen) {
+				var args = [].slice.call(arguments, 1),
+					it;
+				console.log(this);
+				// 在当前上下文中初始化生成器
+				it = gen.apply(this, args);
+				// 返回一个promise用于生成器完成
+				return Promise.resolve()
+					.then(function handleNext(value) {
+						// 对下一个yield出的值运行
+						var next = it.next(value);
+						return(function handleResult(next) {
+							// 生成器运行完毕了吗？
+							if(next.done) {
+								return next.value;
+							}
+							// 否则继续运行
+							else {
+								return Promise.resolve(next.value)
+									.then(
+										// 成功就恢复异步循环，把决议的值发回生成器
+										handleNext,
+										// 如果value是被拒绝的 promise，
+										// 就把错误传回生成器进行出错处理
+										function handleErr(err) {
+											return Promise.resolve(
+													it.throw(err)
+												)
+												.then(handleResult);
+										}
+									);
+							}
+						})(next);
+					});
+			}
+			function foo(x,y){
+				return new Promise(function(resolve,reject){
+					setTimeout(function(){
+						resolve({x,y});
+					},1000)
+				})
+			}
+			function foo2(h,i){
+				return new Promise(function(resolve,reject){
+					setTimeout(function(){
+						resolve({h,i});
+					},2000)
+				})
+			}
+			function *main(...args){
+				try{
+					let {x,y} = yield foo(1,2);
+					let {h,i} = yield foo2(8,9);
+					console.log(x,y,h,i);
+					for(const v of args){
+						console.log("额外参数:"+v);
+					}
+				}
+				catch(err){
+					console.log(err)
+				}
+			}
+//			let it = main();
+//			let p = it.next().value;
+//			p.then(function({x,y}){
+//				it.next({x,y});
+//			},function(err){
+//				console.log(err);
+//			})
+//			run(main,4,5,6);
+//		async function asyncTest(){
+//				let {x,y} = await foo(1,2);
+//				let {h,i} = await foo2(8,9);
+//				console.log(x,y,h,i);
+//		}
+//		asyncTest();
+		async function f() {
+//		await Promise.reject('出错了');
+			return await Promise.resolve('hello world'); // 不会执行
+		}
+		f().then(function(v){
+			console.log(v)
+		})
+		</script>
+	</body>
+
+</html>

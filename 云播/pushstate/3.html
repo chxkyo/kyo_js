@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>test2</title>
+    <style type="text/css">
+    div {
+        padding-bottom:100px;
+    }
+    </style>
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+</head>
+
+<body>
+    <div style="float:left;border:1px solid red;margin:20px">
+        <p><a href="javascript:;" id="section1">第1章</a></p>
+        <p><a href="javascript:;" id="section2">第2章</a></p>
+        <p><a href="javascript:;" id="section3">第3章</a></p>
+    </div>
+    <div style="float:left;border:1px solid red;margin:20px" id="content">
+
+    </div>
+    <script>
+        $(function(){
+            //添加链接的处理事件
+            $("a").click(ajax);
+            //加载默认的章节
+            changeContent();
+            //添加popstate事件
+            $(window).on("popstate",function(){
+                changeContent();
+            });
+        });
+        
+        function changeContent(){
+            var query = location.href.split("?")[1];
+            if (!query) {
+                // 如果没有查询条件，则显示默认第1个章节
+                history.replaceState(null, "", 
+                    location.href + "?name=" + $("#section1")[0].id);    
+                changeContent();
+            } else {
+                //触发按钮click事件，加载内容，
+                //注意不要漏了true参数，这样可以和用户直接点击触发的页面变化区别开来
+                $("#"+query.split("=")[1]).trigger("click",true);       
+            }    
+        }
+       
+        function ajax(event,isPopstate){
+            $("#content").html(this.id+"的内容");
+            var title = this.id;
+            document.title = title;
+            if(!isPopstate){
+                history.pushState(null, "", location.href.split("?")[0] + "?name=" + title);
+            }
+        }
+  
+    </script>
+    
+</body>
+
+</html>

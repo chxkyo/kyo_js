@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Css跑马灯</title>
+    <style>
+        div, p{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            position: relative;
+            width: 300px;
+            height: 200px;
+            border: 5px solid #aaa;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .box .text{
+            position: absolute;
+            left: 300px;
+            top: 0;
+            height: 200px;
+            line-height: 200px;
+            font-size: 100px;
+            white-space:nowrap;
+            animation: slidein 5s linear 0s infinite;/* 5s决定跑马灯一次滚动的时长，自己调整 */
+        }
+        .box .text:hover{
+        	animation-play-state:paused;
+        }
+        @keyframes slidein {
+            from { 
+                transform: translateX(300px); /* 盒子宽度 */
+            }
+            to { 
+                transform: translateX(-1150px);/* 平移距离 = 文案标签长度 + 盒子宽度 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p class="text">
+            这是一个css跑马灯
+        </p>
+    </div>
+</body>
+</html>

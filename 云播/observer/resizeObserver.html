@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			button {
+				background: purple;
+				color: white;
+				cursor: pointer;
+				display: inline-block;
+				font-size: 20px;
+				padding: 1.75rem 1rem;
+				text-align: center;
+				text-decoration: none;
+				font-weight: bold;
+				margin-right: 5px;
+			}
+			
+			.box {
+				box-sizing: border-box;
+				margin-top: 10px;
+				border: 1px solid green;
+				width: 300px;
+				height: 200px;
+				text-align: center;
+				padding: 20px;
+				font-size: 25px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button>Resize Box Below</button>
+		<div class="box"></div>
+		<script type="text/javascript">
+			if(!("ResizeObserver" in window)) {
+				document.body.innerText = "Not supported by your browser";
+			}
+			/* Create resize observer */
+			const observer = new ResizeObserver(handler);
+
+			/* Callback handler */
+			function handler(entries) {
+				entries.forEach((entry) => {
+					const size = entry.contentRect;
+					console.log(`Resize Observer's callback: box size: width: ${size.width} , height:  ${size.height}`);
+				});
+			}
+
+			/* Observe child element */
+			const child = document.querySelector(".box");
+			observer.observe(child);
+
+			// Click event listener for button
+			const box = document.querySelector(".box");
+			let boxWidth = box.getBoundingClientRect().width;
+			let boxHeight = box.getBoundingClientRect().height;
+			box.innerText = `Width: ${boxWidth} , Height: ${boxHeight}`;
+			const boxSizes = [200, 300, 450, 500, 550, 600];
+
+			document.querySelector("button").addEventListener("click", function() {
+				// Select random width and height of a box element
+				boxWidth = boxSizes[Math.floor(Math.random() * boxSizes.length)];
+				boxHeight = boxSizes[Math.floor(Math.random() * boxSizes.length)];
+
+				box.style.width = boxWidth + "px";
+				box.style.height = boxHeight + "px";
+
+				box.innerText = `Width: ${boxWidth} , Height: ${boxHeight}`;
+			});;
+		</script>
+	</body>
+
+</html>

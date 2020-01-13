@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>网格布局</title>
+		<style>
+			.container{
+				width:400px;
+				display: grid;
+				grid-template-columns:50px 50px 50px;
+				grid-template-rows:100px 100px 100px;
+				/*grid-template-areas:
+					"header header header header"
+					"main main . sidebar"
+					"footer footer footer footer";
+				grid-gap:10px;*/
+				/*justify-content: space-between;*/
+				justify-items:center;
+				
+			}
+			.item-a{
+				/*grid-area:header;*/
+				background-color: black;
+			}
+			.item-b{
+				/*grid-area:main;*/
+				background-color: orange;
+			}
+			.item-c{
+				/*grid-area:sidebar;*/
+				background-color: blue;
+			}
+			.item-d{
+				/*grid-area:footer;*/
+				background-color:pink;
+			}
+			.container2{
+				height: 200px;
+				width: 200px;
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container" style="display: none;">
+			<div class="item-a">我是区域a</div>
+			<div class="item-b">我是区域b</div>
+			<div class="item-c">我是区域c</div>
+			<div class="item-d">我是区域d</div>
+		</div>
+		<div class="container" >
+			<div class="item-a">我是区域a</div>
+			<div class="item-b">我是区域b</div>
+			<div class="item-c">我是区域c</div>
+			<!--<div class="item-d">我是区域d</div>-->
+		</div>
+	</body>
+</html>

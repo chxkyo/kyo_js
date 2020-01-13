@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			class Widget{
+				constructor(width,height,elem){
+					this.width = width || 50;
+					this.height = height || 50;
+					this.elem = elem;
+				}
+				render(where){
+					if(this.elem){
+						$(elem).css({
+							width:width+"px",
+							height:height+"px",
+						}).appendTo(where);
+						
+					}
+				}
+			}
+			class Button{
+				constructor(width.height,label){
+					super(width,height);
+					this.label = label || "default";
+					this.elem = $("<button>").text(this.label);
+				}
+				render(where){
+					super.render(where);
+					this.where.
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.wrap {
+				position: relative;
+			}
+			
+			.inner {
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				left: 500px;
+				background-color: orange;
+				/*transition: transform .25s;*/
+				/*animation: move 2s 2s backwards;*/
+			}
+			@keyframes  move{
+				from{
+					transform: translateX(0);
+				}
+				to{
+					transform: translateX(200px);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap" style="min-height: 200vh;overflow: auto;">
+			<div class="inner" style="position: fixed;top: 0;"></div>
+		</div>
+		<script src="./tween.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./utils.js"></script>
+		<script type="text/javascript">
+			//			console.log(getElementViewLeft(document.querySelector('.inner')))
+			//		var flatten = (arr ,dep = 1) => arr.reduce((acc,v) => acc.concat(Array.isArray(v)?flatten(v):v,[])
+			//		var flatten = function(arr ,dep){
+			//			return arr.reduce(function(acc,v){
+			//				return acc.concat(Array.isArray(v) ? flatten(v): v)
+			//			},[])
+			//		}
+			//		console.log(flatten([1,2,3,[5,[6,7],8],9]))
+			//			const comments = [
+			//			  { id: 1, parent_id: null },
+			//			  { id: 2, parent_id: 1 },
+			//			  { id: 3, parent_id: 1 },
+			//			  { id: 4, parent_id: 2 },
+			//			  { id: 5, parent_id: 4 }
+			//			];
+			//			var nest = function(arr,id){
+			//				return arr.filter(function(item){
+			//					return item['parent_id'] === id 
+			//				}).map(function(item){
+			//					return { ...item , children:nest(arr,item.id) }
+			//				})
+			//			}
+			//		var closet = function(node,fn){
+			//			if(!node){
+			//				return null
+			//			}
+			//			var parentNode = node.parentNode
+			//			return parentNode && fn(parentNode) ? parentNode : closet(parentNode,fn)
+			//		}
+			//		console.log(closet(document.querySelector('.inner'),function(node){
+			//			return node.classList.contains('wrap')
+			//		}))
+			function backToTop(rate) {
+				var doc = document.body.scrollTop ? document.body : document.documentElement;
+				var scrollTop = doc.scrollTop;
+
+				var top = function() {
+					scrollTop = scrollTop + (0 - scrollTop) / (rate || 2);
+					console.log(scrollTop)
+					if(scrollTop < 1) {
+						doc.scrollTop = 0;
+						return;
+					}
+					doc.scrollTop = scrollTop;
+					requestAnimationFrame(top);
+				};
+				top();
+			}
+			var getStyle = function(obj, attr) {
+				return parseFloat(obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj, null)[attr])
+			}
+			var getElementViewLeft = function(element) {
+				let actualLeft = element.offsetLeft;
+				let current = element.offsetParent;
+				const elementScrollLeft = document.body.scrollLeft + document.documentElement.scrollLeft;
+				if(!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement) {
+					while(current !== null) {
+						actualLeft += current.offsetLeft;
+						current = current.offsetParent;
+					}
+				} else {
+					while(current !== null && current !== element) {
+						actualLeft += current.offsetLeft;
+						current = current.offsetParent;
+					}
+				}
+				return actualLeft - elementScrollLeft;
+			}
+			const speed = 50
+			var x = speed
+			var cubicEaseInOut = function(t, b, c, d, a, p) {
+            var s;
+            if (t==0) return b;
+            if ((t /= d / 2) == 2) return b+c;
+            if (typeof p == "undefined") p = d * (.3 * 1.5);
+            if (!a || a < Math.abs(c)) {
+                a = c; 
+                s = p / 4;
+            } else {
+                s = p / (2  *Math.PI) * Math.asin(c / a);
+            }
+            if (t < 1) return -.5 * (a * Math.pow(2, 10* (t -=1 )) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
+            return a * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p ) * .5 + c + b;
+        }
+			var t = 0,
+				b = 0,
+				c = 1000,
+				d = 10;
+			var step = function() {
+				// value就是当前的位置值
+				// 例如我们可以设置DOM.style.left = value + 'px'实现定位
+				if(t > d){
+					return
+				}
+				var value = Tween.Linear(t, b, c, d);
+				document.querySelector('.inner').style.transform = 'translateX(' + value + 'px)'
+				t++;
+				requestAnimationFrame(step);
+			};
+			var animateLeft = function() {
+				var maxLeft = window.innerWidth - getElementViewLeft(document.querySelector('.inner')),x = maxLeft
+				var left = function() {
+					x = 0 + (x - 0)/16
+					if(x < 1) {
+						document.querySelector('.inner').style.transform = 'translateX(' + maxLeft + 'px)'
+						return
+					}
+					document.querySelector('.inner').style.transform = 'translateX(' + (maxLeft - x) + 'px)'
+					requestAnimationFrame(left)
+				}
+				left()
+			}
+			document.querySelector('.inner').addEventListener('click', step)
+			console.log(readFileSize(3500000))
+		</script>
+		<script type="text/javascript">
+			var a = [1,2,3,4,5]
+			var b = a[3]
+			console.log(b)
+			a.splice(2,1)
+			console.log(a)
+			console.log(b)
+		</script>
+	</body>
+
+</html>

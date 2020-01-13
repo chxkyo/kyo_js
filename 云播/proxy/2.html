@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			class Person {
+			  @readonly
+			  name() { return `${this.first} ${this.last}` }
+			}
+			var p = new Person();
+			p.name = 2;
+		</script>
+	</body>
+</html>

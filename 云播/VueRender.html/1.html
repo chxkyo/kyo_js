@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<anchored-heading :level='1'>
+				<template v-slot:default = "{text}">
+					<span>{{text}}</span>
+				</template>
+			</anchored-heading>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+Vue.component('anchored-heading', {
+  render: function (createElement) {
+    return createElement(
+      'h' + this.level,   // 标签名称
+      this.$scopedSlots.default({
+      	text:'hhh'
+      })
+    )
+  },
+  props: {
+    level: {
+      type: Number,
+      required: true
+    }
+  }
+})
+			new Vue({
+				el:'#app'
+			})
+		</script>
+	</body>
+</html>

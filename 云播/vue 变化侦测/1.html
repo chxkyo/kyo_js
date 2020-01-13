@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--<script type="text/javascript">
+			function walk(data){
+				const keys = Object.keys(data)
+				for(var i = 0,len = keys.length;i<len;i++){
+					defineReactive(data,kes[i],data[keys[i]])
+				}
+			}
+			var obj = {}
+			function defineReactive(data,key,value){
+					Object.defineProperty(data,key,{
+						enumerbale:true,
+						configurable:true,
+						get(){
+							console.log("取值")
+							return value
+						},
+						set(newVal){
+							console.log('赋值')
+							if(newVal === value){
+								return
+							}
+							value = newVal 
+						}
+					})
+			}
+			defineReactive(obj,'a','kyo')
+			console.log(obj.a)
+			obj.a = ['KYO']
+			console.log(obj.a)
+		</script>-->
+		<script type="text/javascript">
+			var arr = [1,2,3],methodsArr = ['push','pop','shift','unshift','splice','sort','reverse']
+			const arrayproto = Array.prototype
+			const arrayMethods = Object.create(arrayproto)
+			methodsArr.forEach(function(method){
+				var original = arrayproto[method]
+				Object.defineProperty(arrayMethods,method,{
+					value:function mutator(...args){
+						console.log(method)
+						return original.apply(this,args)
+					},
+					enumerable:false,
+					writable:true,
+					configurable:true
+				})
+			})
+			Array.prototype = arrayMethods
+			arr.push(1)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+    <style>
+        .ob-title{
+            background-color: orange;
+        }
+        .ob-body{
+            background-color: #ddd;
+        }
+        .ob-body .menu{
+            float: left;
+            width: 200px;
+            background-color: pink;
+        }
+        .ob-body .content{
+            float: left;
+            background-color: aquamarine;
+        }
+        .clearfix:after{    /*在.clearfix后边追加一个隐藏的block,带一个clear:both属性*/
+            content: "";
+            display: block;  /*block宽度会横向填充满屏幕，在父元素的最后追加一个height:0，占满屏幕的看不见的细长条*/
+            line-height: 0;
+            clear: both;  /*这个最下边细长条左右两边都清除float*/
+        }
+    </style>
+</head>
+<body style="margin: 10px;">
+    <div class="ob-title">头部信息</div>
+    <div class="ob-body clearfix">   <!--此处调用尾类-->
+        <div class="menu">左侧菜单</div>
+        <div class="content">右侧内容</div>
+        <!--<div style="clear: both;"></div>-->  <!--第二种写法，不用调用clearfix类-->
+    </div>
+</body>
+</html>

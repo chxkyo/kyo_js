@@ -1,0 +1,88 @@
+<html>  
+<head>  
+<script type="text/javascript" src="./media/js/jquery-1.12.4.min.js"></script>  
+<style type="text/css">  
+    div,label,a,button{  
+     display: inline-block;  
+    }  
+</style>  
+</head>  
+<body>  
+  <div style="margin-bottom: 10px;">  
+  <label for="chk_stopPropagation">stopPropagation</label>  
+  <input type="checkbox" id="chk_stopPropagation"/>  
+    
+  <label for="chk_preventDefault" style="margin-left: 20px;">preventDefault</label>  
+  <input type="checkbox" id="chk_preventDefault"/>  
+  </div>  
+  <br/>  
+    
+  <div id="div_parent" style="width: 500px;height: 300px;background-color: green;color: white;">  
+    <label>label parent</label>  
+    <div id="div_sub_parent" style="margin:50px; width: 400px;height: 200px;background-color: red;color: white;">  
+        <a id="lbl" style="margin: 50px;padding: 20px;background-color: gray;" href="http://www.baidu.com" target="_blank">  
+           label on 'sub parent'  
+        </a>  
+        <form target="_blank" action="http://abccc" >  
+            <input type="submit" onclick="button_click();" style="padding: 10px;"  value="Click me" id="btn_submit"/>                           
+        </form>  
+    </div>  
+  </div>  
+  <br/>  
+  <div id="log" style="width: 500px;height:300px;overflow: scroll;">  
+  </div> 
+  <script src="jquery-1.11.1.min.js"></script>
+  <script type="text/javascript">  
+    function button_click(){  
+        addLog("button is clicked.");  
+    }  
+    function setEvent(event){  
+        if ($("#chk_preventDefault").prop("checked")){  
+               if (event.preventDefault){  
+                  event.preventDefault();  
+               }  
+               else{  
+                   event.returnValue=false;  
+               }  
+            }  
+            if ($("#chk_stopPropagation").prop("checked")){  
+                if (event.stopPropagation){  
+                    event.stopPropagation();  
+                }  
+                else{  
+                    event.cancelBubble=true;  
+                }  
+            }  
+    }  
+    function addLog(pvLog){  
+        $("#log").html($("#log").html()+"<br/>"+pvLog);  
+    }  
+    $(function(){  
+        $("#div_sub_parent").click(function(){  
+            addLog("div_sub_parent is clicked.");  
+            setEvent(event);  
+        });  
+        $("#div_parent").click(function(){  
+            addLog("div_parent is clicked.");  
+            setEvent(event);  
+        });  
+        $("#lbl").click(function(){  
+            addLog("hyperlink is clicked.");  
+            setEvent(event);  
+        });  
+        $("#div_sub_parent").bind("click",function(){  
+            addLog("div_sub_parent event2 is fired .")  
+        });  
+        $("#btn_submit").click(function(){  
+            addLog("jQuery event1 fired: button is clicked.");  
+            setEvent(event);              
+        });  
+        $("#btn_submit").click(function(){  
+            addLog("jQuery event2 fired: button is clicked.");                
+        });  
+          
+        //$("#lbl").trigger("click");  
+    });  
+  </script>  
+</body>  
+</html>  

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.component{
+			width:100px;
+			height:100px;
+			background: red;
+			border:5px solid white;
+			float:left;
+		}
+
+		.comDiv{
+			width:34%;
+			float: left;
+			border:1px solid #aaa;
+		}
+
+		.targetDiv{
+			width:50%;
+			float: right;
+			border:1px solid #aaa;
+			height:500px;
+			margin:50px;
+
+		}
+		#show{
+			clear: both;
+			border:2px solid blue;			
+		}
+	</style>
+</head>
+<body>
+	<div class="comDiv">
+		<div class="component">0</div>
+		<div class="component">1</div>
+		<div class="component">2</div>
+		<div class="component">3</div>
+		<div class="component">4</div>
+		<div class="component">5</div>
+		<div class="component">6</div>
+		<div class="component">7</div>
+		<div class="component">8</div>
+		<div class="component">9</div>
+	</div>
+
+	<div class="targetDiv" id="tar"></div>
+
+	<script>
+		
+		function run(targetId,componentClass){
+			
+			var component =  document.getElementsByClassName(componentClass);
+			for(var c in component){
+				if(isNaN(c)){
+					continue;
+				}
+
+				drag(component[c],document.getElementById(targetId));
+			}
+			
+		}
+
+		function drag(component,target){
+			component.onmousedown = function(e){
+
+				var diffW = e.clientX - this.offsetLeft , diffH = e.clientY - this.offsetTop;
+				var clo = document.createElement('div');
+				clo = this.cloneNode(true);
+
+				clo.style.filter = "alpha(opacity=30)";
+				clo.style.opacity = 0.3;
+				clo.style.float = "left";
+				clo.style.position = "absolute";
+				clo.style.top = this.offsetTop +'px';
+				clo.style.left = this.offsetLeft +'px';
+				
+				document.body.onmousemove = function(e){
+					var e = e || window.event;
+
+					clo.style.top = (e.clientY - diffH) + 'px';
+					clo.style.left = (e.clientX - diffW) + 'px';
+				}
+				document.body.onmouseup = function(){
+					document.body.onmousemove = null;
+					var tl = target.offsetLeft , tt = target.offsetTop , tw = target.offsetWidth , th = target.offsetHeight;
+					var ml = clo.offsetLeft , mt = clo.offsetTop , mw = clo.offsetWidth , mh = clo.offsetHeight;
+
+					if(tl < ml+mw && tl + tw > ml && tt < mt + mh && tt + th > mt){
+						clo.style.top = mt - tt + 'px';
+						clo.style.left = ml - tl + 'px';
+						clo.style.filter = "alpha(opacity=100)";
+						clo.style.opacity = 1;
+						target.style.position = 'relative';
+						target.style.overflow = "hidden";
+						target.appendChild(clo);
+					}else{
+						clo.remove();
+					}
+					document.body.onmouseup = null;
+				}
+
+				document.body.appendChild(clo);
+
+			}
+			
+		}
+
+		run("tar","component");
+		
+	</script>
+</body>
+</html>

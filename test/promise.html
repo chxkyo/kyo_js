@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Bromise(executor) {
+		    var onResolve_ = null
+		    var onReject_ = null
+		     // 模拟实现 resolve 和 then，暂不支持 rejcet
+		    this.then = function (onResolve, onReject) {
+		        onResolve_ = onResolve
+		        return this
+		    };
+		    function resolve(value) {
+		          setTimeout(()=>{
+		            onResolve_(value)
+		            },0)
+		    }
+		    executor(resolve, null);
+			}
+			function executor(resolve, reject) {
+    		resolve(100)
+			}
+			// 将 Promise 改成我们自己的 Bromsie
+			let demo = new Bromise(executor)
+			
+			function onResolve(value){
+			    console.log(value)
+			}
+			let b1 = demo.then(onResolve)
+			console.log(b1)
+			console.log(b1.constructor)
+		</script>
+	</body>
+</html>

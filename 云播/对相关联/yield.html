@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function *test(){
+				console.log("Started");
+				console.log(`1.${yield}`);
+				console.log(`2.${yield}`);
+				return 'result';
+			}
+			let it = test();
+			it.next();
+			it.next('kyo');
+		</script>
+	</body>
+</html>

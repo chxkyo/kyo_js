@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input id="J_textInput"  type="text" onkeyup="change(this.value)" />
+		<p id="J_text"></p>
+		<script type="text/javascript">
+			var obj = { }
+			Object.defineProperty(obj, 'value', {
+			  set: function(newValue){
+			    render(newValue)
+			  }
+			})
+			function change(value) {
+			  obj.value = value
+			}
+			function render(value){
+			  document.getElementById('J_textInput').value = value
+			  document.getElementById('J_text').innerText = value
+			}
+			obj.value = 'test'
+		</script>
+	</body>
+</html>

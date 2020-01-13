@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        body {
+            display: flex;
+            padding: 100px;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 设置draggable为true使其变为可拖动状态 -->
+    <div style="background: purple" draggable="true">DIV1</div>
+    <div style="background: orange" draggable="true">DIV2</div>
+    <div style="background: aqua" draggable="true">DIV3</div>
+</body>
+<script type="text/javascript">
+    // 得到你需要进行拖动变换的所有dom元素
+    let div = document.getElementsByTagName("div")
+ 
+    let container = null
+    for(let i = 0; i < div.length; i++) {
+        div[i].ondragstart = function() {
+            // 当拖动其中一个元素时，this的指向便是你所拖动的元素，将它存在container
+            container = this
+        }
+        // 默认的当你dragover的时候会阻止你做drop的操作，所以需要取消这个默认
+        div[i].ondragover = function() {
+            event.preventDefault()
+        }
+        // 当拖动结束时，给拖动div所在位置下面的div做drop事件，注意drop时this的指向发生改变
+        div[i].ondrop = function()
+        {
+            if(container != null && container != this)
+            {
+                console.log("now this:",this)
+                console.log("now container:",container)
+                let temp = document.createElement("div")
+                document.body.replaceChild(temp,this)
+                document.body.replaceChild(this,container)
+                document.body.replaceChild(container,temp)
+            }
+        }
+    }
+</script>
+</html>

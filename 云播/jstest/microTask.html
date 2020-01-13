@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body style="height: 200vh;">
+		<div id="test" style="height: 100px;width:100px;border:1px solid"></div>
+		<script type="text/javascript">
+			var i = 0
+			function foo() {
+				if(i>=3){
+					console.log('微任务执行完了，才会开启')
+					return
+				}
+				i++
+		  	return Promise.resolve().then(foo);
+			};
+			foo()
+			setTimeout(function(){
+				document.getElementById('test').style.backgroundColor = 'yellow'
+			},1000)
+		</script>
+	</body>
+</html>

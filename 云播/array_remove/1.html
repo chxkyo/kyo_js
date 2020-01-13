@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [1,23,4,5,6]
+			Array.prototype.remove = function(from, to) {
+			  var rest = this.slice((to || from) + 1 || this.length);
+			  this.length = from < 0 ? this.length + from : from;
+			  return this.push.apply(this, rest);
+			};
+			arr.remove(2)
+			console.log(arr)
+		</script>
+	</body>
+</html>

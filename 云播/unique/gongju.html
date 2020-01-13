@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+//			function cached(fn) {
+//				let cache = Object.create(null);
+//				return function cachedFn(str) {
+//					let hit = cache[str];
+//					return hit || (cache[str] = fn(str))
+//				}
+//			}
+//			var add = function(a) {
+//				return 10 + a
+//			}
+//			var addCache = cached(add)
+//			console.log(addCache(3))
+//			function getRawType(obj){
+//				return Object.prototype.toString.call(obj).slice(8, -1)
+//			}
+//			console.log(getRawType('2'))
+			function deepClone(obj){
+				let copy = obj instanceof Array ? [] : {}
+				for(var key in obj){
+					if(Object.prototype.hasOwnProperty.call(obj,key)){
+						if(typeof(obj[key]) === 'object'){
+							copy[key] = deepClone(obj[key])
+						}else{
+							copy[key] = obj[key]
+						}
+					}
+				}
+				return copy
+			}
+			var obj = {a:1,b:[1,2,3],c:{d:'c'}}
+			console.log(deepClone(obj))
+		</script>
+	</body>
+
+</html>

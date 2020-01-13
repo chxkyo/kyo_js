@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!--<anchored-heading><div id="test">hahaha</div></anchored-heading>-->
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script type="text/javascript">
+//			var getChildrenTextContent = function (children) {
+//				console.log(children)
+//			  return children.map(function (node) {
+//			    return node.children
+//			      ? getChildrenTextContent(node.children)
+//			      : node.text
+//			  }).join('')
+//			}
+//			
+//			Vue.component('anchored-heading', {
+//			  render: function (createElement) {
+//			    // 创建 kebab-case 风格的 ID
+//			    var headingId = getChildrenTextContent(this.$slots.default)
+//			      .toLowerCase()
+//			      .replace(/\W+/g, '-')
+//			      .replace(/(^-|-$)/g, '')
+//			
+//			    return createElement(
+//			      'h' + this.level,
+//			      [
+//			        createElement('a', {
+//			          attrs: {
+//			            name: headingId,
+//			            href: '#' + headingId
+//			          }
+//			        }, this.$slots.default)
+//			      ]
+//			    )
+//			  },
+//			  props: {
+//			    level: {
+//			      type: Number,
+//			      required: true
+//			    }
+//			  }
+//			})
+//			console.log()
+//			new Vue({ el: '#app',mounted:function(){
+//				console.log(document.getElementById("test").children)
+//			}})
+		var Profile = Vue.extend({
+		  template: '<p>{{firstName}}</p>',
+		  data: function () {
+		    return {
+		      firstName: 'Walter',
+		    }
+		  }
+	  })
+		var vm  = new Profile().$mount()
+		console.log(vm.$el)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			function distinct(array) {
+				var obj = {};
+				return array.filter(function(item, index, array) {
+					return obj.hasOwnProperty(typeof item + item) ? false : (obj[typeof item + item] = true)
+				})
+			}
+//			console.log(distinct([{
+//				a: '1'
+//			}, {
+//				a: '1'
+//			}, {
+//				b: '1'
+//			}, 1, '1', 'aaaa', NaN, NaN]))
+			function unique(arr){
+				return arr.filter(function(item,index){
+					return arr.indexOf(item) === arr.lastIndexOf(item)
+				})
+			}
+			console.log(unique([1,1,12,3,3,4,5,6]))
+			window.onload = function(){
+    setTimeout(function(){
+        let t = performance.timing
+        console.log('DNS查询耗时 ：' + (t.domainLookupEnd - t.domainLookupStart).toFixed(0))
+        console.log('TCP链接耗时 ：' + (t.connectEnd - t.connectStart).toFixed(0))
+        console.log('request请求耗时 ：' + (t.responseEnd - t.responseStart).toFixed(0))
+        console.log('解析dom树耗时 ：' + (t.domComplete - t.domInteractive).toFixed(0))
+        console.log('白屏时间 ：' + (t.responseStart - t.navigationStart).toFixed(0))
+        console.log('domready时间 ：' + (t.domContentLoadedEventEnd - t.navigationStart).toFixed(0))
+        console.log('onload时间 ：' + (t.loadEventEnd - t.navigationStart).toFixed(0))
+
+        if(t = performance.memory){
+            console.log('js内存使用占比 ：' + (t.usedJSHeapSize / t.totalJSHeapSize * 100).toFixed(2) + '%')
+        }
+    })
+}
+		</script>
+	</body>
+
+</html>

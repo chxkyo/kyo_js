@@ -1,0 +1,22 @@
+
+<html>
+<body>
+    <div id="mian_div">
+        <li id="time_li">time</li>
+        <li>geekbang</li>
+    </div>
+
+    <p id="demo">强制布局demo</p>
+    <button onclick="foo()">添加新元素</button>
+
+    <script>
+        function foo() {
+          let main_div = document.getElementById("mian_div")      
+          let new_node = document.createElement("li")
+          let textnode = document.createTextNode("time.geekbang")
+          new_node.appendChild(textnode);
+          document.getElementById("mian_div").appendChild(new_node);
+        }
+    </script>
+</body>
+</html>

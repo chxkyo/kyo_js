@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			(function(slice) {
+		    function Observer() {
+		        this.events = {}
+		    }
+		    Observer.prototype = {
+		        subscribe: function(signals, fn) {
+		            signals = signals.split(' ')
+		            signals.forEach(function(signal) {
+		                if (!this.events[signal]) {
+		                    this.events[signal] = []
+		                }
+		                fn && (this.events[signal].push(fn))
+		            }
+		            .bind(this))
+		        },
+		        publish: function(signals) {
+		            var args = slice.call(arguments, 1)
+		            signals = signals.split(' ')
+		            signals.forEach(function(signal) {
+		                var events = this.events[signal]
+		                if (events) {
+		                    events.forEach(function(fn) {
+		                        fn.apply(this, args)
+		                    })
+		                }
+		            }
+		            .bind(this))
+		        },
+		        unsubscribe: function(signal, fn) {
+		            var events = this.events[signal]
+		            if (events) {
+		                events.forEach(function(fn) {
+		                    events.splice(events.indexOf(fn), 1)
+		                }
+		                .bind(this))
+		            }
+		        }
+		    }
+		    window.Observer = Observer
+		})(Array.prototype.slice);
+		// 创建
+		var workday = new Observer()
+		// 订阅
+		var gowork = workday.subscribe('9点 10点', function(name) {
+		    console.log(name + '上班时间到啦。')
+		})
+		var offwork = workday.subscribe('17点 18点', function(name) {
+		    console.log(name + '下班时间到啦。')
+		})
+		var eat = workday.subscribe('19点', function(name) {
+		    console.log(name + '吃饭时间到啦。')
+		})
+		var read = workday.subscribe('19点', function(name) {
+		    console.log(name + '看书时间到啦。')
+		})
+		// 取消订阅
+		workday.unsubscribe('19点', eat)
+		// 发布订阅
+		workday.publish('19点', 'Tony')
+		var hours = new Date().getHours()
+		if (hours > 9 && hours < 17) {
+		    workday.publish('9点', 'Tony')
+		} 
+		else {
+		    workday.publish('17点', 'Tony')
+		}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="root">
+			<div>
+				<p>obj.a: {{obj.a}}</p>
+				<p>obj.a: <input type="text" v-model="obj.a"></p>
+			</div>
+		</div>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			new Vue({
+						el: '#root',
+						data: {
+							obj: {
+								a: 123
+							}
+						},
+						watch: {
+							obj: {
+								handler(newName, oldName) {
+									console.log('obj.a changed');
+								},
+								immediate: true,
+								deep: true
+							}
+						}
+					})
+		</script>
+	</body>
+
+</html>

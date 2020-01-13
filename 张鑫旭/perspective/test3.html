@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.perspective-nd .container {
+				width: 500px;
+				height: 300px;
+				margin: 10px auto;
+				position: relative;
+			}
+			
+			.perspective-nd .inner {
+				font-size: 4em;
+				width: 2em;
+				margin: 1.5em auto;
+				transform-style: preserve-3d;
+				transform: rotateX(-20deg) rotateY(32deg);
+				perspective: 1000px;
+			}
+			
+			.perspective-nd .side {
+				position: absolute;
+				width: 2em;
+				height: 2em;
+				background: rgba(255, 99, 71, 0.6);
+				border: 1px solid rgba(0, 0, 0, 0.5);
+				color: white;
+				text-align: center;
+				line-height: 2em;
+			}
+			
+			.perspective-nd .front {
+				transform: translateZ(1em);
+			}
+			
+			.perspective-nd .top {
+				transform: rotateX(90deg) translateZ(1em);
+			}
+			
+			.perspective-nd .right {
+				transform: rotateY(90deg) translateZ(1em);
+			}
+			
+			.perspective-nd .left {
+				transform: rotateY(-90deg) translateZ(1em);
+			}
+			
+			.perspective-nd .bottom {
+				transform: rotateX(-90deg) translateZ(1em);
+			}
+			
+			.perspective-nd .back {
+				transform: rotateY(-180deg) translateZ(1em);
+			}
+			
+			.perspective-nd .inner2 {
+				perspective: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="perspective-nd">
+			<h3>perspective值为1000px的效果如下：perspective: 1000px;该值越大，角度出现的越远，相当低的强度和非常小的3D空间变化</h3>
+			<div class="container">
+				<div class="inner">
+					<div class="side back">2</div>
+					<div class="side right">3</div>
+					<div class="side left">4</div>
+					<div class="side top">5</div>
+					<div class="side bottom">6</div>
+				</div>
+			</div>
+			<h3>perspective值为200px的效果如下：此值越小，角度出现的越近，从而创建一个高强度的角度和一个大型3D变化。</h3>
+			<div class="container">
+				<div class="inner inner2">
+					<div class="side front">1</div>
+					<div class="side back">2</div>
+					<div class="side right">3</div>
+					<div class="side left">4</div>
+					<div class="side top">5</div>
+					<div class="side bottom">6</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

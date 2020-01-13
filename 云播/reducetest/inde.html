@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			const calendarTypeOptions = [
+			  { key: 'CN', display_name: 'China' },
+			  { key: 'US', display_name: 'USA' },
+			  { key: 'JP', display_name: 'Japan' },
+			  { key: 'EU', display_name: 'Eurozone' }
+			]
+			
+			// arr to obj ,such as { CN : "China", US : "USA" }
+			const calendarTypeKeyValue = calendarTypeOptions.reduce((acc, cur) => {
+			  acc[cur.key] = cur.display_name
+			  return acc
+			}, {})
+			console.log(calendarTypeKeyValue)
+		</script>
+	</body>
+</html>

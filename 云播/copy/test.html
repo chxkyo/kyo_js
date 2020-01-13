@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//浅拷贝
+			const obj1 = {
+			    name: 'mengft',
+			    family: ['父亲', '母亲', '妹妹']
+			}
+
+			var shallowCopy  = function(o) {
+			    let object2 = {}
+			    for(let i in o) {
+			        if (o.hasOwnProperty(i)) {
+			            object2[i] = o[i]
+			        }
+			    }
+			    return object2
+			}
+			
+			console.dir(shallowCopy(obj1))
+			//深拷贝
+			 var deepCopy =function(o, c) {
+			   c = c || {}
+			   for (let i in o) {
+			     if (typeof o[i] === 'object') {
+			       // 需要深拷贝
+			       if (o[i].constructor === Array) {
+			         // 数组
+			         console.log('是数组')
+			         c[i] = []
+			       } else {
+			         // 对象
+			         console.log('是对象')
+			         c[i] = {}
+			       }
+			       deepCopy(o[i], c[i])
+			     } else {
+			       c[i] = o[i]
+			     }
+			   }
+			   return c
+			}
+			console.dir(deepCopy(obj1, { school: '天津科技大学' }))
+			//--------------------- 
+			//作者：孟凡涛 
+			//来源：CSDN 
+			//原文：https://blog.csdn.net/qq_28978893/article/details/79272422 
+			//版权声明：本文为博主原创文章，转载请附上博文链接！
+			
+			
+			
+		</script>
+	</body>
+</html>

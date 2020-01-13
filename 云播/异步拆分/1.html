@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function fakeAjax(file,cb){
+				setTimeout(function(){
+					cb(file)
+				},2000)
+			}
+			function output(text){
+				console.log('执行了:'+text)
+			}
+			function getFile(file) {
+			  let resp
+			
+			  fakeAjax(file, function(text) {
+			    if (!resp) resp = text
+			    else resp(text)
+			  })
+			
+			  return function th(cb) {
+			    if (resp) cb(resp)
+			    else resp = cb
+			  }
+			}
+			const th1 = getFile('file1')
+			const th2 = getFile('file2')
+			const th3 = getFile('file3')
+			
+			th1(function ready(text) {
+			  output(text)
+			  th2(function ready(text) {
+			    output(text)
+			    th3(function ready(text) {
+			      output(text)
+			      output('Complete!')
+			    })
+			  })
+			})
+		</script>
+	</body>
+</html>

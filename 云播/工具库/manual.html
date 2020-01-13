@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body style="min-height: 200vh;">
+		<input type="text" placeholder="" id="debounceIpt"/>
+		<div id="tree"></div>
+		<script src="./manual.js"></script>
+		<script type="text/javascript">
+//			var debounceHandle = function(){
+//				console.log(this.value)
+//			}
+//			document.getElementById("debounceIpt").addEventListener('input',debounce(debounceHandle,3000))
+//			tomorrow()
+//			var scrollHandle = function(){
+//				console.log('滚动了')
+//			}
+//			window.addEventListener('scroll',throttle(scrollHandle,1000))
+////			var bind = function(){
+////				
+////			}
+//			console.log(deepClone({a:'1',b:{c:2,d:3},e:5}))
+//			console.log(unique([1,1,1,2,2,3,3,4]))
+//			console.log(unique1([1,1,1,2,2,3,3,4]))
+//			console.log(unique2([1,1,1,2,2,3,3,4]))
+//			console.log(mapToArray([
+//				{id:1,value:'1'},
+//				{id:1,vaule:'11'},
+//				{id:2,vaule:'22'},
+//				{id:2,vaule:'222'}
+//			]))
+//			console.log(filterNonUnique([1,1,1,2,2,3,3,4]))
+//			console.log('数组扁平化：'+flat([1,[2,[3]],4]))
+//			max([1,2,3,4,5])
+////			console.log(disorder([1,2,3,4,5]))
+//			console.log(decimalToBinary(4))
+			const comments = [
+			  { id: 1, parent_id: null,name:'菜单1' },
+			  { id: 2, parent_id: 1,name:'菜单1-1'},
+			  { id: 3, parent_id: 1,name:'菜单1-2'},
+			  { id: 4, parent_id: 2,name:'菜单1-1-1'},
+			  { id: 5, parent_id: 4,name:'菜单1-1-1-1'}
+			];
+			var parentComments = nest(comments)
+			document.getElementById("tree").innerHTML = parentComments
+			console.log(parentComments)
+//			var createTree = function(array){
+//				var str = '<ul>'
+//				array.map(function(item){
+//					str += '<li>'+item.name+'</li>'
+//					if(item.children.length){
+//						str += createTree(item.children)
+//					}
+//				})
+//				str += '</ul>'
+//				return str
+//			}
+//			console.log(createTree(parentComments))
+		</script>
+	</body>
+</html>

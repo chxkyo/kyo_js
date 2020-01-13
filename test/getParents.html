@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="first">
+			<div class="second">
+				<div class="third"></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			function getParents(el,parentClass){
+				if(!el){
+					return false
+				}
+				while(el = el.parentNode){
+					if(el.classList.contains(parentClass)){
+						return el
+					}
+				}
+				return null
+			}
+			console.log(getParents(document.querySelector('.third'),'first'))
+		</script>
+	</body>
+</html>

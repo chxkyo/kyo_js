@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var Parent = {
+				setId:function(id){
+					this.id = id;
+				},
+				outputId:function(){
+					console.log(this.id);
+				}
+			}
+			var Child = Object.create(Parent);
+			Child.privateSetId = function(id,label){
+				this.setId(id);
+				this.label = label;
+			}
+			Child.privateOutput = function(){
+				this.outputId();
+				console.log(this.label);
+			}
+			Child.privateSetId(11,'啦啦啦');
+			Child.privateOutput();
+			console.log(Child.__proto__);
+		</script>
+	</body>
+</html>

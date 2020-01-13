@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.red {
+				background-color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="red" style="width: 50px;height:  50px;">渲染流水线</div>
+		<script src="./defer.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			document.addEventListener('DOMContentLoaded', function() {
+				console.log('DOMContentLoaded')
+			})
+			setTimeout(function(){
+				const link = document.createElement('link')
+				link.rel = 'stylesheet'
+				link.type = 'text/css'
+				link.href = './theme.css'
+				document.head.appendChild(link)
+			},2000)
+		</script>
+	</body>
+
+</html>

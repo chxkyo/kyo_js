@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
+//				console.log('索引：'+index)
+			  const flatten = acc.concat(item);
+			  console.log(Object.prototype.toString.call(flatten))
+//			  acc[index] = flatten;
+//			  console.log('数组:'+acc)
+			  return flatten;
+			},[]);
+			console.log(arr)
+		</script>
+	</body>
+</html>

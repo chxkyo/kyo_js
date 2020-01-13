@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.perspective .container {
+				width: 500px;
+				height: 300px;
+				margin: 10px auto;
+			}
+			
+			.perspective .inner {
+				width: 142px;
+				height: 200px;
+				position: absolute;
+			}
+			
+			@keyframes inner2 {
+				0% {
+					transform: rotateY(0deg)
+				}
+				100% {
+					transform: rotateY(360deg)
+				}
+			}
+			
+			.perspective .inner:hover {
+				animation: inner2 5s linear infinite;
+			}
+			
+			.perspective .rotate {
+				background: url("../images/mm1.jpg") no-repeat center;
+				border: 5px solid hsla(50, 50%, 50%, .9);
+				transform: rotateY(45deg);
+			}
+			
+			.perspective .rotate img {
+				border: 1px solid green;
+				transform: rotateX(15deg) translateZ(10px);
+				transform-origin: 0 0 40px;
+			}
+			
+			.perspective .three-d {
+				transform-style: preserve-3d;
+			}
+			
+			.perspective .rotate2 {
+				transform: perspective(150px) rotateY(45deg);
+			}
+			
+			.perspective .rotate3 {
+				transform: perspective(200px) rotateY(45deg);
+			}
+			
+			.perspective .rotate4 {
+				transform: perspective(400px) rotateY(45deg);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="perspective">
+			<h3>鼠标放到图片上面来查看效果哦！(图片反转360度)</h3>
+			<div class="container">
+				<div class="inner">
+					<div class="rotate">
+						<img src="../images/mm1.jpg" alt="" width="142" height="200" />
+					</div>
+				</div>
+			</div>
+
+			<h3>鼠标放到图片上面来查看效果哦！(图片反转360度--使用transform-style: preserve-3d;效果)，但是不使用perspective属性</h3>
+			<div class="container">
+				<div class="inner">
+					<div class="rotate three-d">
+						<img src="../images/mm1.jpg" alt="" width="142" height="200" />
+					</div>
+				</div>
+			</div>
+
+			<h3>鼠标放到图片上面来查看效果哦！(图片反转360度--使用transform-style: preserve-3d;效果)，使用perspective属性且值为100px，值越小，用户与3D空间z平面距离越近</h3>
+			<div class="container">
+				<div class="inner">
+					<div class="rotate three-d rotate2">
+						<img src="../images/mm1.jpg" alt="" width="142" height="200" />
+					</div>
+				</div>
+			</div>
+
+			<h3>鼠标放到图片上面来查看效果哦！(图片反转360度--使用transform-style: preserve-3d;效果)，使用perspective属性且值为200px,值越大，用户与3D空间z平面距离越远，视觉效果就越小</h3>
+			<div class="container">
+				<div class="inner">
+					<div class="rotate three-d rotate3">
+						<img src="../images/mm1.jpg" alt="" width="142" height="200" />
+					</div>
+				</div>
+			</div>
+
+			<h3>鼠标放到图片上面来查看效果哦！(图片反转360度--使用transform-style: preserve-3d;效果)，使用perspective属性且值为400px,值越大，用户与3D空间z平面距离越远，视觉效果就越小</h3>
+			<div class="container">
+				<div class="inner">
+					<div class="rotate three-d rotate4">
+						<img src="../images/mm1.jpg" alt="" width="142" height="200" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

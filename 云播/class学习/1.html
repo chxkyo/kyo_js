@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			class IncreasingCounter{
+//				static staticProp = 12;
+				constructor(){
+					this._count = 0
+				}
+				get value(){
+					console.log('Getting the current value');
+					return this._count
+				}
+				increament(){
+					this._count++;
+				}
+			}
+			var ins = new IncreasingCounter();
+			console.log(ins._count)
+			console.log(IncreasingCounter.staticProp)
+		</script>
+	</body>
+</html>

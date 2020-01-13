@@ -1,0 +1,166 @@
+@charset 'UTF-8';blockquote,body,dd,dl,figure,form,h1,h2,h3,h4,h5,h6,ol,p,ul {
+    margin: 0
+}
+
+ol,ul {
+    padding: 0;
+    list-style: none
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    outline: 0
+}
+
+a[href]:active,button:active {
+    background-image: -webkit-linear-gradient(to top,rgba(0,0,0,.05),rgba(0,0,0,.05));
+    background-image: linear-gradient(to top,rgba(0,0,0,.05),rgba(0,0,0,.05))
+}
+
+body.iphone a[href]:active,body.iphone button:active {
+    background-image: none
+}
+
+em {
+    font-style: normal
+}
+
+h1,h2,h3,h4,h5,h6,input,select,textarea {
+    font-size: 100%
+}
+
+input,select,textarea {
+    font-family: inherit;
+    box-sizing: border-box
+}
+
+img {
+    display: inline-block
+}
+
+p {
+    word-break: break-all
+}
+
+main {
+    display: block
+}
+
+output {
+    speak: digits
+}
+html {
+    font-size: 14px
+}
+@media screen and (min-width: 320px) {
+    html {
+        font-size:calc(100% + 2 * (100vw - 320px)/ 55);
+        font-size: calc(14px + 2 * (100vw - 320px)/ 55)
+    }
+}
+@media screen and (min-width: 375px) {
+    html {
+        font-size:calc(114.2% + 2 * (100vw - 375px)/ 39);
+        font-size: calc(16px + 2 * (100vw - 375px)/ 39)
+    }
+}
+@media screen and (min-width: 414px) {
+    html {
+        font-size:calc(128.6% + 4 * (100vw - 414px)/ 586);
+        font-size: calc(18px + 4 * (100vw - 414px)/ 586)
+    }
+}
+@media screen and (min-width: 600px) {
+    html {
+        font-size:calc(142.9% + 4 * (100vw - 600px)/ 400);
+        font-size: calc(20px + 4 * (100vw - 600px)/ 400)
+    }
+}
+@media screen and (min-width: 1000px) {
+    html {
+        font-size:calc(157.1% + 6 * (100vw - 1000px)/ 1000);
+        font-size: calc(22px + 6 * (100vw - 1000px)/ 1000)
+    }
+}
+body {
+    font-family: sans-serif;
+    line-height: 1.5;
+    -webkit-user-select: none;
+    color: #33373d;
+    fill: currentColor;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: none;
+    -webkit-touch-callout: none
+}
+[hidden] {
+    display: none
+}
+.clip,aria {
+    position: absolute;
+    clip: rect(0 0 0 0)
+}
+
+aria {
+    font-size: 0
+}
+
+.ell {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.cell {
+    display: table-cell;
+    width: 1920px;
+    width: 101vw
+}
+dot {
+    line-height: 1;
+    display: inline-block;
+    overflow: hidden;
+    height: 1em;
+    text-align: left;
+    vertical-align: -.25em
+}
+
+dot::before {
+    display: block;
+    content: '...\A..\A.';
+    -webkit-animation: dot 3s infinite step-start both;
+    animation: dot 3s infinite step-start both;
+    white-space: pre
+}
+
+@-webkit-keyframes dot {
+    33% {
+        transform: translateY(-2em)
+    }
+
+    66% {
+        transform: translateY(-1em)
+    }
+}
+
+@keyframes dot {
+    33% {
+        transform: translateY(-2em)
+    }
+
+    66% {
+        transform: translateY(-1em)
+    }
+}
+
+.dot {
+    font-size: 0;
+    position: absolute;
+    overflow: hidden;
+    width: 4px;
+    height: 4px;
+    margin-top: 8px;
+    margin-left: -8px;
+    border-radius: 15px;
+    background-color: currentColor
+}

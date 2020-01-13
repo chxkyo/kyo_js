@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+	</head>
+
+	<body>
+		<div id="myapp">
+			<input v-model="message" /><br>
+			<span v-bind="message"></span>
+		</div>
+		<script type="text/javascript">
+			var model = {
+				message: ""
+			};
+			var models = myapp.querySelectorAll("[v-model=message]");
+			for(var i = 0; i < models.length; i++) {
+				models[i].onkeyup = function() {
+					model[this.getAttribute("v-model")] = this.value;
+				}
+			}
+			// 观察者模式 / 钩子函数
+			// defineProperty 来定义一个对象的某个属性
+			Object.defineProperty(model, "message", {
+				set: function(newValue) {
+					var binds = myapp.querySelectorAll("[v-bind=message]");
+					for(var i = 0; i < binds.length; i++) {
+						binds[i].innerHTML = newValue;
+					};
+					var models = myapp.querySelectorAll("[v-model=message]");
+					for(var i = 0; i < models.length; i++) {
+						models[i].value = newValue;
+					};
+					this.value = newValue;
+				},
+				get: function() {
+					return this.value;
+				}
+			})
+		</script>
+	</body>
+
+</html>

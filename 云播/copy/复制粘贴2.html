@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			哈哈啊哈哈哈哈哈哈或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或
+		</div>
+		<script type="text/javascript">
+			function addLink() {
+			    var selection = window.getSelection();
+			    console.log(selection)
+			    pagelink = ". 原文出自[知更鸟] 转载请保留原文链接: " + document.location.href;
+			    copytext = selection + pagelink;
+			    newdiv = document.createElement('div');
+			    newdiv.style.position = 'absolute';
+			    newdiv.style.left = '-99999px';
+			    document.body.appendChild(newdiv);
+			    newdiv.innerHTML = copytext;
+			    selection.selectAllChildren(newdiv);
+			    window.setTimeout(function () {
+			        document.body.removeChild(newdiv);
+			    }, 100);
+			}
+			document.oncopy = addLink;
+		</script>
+		<!--哈哈啊哈哈哈哈哈哈或或或或或或或或或或或或或或或或或或或或或或或或或或或或或或. 原文出自[知更鸟] 转载请保留原文链接: http://127.0.0.1:8020/kyo_js/%e4%ba%91%e6%92%ad/copy/%e5%a4%8d%e5%88%b6%e7%b2%98%e8%b4%b42.html-->
+	</body>
+</html>

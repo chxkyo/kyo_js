@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p class='tel'>小伙子,你很有才哎小伙子,你很有才哎小伙子,你很有才哎dasdasdasdasdasdas</p>
+		<input type="button" value="一键复制" onclick='copyText()' class='btn'>
+		<script type="text/javascript">
+			let copyTargetText =  document.querySelector('.tel').innerText;
+			function copyText () {
+			　　document.execCommand('copy'); //触发浏览器复制
+			}
+			
+			document.body.oncopy = function(e){
+				event.preventDefault(); 
+				　　let textFont,copyFont = window.getSelection();
+//				　　if (copyFont.length > 10) {
+				　　　　　　textFont = copyFont + '\n' +
+				　　　　　　'作者: 情绪控\n' +
+				　　　　　　'链接: https:www.moodk.cn/blog/user\n'+
+				　　　　　　'来源: 个人博客\n' +
+				　　　　　　'著作权归作者所有.商业转载请联系作者获取授权,非商业授权转载请注明出处.';
+//				　　} else {
+//				　　　　textFont = copyFont;
+//				　　}
+				　　if (event.clipboardData) {
+				　　　　return event.clipboardData.setData('text', textFont);
+				　　} else {
+				　　return window.clipboardData.setData('text', textFont);  //兼容IE
+				　　}
+			}
+//			document.body.oncopy = e => {
+//			　　event.preventDefault(); 
+//			　　let textFont,copyFont = document.querySelector('.tel').innerText;
+//			　　if (copyFont.length > 10) {
+//			　　　　　　textFont = copyFont + '\n' +
+//			　　　　　　'作者: 情绪控\n' +
+//			　　　　　　'链接: https:www.moodk.cn/blog/user\n'+
+//			　　　　　　'来源: 个人博客\n' +
+//			　　　　　　'著作权归作者所有.商业转载请联系作者获取授权,非商业授权转载请注明出处.';
+//			　　} else {
+//			　　　　textFont = copyFont;
+//			　　}
+//			　　if (event.clipboardData) {
+//			　　　　return event.clipboardData.setData('text', textFont);
+//			　　} else {
+//			　　return window.clipboardData.setData('text', textFont);  //兼容IE
+//			　　}
+//			}
+//			小伙子,你很有才哎
+//小伙子,你很有才哎小伙子,你很有才哎小伙子,你很有才哎dasdasdasdasdasdas
+//作者: 情绪控
+//链接: https:www.moodk.cn/blog/user
+//来源: 个人博客
+//著作权归作者所有.商业转载请联系作者获取授权,非商业授权转载请注明出处.
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.perspective-origin .container {
+				width: 500px;
+				height: 300px;
+				margin: 10px auto;
+				position: relative;
+			}
+			
+			.perspective-origin .inner {
+				font-size: 4em;
+				width: 2em;
+				margin: 1.5em auto;
+				transform-style: preserve-3d;
+				transform: rotateX(-20deg) rotateY(32deg);
+				perspective: 1000px;
+				animation: move-origin infinite 2s;
+				perspective-origin: 0% 0%;
+			}
+			
+			.perspective-origin .side {
+				position: absolute;
+				width: 2em;
+				height: 2em;
+				background: rgba(255, 99, 71, 0.6);
+				border: 1px solid rgba(0, 0, 0, 0.5);
+				color: white;
+				text-align: center;
+				line-height: 2em;
+			}
+			
+			.perspective-origin .front {
+				transform: translateZ(1em);
+			}
+			
+			.perspective-origin .top {
+				transform: rotateX(90deg) translateZ(1em);
+			}
+			
+			.perspective-origin .right {
+				transform: rotateY(90deg) translateZ(1em);
+			}
+			
+			.perspective-origin .left {
+				transform: rotateY(-90deg) translateZ(1em);
+			}
+			
+			.perspective-origin .bottom {
+				transform: rotateX(-90deg) translateZ(1em);
+			}
+			
+			.perspective-origin .back {
+				transform: rotateY(-180deg) translateZ(1em);
+			}
+			
+			/*@keyframes move-origin {
+				0% {
+					perspective-origin: 0% 0%;
+				}
+				25% {
+					perspective-origin: 100% 0%;
+				}
+				50% {
+					perspective-origin: 100% 100%;
+				}
+				75% {
+					perspective-origin: 0% 100%;
+				}
+				100% {
+					perspective-origin: 0% 0%;
+				}
+			}*/
+		</style>
+	</head>
+
+	<body>
+		<div class="perspective-origin">
+			<h3>perspective值为1000px的效果如下：perspective: 1000px;该值越大，角度出现的越远，相当低的强度和非常小的3D空间变化</h3>
+			<div class="container">
+				<div class="inner">
+					<div class="side front">1</div>
+					<div class="side back">2</div>
+					<div class="side right">3</div>
+					<div class="side left">4</div>
+					<div class="side top">5</div>
+					<div class="side bottom">6</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

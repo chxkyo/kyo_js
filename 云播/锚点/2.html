@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				height: 120px;
+				border: 1px solid #ddd;
+				overflow: auto;
+			}
+			.content{
+				height: 200px;
+				background-color:#eee
+			}
+			:target{
+				background-color: red;
+				color:#fff
+			}
+		</style>
+	</head>
+	<body style="height:120vh">
+		<div class="box">
+			<div class="content"></div>
+			<h4 id="title">底部标题</h4>
+		</div>
+		<p><a href="#title">点击测试</a></p>
+	</body>
+</html>

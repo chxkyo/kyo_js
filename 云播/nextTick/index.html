@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="testCount" v-html="testCount"></div>
+		<script type="text/javascript">
+			this.testCount=1000;
+			console.log(document.getElementById('testCount').innerHTML + ': no updated');
+			for(var j=0;j<1000000000;j++){}
+			document.getElementById('testCount').innerHTML = this.testCount
+			setTimeout(function(){//2
+			  console.log(document.getElementById('testCount').innerHTML+': updated')
+			},0);
+		</script>
+	</body>
+</html>

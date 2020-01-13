@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.test{
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="test" id="test"></div>
+		<script type="text/javascript">
+			window.onload = function(){
+				var test = document.getElementById('test')
+				test.onclick = function(){
+					console.log('test')
+				}
+				//及时断开应用以防止内存泄漏
+				test = null
+			}
+			function test(){
+				console.log(this.a)
+			}
+			test.apply({a:"2"})
+//			console.log(b)
+		</script>
+	</body>
+</html>

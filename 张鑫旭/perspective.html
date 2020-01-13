@@ -1,0 +1,69 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta charset=" utf-8">  
+<meta name="author" content="http://www.softwhy.com/" />  
+<title>蚂蚁部落</title>  
+<style>
+#box{
+  position:relative;
+  height:150px;
+  width:150px;
+  margin-left:450px;
+  margin-top:250px;
+  padding:10px;
+  border:1px solid black;
+  perspective:1200px;
+}
+#ant{
+  width:100px;
+  height:100px;
+  text-align:center;
+  line-height:100px;
+  font-size:12px;
+  border:1px solid black;
+  background-color:yellow;
+  transform:translate3d(0px,0px,0px);
+}
+table{   
+  font-size:12px;   
+  width:500px;   
+  margin-left:220px; 
+  text-align:left; 
+}   
+.left{
+  text-align:right;
+  width:150px;
+}
+</style>
+<script type="text/javascript">  
+function change(z){  
+  var odiv = document.getElementById("ant");
+  var oshow = document.getElementById("show");
+  odiv.style.transform = "translate3d(0px, 0px," + z + "px)";
+  oshow.innerHTML = z_range.value;
+} 
+window.onload=function(){ 
+  var z_range = document.getElementById("z_range");
+  z_range.onmousemove = function () {
+    change(z_range.value);
+  }
+} 
+</script> 
+</head>
+<body>
+<div id="box">
+  <div id="ant">蚂蚁部落</div>
+</div>
+<table>   
+  <tr>
+    <td class="left">z轴位移:</td>
+    <td><input type="range" min="-200" step="1" max="200" id="z_range" value="0" /></td>
+  </tr>    
+  <tr>  
+    <td class="left">z:</td>  
+    <td>(<span id="show">0</span>)</td>  
+  </tr>  
+</table>  
+</body>  
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="./mobileCommon.css" />
+		<link rel="stylesheet" href="./mobileAnimations.css" />
+		<style>
+			.animation-item{
+				display: inline-flex;
+				vertical-align: top;
+				width: 100px;
+				height: 100px;
+				background-color: orange;
+			}
+			@keyframes move {
+			    0% { transform: translateX(0); }
+			    100% { transform: translateX(200px); }
+			}
+			.dash{
+				animation:fill 2s infinite;
+			}
+			.spinZoom{
+				animation: spinZoom 1s linear infinite;
+			}
+			.move{
+				animation:move 3s  alternate-reverse infinite;
+			}
+			.hbShake{
+				animation: hbShake 6s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite alternate-reverse both;
+				transform: translate3d(0, 0, 0);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="anmation-wrap">
+			<!--<div class="animation-item dash"></div>
+			<div class="animation-item spinZoom"></div>
+			<div class="animation-item"></div>-->
+			<!--<div class="animation-item move" style="position: absolute;"></div>-->
+			<!--<div class="animation-item hbShake"></div>-->
+			<script src="./sort.js"></script>
+			<script type="text/javascript">
+				console.log('插入排序：'+insertSort([188,77,999,2,0,1000]))
+				console.log('快速排序：'+insertSort([188,77,999,2,0,1000]))
+			</script>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var Parent = {
+				init:function(me){
+					this.flag = me;
+				},
+				identify:function(){
+					return "I am" + this.flag;
+				}
+			}
+			var Child = Object.create(Parent);
+			Child.speak = function(){
+				alert("hello" + this.identify());
+			}
+			var b1 = Object.create(Child);
+			b1.init("kyo");
+			var a1 = Object.create(Child);
+			a1.init("KYO");
+			b1.speak();
+			a1.speak();
+		</script>
+	</body>
+</html>

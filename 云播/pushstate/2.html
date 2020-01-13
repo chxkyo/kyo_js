@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>test2</title>
+    <style type="text/css">
+    div {
+        padding-bottom:100px;
+    }
+    </style>
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+</head>
+
+<body>
+    <div style="float:left;border:1px solid red;margin:20px">
+        <p><a href="javascript:;" id="section1">第1章</a></p>
+        <p><a href="javascript:;" id="section2">第2章</a></p>
+        <p><a href="javascript:;" id="section3">第3章</a></p>
+    </div>
+    <div style="float:left;border:1px solid red;margin:20px" id="content">
+
+    </div>
+    <script>
+        $(function(){
+           //添加链接的处理事件
+           $("a").click(ajax);
+           //加载默认的章节,默认显示第1章
+           $("#section1").trigger("click");
+        });
+               
+        function ajax(event){
+            //实际的流程是发起ajax请求，获取内容并显示。这里为了简化，没有写实际的ajax请求。
+            //这段代码应该在ajax的请求响应中编写。
+            $("#content").html(this.id+"的内容");
+            var title = this.id;
+            document.title = title;
+        }
+    </script>
+    
+</body>
+
+</html>

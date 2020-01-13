@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>hello wolrd</div>
+		<script type="text/javascript">
+			window.onerror = function(){
+				console.log('全局捕获错误')	
+				return true
+			}
+			try{
+				console.log('try')
+			}catch(e){
+				console.log(e, 'error')
+			}finally{
+				throw new Error('抛出错误')
+				console.log('finally')
+			}
+		</script>
+	</body>
+</html>
